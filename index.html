@@ -25,6 +25,7 @@
     --green:#00e676;
     --red:#ff3030;
     --yellow:#ffd23f;
+    --blue:#45a3ff;
     --bg:#050609;
 }
 
@@ -79,7 +80,9 @@ a{
     text-decoration:none;
 }
 
-/* ================= LOADER ================= */
+/* =========================================================
+   LOADER
+========================================================= */
 
 #loader{
     position:fixed;
@@ -145,6 +148,7 @@ a{
     border-radius:99px;
     background:linear-gradient(90deg,#ff2600,#ff6a00,#ffd000);
     box-shadow:0 0 20px rgba(255,90,0,.7);
+    transition:width .08s linear;
 }
 
 .loader-percent{
@@ -153,7 +157,9 @@ a{
     font-size:12px;
 }
 
-/* ================= HEADER ================= */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header{
     position:sticky;
@@ -222,7 +228,9 @@ a{
     to{transform:rotate(360deg)}
 }
 
-/* ================= MAIN ================= */
+/* =========================================================
+   MAIN
+========================================================= */
 
 .container{
     width:min(1250px,calc(100% - 26px));
@@ -285,7 +293,9 @@ a{
     font-size:9px;
 }
 
-/* ================= SECTION ================= */
+/* =========================================================
+   SECTION
+========================================================= */
 
 .section{
     margin-top:25px;
@@ -307,7 +317,9 @@ a{
     font-size:9px;
 }
 
-/* ================= SERVERS ================= */
+/* =========================================================
+   SERVERS
+========================================================= */
 
 .server-grid{
     display:grid;
@@ -325,12 +337,21 @@ a{
     transition:.2s;
 }
 
+.server-card:active{
+    transform:scale(.97);
+}
+
 .server-card.active{
     border-color:rgba(255,106,0,.6);
     background:
         linear-gradient(135deg,rgba(255,106,0,.2),rgba(255,40,0,.05)),
         rgba(17,19,25,.9);
     box-shadow:0 0 24px rgba(255,80,0,.1);
+}
+
+.server-card.loading-server{
+    pointer-events:none;
+    opacity:.65;
 }
 
 .server-name{
@@ -345,7 +366,9 @@ a{
     font-size:8px;
 }
 
-/* ================= TOOLBAR ================= */
+/* =========================================================
+   TOOLBAR
+========================================================= */
 
 .toolbar{
     display:grid;
@@ -363,6 +386,11 @@ a{
     border-radius:14px;
     border:1px solid rgba(255,255,255,.08);
     background:rgba(15,17,22,.75);
+}
+
+.search:focus{
+    border-color:rgba(255,106,0,.4);
+    box-shadow:0 0 0 3px rgba(255,106,0,.06);
 }
 
 .search::placeholder{
@@ -384,7 +412,9 @@ a{
     border-color:rgba(255,106,0,.32);
 }
 
-/* ================= EVENTS ================= */
+/* =========================================================
+   EVENTS
+========================================================= */
 
 .events-grid{
     display:grid;
@@ -494,7 +524,9 @@ a{
     line-height:1.4;
 }
 
-/* ================= TIME ================= */
+/* =========================================================
+   TIME
+========================================================= */
 
 .event-time{
     width:100%;
@@ -550,6 +582,8 @@ a{
     font-size:10px;
     line-height:1.35;
     white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 .start-icon{
@@ -560,7 +594,9 @@ a{
     filter:drop-shadow(0 0 6px rgba(255,50,50,.5));
 }
 
-/* ================= FOOTER CARD ================= */
+/* =========================================================
+   FOOTER CARD
+========================================================= */
 
 .event-footer{
     display:flex;
@@ -584,7 +620,9 @@ a{
     font-size:8px;
 }
 
-/* ================= EMPTY ================= */
+/* =========================================================
+   EMPTY / API ERROR
+========================================================= */
 
 .empty{
     grid-column:1/-1;
@@ -609,9 +647,26 @@ a{
     margin-top:7px;
     color:#777c86;
     font-size:10px;
+    line-height:1.7;
 }
 
-/* ================= STATUS ================= */
+.empty.error{
+    border-color:rgba(255,80,80,.25);
+}
+
+.retry-btn{
+    margin-top:18px;
+    padding:11px 16px;
+    border-radius:12px;
+    color:#fff;
+    background:linear-gradient(135deg,#ff2600,#ff6a00);
+    box-shadow:0 8px 25px rgba(255,60,0,.18);
+    font-size:9px;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
 
 .refresh-status{
     position:fixed;
@@ -623,7 +678,7 @@ a{
     gap:8px;
     padding:10px 13px;
     border-radius:13px;
-    background:rgba(10,12,16,.9);
+    background:rgba(10,12,16,.94);
     border:1px solid rgba(255,255,255,.08);
     backdrop-filter:blur(15px);
     transform:translateY(100px);
@@ -657,7 +712,9 @@ a{
     font-size:8px;
 }
 
-/* ================= RESPONSIVE ================= */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media(max-width:1000px){
 
@@ -741,7 +798,9 @@ a{
 
 <body>
 
-<!-- LOADER -->
+<!-- =======================================================
+     LOADER
+======================================================= -->
 
 <div id="loader">
 
@@ -774,7 +833,9 @@ a{
 </div>
 
 
-<!-- HEADER -->
+<!-- =======================================================
+     HEADER
+======================================================= -->
 
 <header class="header">
 
@@ -804,6 +865,7 @@ a{
         <button
             id="refreshBtn"
             class="refresh-button"
+            type="button"
         >
 
             <span class="refresh-icon">↻</span>
@@ -817,7 +879,9 @@ a{
 </header>
 
 
-<!-- MAIN -->
+<!-- =======================================================
+     MAIN
+======================================================= -->
 
 <main class="container">
 
@@ -858,7 +922,9 @@ a{
     </section>
 
 
-    <!-- SERVER -->
+    <!-- ===================================================
+         SERVER
+    =================================================== -->
 
     <section class="section">
 
@@ -868,7 +934,7 @@ a{
                 🌍 MÁY CHỦ
             </div>
 
-            <div class="section-count">
+            <div id="serverCount" class="section-count">
                 15 khu vực
             </div>
 
@@ -879,7 +945,9 @@ a{
     </section>
 
 
-    <!-- EVENT -->
+    <!-- ===================================================
+         EVENTS
+    =================================================== -->
 
     <section class="section">
 
@@ -909,6 +977,7 @@ a{
             <button
                 class="filter-btn active"
                 data-filter="all"
+                type="button"
             >
                 TẤT CẢ
             </button>
@@ -916,6 +985,7 @@ a{
             <button
                 class="filter-btn"
                 data-filter="live"
+                type="button"
             >
                 ĐANG DIỄN RA
             </button>
@@ -935,6 +1005,10 @@ a{
 </main>
 
 
+<!-- =======================================================
+     REFRESH STATUS
+======================================================= -->
+
 <div id="refreshStatus" class="refresh-status">
 
     <span class="refresh-status-dot"></span>
@@ -949,39 +1023,59 @@ a{
 <script>
 "use strict";
 
-
 /* =========================================================
    CONFIG
 ========================================================= */
 
 const CONFIG = {
 
+    /*
+       API CHÍNH
+    */
     API:
         "https://danger-event-info.vercel.app/event?region={region}&key=DANGERxEVENT",
 
+    /*
+       Refresh tự động.
+    */
     REFRESH_INTERVAL:
         60 * 1000,
 
+    /*
+       Cache hợp lệ trong 55 giây.
+    */
     CACHE_TTL:
         55 * 1000,
 
+    /*
+       Timeout API trực tiếp.
+    */
     REQUEST_TIMEOUT:
+        10000,
+
+    /*
+       Timeout proxy.
+    */
+    PROXY_TIMEOUT:
         9000,
 
-    PROXY_TIMEOUT:
-        7000,
-
+    /*
+       Mỗi region có cache riêng.
+    */
     CACHE_PREFIX:
-        "FFVN_TGM_EVENT_CACHE_",
+        "FFVN_TGM_EVENT_V4_",
 
+    /*
+       Server cuối cùng.
+    */
     LAST_SERVER_KEY:
-        "FFVN_TGM_LAST_SERVER"
+        "FFVN_TGM_LAST_SERVER_V4"
 
 };
 
 
 /* =========================================================
-   SERVER
+   SERVERS
 ========================================================= */
 
 const SERVERS = [
@@ -1020,25 +1114,44 @@ let currentServer =
         CONFIG.LAST_SERVER_KEY
     ) || "vn";
 
+if(
+    !SERVERS.some(
+        x => x.code === currentServer
+    )
+){
+    currentServer = "vn";
+}
+
+
 let currentData = {
     events:[]
 };
 
-let currentFilter = "all";
+let currentFilter =
+    "all";
 
-let currentRequestId = 0;
+let currentRequestId =
+    0;
 
-let isRefreshing = false;
+let isRefreshing =
+    false;
 
-let refreshTimer = null;
+let refreshTimer =
+    null;
+
+let countdownTimer =
+    null;
+
+let loaderFinished =
+    false;
 
 
 /* =========================================================
    DOM
 ========================================================= */
 
-const $ = id =>
-    document.getElementById(id);
+const $ =
+    id => document.getElementById(id);
 
 const loader =
     $("loader");
@@ -1082,12 +1195,6 @@ function startLoader(){
 
     let p = 1;
 
-    loaderBar.style.width =
-        "1%";
-
-    loaderPercent.textContent =
-        "1%";
-
     const timer =
         setInterval(
             () => {
@@ -1097,11 +1204,15 @@ function startLoader(){
                         Math.random() * 8
                     ) + 3;
 
-                if(p >= 100){
+                if(
+                    p >= 100
+                ){
 
                     p = 100;
 
-                    clearInterval(timer);
+                    clearInterval(
+                        timer
+                    );
 
                     loaderBar.style.width =
                         "100%";
@@ -1109,12 +1220,18 @@ function startLoader(){
                     loaderPercent.textContent =
                         "100%";
 
+                    loaderFinished =
+                        true;
+
                     setTimeout(
-                        () =>
+                        () => {
+
                             loader.classList.add(
                                 "hide"
-                            ),
-                        250
+                            );
+
+                        },
+                        300
                     );
 
                     return;
@@ -1134,7 +1251,7 @@ function startLoader(){
 
 
 /* =========================================================
-   SERVER
+   SERVER RENDER
 ========================================================= */
 
 function renderServers(){
@@ -1149,7 +1266,8 @@ function renderServers(){
                             ? "active"
                             : ""
                     }"
-                    data-server="${server.code}"
+                    data-server="${escapeAttribute(server.code)}"
+                    type="button"
                 >
 
                     <span class="server-name">
@@ -1158,7 +1276,7 @@ function renderServers(){
                     </span>
 
                     <span class="server-code">
-                        SERVER ${server.code.toUpperCase()}
+                        SERVER ${escapeHTML(server.code.toUpperCase())}
                     </span>
 
                 </button>
@@ -1176,7 +1294,7 @@ function renderServers(){
 
                 button.addEventListener(
                     "click",
-                    () => {
+                    async () => {
 
                         const code =
                             button.dataset.server;
@@ -1186,22 +1304,57 @@ function renderServers(){
                             currentServer
                         ){
 
-                            refreshEvents(true);
+                            await refreshEvents(
+                                true
+                            );
 
                             return;
                         }
 
+
+                        /*
+                           QUAN TRỌNG:
+
+                           Tăng request ID NGAY KHI
+                           đổi server.
+
+                           Response server cũ sẽ bị
+                           vô hiệu hóa.
+                        */
+
+                        currentRequestId++;
+
+
                         currentServer =
                             code;
 
+
                         localStorage.setItem(
                             CONFIG.LAST_SERVER_KEY,
-                            code
+                            currentServer
                         );
+
+
+                        /*
+                           Xóa dữ liệu giao diện cũ
+                           ngay lập tức.
+                        */
+
+                        currentData = {
+                            events:[]
+                        };
+
 
                         renderServers();
 
-                        refreshEvents(true);
+                        renderLoadingState(
+                            currentServer
+                        );
+
+
+                        await refreshEvents(
+                            true
+                        );
 
                     }
                 );
@@ -1213,14 +1366,79 @@ function renderServers(){
 
 
 /* =========================================================
+   LOADING STATE
+========================================================= */
+
+function renderLoadingState(
+    region
+){
+
+    const server =
+        getServer(region);
+
+
+    eventCount.textContent =
+        "Đang tải...";
+
+
+    eventsGrid.innerHTML = `
+
+        <div class="empty">
+
+            <div class="empty-icon">
+                🔄
+            </div>
+
+            <h3>
+                Đang tải sự kiện
+            </h3>
+
+            <p>
+                Đang lấy dữ liệu cho
+                ${escapeHTML(server?.name || region)}
+                ...
+            </p>
+
+        </div>
+
+    `;
+
+
+    updatedTime.textContent =
+        `Đang tải • ${
+            server?.name || region
+        }`;
+
+}
+
+
+/* =========================================================
+   SERVER HELPER
+========================================================= */
+
+function getServer(
+    region
+){
+
+    return SERVERS.find(
+        x =>
+            x.code === region
+    );
+
+}
+
+
+/* =========================================================
    CACHE
 ========================================================= */
 
-function cacheKey(region){
+function cacheKey(
+    region
+){
 
     return (
         CONFIG.CACHE_PREFIX +
-        region
+        String(region).toLowerCase()
     );
 
 }
@@ -1228,7 +1446,7 @@ function cacheKey(region){
 
 function readCache(
     region,
-    allowExpired=false
+    allowExpired = false
 ){
 
     try{
@@ -1238,12 +1456,15 @@ function readCache(
                 cacheKey(region)
             );
 
+
         if(!raw){
             return null;
         }
 
+
         const cache =
             JSON.parse(raw);
+
 
         if(
             !cache ||
@@ -1253,20 +1474,35 @@ function readCache(
             return null;
         }
 
+
+        const age =
+            Date.now() -
+            Number(
+                cache.savedAt || 0
+            );
+
+
         if(
             allowExpired ||
             (
-                cache.savedAt &&
-                Date.now() -
-                cache.savedAt <=
-                CONFIG.CACHE_TTL
+                age >= 0 &&
+                age <= CONFIG.CACHE_TTL
             )
         ){
 
             return cache.data;
+
         }
 
-    }catch(e){}
+    }catch(error){
+
+        console.warn(
+            "Cache read error:",
+            error
+        );
+
+    }
+
 
     return null;
 
@@ -1284,28 +1520,44 @@ function saveCache(
             cacheKey(region),
             JSON.stringify({
                 savedAt:Date.now(),
+                region:region,
                 data:data
             })
         );
 
-    }catch(e){}
+    }catch(error){
+
+        console.warn(
+            "Cache save error:",
+            error
+        );
+
+    }
 
 }
 
 
 /* =========================================================
-   API
+   API URL
 ========================================================= */
 
-function apiURL(region){
+function apiURL(
+    region
+){
 
     return CONFIG.API.replace(
         "{region}",
-        encodeURIComponent(region)
+        encodeURIComponent(
+            String(region)
+        )
     );
 
 }
 
+
+/* =========================================================
+   FETCH
+========================================================= */
 
 function timeoutFetch(
     url,
@@ -1318,23 +1570,29 @@ function timeoutFetch(
             const controller =
                 new AbortController();
 
+
             const timer =
                 setTimeout(
-                    () =>
-                        controller.abort(),
+                    () => {
+
+                        controller.abort();
+
+                    },
                     timeout
                 );
+
 
             fetch(
                 url,
                 {
                     method:"GET",
                     cache:"no-store",
+                    redirect:"follow",
                     signal:
                         controller.signal,
                     headers:{
                         Accept:
-                            "application/json"
+                            "application/json,text/plain,*/*"
                     }
                 }
             )
@@ -1346,28 +1604,53 @@ function timeoutFetch(
                     ){
 
                         throw new Error(
-                            "HTTP " +
-                            response.status
+                            `HTTP ${response.status}`
                         );
+
                     }
 
-                    return response.json();
+
+                    return response.text();
 
                 }
             )
             .then(
-                data => {
+                text => {
 
-                    clearTimeout(timer);
+                    clearTimeout(
+                        timer
+                    );
 
-                    resolve(data);
+
+                    let json;
+
+
+                    try{
+
+                        json =
+                            JSON.parse(
+                                text
+                            );
+
+                    }catch(error){
+
+                        throw new Error(
+                            "API không trả JSON hợp lệ"
+                        );
+
+                    }
+
+
+                    resolve(json);
 
                 }
             )
             .catch(
                 error => {
 
-                    clearTimeout(timer);
+                    clearTimeout(
+                        timer
+                    );
 
                     reject(error);
 
@@ -1380,6 +1663,10 @@ function timeoutFetch(
 }
 
 
+/* =========================================================
+   FETCH DIRECT + PROXY
+========================================================= */
+
 async function fetchAPI(
     region
 ){
@@ -1388,24 +1675,43 @@ async function fetchAPI(
         apiURL(region);
 
 
-    /* Thử API trực tiếp trước */
+    /*
+       1. Direct
+    */
 
     try{
 
-        return await timeoutFetch(
-            target,
-            CONFIG.REQUEST_TIMEOUT
+        const result =
+            await timeoutFetch(
+                target,
+                CONFIG.REQUEST_TIMEOUT
+            );
+
+
+        return {
+            data:result,
+            source:"direct"
+        };
+
+    }catch(error){
+
+        console.warn(
+            "Direct API failed:",
+            error
         );
 
-    }catch(e){}
+    }
 
 
-    /* Nếu CORS thì thử proxy */
+    /*
+       2. Proxy fallback
+    */
 
     const encoded =
         encodeURIComponent(
             target
         );
+
 
     const proxies = [
 
@@ -1418,110 +1724,173 @@ async function fetchAPI(
     ];
 
 
+    /*
+       Promise.any cho phép proxy nhanh nhất
+       thành công được sử dụng.
+    */
+
     const requests =
         proxies.map(
-            url =>
-                timeoutFetch(
-                    url,
-                    CONFIG.PROXY_TIMEOUT
-                )
+            async proxy => {
+
+                const result =
+                    await timeoutFetch(
+                        proxy,
+                        CONFIG.PROXY_TIMEOUT
+                    );
+
+                return {
+                    data:result,
+                    source:"proxy"
+                };
+
+            }
         );
 
 
-    return await Promise.any(
-        requests
-    );
+    try{
+
+        return await Promise.any(
+            requests
+        );
+
+    }catch(error){
+
+        throw new Error(
+            `Không thể kết nối API cho server ${region}`
+        );
+
+    }
 
 }
 
 
 /* =========================================================
-   NORMALIZE API
+   NORMALIZE
 ========================================================= */
 
 function normalizeAPI(
-    data
+    raw
 ){
 
+    /*
+       API có thể trả:
+       []
+    */
+
     if(
-        Array.isArray(data)
+        Array.isArray(raw)
     ){
 
         return {
-            events:data
+            events:raw,
+            meta:{
+                empty:
+                    raw.length === 0
+            }
         };
-    }
 
-
-    if(
-        data &&
-        Array.isArray(data.events)
-    ){
-
-        return {
-            ...data,
-            events:data.events
-        };
-    }
-
-
-    if(
-        data &&
-        Array.isArray(data.data)
-    ){
-
-        return {
-            ...data,
-            events:data.data
-        };
     }
 
 
     /*
-       Một số API có dạng:
-
-       {
-           data:{
-               events:[]
-           }
-       }
+       { events: [] }
     */
 
     if(
-        data &&
-        data.data &&
+        raw &&
+        Array.isArray(raw.events)
+    ){
+
+        return {
+            ...raw,
+            events:raw.events
+        };
+
+    }
+
+
+    /*
+       { data: [] }
+    */
+
+    if(
+        raw &&
+        Array.isArray(raw.data)
+    ){
+
+        return {
+            ...raw,
+            events:raw.data
+        };
+
+    }
+
+
+    /*
+       { data: { events: [] } }
+    */
+
+    if(
+        raw &&
+        raw.data &&
+        typeof raw.data === "object" &&
         Array.isArray(
-            data.data.events
+            raw.data.events
         )
     ){
 
         return {
-            ...data,
-            events:data.data.events
+            ...raw,
+            events:raw.data.events
         };
+
     }
 
 
     /*
-       Một số API trả một event
-       trực tiếp.
+       Tìm events ở sâu hơn.
+    */
+
+    const deepEvents =
+        findArrayByKey(
+            raw,
+            "events"
+        );
+
+
+    if(
+        Array.isArray(
+            deepEvents
+        )
+    ){
+
+        return {
+            raw:raw,
+            events:deepEvents
+        };
+
+    }
+
+
+    /*
+       Một event duy nhất.
     */
 
     if(
-        data &&
-        typeof data === "object"
+        raw &&
+        typeof raw === "object" &&
+        !Array.isArray(raw)
     ){
 
         if(
-            data.banner ||
-            data.image ||
-            data.title ||
-            data.name
+            hasEventFields(raw)
         ){
 
             return {
-                events:[data]
+                events:[raw]
             };
+
         }
 
     }
@@ -1535,21 +1904,19 @@ function normalizeAPI(
 
 
 /* =========================================================
-   DEEP FIND
-   TÌM FIELD THỜI GIAN Ở BẤT KỲ
-   VỊ TRÍ NÀO TRONG OBJECT
+   FIND ARRAY
 ========================================================= */
 
-function deepFindValue(
+function findArrayByKey(
     object,
-    keys,
-    depth=0
+    wantedKey,
+    depth = 0
 ){
 
     if(
         object === null ||
         object === undefined ||
-        depth > 8
+        depth > 12
     ){
 
         return null;
@@ -1557,8 +1924,188 @@ function deepFindValue(
 
 
     if(
-        typeof object !==
-        "object"
+        typeof object !== "object"
+    ){
+
+        return null;
+    }
+
+
+    if(
+        Array.isArray(object)
+    ){
+
+        for(
+            const item of object
+        ){
+
+            const found =
+                findArrayByKey(
+                    item,
+                    wantedKey,
+                    depth + 1
+                );
+
+
+            if(
+                Array.isArray(found)
+            ){
+
+                return found;
+            }
+
+        }
+
+        return null;
+
+    }
+
+
+    for(
+        const key of Object.keys(object)
+    ){
+
+        const normalized =
+            normalizeKey(key);
+
+
+        if(
+            normalized ===
+            normalizeKey(wantedKey)
+        ){
+
+            if(
+                Array.isArray(
+                    object[key]
+                )
+            ){
+
+                return object[key];
+
+            }
+
+        }
+
+    }
+
+
+    for(
+        const key of Object.keys(object)
+    ){
+
+        const found =
+            findArrayByKey(
+                object[key],
+                wantedKey,
+                depth + 1
+            );
+
+
+        if(
+            Array.isArray(found)
+        ){
+
+            return found;
+        }
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =========================================================
+   EVENT DETECTION
+========================================================= */
+
+function hasEventFields(
+    object
+){
+
+    if(
+        !object ||
+        typeof object !== "object"
+    ){
+
+        return false;
+    }
+
+
+    const keys =
+        Object.keys(object)
+            .map(normalizeKey);
+
+
+    const possible =
+        [
+            "banner",
+            "image",
+            "imageurl",
+            "title",
+            "name",
+            "eventname",
+            "eventtitle",
+            "start",
+            "starttime",
+            "startdate",
+            "end",
+            "endtime",
+            "enddate"
+        ];
+
+
+    return possible.some(
+        key =>
+            keys.includes(
+                normalizeKey(key)
+            )
+    );
+
+}
+
+
+/* =========================================================
+   KEY NORMALIZER
+========================================================= */
+
+function normalizeKey(
+    key
+){
+
+    return String(key)
+        .toLowerCase()
+        .replace(
+            /[^a-z0-9]/g,
+            ""
+        );
+
+}
+
+
+/* =========================================================
+   DEEP VALUE
+========================================================= */
+
+function deepFindValue(
+    object,
+    keys,
+    depth = 0
+){
+
+    if(
+        object === null ||
+        object === undefined ||
+        depth > 12
+    ){
+
+        return null;
+    }
+
+
+    if(
+        typeof object !== "object"
     ){
 
         return null;
@@ -1567,38 +2114,27 @@ function deepFindValue(
 
     const wanted =
         keys.map(
-            key =>
-                String(key)
-                    .toLowerCase()
+            normalizeKey
         );
 
 
     /*
-       Kiểm tra trực tiếp trước.
+       Direct field.
     */
 
     for(
-        const key of
-        Object.keys(object)
+        const key of Object.keys(object)
     ){
-
-        const normalized =
-            key
-                .replace(
-                    /[^a-zA-Z0-9]/g,
-                    ""
-                )
-                .toLowerCase();
-
 
         if(
             wanted.includes(
-                normalized
+                normalizeKey(key)
             )
         ){
 
             const value =
                 object[key];
+
 
             if(
                 value !== null &&
@@ -1607,6 +2143,7 @@ function deepFindValue(
             ){
 
                 return value;
+
             }
 
         }
@@ -1615,12 +2152,11 @@ function deepFindValue(
 
 
     /*
-       Tìm sâu trong object.
+       Recursive.
     */
 
     for(
-        const key of
-        Object.keys(object)
+        const key of Object.keys(object)
     ){
 
         const value =
@@ -1629,8 +2165,7 @@ function deepFindValue(
 
         if(
             value &&
-            typeof value ===
-            "object"
+            typeof value === "object"
         ){
 
             const result =
@@ -1648,6 +2183,7 @@ function deepFindValue(
             ){
 
                 return result;
+
             }
 
         }
@@ -1661,7 +2197,7 @@ function deepFindValue(
 
 
 /* =========================================================
-   TIME FIELD
+   TIME KEYS
 ========================================================= */
 
 const START_KEYS = [
@@ -1673,23 +2209,42 @@ const START_KEYS = [
     "start_at",
     "startdate",
     "start_date",
+    "startdatetime",
+    "start_datetime",
+
     "begintime",
     "begin_time",
     "beginat",
     "begin_at",
     "begindate",
     "begin_date",
+    "begindatetime",
+    "begin_datetime",
+
     "from",
     "fromtime",
     "from_time",
+    "fromdate",
+    "from_date",
+
     "date_start",
     "datestart",
+
     "eventstart",
     "event_start",
     "eventstarttime",
     "event_start_time",
+    "eventstartdate",
+    "event_start_date",
+
     "stime",
-    "stimeutc"
+    "stimeutc",
+
+    "starttimestamp",
+    "start_timestamp",
+
+    "begintimestamp",
+    "begin_timestamp"
 
 ];
 
@@ -1703,29 +2258,48 @@ const END_KEYS = [
     "end_at",
     "enddate",
     "end_date",
+    "enddatetime",
+    "end_datetime",
+
     "finishtime",
     "finish_time",
     "finishat",
     "finish_at",
     "finishdate",
     "finish_date",
+    "finishdatetime",
+    "finish_datetime",
+
     "to",
     "totime",
     "to_time",
+    "todate",
+    "to_date",
+
     "date_end",
     "dateend",
+
     "eventend",
     "event_end",
     "eventendtime",
     "event_end_time",
+    "eventenddate",
+    "event_end_date",
+
     "etime",
-    "etimeutc"
+    "etimeutc",
+
+    "endtimestamp",
+    "end_timestamp",
+
+    "finishtimestamp",
+    "finish_timestamp"
 
 ];
 
 
 /* =========================================================
-   GET EVENT START
+   GET START / END
 ========================================================= */
 
 function getEventStart(
@@ -1739,10 +2313,6 @@ function getEventStart(
 
 }
 
-
-/* =========================================================
-   GET EVENT END
-========================================================= */
 
 function getEventEnd(
     event
@@ -1768,14 +2338,26 @@ function getEventImage(
         event,
         [
             "banner",
+            "bannerurl",
+            "banner_url",
+            "bannerimage",
+            "banner_image",
+
             "image",
             "imageurl",
             "image_url",
-            "bannerurl",
-            "banner_url",
+
             "thumbnail",
             "thumbnailurl",
-            "thumb"
+            "thumbnail_url",
+
+            "thumb",
+            "thumburl",
+            "thumb_url",
+
+            "icon",
+            "iconurl",
+            "icon_url"
         ]
     ) || "";
 
@@ -1790,17 +2372,25 @@ function getEventTitle(
     event
 ){
 
-    return deepFindValue(
-        event,
-        [
-            "title",
-            "name",
-            "eventname",
-            "event_name",
-            "eventtitle",
-            "event_title"
-        ]
-    ) || "Sự kiện Free Fire";
+    const value =
+        deepFindValue(
+            event,
+            [
+                "title",
+                "name",
+                "eventname",
+                "event_name",
+                "eventtitle",
+                "event_title",
+                "displayname",
+                "display_name"
+            ]
+        );
+
+
+    return value
+        ? String(value)
+        : "Sự kiện Free Fire";
 
 }
 
@@ -1821,7 +2411,9 @@ function getEventLink(
             "detailurl",
             "detail_url",
             "eventurl",
-            "event_url"
+            "event_url",
+            "weburl",
+            "web_url"
         ]
     ) || "";
 
@@ -1829,7 +2421,28 @@ function getEventLink(
 
 
 /* =========================================================
-   SMART DATE PARSER
+   DESCRIPTION
+========================================================= */
+
+function getEventDescription(
+    event
+){
+
+    return deepFindValue(
+        event,
+        [
+            "description",
+            "desc",
+            "content",
+            "summary"
+        ]
+    ) || "";
+
+}
+
+
+/* =========================================================
+   DATE PARSER
 ========================================================= */
 
 function parseDate(
@@ -1847,13 +2460,14 @@ function parseDate(
 
 
     /*
-       Nếu API trả object thời gian
-       như {timestamp:...}
+       Object:
+       {timestamp:...}
+       {time:...}
+       {value:...}
     */
 
     if(
-        typeof value ===
-        "object"
+        typeof value === "object"
     ){
 
         const nested =
@@ -1871,54 +2485,33 @@ function parseDate(
 
         if(
             nested !== null &&
+            nested !== undefined &&
             nested !== value
         ){
 
             return parseDate(
                 nested
             );
+
         }
 
 
         return null;
+
     }
 
 
     /*
-       Timestamp số.
+       Number.
     */
 
     if(
-        typeof value ===
-        "number"
+        typeof value === "number"
     ){
 
-        let number =
-            value;
-
-
-        /*
-           Unix timestamp giây
-           hoặc milliseconds.
-        */
-
-        if(
-            number < 100000000000
-        ){
-
-            number *= 1000;
-        }
-
-
-        const date =
-            new Date(number);
-
-
-        return isNaN(
-            date.getTime()
-        )
-            ? null
-            : date;
+        return parseTimestamp(
+            value
+        );
 
     }
 
@@ -1934,43 +2527,53 @@ function parseDate(
 
 
     /*
-       Chuỗi chỉ chứa timestamp.
+       Chuỗi timestamp.
     */
 
     if(
         /^\d{9,16}$/.test(text)
     ){
 
-        let number =
+        return parseTimestamp(
+            Number(text)
+        );
+
+    }
+
+
+    /*
+       Unix milliseconds có decimal.
+    */
+
+    if(
+        /^\d+\.\d+$/.test(text)
+    ){
+
+        const number =
             Number(text);
 
 
         if(
-            text.length <= 11
+            Number.isFinite(number)
         ){
 
-            number *= 1000;
-        }
+            const date =
+                parseTimestamp(
+                    number
+                );
 
 
-        const date =
-            new Date(number);
+            if(date){
+                return date;
+            }
 
-
-        if(
-            !isNaN(
-                date.getTime()
-            )
-        ){
-
-            return date;
         }
 
     }
 
 
     /*
-       ISO / RFC / dạng chuẩn.
+       Chuẩn ISO/RFC.
     */
 
     let date =
@@ -1999,10 +2602,10 @@ function parseDate(
 
     if(match){
 
-        const d =
+        date =
             new Date(
                 Number(match[1]),
-                Number(match[2])-1,
+                Number(match[2]) - 1,
                 Number(match[3]),
                 Number(match[4]),
                 Number(match[5]),
@@ -2012,19 +2615,18 @@ function parseDate(
 
         if(
             !isNaN(
-                d.getTime()
+                date.getTime()
             )
         ){
 
-            return d;
+            return date;
         }
 
     }
 
 
     /*
-       DD/MM/YYYY HH:mm
-       DD-MM-YYYY HH:mm
+       DD/MM/YYYY HH:mm:ss
     */
 
     match =
@@ -2035,10 +2637,10 @@ function parseDate(
 
     if(match){
 
-        const d =
+        date =
             new Date(
                 Number(match[3]),
-                Number(match[2])-1,
+                Number(match[2]) - 1,
                 Number(match[1]),
                 Number(match[4] || 0),
                 Number(match[5] || 0),
@@ -2048,11 +2650,11 @@ function parseDate(
 
         if(
             !isNaN(
-                d.getTime()
+                date.getTime()
             )
         ){
 
-            return d;
+            return date;
         }
 
     }
@@ -2070,10 +2672,10 @@ function parseDate(
 
     if(match){
 
-        const d =
+        date =
             new Date(
                 Number(match[1]),
-                Number(match[2])-1,
+                Number(match[2]) - 1,
                 Number(match[3]),
                 Number(match[4]),
                 Number(match[5]),
@@ -2083,17 +2685,82 @@ function parseDate(
 
         if(
             !isNaN(
-                d.getTime()
+                date.getTime()
             )
         ){
 
-            return d;
+            return date;
         }
 
     }
 
 
     return null;
+
+}
+
+
+/* =========================================================
+   TIMESTAMP
+========================================================= */
+
+function parseTimestamp(
+    number
+){
+
+    if(
+        !Number.isFinite(number)
+    ){
+
+        return null;
+    }
+
+
+    /*
+       Seconds.
+    */
+
+    if(
+        number < 100000000000
+    ){
+
+        number *= 1000;
+
+    }
+
+
+    const date =
+        new Date(number);
+
+
+    if(
+        isNaN(
+            date.getTime()
+        )
+    ){
+
+        return null;
+    }
+
+
+    /*
+       Tránh ngày vô lý.
+    */
+
+    const year =
+        date.getFullYear();
+
+
+    if(
+        year < 2000 ||
+        year > 2100
+    ){
+
+        return null;
+    }
+
+
+    return date;
 
 }
 
@@ -2116,39 +2783,35 @@ function formatDate(
     }
 
 
-    const hours =
-        String(
-            date.getHours()
-        ).padStart(2,"0");
-
-    const minutes =
-        String(
-            date.getMinutes()
-        ).padStart(2,"0");
-
     const day =
         String(
             date.getDate()
         ).padStart(2,"0");
+
 
     const month =
         String(
             date.getMonth() + 1
         ).padStart(2,"0");
 
+
     const year =
         date.getFullYear();
 
 
-    return `
-        ${hours}:${minutes}
-        ${day}/${month}/${year}
-    `
-    .replace(
-        /\s+/g,
-        " "
-    )
-    .trim();
+    const hours =
+        String(
+            date.getHours()
+        ).padStart(2,"0");
+
+
+    const minutes =
+        String(
+            date.getMinutes()
+        ).padStart(2,"0");
+
+
+    return `${hours}:${minutes} ${day}/${month}/${year}`;
 
 }
 
@@ -2166,10 +2829,12 @@ function getStatus(
             getEventStart(event)
         );
 
+
     const end =
         parseDate(
             getEventEnd(event)
         );
+
 
     const now =
         Date.now();
@@ -2177,8 +2842,7 @@ function getStatus(
 
     if(
         end &&
-        now >
-        end.getTime()
+        now >= end.getTime()
     ){
 
         return {
@@ -2191,8 +2855,7 @@ function getStatus(
 
     if(
         start &&
-        now <
-        start.getTime()
+        now < start.getTime()
     ){
 
         return {
@@ -2203,9 +2866,27 @@ function getStatus(
     }
 
 
+    if(
+        start ||
+        end
+    ){
+
+        return {
+            type:"live",
+            text:"ĐANG DIỄN RA"
+        };
+
+    }
+
+
+    /*
+       Không có thời gian:
+       không tự kết luận event đã kết thúc.
+    */
+
     return {
-        type:"live",
-        text:"ĐANG DIỄN RA"
+        type:"upcoming",
+        text:"ĐANG CẬP NHẬT"
     };
 
 }
@@ -2224,24 +2905,27 @@ function countdown(
             getEventStart(event)
         );
 
+
     const end =
         parseDate(
             getEventEnd(event)
         );
 
+
     const now =
         Date.now();
 
 
-    let target = null;
+    let target =
+        null;
 
-    let prefix = "";
+    let prefix =
+        "";
 
 
     if(
         start &&
-        now <
-        start.getTime()
+        now < start.getTime()
     ){
 
         target =
@@ -2250,10 +2934,10 @@ function countdown(
         prefix =
             "BẮT ĐẦU SAU ";
 
-    }else if(
+    }
+    else if(
         end &&
-        now <
-        end.getTime()
+        now < end.getTime()
     ){
 
         target =
@@ -2262,20 +2946,32 @@ function countdown(
         prefix =
             "CÒN LẠI ";
 
-    }else{
+    }
+    else if(
+        end &&
+        now >= end.getTime()
+    ){
 
         return "ĐÃ KẾT THÚC";
+
+    }
+    else{
+
+        return "THỜI GIAN ĐANG CẬP NHẬT";
+
     }
 
 
     const diff =
-        target -
-        now;
+        target - now;
 
 
-    if(diff <= 0){
+    if(
+        diff <= 0
+    ){
 
         return "ĐÃ KẾT THÚC";
+
     }
 
 
@@ -2290,7 +2986,9 @@ function countdown(
             seconds / 86400
         );
 
-    seconds %= 86400;
+
+    seconds %=
+        86400;
 
 
     const hours =
@@ -2298,7 +2996,9 @@ function countdown(
             seconds / 3600
         );
 
-    seconds %= 3600;
+
+    seconds %=
+        3600;
 
 
     const minutes =
@@ -2306,12 +3006,17 @@ function countdown(
             seconds / 60
         );
 
-    seconds %= 60;
+
+    seconds %=
+        60;
 
 
-    if(days > 0){
+    if(
+        days > 0
+    ){
 
-        return `${prefix}${days}N ${hours}G`;
+        return `${prefix}${days}N ${String(hours).padStart(2,"0")}G`;
+
     }
 
 
@@ -2340,12 +3045,19 @@ function filteredEvents(){
                     .toLowerCase();
 
 
+            const description =
+                getEventDescription(event)
+                    .toLowerCase();
+
+
             if(
                 keyword &&
-                !title.includes(keyword)
+                !title.includes(keyword) &&
+                !description.includes(keyword)
             ){
 
                 return false;
+
             }
 
 
@@ -2358,6 +3070,7 @@ function filteredEvents(){
                     getStatus(event).type ===
                     "live"
                 );
+
             }
 
 
@@ -2370,7 +3083,111 @@ function filteredEvents(){
 
 
 /* =========================================================
-   RENDER
+   RENDER EMPTY
+========================================================= */
+
+function renderEmpty(
+    type = "empty",
+    message = "",
+    sub = ""
+){
+
+    if(
+        type === "error"
+    ){
+
+        eventsGrid.innerHTML = `
+
+            <div class="empty error">
+
+                <div class="empty-icon">
+                    ⚠️
+                </div>
+
+                <h3>
+                    API KHÔNG KẾT NỐI ĐƯỢC
+                </h3>
+
+                <p>
+                    ${escapeHTML(
+                        message ||
+                        "Không thể lấy dữ liệu sự kiện từ máy chủ."
+                    )}
+                    <br>
+                    ${escapeHTML(
+                        sub ||
+                        "Kiểm tra kết nối mạng hoặc thử lại."
+                    )}
+                </p>
+
+                <button
+                    id="retryButton"
+                    class="retry-btn"
+                    type="button"
+                >
+                    ↻ THỬ LẠI
+                </button>
+
+            </div>
+
+        `;
+
+
+        const retry =
+            document.getElementById(
+                "retryButton"
+            );
+
+
+        if(retry){
+
+            retry.addEventListener(
+                "click",
+                () => {
+
+                    refreshEvents(true);
+
+                }
+            );
+
+        }
+
+
+        return;
+    }
+
+
+    eventsGrid.innerHTML = `
+
+        <div class="empty">
+
+            <div class="empty-icon">
+                📭
+            </div>
+
+            <h3>
+                ${
+                    message ||
+                    "Chưa có sự kiện"
+                }
+            </h3>
+
+            <p>
+                ${
+                    sub ||
+                    "Server này hiện chưa trả về sự kiện."
+                }
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   RENDER EVENTS
 ========================================================= */
 
 function renderEvents(){
@@ -2383,29 +3200,41 @@ function renderEvents(){
         `${events.length} sự kiện`;
 
 
-    if(!events.length){
+    /*
+       Nếu API thật sự trả [].
+    */
 
-        eventsGrid.innerHTML = `
+    if(
+        !currentData.events.length
+    ){
 
-            <div class="empty">
-
-                <div class="empty-icon">
-                    📭
-                </div>
-
-                <h3>
-                    Chưa có sự kiện phù hợp
-                </h3>
-
-                <p>
-                    Hệ thống sẽ tự động cập nhật lại dữ liệu.
-                </p>
-
-            </div>
-
-        `;
+        renderEmpty(
+            "empty",
+            "Chưa có sự kiện",
+            "Server này hiện không trả về dữ liệu sự kiện."
+        );
 
         return;
+
+    }
+
+
+    /*
+       Có event nhưng filter/search không match.
+    */
+
+    if(
+        !events.length
+    ){
+
+        renderEmpty(
+            "empty",
+            "Chưa có sự kiện phù hợp",
+            "Thử thay đổi từ khóa hoặc bộ lọc."
+        );
+
+        return;
+
     }
 
 
@@ -2416,28 +3245,29 @@ function renderEvents(){
                 const title =
                     getEventTitle(event);
 
+
                 const image =
                     getEventImage(event);
+
 
                 const start =
                     getEventStart(event);
 
+
                 const end =
                     getEventEnd(event);
+
 
                 const link =
                     getEventLink(event);
 
+
+                const description =
+                    getEventDescription(event);
+
+
                 const status =
                     getStatus(event);
-
-
-                /*
-                   Nếu không tìm được thời gian,
-                   card vẫn hiện ĐANG CẬP NHẬT.
-                   Nếu API có field hợp lệ,
-                   formatDate sẽ tự động nhận dạng.
-                */
 
 
                 return `
@@ -2454,8 +3284,12 @@ function renderEvents(){
                                 ?
                                 `
                                 <img
-                                    src="${escapeAttribute(image)}"
-                                    alt="${escapeAttribute(title)}"
+                                    src="${escapeAttribute(
+                                        image
+                                    )}"
+                                    alt="${escapeAttribute(
+                                        title
+                                    )}"
                                     loading="lazy"
                                     onload="
                                         this.classList.add('loaded');
@@ -2516,6 +3350,31 @@ function renderEvents(){
                             </div>
 
 
+                            ${
+                                description
+                                ?
+                                `
+                                <div style="
+                                    margin-top:8px;
+                                    color:#777c86;
+                                    font-size:9px;
+                                    line-height:1.5;
+                                ">
+                                    ${escapeHTML(
+                                        String(
+                                            description
+                                        ).slice(
+                                            0,
+                                            180
+                                        )
+                                    )}
+                                </div>
+                                `
+                                :
+                                ""
+                            }
+
+
                             <div class="event-time">
 
                                 <div class="time-box start-box">
@@ -2566,7 +3425,12 @@ function renderEvents(){
 
                                 <span
                                     class="countdown"
-                                    data-countdown-index="${index}"
+                                    data-event-key="${escapeAttribute(
+                                        createEventKey(
+                                            event,
+                                            index
+                                        )
+                                    )}"
                                 >
                                     ${countdown(event)}
                                 </span>
@@ -2578,7 +3442,9 @@ function renderEvents(){
                                     `
                                     <a
                                         class="detail-btn"
-                                        href="${escapeAttribute(link)}"
+                                        href="${escapeAttribute(
+                                            link
+                                        )}"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
@@ -2605,7 +3471,26 @@ function renderEvents(){
 
 
 /* =========================================================
-   UPDATE COUNTDOWN
+   EVENT KEY
+========================================================= */
+
+function createEventKey(
+    event,
+    index
+){
+
+    return [
+        getEventTitle(event),
+        getEventStart(event),
+        getEventEnd(event),
+        index
+    ].join("|");
+
+}
+
+
+/* =========================================================
+   UPDATE COUNTDOWNS
 ========================================================= */
 
 function updateCountdowns(){
@@ -2616,18 +3501,34 @@ function updateCountdowns(){
 
     document
         .querySelectorAll(
-            "[data-countdown-index]"
+            "[data-event-key]"
         )
         .forEach(
             element => {
 
+                const key =
+                    element.dataset.eventKey;
+
+
                 const index =
-                    Number(
-                        element.dataset
-                            .countdownIndex
+                    events.findIndex(
+                        (event,i) =>
+                            createEventKey(
+                                event,
+                                i
+                            ) === key
                     );
 
-                if(events[index]){
+
+                /*
+                   Nếu index không tìm được
+                   do filter thay đổi, bỏ qua.
+                */
+
+                if(
+                    index >= 0 &&
+                    events[index]
+                ){
 
                     element.textContent =
                         countdown(
@@ -2641,10 +3542,8 @@ function updateCountdowns(){
 
 
     /*
-       Khi sự kiện chuyển từ
-       SẮP DIỄN RA → ĐANG DIỄN RA
-       hoặc ĐANG DIỄN RA → ĐÃ KẾT THÚC,
-       render lại status.
+       Render lại mỗi 10 giây để cập nhật
+       trạng thái.
     */
 
     if(
@@ -2661,26 +3560,27 @@ function updateCountdowns(){
 
 
 /* =========================================================
-   DATA
+   RENDER DATA
 ========================================================= */
 
 function renderData(
-    data
+    data,
+    region
 ){
 
-    currentData =
+    const normalized =
         normalizeAPI(data);
+
+
+    currentData =
+        normalized;
 
 
     renderEvents();
 
 
     const server =
-        SERVERS.find(
-            item =>
-                item.code ===
-                currentServer
-        );
+        getServer(region);
 
 
     updatedTime.textContent =
@@ -2692,24 +3592,32 @@ function renderData(
                     minute:"2-digit",
                     second:"2-digit"
                 }
-            ).format(new Date())
-        } • ${server?.name || currentServer}`;
+            ).format(
+                new Date()
+            )
+        } • ${
+            server?.name || region
+        }`;
 
 }
 
 
 /* =========================================================
-   REFRESH MESSAGE
+   STATUS MESSAGE
 ========================================================= */
 
-let statusTimer = null;
+let statusTimer =
+    null;
+
 
 function showStatus(
-    text
+    text,
+    duration = 2500
 ){
 
     refreshStatusText.textContent =
         text;
+
 
     refreshStatus.classList.add(
         "show"
@@ -2723,23 +3631,43 @@ function showStatus(
 
     statusTimer =
         setTimeout(
-            () =>
+            () => {
+
                 refreshStatus.classList.remove(
                     "show"
-                ),
-            2200
+                );
+
+            },
+            duration
         );
 
 }
 
 
 /* =========================================================
-   REFRESH
+   REFRESH EVENTS
 ========================================================= */
 
 async function refreshEvents(
-    force=false
+    force = false
 ){
+
+    /*
+       Mỗi request có ID riêng.
+    */
+
+    const region =
+        currentServer;
+
+
+    const requestId =
+        ++currentRequestId;
+
+
+    /*
+       Nếu đang request server này
+       và không force → không gửi trùng.
+    */
 
     if(
         isRefreshing &&
@@ -2747,14 +3675,13 @@ async function refreshEvents(
     ){
 
         return;
+
     }
 
 
-    const requestId =
-        ++currentRequestId;
+    isRefreshing =
+        true;
 
-
-    isRefreshing = true;
 
     refreshBtn.classList.add(
         "loading"
@@ -2762,98 +3689,183 @@ async function refreshEvents(
 
 
     /*
-       Cache mới → hiện ngay.
+       Cache mới của ĐÚNG SERVER.
     */
 
-    const cached =
-        readCache(
-            currentServer,
-            false
-        );
+    if(
+        !force
+    ){
+
+        const cached =
+            readCache(
+                region,
+                false
+            );
 
 
-    if(cached){
+        if(cached){
 
-        renderData(cached);
+            /*
+               Chỉ render nếu server
+               vẫn giống lúc request.
+            */
 
-    }else{
+            if(
+                region === currentServer &&
+                requestId === currentRequestId
+            ){
 
-        /*
-           Cache cũ → vẫn hiển thị
-           trong lúc chờ API.
-        */
+                renderData(
+                    cached,
+                    region
+                );
+
+            }
+
+        }
+
+    }
+
+
+    /*
+       Cache cũ của ĐÚNG SERVER.
+    */
+
+    if(
+        !currentData.events.length
+    ){
 
         const stale =
             readCache(
-                currentServer,
+                region,
                 true
             );
 
 
         if(stale){
 
-            renderData(stale);
+            if(
+                region === currentServer
+            ){
+
+                renderData(
+                    stale,
+                    region
+                );
+
+            }
+
         }
 
     }
 
 
     showStatus(
-        "Đang cập nhật sự kiện..."
+        `Đang tải ${getServer(region)?.name || region}...`
     );
 
 
     try{
 
-        const data =
+        const result =
             await fetchAPI(
-                currentServer
+                region
             );
 
 
+        /*
+           RESPONSE CŨ KHÔNG ĐƯỢC PHÉP
+           GHI ĐÈ SERVER HIỆN TẠI.
+        */
+
         if(
-            requestId !==
-            currentRequestId
+            requestId !== currentRequestId ||
+            region !== currentServer
         ){
 
             return;
+
         }
 
 
         const normalized =
-            normalizeAPI(data);
+            normalizeAPI(
+                result.data
+            );
 
+
+        /*
+           Cache đúng region.
+        */
 
         saveCache(
-            currentServer,
+            region,
             normalized
         );
 
+
+        /*
+           Render đúng region.
+        */
 
         renderData(
-            normalized
+            normalized,
+            region
         );
 
 
-        showStatus(
-            "Đã cập nhật sự kiện ✓"
-        );
+        /*
+           Phân biệt:
+           API trả event / API trả []
+        */
+
+        if(
+            normalized.events.length > 0
+        ){
+
+            showStatus(
+                `Đã tải ${normalized.events.length} sự kiện ✓`
+            );
+
+        }else{
+
+            showStatus(
+                "Server hiện chưa có sự kiện"
+            );
+
+        }
 
 
     }catch(error){
 
+        console.error(
+            "EVENT API ERROR:",
+            error
+        );
+
+
+        /*
+           Response cũ không được xử lý.
+        */
+
         if(
-            requestId !==
-            currentRequestId
+            requestId !== currentRequestId ||
+            region !== currentServer
         ){
 
             return;
+
         }
 
 
+        /*
+           Nếu có cache cũ của đúng server,
+           vẫn hiển thị.
+        */
+
         const stale =
             readCache(
-                currentServer,
+                region,
                 true
             );
 
@@ -2861,11 +3873,13 @@ async function refreshEvents(
         if(stale){
 
             renderData(
-                stale
+                stale,
+                region
             );
 
+
             showStatus(
-                "Đang dùng dữ liệu đã lưu"
+                "API lỗi — đang dùng dữ liệu đã lưu"
             );
 
         }else{
@@ -2874,15 +3888,37 @@ async function refreshEvents(
                 events:[]
             };
 
-            renderEvents();
+
+            eventCount.textContent =
+                "Không kết nối";
+
+
+            renderEmpty(
+                "error",
+                "Không lấy được dữ liệu từ API.",
+                `Server: ${region.toUpperCase()} • Hãy thử lại sau.`
+            );
+
+
+            updatedTime.textContent =
+                `API lỗi • ${
+                    getServer(region)?.name ||
+                    region
+                }`;
+
 
             showStatus(
-                "Chưa thể cập nhật dữ liệu"
+                "Không thể kết nối API"
             );
 
         }
 
     }finally{
+
+        /*
+           Chỉ reset loading nếu đây vẫn
+           là request hiện tại.
+        */
 
         if(
             requestId ===
@@ -2923,7 +3959,10 @@ function startAutoRefresh(){
                     "visible"
                 ){
 
-                    refreshEvents(false);
+                    refreshEvents(
+                        false
+                    );
+
                 }
 
             },
@@ -2946,7 +3985,10 @@ document.addEventListener(
             "visible"
         ){
 
-            refreshEvents(false);
+            refreshEvents(
+                false
+            );
+
         }
 
     }
@@ -2965,21 +4007,42 @@ window.addEventListener(
             "Đã có mạng — đang cập nhật..."
         );
 
-        refreshEvents(true);
+
+        refreshEvents(
+            true
+        );
 
     }
 );
 
 
 /* =========================================================
-   BUTTON
+   OFFLINE
+========================================================= */
+
+window.addEventListener(
+    "offline",
+    () => {
+
+        showStatus(
+            "Thiết bị đang offline"
+        );
+
+    }
+);
+
+
+/* =========================================================
+   REFRESH BUTTON
 ========================================================= */
 
 refreshBtn.addEventListener(
     "click",
     () => {
 
-        refreshEvents(true);
+        refreshEvents(
+            true
+        );
 
     }
 );
@@ -2991,7 +4054,11 @@ refreshBtn.addEventListener(
 
 searchInput.addEventListener(
     "input",
-    renderEvents
+    () => {
+
+        renderEvents();
+
+    }
 );
 
 
@@ -3051,11 +4118,26 @@ function escapeHTML(
     return String(
         value ?? ""
     )
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+    .replaceAll(
+        "&",
+        "&amp;"
+    )
+    .replaceAll(
+        "<",
+        "&lt;"
+    )
+    .replaceAll(
+        ">",
+        "&gt;"
+    )
+    .replaceAll(
+        '"',
+        "&quot;"
+    )
+    .replaceAll(
+        "'",
+        "&#039;"
+    );
 
 }
 
@@ -3064,21 +4146,42 @@ function escapeAttribute(
     value
 ){
 
-    return escapeHTML(value);
+    return escapeHTML(
+        value
+    );
 
 }
 
 
 /* =========================================================
-   DEBUG TIME DETECTION
-   Không hiển thị trên giao diện.
+   DEBUG
 ========================================================= */
 
-function inspectEventTime(
-    event
-){
+window.FFVN_TGM_DEBUG = {
 
-    return {
+    config:CONFIG,
+
+    servers:SERVERS,
+
+    currentServer:() =>
+        currentServer,
+
+    apiURL:(region = currentServer) =>
+        apiURL(region),
+
+    cache:(region = currentServer) =>
+        readCache(
+            region,
+            true
+        ),
+
+    inspect:(event) => ({
+        title:
+            getEventTitle(event),
+
+        image:
+            getEventImage(event),
+
         startRaw:
             getEventStart(event),
 
@@ -3093,10 +4196,16 @@ function inspectEventTime(
         endParsed:
             parseDate(
                 getEventEnd(event)
-            )
-    };
+            ),
 
-}
+        status:
+            getStatus(event),
+
+        countdown:
+            countdown(event)
+    })
+
+};
 
 
 /* =========================================================
@@ -3110,25 +4219,27 @@ function init(){
     startLoader();
 
     /*
-       API bắt đầu tải ngay khi trang mở.
+       Tải server mặc định.
     */
 
-    refreshEvents(true);
+    renderLoadingState(
+        currentServer
+    );
 
-    /*
-       Tự động refresh mỗi 60 giây.
-    */
+
+    refreshEvents(
+        true
+    );
+
 
     startAutoRefresh();
 
-    /*
-       Countdown mỗi 1 giây.
-    */
 
-    setInterval(
-        updateCountdowns,
-        1000
-    );
+    countdownTimer =
+        setInterval(
+            updateCountdowns,
+            1000
+        );
 
 }
 
@@ -3140,7 +4251,10 @@ if(
 
     document.addEventListener(
         "DOMContentLoaded",
-        init
+        init,
+        {
+            once:true
+        }
     );
 
 }else{
@@ -3152,4 +4266,4 @@ if(
 </script>
 
 </body>
-</html>
+    </html>
