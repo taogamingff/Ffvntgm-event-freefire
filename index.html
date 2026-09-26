@@ -2,10 +2,13 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 
-<meta name="theme-color" content="#050505">
-<meta name="description" content="FREE FIRE EVENT & UPDATE 🔥">
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0,viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#030303">
 
 <title>FREE FIRE EVENT & UPDATE 🔥</title>
 
@@ -32,26 +35,22 @@
 
 :root{
 
-    --bg:#030303;
+    --bg:#020202;
 
     --orange:#ff6500;
-    --orange-light:#ff9b38;
+    --orange2:#ff9d38;
     --red:#ff3517;
-
-    --white:#ffffff;
-    --text:#f5f5f5;
-    --muted:#999;
 
     --green:#24e69a;
     --blue:#55aaff;
+    --yellow:#ffad4d;
 
-    --glass:rgba(15,15,15,.70);
-    --glass-light:rgba(255,255,255,.055);
+    --text:#f5f5f5;
+    --muted:#777;
 
-    --border:rgba(255,255,255,.10);
+    --border:rgba(255,255,255,.09);
 
-    --shadow:
-        0 25px 70px rgba(0,0,0,.55);
+    --glass:rgba(13,13,13,.72);
 
 }
 
@@ -89,7 +88,7 @@ body{
 
 
 /* =========================================================
-   PROFESSIONAL FREE FIRE BACKGROUND
+   BACKGROUND
    ========================================================= */
 
 body::before{
@@ -102,43 +101,43 @@ body::before{
 
     z-index:-10;
 
+    pointer-events:none;
+
     background:
 
         radial-gradient(
-            circle at 12% 10%,
-            rgba(255,75,0,.22),
-            transparent 28%
+            circle at 10% 8%,
+            rgba(255,75,0,.23),
+            transparent 27%
         ),
 
         radial-gradient(
-            circle at 88% 18%,
-            rgba(255,140,0,.13),
-            transparent 25%
+            circle at 90% 15%,
+            rgba(255,125,0,.14),
+            transparent 24%
         ),
 
         radial-gradient(
-            circle at 50% 55%,
-            rgba(255,40,0,.08),
-            transparent 35%
+            circle at 45% 50%,
+            rgba(255,45,0,.07),
+            transparent 36%
         ),
 
         radial-gradient(
             circle at 90% 90%,
-            rgba(255,90,0,.10),
+            rgba(255,70,0,.11),
             transparent 28%
         ),
 
         linear-gradient(
             135deg,
-            #020202 0%,
-            #080808 45%,
-            #030303 100%
+            #010101,
+            #090909 50%,
+            #020202
         );
 
 }
 
-
-/* diagonal light */
 
 body::after{
 
@@ -153,13 +152,12 @@ body::after{
     pointer-events:none;
 
     background:
-
         repeating-linear-gradient(
             120deg,
             transparent 0,
-            transparent 90px,
-            rgba(255,106,0,.025) 91px,
-            rgba(255,106,0,.025) 92px
+            transparent 100px,
+            rgba(255,90,0,.025) 101px,
+            rgba(255,90,0,.025) 102px
         );
 
     transform:rotate(-8deg);
@@ -167,59 +165,74 @@ body::after{
 }
 
 
-/* =========================================================
-   BACKGROUND LIGHTS
-   ========================================================= */
-
 .bg-light{
 
     position:fixed;
 
-    border-radius:50%;
-
-    filter:blur(80px);
+    z-index:-8;
 
     pointer-events:none;
 
-    z-index:-8;
+    border-radius:50%;
 
-    opacity:.45;
+    filter:blur(85px);
+
+    opacity:.38;
 
 }
+
 
 .bg-light.one{
 
-    width:300px;
-    height:300px;
+    width:320px;
+    height:320px;
 
-    left:-120px;
-    top:20%;
+    left:-150px;
+    top:25%;
 
-    background:#ff4b00;
+    background:#ff4a00;
 
 }
+
 
 .bg-light.two{
 
-    width:260px;
-    height:260px;
+    width:280px;
+    height:280px;
 
-    right:-100px;
-    top:45%;
+    right:-130px;
+    top:48%;
 
-    background:#ff8c00;
+    background:#ff8500;
 
 }
 
+
 .bg-light.three{
 
-    width:220px;
-    height:220px;
+    width:240px;
+    height:240px;
 
-    left:40%;
-    bottom:-100px;
+    left:42%;
+    bottom:-130px;
 
-    background:#d92d00;
+    background:#d82d00;
+
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container{
+
+    width:min(
+        1200px,
+        calc(100% - 28px)
+    );
+
+    margin:auto;
 
 }
 
@@ -245,8 +258,8 @@ body::after{
     background:
 
         radial-gradient(
-            circle at center,
-            rgba(255,76,0,.12),
+            circle,
+            rgba(255,70,0,.12),
             transparent 35%
         ),
 
@@ -275,28 +288,25 @@ body::after{
 
     border-radius:27px;
 
-    border:1px solid rgba(255,115,30,.7);
+    border:1px solid rgba(255,110,20,.7);
 
     box-shadow:
 
-        0 0 25px rgba(255,70,0,.45),
+        0 0 30px rgba(255,70,0,.45),
 
-        0 0 80px rgba(255,70,0,.15);
+        0 0 90px rgba(255,70,0,.15);
 
     animation:
-
-        loaderPulse 1.8s infinite;
+        loaderPulse 1.7s infinite;
 
 }
 
 
 .loader-title{
 
-    margin-top:24px;
+    margin-top:23px;
 
-    font-size:26px;
-
-    letter-spacing:1px;
+    font-size:25px;
 
 }
 
@@ -307,7 +317,7 @@ body::after{
 
     color:#777;
 
-    font-size:11px;
+    font-size:10px;
 
 }
 
@@ -341,11 +351,11 @@ body::after{
             90deg,
             #ff4300,
             #ff7800,
-            #ffb000
+            #ffad00
         );
 
     box-shadow:
-        0 0 15px rgba(255,90,0,.7);
+        0 0 18px rgba(255,90,0,.7);
 
     transition:.15s;
 
@@ -358,7 +368,7 @@ body::after{
 
     color:#888;
 
-    font-size:11px;
+    font-size:10px;
 
 }
 
@@ -370,8 +380,8 @@ body::after{
         transform:scale(1.045);
 
         box-shadow:
-            0 0 45px rgba(255,70,0,.65),
-            0 0 100px rgba(255,70,0,.18);
+            0 0 50px rgba(255,70,0,.65),
+            0 0 100px rgba(255,70,0,.15);
 
     }
 
@@ -415,20 +425,6 @@ header{
 
     justify-content:space-between;
 
-    gap:15px;
-
-}
-
-
-.container{
-
-    width:min(
-        1200px,
-        calc(100% - 28px)
-    );
-
-    margin:auto;
-
 }
 
 
@@ -453,10 +449,10 @@ header{
     border-radius:13px;
 
     border:
-        1px solid rgba(255,110,20,.55);
+        1px solid rgba(255,100,0,.55);
 
     box-shadow:
-        0 0 20px rgba(255,70,0,.18);
+        0 0 20px rgba(255,70,0,.2);
 
 }
 
@@ -465,8 +461,6 @@ header{
 
     font-size:16px;
 
-    letter-spacing:.3px;
-
 }
 
 
@@ -474,9 +468,9 @@ header{
 
     margin-top:3px;
 
-    font-size:9px;
+    color:#555;
 
-    color:#666;
+    font-size:8px;
 
 }
 
@@ -496,7 +490,7 @@ header{
 
     color:#fff;
 
-    font-size:20px;
+    font-size:19px;
 
 }
 
@@ -508,7 +502,7 @@ header{
 .hero{
 
     padding:
-        48px 0 28px;
+        45px 0 28px;
 
 }
 
@@ -531,18 +525,14 @@ header{
         linear-gradient(
             135deg,
             rgba(255,83,0,.14),
-            rgba(255,255,255,.025) 45%,
+            rgba(255,255,255,.025) 48%,
             rgba(255,40,0,.06)
         ),
 
         rgba(10,10,10,.68);
 
     box-shadow:
-
-        0 30px 90px rgba(0,0,0,.48),
-
-        inset 0 1px 0
-        rgba(255,255,255,.05);
+        0 30px 90px rgba(0,0,0,.48);
 
     backdrop-filter:
         blur(20px);
@@ -556,22 +546,20 @@ header{
 
     position:absolute;
 
-    width:400px;
-    height:400px;
+    width:430px;
+    height:430px;
 
-    right:-170px;
-    top:-210px;
+    right:-190px;
+    top:-230px;
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,90,0,.28),
+            rgba(255,90,0,.30),
             transparent 65%
         );
-
-    filter:blur(10px);
 
 }
 
@@ -582,18 +570,18 @@ header{
 
     position:absolute;
 
-    left:-120px;
-    bottom:-200px;
+    width:350px;
+    height:350px;
 
-    width:360px;
-    height:360px;
+    left:-150px;
+    bottom:-210px;
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,40,0,.16),
+            rgba(255,40,0,.14),
             transparent 65%
         );
 
@@ -608,8 +596,6 @@ header{
 
     display:inline-flex;
 
-    align-items:center;
-
     padding:8px 13px;
 
     border-radius:50px;
@@ -622,7 +608,7 @@ header{
 
     color:#ff994d;
 
-    font-size:10px;
+    font-size:9px;
 
 }
 
@@ -642,8 +628,6 @@ header{
 
     line-height:1.08;
 
-    letter-spacing:.4px;
-
 }
 
 
@@ -659,7 +643,7 @@ header{
 
     color:#888;
 
-    font-size:12px;
+    font-size:11px;
 
     line-height:1.8;
 
@@ -667,7 +651,7 @@ header{
 
 
 /* =========================================================
-   SECTION
+   SECTION TITLE
    ========================================================= */
 
 .section-title{
@@ -675,13 +659,13 @@ header{
     margin:
         30px 0 14px;
 
-    font-size:19px;
+    font-size:18px;
 
 }
 
 
 /* =========================================================
-   SERVER
+   SERVERS
    ========================================================= */
 
 .server-grid{
@@ -700,9 +684,11 @@ header{
 
     position:relative;
 
+    overflow:hidden;
+
     min-height:67px;
 
-    overflow:hidden;
+    padding:9px;
 
     border:
         1px solid rgba(255,255,255,.075);
@@ -718,37 +704,7 @@ header{
 
     color:#fff;
 
-    padding:9px;
-
-    transition:
-        transform .2s,
-        border-color .2s,
-        box-shadow .2s;
-
-}
-
-
-.server::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:0;
-
-    width:0;
-
-    height:2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff4a00,
-            #ffad00
-        );
-
-    transition:.25s;
+    transition:.2s;
 
 }
 
@@ -764,20 +720,12 @@ header{
 }
 
 
-.server:hover::before{
-
-    width:100%;
-
-}
-
-
 .server.active{
 
     border-color:
         rgba(255,100,0,.65);
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,82,0,.18),
@@ -785,15 +733,7 @@ header{
         );
 
     box-shadow:
-        0 0 25px
-        rgba(255,80,0,.10);
-
-}
-
-
-.server.active::before{
-
-    width:100%;
+        0 0 25px rgba(255,80,0,.10);
 
 }
 
@@ -826,7 +766,7 @@ header{
 
 
 /* =========================================================
-   STATUS
+   STATUS BAR
    ========================================================= */
 
 .status-bar{
@@ -845,7 +785,7 @@ header{
 
     color:#777;
 
-    font-size:10px;
+    font-size:9px;
 
 }
 
@@ -928,7 +868,7 @@ header{
 
 .select option{
 
-    background:#101010;
+    background:#111;
 
 }
 
@@ -948,15 +888,11 @@ header{
     border-color:
         rgba(255,90,0,.55);
 
-    box-shadow:
-        0 0 20px
-        rgba(255,70,0,.07);
-
 }
 
 
 /* =========================================================
-   EVENTS
+   EVENT HEADER
    ========================================================= */
 
 .events-head{
@@ -974,10 +910,14 @@ header{
 
     color:#666;
 
-    font-size:10px;
+    font-size:9px;
 
 }
 
+
+/* =========================================================
+   EVENTS
+   ========================================================= */
 
 .events-grid{
 
@@ -1003,7 +943,6 @@ header{
     border-radius:22px;
 
     background:
-
         linear-gradient(
             145deg,
             rgba(255,255,255,.055),
@@ -1013,9 +952,7 @@ header{
     box-shadow:
         0 18px 45px rgba(0,0,0,.28);
 
-    transition:
-        transform .25s,
-        border-color .25s;
+    transition:.25s;
 
 }
 
@@ -1075,22 +1012,37 @@ header{
 }
 
 
+/* =========================================================
+   EVENT STATUS
+   ========================================================= */
+
 .event-status{
 
     display:inline-flex;
 
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:27px;
+
     margin-top:13px;
 
-    padding:6px 9px;
+    padding:7px 10px;
 
     border-radius:8px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
 
     font-size:9px;
 
 }
 
 
-.live{
+/* LIVE */
+
+.event-status.live{
 
     color:
         var(--green);
@@ -1098,10 +1050,15 @@ header{
     background:
         rgba(36,230,154,.10);
 
+    border-color:
+        rgba(36,230,154,.20);
+
 }
 
 
-.upcoming{
+/* UPCOMING */
+
+.event-status.upcoming{
 
     color:
         var(--blue);
@@ -1109,10 +1066,15 @@ header{
     background:
         rgba(85,170,255,.10);
 
+    border-color:
+        rgba(85,170,255,.20);
+
 }
 
 
-.ended{
+/* ENDED */
+
+.event-status.ended{
 
     color:
         var(--red);
@@ -1120,8 +1082,43 @@ header{
     background:
         rgba(255,53,23,.10);
 
+    border-color:
+        rgba(255,53,23,.20);
+
 }
 
+
+/* UPDATING */
+
+.event-status.updating{
+
+    color:
+        var(--yellow);
+
+    background:
+        rgba(255,120,0,.08);
+
+    border-color:
+        rgba(255,120,0,.22);
+
+    animation:
+        updatingPulse 1.5s infinite;
+
+}
+
+
+@keyframes updatingPulse{
+
+    50%{
+        opacity:.55;
+    }
+
+}
+
+
+/* =========================================================
+   EVENT TIME
+   ========================================================= */
 
 .event-time{
 
@@ -1173,7 +1170,7 @@ header{
 
 
 /* =========================================================
-   EMPTY
+   EMPTY / UPDATING FRAME
    ========================================================= */
 
 .empty{
@@ -1181,38 +1178,100 @@ header{
     grid-column:
         1/-1;
 
-    padding:60px 20px;
+    position:relative;
+
+    overflow:hidden;
+
+    padding:
+        60px 20px;
 
     text-align:center;
 
     border:
-        1px dashed rgba(255,255,255,.10);
+        1px solid rgba(255,120,0,.18);
 
-    border-radius:20px;
+    border-radius:22px;
 
-    color:#555;
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,100,0,.07),
+            rgba(255,255,255,.025)
+        );
+
+    box-shadow:
+        inset 0 0 40px
+        rgba(255,80,0,.025),
+
+        0 15px 40px
+        rgba(0,0,0,.25);
+
+    color:#666;
+
+}
+
+
+.empty::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:-100px;
+
+    transform:
+        translateX(-50%);
+
+    width:250px;
+    height:200px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,90,0,.08);
+
+    filter:blur(50px);
 
 }
 
 
 .empty-icon{
 
-    margin-bottom:12px;
+    position:relative;
 
     font-size:38px;
+
+    margin-bottom:13px;
+
+    color:#ff963e;
 
 }
 
 
 .empty strong{
 
+    position:relative;
+
     display:block;
 
-    margin-bottom:7px;
+    margin-bottom:8px;
 
-    color:#888;
+    color:#aaa;
 
-    font-size:13px;
+    font-size:14px;
+
+}
+
+
+.empty-text{
+
+    position:relative;
+
+    color:#666;
+
+    font-size:9px;
 
 }
 
@@ -1231,7 +1290,7 @@ footer{
 
     text-align:center;
 
-    color:#3f3f3f;
+    color:#3d3d3d;
 
     font-size:9px;
 
@@ -1269,9 +1328,6 @@ footer{
     color:#fff;
 
     font-size:10px;
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.45);
 
     transition:.3s;
 
@@ -1394,7 +1450,6 @@ footer{
 <body>
 
 
-<!-- BACKGROUND LIGHT -->
 <div class="bg-light one"></div>
 <div class="bg-light two"></div>
 <div class="bg-light three"></div>
@@ -1472,6 +1527,7 @@ footer{
 
         </div>
 
+
         <button
             class="menu-btn"
             onclick="
@@ -1491,10 +1547,13 @@ footer{
 
 
 <!-- =====================================================
-     HERO
+     MAIN
      ===================================================== -->
 
 <main>
+
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -1525,9 +1584,7 @@ footer{
 </section>
 
 
-<!-- =====================================================
-     SERVERS
-     ===================================================== -->
+<!-- SERVERS -->
 
 <section id="servers">
 
@@ -1537,17 +1594,24 @@ footer{
             🌎 CHỌN SERVER
         </div>
 
+
         <div
             class="server-grid"
             id="serverGrid"
         ></div>
 
+
         <div
             class="status-bar"
             id="statusBar"
         >
-            <strong>Trạng thái:</strong>
+
+            <strong>
+                TRẠNG THÁI:
+            </strong>
+
             Đang khởi tạo...
+
         </div>
 
     </div>
@@ -1555,13 +1619,12 @@ footer{
 </section>
 
 
-<!-- =====================================================
-     EVENTS
-     ===================================================== -->
+<!-- EVENTS -->
 
 <section>
 
     <div class="container">
+
 
         <div class="controls">
 
@@ -1576,6 +1639,7 @@ footer{
                 >
 
             </div>
+
 
             <select
                 id="filterSelect"
@@ -1599,6 +1663,7 @@ footer{
                 </option>
 
             </select>
+
 
             <button
                 class="refresh"
@@ -1635,14 +1700,16 @@ footer{
             <div class="empty">
 
                 <div class="empty-icon">
-                    ⏳
+                    ⟳
                 </div>
 
                 <strong>
-                    ĐANG TẢI DỮ LIỆU...
+                    ĐANG CẬP NHẬT
                 </strong>
 
-                Vui lòng chờ một chút.
+                <div class="empty-text">
+                    Đang chờ dữ liệu sự kiện...
+                </div>
 
             </div>
 
@@ -1655,14 +1722,8 @@ footer{
 </main>
 
 
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
-
 <footer>
-
     FREE FIRE EVENT & UPDATE 🔥
-
 </footer>
 
 
@@ -1674,12 +1735,11 @@ footer{
 
 <script>
 
-"use strict";
-
-
 /* =========================================================
    CONFIG
    ========================================================= */
+
+"use strict";
 
 const CONFIG = {
 
@@ -1834,7 +1894,7 @@ const toast =
 
 
 /* =========================================================
-   ESCAPE
+   ESCAPE HTML
    ========================================================= */
 
 function escapeHTML(value){
@@ -1878,7 +1938,7 @@ function showToast(message){
 
 
 /* =========================================================
-   DATE
+   DATE FORMAT
    ========================================================= */
 
 function formatDate(date){
@@ -1891,6 +1951,7 @@ function formatDate(date){
         return "Không xác định";
 
     }
+
 
     return new Intl.DateTimeFormat(
 
@@ -1953,31 +2014,35 @@ function parseDate(value){
         typeof value === "number"
     ){
 
-        let n = value;
+        let number =
+            value;
+
 
         if(
-            n < 10000000000
+            number < 10000000000
         ){
 
-            n *= 1000;
+            number *= 1000;
 
         }
 
-        const d =
-            new Date(n);
 
-        return isNaN(d)
+        const date =
+            new Date(number);
+
+
+        return isNaN(date)
             ? null
-            : d;
+            : date;
 
     }
 
 
-    let s =
+    let text =
         String(value).trim();
 
 
-    if(!s){
+    if(!text){
 
         return null;
 
@@ -1985,79 +2050,82 @@ function parseDate(value){
 
 
     if(
-        /^\d+$/.test(s)
+        /^\d+$/.test(text)
     ){
 
-        let n =
-            Number(s);
+        let number =
+            Number(text);
+
 
         if(
-            n < 10000000000
+            number < 10000000000
         ){
 
-            n *= 1000;
+            number *= 1000;
 
         }
 
-        const d =
-            new Date(n);
 
-        if(!isNaN(d)){
+        const date =
+            new Date(number);
 
-            return d;
+
+        if(!isNaN(date)){
+
+            return date;
 
         }
 
     }
 
 
-    s =
-        s.replace(
+    text =
+        text.replace(
             /\//g,
             "-"
         );
 
 
-    let d =
-        new Date(s);
+    let date =
+        new Date(text);
 
 
-    if(!isNaN(d)){
+    if(!isNaN(date)){
 
-        return d;
+        return date;
 
     }
 
 
-    const m =
-        s.match(
+    const match =
+        text.match(
             /^(\d{2})-(\d{2})-(\d{4})[ T](\d{2}):(\d{2})(?::(\d{2}))?$/
         );
 
 
-    if(m){
+    if(match){
 
-        d =
+        date =
             new Date(
 
-                Number(m[3]),
+                Number(match[3]),
 
-                Number(m[2])-1,
+                Number(match[2]) - 1,
 
-                Number(m[1]),
+                Number(match[1]),
 
-                Number(m[4]),
+                Number(match[4]),
 
-                Number(m[5]),
+                Number(match[5]),
 
-                Number(m[6] || 0)
+                Number(match[6] || 0)
 
             );
 
 
-        return isNaN(d)
+        return isNaN(date)
             ? null
-            : d;
+            : date;
 
     }
 
@@ -2099,7 +2167,7 @@ function firstDefined(...values){
 
 
 /* =========================================================
-   FIND EVENTS
+   FIND EVENT ARRAY
    ========================================================= */
 
 function findEventArray(data){
@@ -2126,15 +2194,10 @@ function findEventArray(data){
     const keys = [
 
         "events",
-
         "event",
-
         "data",
-
         "items",
-
         "results",
-
         "list"
 
     ];
@@ -2177,7 +2240,7 @@ function findEventArray(data){
 
 
 /* =========================================================
-   NORMALIZE
+   NORMALIZE EVENT
    ========================================================= */
 
 function normalizeEvent(
@@ -2370,7 +2433,7 @@ function normalizeData(data){
 
 
 /* =========================================================
-   STATUS
+   EVENT STATUS
    ========================================================= */
 
 function getEventStatus(event){
@@ -2433,7 +2496,7 @@ function getEventStatus(event){
     }
 
 
-    return "unknown";
+    return "updating";
 
 }
 
@@ -2444,34 +2507,21 @@ function getEventStatus(event){
 
 function getStatusText(status){
 
-    if(
-        status === "live"
-    ){
+    switch(status){
 
-        return "● ĐANG DIỄN RA";
+        case "live":
+            return "● ĐANG DIỄN RA";
 
-    }
+        case "upcoming":
+            return "◷ SẮP DIỄN RA";
 
+        case "ended":
+            return "✓ ĐÃ KẾT THÚC";
 
-    if(
-        status === "upcoming"
-    ){
-
-        return "◷ SẮP DIỄN RA";
-
-    }
-
-
-    if(
-        status === "ended"
-    ){
-
-        return "✓ ĐÃ KẾT THÚC";
+        default:
+            return "⟳ ĐANG CẬP NHẬT";
 
     }
-
-
-    return "ĐANG CẬP NHẬT";
 
 }
 
@@ -2496,40 +2546,43 @@ function countdownText(event){
             now < end
         ){
 
-            let diff =
+            let difference =
                 end - now;
 
 
             const days =
                 Math.floor(
-                    diff / 86400000
+                    difference / 86400000
                 );
 
 
-            diff %= 86400000;
+            difference %=
+                86400000;
 
 
             const hours =
                 Math.floor(
-                    diff / 3600000
+                    difference / 3600000
                 );
 
 
-            diff %= 3600000;
+            difference %=
+                3600000;
 
 
             const minutes =
                 Math.floor(
-                    diff / 60000
+                    difference / 60000
                 );
 
 
-            diff %= 60000;
+            difference %=
+                60000;
 
 
             const seconds =
                 Math.floor(
-                    diff / 1000
+                    difference / 1000
                 );
 
 
@@ -2556,31 +2609,33 @@ function countdownText(event){
             now < start
         ){
 
-            let diff =
+            let difference =
                 start - now;
 
 
             const days =
                 Math.floor(
-                    diff / 86400000
+                    difference / 86400000
                 );
 
 
-            diff %= 86400000;
+            difference %=
+                86400000;
 
 
             const hours =
                 Math.floor(
-                    diff / 3600000
+                    difference / 3600000
                 );
 
 
-            diff %= 3600000;
+            difference %=
+                3600000;
 
 
             const minutes =
                 Math.floor(
-                    diff / 60000
+                    difference / 60000
                 );
 
 
@@ -2623,14 +2678,14 @@ function getCache(region){
         }
 
 
-        const parsed =
+        const data =
             JSON.parse(raw);
 
 
         if(
-            !parsed ||
-            !parsed.time ||
-            !parsed.data
+            !data ||
+            !data.time ||
+            !data.data
         ){
 
             return null;
@@ -2640,7 +2695,7 @@ function getCache(region){
 
         if(
             Date.now() -
-            parsed.time >
+            data.time >
             CONFIG.CACHE_TIME
         ){
 
@@ -2649,7 +2704,7 @@ function getCache(region){
         }
 
 
-        return parsed.data;
+        return data.data;
 
     }catch{
 
@@ -2689,7 +2744,7 @@ function saveCache(
 
 
 /* =========================================================
-   FETCH
+   FETCH JSON
    ========================================================= */
 
 async function fetchJSON(url){
@@ -2700,13 +2755,10 @@ async function fetchJSON(url){
 
     const timeout =
         setTimeout(
-
             ()=>{
                 controller.abort();
             },
-
             CONFIG.REQUEST_TIMEOUT
-
         );
 
 
@@ -2722,10 +2774,8 @@ async function fetchJSON(url){
                     method:"GET",
 
                     headers:{
-
                         "Accept":
                             "application/json"
-
                     },
 
                     cache:"no-store",
@@ -2752,27 +2802,18 @@ async function fetchJSON(url){
 
             try{
 
-                const errorData =
+                const error =
                     JSON.parse(text);
 
 
-                if(
-                    errorData.message
-                ){
-
+                if(error.error){
                     message =
-                        errorData.message;
-
+                        error.error;
                 }
 
-
-                if(
-                    errorData.error
-                ){
-
+                if(error.message){
                     message =
-                        errorData.error;
-
+                        error.message;
                 }
 
             }catch{}
@@ -2818,167 +2859,24 @@ async function fetchJSON(url){
 
 
 /* =========================================================
-   LOAD SERVER
+   SET STATUS
    ========================================================= */
 
-async function loadServer(region){
+function setStatus(message){
 
-    if(state.loading){
-
-        return;
-
-    }
-
-
-    state.loading =
-        true;
-
-
-    state.server =
-        region;
-
-
-    renderServers();
-
-
-    setStatus(
-        `ĐANG TẢI SERVER ${region.toUpperCase()}...`
-    );
-
-
-    renderLoading();
-
-
-    try{
-
-        const cached =
-            getCache(region);
-
-
-        if(cached){
-
-            state.events =
-                normalizeData(
-                    cached
-                );
-
-
-            state.lastUpdated =
-                new Date();
-
-
-            setStatus(
-                `ĐÃ TẢI CACHE • SERVER ${region.toUpperCase()}`
-            );
-
-
-            renderEvents();
-
-
-            state.loading =
-                false;
-
-
-            return;
-
-        }
-
-
-        await refreshServerData(
-            region
-        );
-
-
-    }finally{
-
-        state.loading =
-            false;
-
-    }
+    statusBar.innerHTML =
+        `
+        <strong>
+            TRẠNG THÁI:
+        </strong>
+        ${escapeHTML(message)}
+        `;
 
 }
 
 
 /* =========================================================
-   REFRESH
-   ========================================================= */
-
-async function refreshServerData(
-    region
-){
-
-    try{
-
-        const url =
-            CONFIG.API.replace(
-
-                "{region}",
-
-                encodeURIComponent(
-                    region
-                )
-
-            );
-
-
-        const data =
-            await fetchJSON(
-                url
-            );
-
-
-        saveCache(
-            region,
-            data
-        );
-
-
-        state.events =
-            normalizeData(
-                data
-            );
-
-
-        state.lastUpdated =
-            new Date();
-
-
-        setStatus(
-            `ĐÃ CẬP NHẬT ${region.toUpperCase()} • ${formatDate(state.lastUpdated)}`
-        );
-
-
-        renderEvents();
-
-
-    }catch(error){
-
-        console.error(error);
-
-
-        state.events =
-            [];
-
-
-        renderEvents();
-
-
-        setStatus(
-            `KHÔNG THỂ TẢI ${region.toUpperCase()}: ${error.message}`
-        );
-
-
-        showToast(
-            "Không thể kết nối API."
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   SERVERS RENDER
+   RENDER SERVERS
    ========================================================= */
 
 function renderServers(){
@@ -3005,7 +2903,9 @@ function renderServers(){
                     </div>
 
                     <div class="server-name">
-                        ${escapeHTML(server.name)}
+                        ${escapeHTML(
+                            server.name
+                        )}
                     </div>
 
                     <div class="server-code">
@@ -3037,19 +2937,7 @@ function renderServers(){
 
 
 /* =========================================================
-   STATUS BAR
-   ========================================================= */
-
-function setStatus(message){
-
-    statusBar.innerHTML =
-        `<strong>TRẠNG THÁI:</strong> ${escapeHTML(message)}`;
-
-}
-
-
-/* =========================================================
-   LOADING
+   RENDER LOADING
    ========================================================= */
 
 function renderLoading(){
@@ -3059,14 +2947,16 @@ function renderLoading(){
         <div class="empty">
 
             <div class="empty-icon">
-                ⏳
+                ⟳
             </div>
 
             <strong>
-                ĐANG TẢI DỮ LIỆU...
+                ĐANG CẬP NHẬT
             </strong>
 
-            Đang kết nối API.
+            <div class="empty-text">
+                Đang kết nối dữ liệu sự kiện...
+            </div>
 
         </div>
 
@@ -3074,7 +2964,7 @@ function renderLoading(){
 
 
     eventCount.textContent =
-        "ĐANG TẢI...";
+        "ĐANG CẬP NHẬT";
 
 }
 
@@ -3155,6 +3045,11 @@ function renderEvents(){
         `${events.length} SỰ KIỆN`;
 
 
+    /*
+       KHÔNG CÓ DỮ LIỆU
+       -> HIỆN KHUNG ĐANG CẬP NHẬT
+    */
+
     if(!events.length){
 
         eventsGrid.innerHTML = `
@@ -3162,15 +3057,27 @@ function renderEvents(){
             <div class="empty">
 
                 <div class="empty-icon">
-                    📭
+                    ⟳
                 </div>
 
                 <strong>
-                    KHÔNG CÓ SỰ KIỆN
+                    ĐANG CẬP NHẬT
                 </strong>
 
-                API hiện không trả về
-                sự kiện phù hợp.
+                <div class="empty-text">
+                    Chưa có dữ liệu sự kiện
+                    phù hợp với server hoặc
+                    bộ lọc hiện tại.
+                </div>
+
+                <div
+                    class="
+                        event-status
+                        updating
+                    "
+                >
+                    ⟳ ĐANG CẬP NHẬT
+                </div>
 
             </div>
 
@@ -3191,16 +3098,6 @@ function renderEvents(){
                     );
 
 
-                const statusClass =
-                    status === "live"
-                        ? "live"
-                        : status === "upcoming"
-                            ? "upcoming"
-                            : status === "ended"
-                                ? "ended"
-                                : "";
-
-
                 const image =
                     event.banner
                         ? escapeHTML(
@@ -3218,7 +3115,9 @@ function renderEvents(){
                     <img
                         class="event-image"
                         src="${image}"
-                        alt="${escapeHTML(event.title)}"
+                        alt="${escapeHTML(
+                            event.title
+                        )}"
                         loading="lazy"
                         onerror="
                             this.style.display='none'
@@ -3243,13 +3142,28 @@ function renderEvents(){
                     `;
 
 
+                const statusClass =
+                    status === "live"
+                        ? "live"
+                        :
+                        status === "upcoming"
+                            ? "upcoming"
+                            :
+                            status === "ended"
+                                ? "ended"
+                                :
+                                "updating";
+
+
                 return `
 
                     <article class="event">
 
                         ${imageHTML}
 
+
                         <div class="event-content">
+
 
                             <div class="event-title">
 
@@ -3307,7 +3221,7 @@ function renderEvents(){
                                             event.start
                                         )
                                         :
-                                        "Không có dữ liệu"
+                                        "ĐANG CẬP NHẬT"
                                     }
 
                                 </div>
@@ -3326,7 +3240,7 @@ function renderEvents(){
                                             event.end
                                         )
                                         :
-                                        "Không có dữ liệu"
+                                        "ĐANG CẬP NHẬT"
                                     }
 
                                 </div>
@@ -3358,6 +3272,7 @@ function renderEvents(){
 
                             </div>
 
+
                         </div>
 
                     </article>
@@ -3371,57 +3286,77 @@ function renderEvents(){
 
 
 /* =========================================================
-   COUNTDOWN
+   LOAD SERVER
    ========================================================= */
 
-function updateCountdowns(){
+async function loadServer(region){
 
-    document
-        .querySelectorAll(
-            ".countdown"
-        )
-        .forEach(element=>{
+    if(state.loading){
 
-            const id =
-                element.dataset.eventId;
+        return;
+
+    }
 
 
-            const event =
-                state.events.find(
-                    item =>
-                        String(item.id) ===
-                        String(id)
+    state.loading =
+        true;
+
+
+    state.server =
+        region;
+
+
+    renderServers();
+
+
+    setStatus(
+        `ĐANG TẢI SERVER ${region.toUpperCase()}...`
+    );
+
+
+    renderLoading();
+
+
+    try{
+
+        const cached =
+            getCache(region);
+
+
+        if(cached){
+
+            state.events =
+                normalizeData(
+                    cached
                 );
 
 
-            if(event){
-
-                element.textContent =
-                    countdownText(
-                        event
-                    );
-
-            }
-
-        });
+            state.lastUpdated =
+                new Date();
 
 
-    const statuses =
-        state.events.map(
-            event =>
-                `${event.id}:${getEventStatus(event)}`
-        ).join("|");
+            setStatus(
+                `ĐÃ TẢI DỮ LIỆU CACHE • SERVER ${region.toUpperCase()}`
+            );
 
 
-    if(
-        statuses !==
-        updateCountdowns.lastStatuses
-    ){
+            renderEvents();
 
-        updateCountdowns.lastStatuses =
-            statuses;
 
-        renderEvents();
+            return;
+
+        }
+
+
+        await refreshServerData(
+            region
+        );
+
+
+    }finally{
+
+        state.loading =
+            false;
 
     }
 
@@ -3429,7 +3364,87 @@ function updateCountdowns(){
 
 
 /* =========================================================
-   SEARCH / FILTER
+   REFRESH SERVER DATA
+   ========================================================= */
+
+async function refreshServerData(
+    region
+){
+
+    try{
+
+        const url =
+            CONFIG.API.replace(
+
+                "{region}",
+
+                encodeURIComponent(
+                    region
+                )
+
+            );
+
+
+        const data =
+            await fetchJSON(
+                url
+            );
+
+
+        saveCache(
+            region,
+            data
+        );
+
+
+        state.events =
+            normalizeData(
+                data
+            );
+
+
+        state.lastUpdated =
+            new Date();
+
+
+        setStatus(
+            `ĐÃ CẬP NHẬT ${region.toUpperCase()} • ${formatDate(
+                state.lastUpdated
+            )}`
+        );
+
+
+        renderEvents();
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        state.events =
+            [];
+
+
+        renderEvents();
+
+
+        setStatus(
+            `KHÔNG THỂ TẢI ${region.toUpperCase()}: ${error.message}`
+        );
+
+
+        showToast(
+            "Không thể kết nối API."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SEARCH
    ========================================================= */
 
 searchInput.addEventListener(
@@ -3437,6 +3452,10 @@ searchInput.addEventListener(
     renderEvents
 );
 
+
+/* =========================================================
+   FILTER
+   ========================================================= */
 
 filterSelect.addEventListener(
     "change",
@@ -3478,11 +3497,68 @@ refreshBtn.addEventListener(
 
 
 /* =========================================================
-   AUTO COUNTDOWN
+   COUNTDOWN
    ========================================================= */
 
+let previousStatuses =
+    "";
+
+
 setInterval(
-    updateCountdowns,
+    ()=>{
+
+        document
+            .querySelectorAll(
+                ".countdown"
+            )
+            .forEach(element=>{
+
+                const id =
+                    element.dataset.eventId;
+
+
+                const event =
+                    state.events.find(
+                        item =>
+                            String(item.id) ===
+                            String(id)
+                    );
+
+
+                if(event){
+
+                    element.textContent =
+                        countdownText(
+                            event
+                        );
+
+                }
+
+            });
+
+
+        const statuses =
+            state.events
+                .map(
+                    event =>
+                        `${event.id}:${getEventStatus(event)}`
+                )
+                .join("|");
+
+
+        if(
+            statuses !==
+            previousStatuses
+        ){
+
+            previousStatuses =
+                statuses;
+
+            renderEvents();
+
+        }
+
+    },
     1000
 );
 
@@ -3617,4 +3693,4 @@ setTimeout(
 </script>
 
 </body>
-    </html>
+   </html>
