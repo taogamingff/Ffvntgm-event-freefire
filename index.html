@@ -2,2601 +2,508 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FREE FIRE EVENT & UPDATE 🔥</title>
 
-<meta name="description" content="Cập nhật sự kiện Free Fire mới nhất theo từng máy chủ
-Theo dõi các sự kiện đang diễn ra, sắp diễn ra và đã kết thúc cùng thời gian bắt đầu, thời gian kết thúc và thông tin chi tiết của từng sự kiện">
-
-<meta name="theme-color" content="#050505">
-<meta name="robots" content="index,follow">
-
 <style>
-@font-face{
-    font-family:"GFF-Latin";
-    src:
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Regular.woff2") format("woff2"),
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Regular.woff") format("woff"),
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Regular.ttf") format("truetype");
-    font-display:swap;
-}
-
-@font-face{
-    font-family:"GFF-Latin";
-    src:
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2"),
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff") format("woff"),
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.ttf") format("truetype");
-    font-weight:700;
-    font-display:swap;
-}
-
-:root{
-    --orange:#ff6a00;
-    --orange2:#ff9d3c;
-    --yellow:#ffc857;
-    --red:#ff3d3d;
-    --green:#36e28a;
-    --blue:#4da6ff;
-
-    --bg:#050505;
-    --panel:rgba(18,18,18,.78);
-    --panel2:rgba(28,28,28,.72);
-    --border:rgba(255,255,255,.10);
-    --text:#fff;
-    --muted:#aaa;
-
-    --radius:20px;
-}
-
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
-    -webkit-tap-highlight-color:transparent;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
-    min-height:100vh;
-    background:
-        radial-gradient(circle at 20% 10%,rgba(255,106,0,.12),transparent 30%),
-        radial-gradient(circle at 90% 30%,rgba(255,60,0,.08),transparent 28%),
-        linear-gradient(135deg,#030303,#0b0b0b 50%,#030303);
-    color:var(--text);
-    font-family:"GFF-Latin",Arial,sans-serif;
-    overflow-x:hidden;
-}
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background:
-        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-    background-size:40px 40px;
-    mask-image:linear-gradient(to bottom,black,transparent);
-    z-index:-1;
-}
-
-/* =========================
-   LOADER
-========================= */
-
-.loader{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#030303;
-    transition:
-        opacity .25s ease,
-        visibility .25s ease;
-}
-
-.loader.hide{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-}
-
-.loader-box{
-    width:min(90%,390px);
-    text-align:center;
-}
-
-.loader-logo{
-    width:92px;
-    height:92px;
-    object-fit:cover;
-    border-radius:24px;
-    border:2px solid rgba(255,106,0,.7);
-    box-shadow:
-        0 0 30px rgba(255,106,0,.25),
-        0 0 80px rgba(255,106,0,.08);
-    animation:loaderPulse 1s infinite alternate;
-}
-
-@keyframes loaderPulse{
-    from{transform:scale(.96)}
-    to{transform:scale(1.03)}
-}
-
-.loader-title{
-    margin-top:20px;
-    font-size:25px;
-    font-weight:700;
-    letter-spacing:1px;
-}
-
-.loader-sub{
-    margin-top:6px;
-    color:#aaa;
-    font-size:13px;
-}
-
-.loader-progress{
-    height:7px;
-    margin-top:25px;
-    border-radius:999px;
-    overflow:hidden;
-    background:#1d1d1d;
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.loader-progress-bar{
-    width:0%;
-    height:100%;
-    border-radius:999px;
-    background:linear-gradient(90deg,var(--orange),var(--yellow));
-    box-shadow:0 0 15px rgba(255,106,0,.6);
-    transition:width .08s linear;
-}
-
-.loader-percent{
-    margin-top:9px;
-    color:var(--orange2);
-    font-size:13px;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-.header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-    background:rgba(5,5,5,.76);
-    border-bottom:1px solid var(--border);
-}
-
-.header-inner{
-    width:min(1400px,94%);
-    margin:auto;
-    min-height:74px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    min-width:0;
-}
-
-.brand img{
-    width:48px;
-    height:48px;
-    border-radius:14px;
-    object-fit:cover;
-    border:1px solid rgba(255,106,0,.45);
-}
-
-.brand-text{
-    min-width:0;
-}
-
-.brand-title{
-    font-size:18px;
-    font-weight:700;
-    white-space:nowrap;
-}
-
-.brand-desc{
-    color:#888;
-    font-size:10px;
-    margin-top:2px;
-}
-
-.menu-btn{
-    width:45px;
-    height:45px;
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.04);
-    color:white;
-    border-radius:13px;
-    font-size:22px;
-    cursor:pointer;
-    display:none;
-}
-
-/* =========================
-   NAV
-========================= */
-
-.nav{
-    display:flex;
-    gap:6px;
-}
-
-.nav button{
-    border:0;
-    background:transparent;
-    color:#aaa;
-    padding:11px 13px;
-    border-radius:12px;
-    cursor:pointer;
-    font-family:inherit;
-    font-weight:700;
-    transition:.2s;
-}
-
-.nav button:hover,
-.nav button.active{
+    margin:0;
+    background:#080808;
     color:#fff;
-    background:rgba(255,106,0,.13);
+    font-family:Arial,sans-serif;
 }
 
-/* =========================
-   MAIN
-========================= */
-
-main{
-    width:min(1400px,94%);
-    margin:auto;
-    padding:28px 0 80px;
+.container{
+    width:min(100% - 24px,900px);
+    margin:30px auto;
 }
-
-.hero{
-    position:relative;
-    padding:32px;
-    border-radius:28px;
-    overflow:hidden;
-    background:
-        linear-gradient(135deg,rgba(255,106,0,.14),rgba(255,255,255,.025)),
-        rgba(15,15,15,.75);
-    border:1px solid rgba(255,106,0,.18);
-    box-shadow:0 20px 70px rgba(0,0,0,.3);
-}
-
-.hero::after{
-    content:"";
-    position:absolute;
-    width:280px;
-    height:280px;
-    right:-100px;
-    top:-130px;
-    border-radius:50%;
-    background:rgba(255,106,0,.13);
-    filter:blur(60px);
-}
-
-.hero h1{
-    position:relative;
-    z-index:1;
-    font-size:clamp(28px,5vw,50px);
-    line-height:1;
-}
-
-.hero h1 span{
-    color:var(--orange);
-}
-
-.hero p{
-    position:relative;
-    z-index:1;
-    max-width:800px;
-    margin-top:15px;
-    color:#aaa;
-    line-height:1.7;
-    font-size:14px;
-}
-
-/* =========================
-   CONTROL
-========================= */
-
-.controls{
-    display:grid;
-    grid-template-columns:220px 1fr;
-    gap:12px;
-    margin-top:20px;
-}
-
-.control{
-    min-height:52px;
-    border-radius:15px;
-    border:1px solid var(--border);
-    background:var(--panel);
-    color:#fff;
-    padding:0 16px;
-    outline:none;
-    font-family:inherit;
-}
-
-select.control{
-    cursor:pointer;
-}
-
-.search-wrap{
-    position:relative;
-}
-
-.search-wrap input{
-    width:100%;
-    height:52px;
-    border-radius:15px;
-    border:1px solid var(--border);
-    background:var(--panel);
-    color:white;
-    padding:0 18px 0 45px;
-    outline:none;
-    font-family:inherit;
-}
-
-.search-wrap span{
-    position:absolute;
-    left:16px;
-    top:50%;
-    transform:translateY(-50%);
-    color:#777;
-}
-
-/* =========================
-   FILTER
-========================= */
-
-.filters{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:14px;
-}
-
-.filter{
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.035);
-    color:#999;
-    border-radius:999px;
-    padding:9px 15px;
-    font-family:inherit;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.filter.active{
-    color:white;
-    border-color:rgba(255,106,0,.4);
-    background:rgba(255,106,0,.13);
-}
-
-/* =========================
-   INFO BAR
-========================= */
-
-.info-bar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-top:20px;
-    padding:14px 17px;
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.025);
-    border-radius:15px;
-}
-
-.info-left{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:13px;
-}
-
-.live-dot{
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:var(--green);
-    box-shadow:0 0 12px var(--green);
-}
-
-.updated{
-    color:#777;
-    font-size:11px;
-}
-
-/* =========================
-   GRID
-========================= */
-
-.events-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:20px;
-}
-
-/* =========================
-   EVENT CARD
-========================= */
 
 .event-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:var(--radius);
-    background:
-        linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.018));
-    border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 15px 45px rgba(0,0,0,.28);
-    transition:
-        transform .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,106,0,.18);
+    border-radius:18px;
+    padding:14px;
+    margin-bottom:14px;
+    backdrop-filter:blur(12px);
 }
 
-.event-card:hover{
-    transform:translateY(-4px);
-    border-color:rgba(255,106,0,.35);
-    box-shadow:
-        0 20px 55px rgba(0,0,0,.35),
-        0 0 25px rgba(255,106,0,.06);
-}
-
-.event-image{
-    position:relative;
-    aspect-ratio:16/9;
-    background:#111;
-    overflow:hidden;
-}
-
-.event-image img{
+.event-banner{
     width:100%;
-    height:100%;
-    display:block;
+    aspect-ratio:16/9;
     object-fit:cover;
-}
-
-.status{
-    position:absolute;
-    top:12px;
-    left:12px;
-    z-index:2;
-    padding:7px 11px;
-    border-radius:999px;
-    font-size:10px;
-    font-weight:700;
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,.1);
-}
-
-.status.live{
-    color:#fff;
-    background:rgba(27,180,100,.75);
-}
-
-.status.upcoming{
-    color:#fff;
-    background:rgba(255,160,40,.8);
-}
-
-.status.ended{
-    color:#fff;
-    background:rgba(110,110,110,.78);
-}
-
-.status.updating{
-    color:#fff;
-    background:rgba(255,106,0,.75);
-}
-
-.event-body{
-    padding:17px;
+    border-radius:13px;
+    display:block;
 }
 
 .event-title{
-    font-size:19px;
-    font-weight:700;
-    line-height:1.25;
+    margin:12px 0 6px;
+    font-size:17px;
+    font-weight:800;
 }
 
-.event-description{
-    margin-top:8px;
-    color:#999;
-    font-size:12px;
-    line-height:1.6;
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
-}
-
-.event-time{
-    margin-top:14px;
-    display:grid;
-    gap:7px;
-}
-
-.time-row{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    font-size:11px;
-    color:#888;
-}
-
-.time-row strong{
-    color:#ddd;
-    text-align:right;
+.event-desc{
+    color:#aaa;
+    font-size:13px;
+    line-height:1.5;
 }
 
 .countdown{
-    margin-top:14px;
-    padding:11px;
-    border-radius:12px;
-    background:rgba(255,106,0,.07);
-    border:1px solid rgba(255,106,0,.12);
-    color:var(--orange2);
-    text-align:center;
-    font-size:13px;
-    font-weight:700;
-}
-
-/* =========================
-   EMPTY / UPDATING
-========================= */
-
-.updating-frame{
-    grid-column:1/-1;
-    min-height:330px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    border:1px dashed rgba(255,106,0,.25);
-    border-radius:24px;
-    background:
-        radial-gradient(circle,rgba(255,106,0,.09),transparent 55%),
-        rgba(255,255,255,.018);
-}
-
-.updating-icon{
-    width:72px;
-    height:72px;
-    border-radius:22px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:30px;
-    background:rgba(255,106,0,.08);
-    border:1px solid rgba(255,106,0,.18);
-    margin-bottom:18px;
-}
-
-.updating-title{
-    font-size:23px;
-    font-weight:700;
-}
-
-.updating-text{
-    color:#777;
+    margin-top:10px;
+    color:#ff9d3c;
     font-size:12px;
-    margin-top:7px;
-    max-width:420px;
-    line-height:1.6;
+    font-weight:700;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    width:min(1400px,94%);
-    margin:auto;
-    padding:25px 0 45px;
-    text-align:center;
-    color:#555;
-    font-size:11px;
+/* NÚT SAO CHÉP NHỎ */
+.copy-banner-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:auto;
+    min-height:30px;
+    margin-top:9px;
+    padding:5px 9px;
+    border:1px solid rgba(255,106,0,.25);
+    border-radius:8px;
+    background:rgba(255,106,0,.07);
+    color:#ff9d3c;
+    font-size:10px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
 }
 
-footer strong{
-    color:#888;
+.copy-banner-btn:hover{
+    background:rgba(255,106,0,.16);
+    border-color:rgba(255,106,0,.5);
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:1000px){
-    .events-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+.copy-banner-btn.copied{
+    color:#35e58a;
+    border-color:rgba(53,229,138,.3);
+    background:rgba(53,229,138,.08);
 }
 
-@media(max-width:700px){
-
-    .header-inner{
-        min-height:66px;
-    }
-
-    .brand img{
-        width:42px;
-        height:42px;
-    }
-
-    .brand-title{
-        font-size:14px;
-    }
-
-    .brand-desc{
-        font-size:8px;
-    }
-
-    .menu-btn{
-        display:block;
-    }
-
-    .nav{
-        position:absolute;
-        top:66px;
-        left:3%;
-        right:3%;
-        display:none;
-        flex-direction:column;
-        padding:10px;
-        border-radius:17px;
-        background:rgba(12,12,12,.96);
-        border:1px solid var(--border);
-        box-shadow:0 20px 50px rgba(0,0,0,.5);
-    }
-
-    .nav.open{
-        display:flex;
-    }
-
-    .nav button{
-        text-align:left;
-        padding:14px;
-    }
-
-    main{
-        width:92%;
-        padding-top:18px;
-    }
-
-    .hero{
-        padding:25px 20px;
-        border-radius:22px;
-    }
-
-    .hero h1{
-        font-size:31px;
-    }
-
-    .controls{
-        grid-template-columns:1fr;
-    }
-
-    .events-grid{
-        grid-template-columns:1fr;
-    }
-
-    .event-title{
-        font-size:18px;
-    }
+.copy-banner-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
 }
 
-/* =========================
-   REDUCE MOTION
-========================= */
-
-@media(prefers-reduced-motion:reduce){
-    *,
-    *::before,
-    *::after{
-        animation-duration:.01ms!important;
-        transition-duration:.01ms!important;
-        scroll-behavior:auto!important;
-    }
+.status{
+    display:inline-block;
+    margin-top:8px;
+    padding:4px 8px;
+    border-radius:7px;
+    background:rgba(255,255,255,.07);
+    color:#aaa;
+    font-size:10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     LOADER
-========================= -->
+<div class="container">
 
-<div class="loader" id="loader">
-    <div class="loader-box">
+    <h1>FREE FIRE EVENT & UPDATE 🔥</h1>
 
-        <img
-            class="loader-logo"
-            src="https://cdn.imagetourls.com/uploads/tyImg/1ggIdgxtr.jpg"
-            alt="Free Fire"
-        >
-
-        <div class="loader-title">
-            XIN CHÀO 🔥
-        </div>
-
-        <div class="loader-sub">
-            FREE FIRE EVENT & UPDATE
-        </div>
-
-        <div class="loader-progress">
-            <div
-                class="loader-progress-bar"
-                id="loaderBar"
-            ></div>
-        </div>
-
-        <div
-            class="loader-percent"
-            id="loaderPercent"
-        >
-            0%
-        </div>
-
+    <div id="events">
+        Đang tải sự kiện...
     </div>
+
 </div>
 
-<!-- =========================
-     HEADER
-========================= -->
-
-<header class="header">
-
-    <div class="header-inner">
-
-        <div class="brand">
-
-            <img
-                src="https://cdn.imagetourls.com/uploads/tyImg/1ggIdgxtr.jpg"
-                alt="Free Fire Event"
-            >
-
-            <div class="brand-text">
-
-                <div class="brand-title">
-                    FREE FIRE EVENT & UPDATE 🔥
-                </div>
-
-                <div class="brand-desc">
-                    CẬP NHẬT SỰ KIỆN THEO TỪNG MÁY CHỦ
-                </div>
-
-            </div>
-
-        </div>
-
-        <button
-            class="menu-btn"
-            id="menuBtn"
-            aria-label="Menu"
-        >
-            ☰
-        </button>
-
-        <nav
-            class="nav"
-            id="nav"
-        >
-
-            <button
-                class="active"
-                data-scroll="home"
-            >
-                🏠 Trang chủ
-            </button>
-
-            <button data-scroll="events">
-                🔥 Sự kiện
-            </button>
-
-            <button data-scroll="events">
-                🔄 Update
-            </button>
-
-            <button data-scroll="events">
-                📰 Tin tức
-            </button>
-
-        </nav>
-
-    </div>
-
-</header>
-
-<!-- =========================
-     MAIN
-========================= -->
-
-<main id="home">
-
-    <section class="hero">
-
-        <h1>
-            FREE FIRE
-            <span>EVENT & UPDATE</span> 🔥
-        </h1>
-
-        <p>
-            Cập nhật sự kiện Free Fire mới nhất theo từng máy chủ.
-            Theo dõi các sự kiện đang diễn ra, sắp diễn ra và đã kết thúc
-            cùng thời gian bắt đầu, thời gian kết thúc và thông tin chi tiết
-            của từng sự kiện.
-        </p>
-
-    </section>
-
-    <!-- CONTROLS -->
-
-    <section class="controls">
-
-        <select
-            class="control"
-            id="serverSelect"
-        >
-
-            <option value="vn">🇻🇳 Việt Nam</option>
-            <option value="th">🇹🇭 Thái Lan</option>
-            <option value="id">🇮🇩 Indonesia</option>
-            <option value="sg">🇸🇬 Singapore</option>
-            <option value="my">🇲🇾 Malaysia</option>
-            <option value="ph">🇵🇭 Philippines</option>
-            <option value="br">🇧🇷 Brazil</option>
-            <option value="in">🇮🇳 India</option>
-            <option value="pk">🇵🇰 Pakistan</option>
-            <option value="bd">🇧🇩 Bangladesh</option>
-            <option value="eg">🇪🇬 Egypt</option>
-
-        </select>
-
-        <div class="search-wrap">
-
-            <span>🔎</span>
-
-            <input
-                type="search"
-                id="searchInput"
-                placeholder="Tìm kiếm sự kiện..."
-                autocomplete="off"
-            >
-
-        </div>
-
-    </section>
-
-    <!-- FILTER -->
-
-    <div class="filters">
-
-        <button
-            class="filter active"
-            data-filter="all"
-        >
-            Tất cả
-        </button>
-
-        <button
-            class="filter"
-            data-filter="live"
-        >
-            🟢 Đang diễn ra
-        </button>
-
-        <button
-            class="filter"
-            data-filter="upcoming"
-        >
-            🟠 Sắp diễn ra
-        </button>
-
-        <button
-            class="filter"
-            data-filter="ended"
-        >
-            ⚫ Đã kết thúc
-        </button>
-
-    </div>
-
-    <!-- INFO -->
-
-    <div class="info-bar">
-
-        <div class="info-left">
-
-            <span class="live-dot"></span>
-
-            <span>
-                Máy chủ:
-                <strong id="serverName">
-                    Việt Nam
-                </strong>
-            </span>
-
-            <span>
-                •
-                <strong id="eventCount">
-                    0
-                </strong>
-                sự kiện
-            </span>
-
-        </div>
-
-        <div
-            class="updated"
-            id="updatedText"
-        >
-            Đang tải dữ liệu...
-        </div>
-
-    </div>
-
-    <!-- EVENTS -->
-
-    <section
-        class="events-grid"
-        id="eventsGrid"
-    >
-
-        <div class="updating-frame">
-
-            <div class="updating-icon">
-                🔄
-            </div>
-
-            <div class="updating-title">
-                ĐANG CẬP NHẬT
-            </div>
-
-            <div class="updating-text">
-                Đang kết nối dữ liệu sự kiện...
-            </div>
-
-        </div>
-
-    </section>
-
-</main>
-
-<footer>
-
-    <strong>FREE FIRE EVENT & UPDATE 🔥</strong>
-    <br>
-    Dữ liệu được hiển thị theo máy chủ được chọn.
-
-</footer>
-
 <script>
-"use strict";
+const API_URL = "/api/events?region=vn";
 
-/* =========================================================
-   CONFIG
-========================================================= */
+const DEFAULT_IMAGE =
+"https://cdn.upanhlaylink.com/i/NuXM0SFQ.jpg";
 
-const CONFIG = {
 
-    /*
-     * API hiện tại:
-     * /api/events?region={region}
-     *
-     * Nếu deploy cùng domain có API proxy:
-     * /api/events?region=vn
-     */
-    API_URL: "/api/events?region={region}",
-
-    /*
-     * Ảnh dùng khi event API không trả banner.
-     * Event KHÔNG bị xóa chỉ vì thiếu banner.
-     */
-    DEFAULT_IMAGE:
-        "https://cdn.upanhlaylink.com/i/NuXM0SFQ.jpg",
-
-    /*
-     * Cache ngắn để mở trang lần sau nhanh hơn.
-     */
-    CACHE_TIME: 30000,
-
-    /*
-     * API tối đa 8 giây.
-     */
-    REQUEST_TIMEOUT: 8000,
-
-    /*
-     * Tự kiểm tra API mỗi 60 giây.
-     */
-    AUTO_REFRESH: 60000,
-
-    /*
-     * Hoạt động nền.
-     */
-    BACKGROUND_ACTIVITY: 15000
-
-};
-
-/* =========================================================
-   SERVER
-========================================================= */
-
-const SERVER_NAMES = {
-
-    vn:"Việt Nam",
-    th:"Thái Lan",
-    id:"Indonesia",
-    sg:"Singapore",
-    my:"Malaysia",
-    ph:"Philippines",
-    br:"Brazil",
-    in:"India",
-    pk:"Pakistan",
-    bd:"Bangladesh",
-    eg:"Egypt"
-
-};
-
-/* =========================================================
-   STATE
-========================================================= */
-
-const state = {
-
-    server:
-        localStorage.getItem("ff_server")
-        || "vn",
-
-    events:[],
-
-    loading:false,
-
-    lastUpdated:0,
-
-    renderedSignature:"",
-
-    filter:"all",
-
-    search:"",
-
-    requestId:0
-
-};
-
-/* =========================================================
-   DOM
-========================================================= */
-
-const $ = selector =>
-    document.querySelector(selector);
-
-const $$ = selector =>
-    document.querySelectorAll(selector);
-
-const loader =
-    $("#loader");
-
-const loaderBar =
-    $("#loaderBar");
-
-const loaderPercent =
-    $("#loaderPercent");
-
-const eventsGrid =
-    $("#eventsGrid");
-
-const serverSelect =
-    $("#serverSelect");
-
-const searchInput =
-    $("#searchInput");
-
-const serverName =
-    $("#serverName");
-
-const eventCount =
-    $("#eventCount");
-
-const updatedText =
-    $("#updatedText");
-
-const menuBtn =
-    $("#menuBtn");
-
-const nav =
-    $("#nav");
-
-/* =========================================================
-   UTILITY
-========================================================= */
-
-function safeString(value){
-
-    if(
-        value === undefined ||
-        value === null
-    ){
-        return "";
-    }
-
-    return String(value).trim();
-
-}
+/* =========================
+   ESCAPE HTML
+========================= */
 
 function escapeHTML(value){
-
-    return safeString(value)
+    return String(value ?? "")
         .replace(/&/g,"&amp;")
         .replace(/</g,"&lt;")
         .replace(/>/g,"&gt;")
         .replace(/"/g,"&quot;")
         .replace(/'/g,"&#039;");
-
 }
 
-function normalizeTimestamp(value){
 
-    if(
-        value === undefined ||
-        value === null ||
-        value === ""
-    ){
-        return null;
-    }
+/* =========================
+   LẤY LINK BANNER
+========================= */
 
-    if(
-        typeof value === "number"
-    ){
+function getBanner(event){
 
-        if(value < 10000000000){
-            return value * 1000;
-        }
-
-        return value;
-
-    }
-
-    const text =
-        String(value).trim();
-
-    if(
-        /^\d+$/.test(text)
-    ){
-
-        const number =
-            Number(text);
-
-        return number < 10000000000
-            ? number * 1000
-            : number;
-
-    }
-
-    const parsed =
-        Date.parse(text);
-
-    return Number.isNaN(parsed)
-        ? null
-        : parsed;
-
+    return (
+        event.banner ||
+        event.image ||
+        event.image_url ||
+        event.banner_url ||
+        event.cover ||
+        event.thumbnail ||
+        ""
+    );
 }
 
-function firstValue(
-    object,
-    keys
-){
 
-    if(!object || typeof object !== "object"){
-        return "";
-    }
+/* =========================
+   CHUẨN HÓA EVENT
+========================= */
 
-    for(const key of keys){
-
-        if(
-            object[key] !== undefined &&
-            object[key] !== null &&
-            object[key] !== ""
-        ){
-
-            return object[key];
-
-        }
-
-    }
-
-    return "";
-
-}
-
-/* =========================================================
-   DATE
-========================================================= */
-
-function formatDate(value){
-
-    const timestamp =
-        normalizeTimestamp(value);
-
-    if(!timestamp){
-        return "Chưa xác định";
-    }
-
-    try{
-
-        return new Intl.DateTimeFormat(
-            "vi-VN",
-            {
-                year:"numeric",
-                month:"2-digit",
-                day:"2-digit",
-                hour:"2-digit",
-                minute:"2-digit",
-                second:"2-digit",
-                hour12:false
-            }
-        ).format(
-            new Date(timestamp)
-        );
-
-    }catch{
-
-        return new Date(timestamp)
-            .toLocaleString("vi-VN");
-
-    }
-
-}
-
-/* =========================================================
-   NORMALIZE EVENT
-========================================================= */
-
-function normalizeEvent(
-    raw,
-    index
-){
-
-    const item =
-        raw && typeof raw === "object"
-            ? raw
-            : {};
-
-    const id =
-        firstValue(
-            item,
-            [
-                "id",
-                "event_id",
-                "eventId",
-                "uuid",
-                "key"
-            ]
-        )
-        || `event-${index}`;
-
-    const title =
-        firstValue(
-            item,
-            [
-                "title",
-                "name",
-                "event_name",
-                "eventName",
-                "subject"
-            ]
-        )
-        || "Sự kiện Free Fire";
-
-    const description =
-        firstValue(
-            item,
-            [
-                "description",
-                "desc",
-                "detail",
-                "content",
-                "text"
-            ]
-        )
-        || "Thông tin sự kiện Free Fire.";
-
-    const banner =
-        firstValue(
-            item,
-            [
-                "banner",
-                "image",
-                "image_url",
-                "imageUrl",
-                "banner_url",
-                "bannerUrl",
-                "thumbnail",
-                "cover"
-            ]
-        );
-
-    const startRaw =
-        firstValue(
-            item,
-            [
-                "start",
-                "start_time",
-                "startTime",
-                "start_at",
-                "startAt",
-                "begin",
-                "begin_time",
-                "beginTime",
-                "from"
-            ]
-        );
-
-    const endRaw =
-        firstValue(
-            item,
-            [
-                "end",
-                "end_time",
-                "endTime",
-                "end_at",
-                "endAt",
-                "finish",
-                "finish_time",
-                "finishTime",
-                "to"
-            ]
-        );
+function normalizeEvent(event){
 
     return {
+        title:
+            event.title ||
+            event.name ||
+            "Sự kiện Free Fire",
 
-        id:String(id),
+        description:
+            event.description ||
+            event.desc ||
+            "",
 
-        title:String(title),
+        banner:getBanner(event),
 
-        description:String(description),
+        start:
+            event.start ||
+            event.start_time ||
+            event.startAt ||
+            event.startDate ||
+            null,
 
-        banner:safeString(banner),
-
-        start:normalizeTimestamp(startRaw),
-
-        end:normalizeTimestamp(endRaw),
-
-        raw:item
-
+        end:
+            event.end ||
+            event.end_time ||
+            event.endAt ||
+            event.endDate ||
+            null
     };
-
 }
 
-/* =========================================================
-   FIND EVENT ARRAY
-========================================================= */
 
-function findEventArray(data){
+/* =========================
+   ĐẾM NGƯỢC
+========================= */
 
-    if(Array.isArray(data)){
-        return data;
-    }
+function countdown(end){
 
-    if(
-        !data ||
-        typeof data !== "object"
-    ){
-        return [];
-    }
+    if(!end) return "";
 
-    const directKeys = [
-        "events",
-        "event",
-        "items",
-        "results",
-        "list",
-        "banners"
-    ];
+    const time =
+        new Date(end).getTime() - Date.now();
 
-    for(const key of directKeys){
-
-        if(Array.isArray(data[key])){
-            return data[key];
-        }
-
-    }
-
-    if(
-        data.data &&
-        typeof data.data === "object"
-    ){
-
-        if(Array.isArray(data.data)){
-            return data.data;
-        }
-
-        for(const key of directKeys){
-
-            if(
-                Array.isArray(
-                    data.data[key]
-                )
-            ){
-
-                return data.data[key];
-
-            }
-
-        }
-
-    }
-
-    return [];
-
-}
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-function getStatus(event){
-
-    const now =
-        Date.now();
-
-    if(
-        event.start &&
-        now < event.start
-    ){
-
-        return "upcoming";
-
-    }
-
-    if(
-        event.end &&
-        now > event.end
-    ){
-
-        return "ended";
-
-    }
-
-    if(
-        event.start &&
-        event.end
-    ){
-
-        return "live";
-
-    }
-
-    /*
-     * Event tồn tại nhưng API không có
-     * thời gian đầy đủ.
-     */
-    return "updating";
-
-}
-
-/* =========================================================
-   STATUS LABEL
-========================================================= */
-
-function statusLabel(status){
-
-    switch(status){
-
-        case "live":
-            return "🟢 ĐANG DIỄN RA";
-
-        case "upcoming":
-            return "🟠 SẮP DIỄN RA";
-
-        case "ended":
-            return "⚫ ĐÃ KẾT THÚC";
-
-        default:
-            return "🔄 ĐANG CẬP NHẬT";
-
-    }
-
-}
-
-/* =========================================================
-   CACHE
-========================================================= */
-
-function cacheKey(server){
-
-    return `ff_event_cache_${server}`;
-
-}
-
-function saveCache(
-    server,
-    events
-){
-
-    try{
-
-        localStorage.setItem(
-            cacheKey(server),
-            JSON.stringify({
-                time:Date.now(),
-                events
-            })
-        );
-
-    }catch{
-
-        /* localStorage có thể bị giới hạn */
-
-    }
-
-}
-
-function readCache(server){
-
-    try{
-
-        const raw =
-            localStorage.getItem(
-                cacheKey(server)
-            );
-
-        if(!raw){
-            return null;
-        }
-
-        const parsed =
-            JSON.parse(raw);
-
-        if(
-            !parsed ||
-            !Array.isArray(parsed.events)
-        ){
-            return null;
-        }
-
-        return parsed;
-
-    }catch{
-
-        return null;
-
-    }
-
-}
-
-/* =========================================================
-   RENDER UPDATING
-========================================================= */
-
-function renderUpdating(
-    text="Chưa có dữ liệu sự kiện"
-){
-
-    eventsGrid.innerHTML = `
-
-        <div class="updating-frame">
-
-            <div class="updating-icon">
-                🔄
-            </div>
-
-            <div class="updating-title">
-                ĐANG CẬP NHẬT
-            </div>
-
-            <div class="updating-text">
-                ${escapeHTML(text)}
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-/* =========================================================
-   FILTER EVENTS
-========================================================= */
-
-function filteredEvents(){
-
-    const search =
-        state.search
-            .toLowerCase()
-            .trim();
-
-    return state.events.filter(
-        event => {
-
-            const status =
-                getStatus(event);
-
-            const matchesFilter =
-                state.filter === "all"
-                ||
-                status === state.filter;
-
-            if(!matchesFilter){
-                return false;
-            }
-
-            if(!search){
-                return true;
-            }
-
-            const haystack =
-                (
-                    event.title
-                    + " "
-                    + event.description
-                ).toLowerCase();
-
-            return haystack.includes(search);
-
-        }
-    );
-
-}
-
-/* =========================================================
-   SIGNATURE
-========================================================= */
-
-function getSignature(events){
-
-    return events.map(
-        event => [
-
-            event.id,
-            event.title,
-            event.description,
-            event.banner,
-            event.start,
-            event.end
-
-        ].join("|")
-    ).join("||");
-
-}
-
-/* =========================================================
-   RENDER EVENTS
-========================================================= */
-
-function renderEvents(
-    force=false
-){
-
-    const events =
-        filteredEvents();
-
-    eventCount.textContent =
-        events.length;
-
-    if(!events.length){
-
-        renderUpdating(
-            state.events.length
-                ? "Không có sự kiện phù hợp với bộ lọc hiện tại."
-                : "Chưa có dữ liệu sự kiện"
-        );
-
-        state.renderedSignature = "";
-
-        return;
-
-    }
-
-    const signature =
-        getSignature(events);
-
-    /*
-     * Không rebuild DOM nếu dữ liệu
-     * không thay đổi.
-     *
-     * Điều này giúp countdown không
-     * bị nhấp nháy.
-     */
-    if(
-        !force &&
-        signature === state.renderedSignature
-    ){
-
-        updateCountdowns();
-
-        return;
-
-    }
-
-    state.renderedSignature =
-        signature;
-
-    const fragment =
-        document.createDocumentFragment();
-
-    events.forEach(
-        (event,index) => {
-
-            const status =
-                getStatus(event);
-
-            /*
-             * QUAN TRỌNG:
-             * Không loại event vì banner rỗng.
-             */
-            const image =
-                event.banner
-                || CONFIG.DEFAULT_IMAGE;
-
-            const card =
-                document.createElement("article");
-
-            card.className =
-                "event-card";
-
-            card.dataset.id =
-                event.id;
-
-            card.innerHTML = `
-
-                <div class="event-image">
-
-                    <img
-                        src="${escapeHTML(image)}"
-                        alt="${escapeHTML(event.title)}"
-                        loading="${index < 3 ? "eager" : "lazy"}"
-                        decoding="async"
-                        onerror="
-                            if(this.src !== '${CONFIG.DEFAULT_IMAGE}'){
-                                this.src='${CONFIG.DEFAULT_IMAGE}';
-                            }
-                        "
-                    >
-
-                    <div class="status ${status}">
-                        ${statusLabel(status)}
-                    </div>
-
-                </div>
-
-                <div class="event-body">
-
-                    <div class="event-title">
-                        ${escapeHTML(event.title)}
-                    </div>
-
-                    <div class="event-description">
-                        ${escapeHTML(event.description)}
-                    </div>
-
-                    <div class="event-time">
-
-                        <div class="time-row">
-
-                            <span>
-                                Bắt đầu
-                            </span>
-
-                            <strong>
-                                ${formatDate(event.start)}
-                            </strong>
-
-                        </div>
-
-                        <div class="time-row">
-
-                            <span>
-                                Kết thúc
-                            </span>
-
-                            <strong>
-                                ${formatDate(event.end)}
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                    <div
-                        class="countdown"
-                        data-countdown-id="${escapeHTML(event.id)}"
-                    >
-                        ${getCountdownText(event)}
-                    </div>
-
-                </div>
-
-            `;
-
-            fragment.appendChild(card);
-
-        }
-    );
-
-    eventsGrid.replaceChildren(
-        fragment
-    );
-
-    updateCountdowns();
-
-}
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-function getCountdownText(event){
-
-    const now =
-        Date.now();
-
-    if(
-        event.start &&
-        now < event.start
-    ){
-
-        return "⏳ Bắt đầu sau " +
-            formatDuration(
-                event.start - now
-            );
-
-    }
-
-    if(
-        event.end &&
-        now < event.end
-    ){
-
-        return "🔥 Kết thúc sau " +
-            formatDuration(
-                event.end - now
-            );
-
-    }
-
-    if(
-        event.end &&
-        now >= event.end
-    ){
-
-        return "✓ Sự kiện đã kết thúc";
-
-    }
-
-    return "🔄 Thời gian đang cập nhật";
-
-}
-
-function formatDuration(ms){
-
-    if(ms <= 0){
-        return "00:00:00";
-    }
-
-    let total =
-        Math.floor(ms / 1000);
+    if(time <= 0)
+        return "ĐÃ KẾT THÚC";
 
     const days =
-        Math.floor(total / 86400);
-
-    total %= 86400;
+        Math.floor(time / 86400000);
 
     const hours =
-        Math.floor(total / 3600);
-
-    total %= 3600;
+        Math.floor((time % 86400000) / 3600000);
 
     const minutes =
-        Math.floor(total / 60);
+        Math.floor((time % 3600000) / 60000);
 
     const seconds =
-        total % 60;
+        Math.floor((time % 60000) / 1000);
 
-    const hh =
-        String(hours).padStart(2,"0");
+    return `⏳ Còn ${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây`;
+}
 
-    const mm =
-        String(minutes).padStart(2,"0");
 
-    const ss =
-        String(seconds).padStart(2,"0");
+/* =========================
+   HIỂN THỊ EVENT
+========================= */
 
-    if(days > 0){
+function renderEvents(data){
 
-        return `${days} ngày ${hh}:${mm}:${ss}`;
+    const box =
+        document.getElementById("events");
 
+    let list =
+        Array.isArray(data)
+            ? data
+            : data?.data ||
+              data?.events ||
+              [];
+
+    if(!list.length){
+
+        box.innerHTML =
+            `<div class="event-card">
+                Không có sự kiện.
+            </div>`;
+
+        return;
     }
 
-    return `${hh}:${mm}:${ss}`;
+    list =
+        list.map(normalizeEvent);
 
+    box.innerHTML =
+        list.map((event,index)=>{
+
+            const banner =
+                event.banner;
+
+            return `
+            <article class="event-card">
+
+                <img
+                    class="event-banner"
+                    src="${
+                        escapeHTML(
+                            banner || DEFAULT_IMAGE
+                        )
+                    }"
+                    onerror="this.src='${DEFAULT_IMAGE}'"
+                    alt="Free Fire Event"
+                >
+
+                <div class="event-title">
+                    ${escapeHTML(event.title)}
+                </div>
+
+                ${
+                    event.description
+                    ? `<div class="event-desc">
+                        ${escapeHTML(
+                            event.description
+                        )}
+                       </div>`
+                    : ""
+                }
+
+                ${
+                    event.end
+                    ? `<div
+                        class="countdown"
+                        data-end="${escapeHTML(event.end)}">
+                        ${countdown(event.end)}
+                       </div>`
+                    : ""
+                }
+
+                ${
+                    banner
+                    ? `
+                    <button
+                        type="button"
+                        class="copy-banner-btn"
+                        data-banner="${escapeHTML(banner)}">
+                        🔗 Sao chép
+                    </button>
+                    `
+                    : `
+                    <button
+                        type="button"
+                        class="copy-banner-btn"
+                        disabled>
+                        ⚠️ Chưa có banner
+                    </button>
+                    `
+                }
+
+            </article>
+            `;
+
+        }).join("");
+
+    updateCountdowns();
 }
+
+
+/* =========================
+   CẬP NHẬT COUNTDOWN
+========================= */
 
 function updateCountdowns(){
 
-    const elements =
-        document.querySelectorAll(
-            ".countdown[data-countdown-id]"
-        );
+    document
+        .querySelectorAll(".countdown")
+        .forEach(el=>{
 
-    elements.forEach(
-        element => {
-
-            const id =
-                element.dataset.countdownId;
-
-            const event =
-                state.events.find(
-                    item =>
-                        item.id === id
+            el.textContent =
+                countdown(
+                    el.dataset.end
                 );
 
-            if(!event){
-                return;
+        });
+}
+
+
+/* =========================
+   SAO CHÉP LINK BANNER
+========================= */
+
+document.addEventListener(
+    "click",
+    async function(e){
+
+        const button =
+            e.target.closest(
+                ".copy-banner-btn"
+            );
+
+        if(!button || button.disabled)
+            return;
+
+        const url =
+            button.dataset.banner;
+
+        if(!url)
+            return;
+
+        try{
+
+            await navigator.clipboard
+                .writeText(url);
+
+            button.textContent =
+                "✅ Đã sao chép";
+
+            button.classList.add(
+                "copied"
+            );
+
+            setTimeout(()=>{
+
+                button.textContent =
+                    "🔗 Sao chép";
+
+                button.classList.remove(
+                    "copied"
+                );
+
+            },1500);
+
+        }catch(error){
+
+            /* Fallback cho một số trình duyệt */
+
+            try{
+
+                const input =
+                    document.createElement("input");
+
+                input.value = url;
+
+                document.body.appendChild(
+                    input
+                );
+
+                input.select();
+
+                document.execCommand(
+                    "copy"
+                );
+
+                input.remove();
+
+                button.textContent =
+                    "✅ Đã sao chép";
+
+                button.classList.add(
+                    "copied"
+                );
+
+                setTimeout(()=>{
+
+                    button.textContent =
+                        "🔗 Sao chép";
+
+                    button.classList.remove(
+                        "copied"
+                    );
+
+                },1500);
+
+            }catch{
+
+                button.textContent =
+                    "❌ Không thể sao chép";
+
+                setTimeout(()=>{
+
+                    button.textContent =
+                        "🔗 Sao chép";
+
+                },1500);
+
             }
 
-            element.textContent =
-                getCountdownText(event);
-
-        }
-    );
-
-}
-
-/* =========================================================
-   LOADER
-========================================================= */
-
-let loaderFinished = false;
-
-function hideLoaderImmediately(){
-
-    if(loaderFinished){
-        return;
-    }
-
-    loaderFinished = true;
-
-    loader.classList.add("hide");
-
-}
-
-function startLoader(){
-
-    let progress = 0;
-
-    const start =
-        performance.now();
-
-    function tick(now){
-
-        const elapsed =
-            now - start;
-
-        /*
-         * Loader chỉ giữ khoảng 700ms.
-         * Không chờ API.
-         */
-        progress =
-            Math.min(
-                100,
-                Math.round(
-                    (elapsed / 700) * 100
-                )
-            );
-
-        loaderBar.style.width =
-            progress + "%";
-
-        loaderPercent.textContent =
-            progress + "%";
-
-        if(progress < 100){
-
-            requestAnimationFrame(tick);
-
-        }else{
-
-            setTimeout(
-                hideLoaderImmediately,
-                60
-            );
-
         }
 
     }
+);
 
-    requestAnimationFrame(tick);
 
-}
+/* =========================
+   LOAD EVENTS
+========================= */
 
-/* =========================================================
-   FETCH WITH TIMEOUT
-========================================================= */
+async function loadEvents(){
 
-async function fetchWithTimeout(
-    url,
-    timeout
-){
-
-    const controller =
-        new AbortController();
-
-    const timer =
-        setTimeout(
-            () => controller.abort(),
-            timeout
-        );
+    const box =
+        document.getElementById("events");
 
     try{
 
         const response =
             await fetch(
-                url,
+                API_URL,
                 {
-                    method:"GET",
-                    cache:"no-store",
-                    signal:controller.signal,
-                    headers:{
-                        "Accept":
-                            "application/json"
-                    }
+                    cache:"no-store"
                 }
             );
 
-        if(!response.ok){
-
+        if(!response.ok)
             throw new Error(
-                `HTTP ${response.status}`
+                "API Error"
             );
-
-        }
-
-        return await response.json();
-
-    }finally{
-
-        clearTimeout(timer);
-
-    }
-
-}
-
-/* =========================================================
-   LOAD SERVER
-========================================================= */
-
-async function loadServer(
-    server,
-    force=false
-){
-
-    const requestId =
-        ++state.requestId;
-
-    state.server =
-        server;
-
-    serverSelect.value =
-        server;
-
-    serverName.textContent =
-        SERVER_NAMES[server]
-        || server.toUpperCase();
-
-    localStorage.setItem(
-        "ff_server",
-        server
-    );
-
-    /*
-     * CACHE-FIRST
-     *
-     * Nếu đã có cache:
-     * render ngay lập tức.
-     */
-    const cached =
-        readCache(server);
-
-    if(cached && Array.isArray(cached.events)){
-
-        state.events =
-            cached.events.map(
-                (event,index) =>
-                    normalizeEvent(
-                        event,
-                        index
-                    )
-            );
-
-        state.lastUpdated =
-            cached.time || 0;
-
-        renderEvents(true);
-
-        updatedText.textContent =
-            cached.time
-                ? "Đang cập nhật dữ liệu mới..."
-                : "Dữ liệu tạm thời";
-
-        /*
-         * Có cache thì không bắt người dùng
-         * chờ API.
-         */
-        hideLoaderImmediately();
-
-    }else{
-
-        /*
-         * Không có cache:
-         * trang vẫn mở ngay, không khóa UI.
-         */
-        renderUpdating(
-            "Đang kết nối dữ liệu sự kiện..."
-        );
-
-    }
-
-    state.loading = true;
-
-    const url =
-        CONFIG.API_URL.replace(
-            "{region}",
-            encodeURIComponent(server)
-        );
-
-    try{
 
         const data =
-            await fetchWithTimeout(
-                url,
-                CONFIG.REQUEST_TIMEOUT
-            );
+            await response.json();
 
-        /*
-         * Nếu người dùng đổi server
-         * trong lúc request cũ đang chạy,
-         * bỏ kết quả cũ.
-         */
-        if(
-            requestId !== state.requestId
-        ){
-
-            return;
-
-        }
-
-        const rawEvents =
-            findEventArray(data);
-
-        /*
-         * GIỮ NGUYÊN SỐ LƯỢNG API TRẢ VỀ.
-         *
-         * Không filter banner.
-         * Không slice.
-         * Không deduplicate.
-         */
-        const events =
-            rawEvents.map(
-                (item,index) =>
-                    normalizeEvent(
-                        item,
-                        index
-                    )
-            );
-
-        state.events =
-            events;
-
-        state.lastUpdated =
-            Date.now();
-
-        saveCache(
-            server,
-            events
-        );
-
-        renderEvents(true);
-
-        updatedText.textContent =
-            "Cập nhật: " +
-            formatDate(
-                state.lastUpdated
-            );
-
-        hideLoaderImmediately();
+        renderEvents(data);
 
     }catch(error){
 
-        console.warn(
-            "Không thể tải API:",
-            error
-        );
+        console.error(error);
 
-        /*
-         * Nếu đã có cache:
-         * giữ cache, không phá giao diện.
-         */
-        if(
-            state.events.length
-        ){
-
-            updatedText.textContent =
-                "Đang sử dụng dữ liệu đã lưu";
-
-            renderEvents();
-
-        }else{
-
-            renderUpdating(
-                "Chưa tải được dữ liệu sự kiện. Hệ thống sẽ tự thử lại."
-            );
-
-            updatedText.textContent =
-                "API chưa phản hồi";
-
-        }
-
-        /*
-         * Không để lỗi API giữ loader.
-         */
-        hideLoaderImmediately();
-
-    }finally{
-
-        state.loading = false;
+        box.innerHTML =
+            `<div class="event-card">
+                ❌ Không thể tải dữ liệu sự kiện.
+            </div>`;
 
     }
 
 }
 
-/* =========================================================
-   SERVER CHANGE
-========================================================= */
 
-serverSelect.addEventListener(
-    "change",
-    () => {
+/* =========================
+   START
+========================= */
 
-        const server =
-            serverSelect.value;
-
-        state.renderedSignature =
-            "";
-
-        loadServer(
-            server,
-            true
-        );
-
-    }
-);
-
-/* =========================================================
-   SEARCH
-========================================================= */
-
-let searchTimer;
-
-searchInput.addEventListener(
-    "input",
-    () => {
-
-        clearTimeout(searchTimer);
-
-        searchTimer =
-            setTimeout(
-                () => {
-
-                    state.search =
-                        searchInput.value;
-
-                    state.renderedSignature =
-                        "";
-
-                    renderEvents(true);
-
-                },
-                120
-            );
-
-    }
-);
-
-/* =========================================================
-   FILTER
-========================================================= */
-
-$$(".filter").forEach(
-    button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                $$(".filter")
-                    .forEach(
-                        item =>
-                            item.classList.remove(
-                                "active"
-                            )
-                    );
-
-                button.classList.add(
-                    "active"
-                );
-
-                state.filter =
-                    button.dataset.filter
-                    || "all";
-
-                state.renderedSignature =
-                    "";
-
-                renderEvents(true);
-
-            }
-        );
-
-    }
-);
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-menuBtn.addEventListener(
-    "click",
-    () => {
-
-        nav.classList.toggle(
-            "open"
-        );
-
-    }
-);
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-$$("[data-scroll]").forEach(
-    button => {
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                const target =
-                    button.dataset.scroll;
-
-                const element =
-                    document.getElementById(
-                        target
-                    );
-
-                if(element){
-
-                    element.scrollIntoView({
-                        behavior:"smooth"
-                    });
-
-                }
-
-                nav.classList.remove(
-                    "open"
-                );
-
-            }
-        );
-
-    }
-);
-
-/* =========================================================
-   COUNTDOWN TICK
-========================================================= */
+loadEvents();
 
 setInterval(
-    () => {
-
-        updateCountdowns();
-
-        /*
-         * Nếu trạng thái event vừa chuyển
-         * live/upcoming/ended thì render lại.
-         */
-        const signature =
-            getSignature(
-                filteredEvents()
-            );
-
-        /*
-         * Chỉ rebuild khi status có khả năng
-         * thay đổi. Countdown vẫn chạy riêng.
-         */
-        const statuses =
-            state.events
-                .map(
-                    event =>
-                        `${event.id}:${getStatus(event)}`
-                )
-                .join("|");
-
-        if(
-            statuses !==
-            document.documentElement.dataset.ffStatuses
-        ){
-
-            document.documentElement.dataset.ffStatuses =
-                statuses;
-
-            state.renderedSignature =
-                "";
-
-            renderEvents(true);
-
-        }
-
-    },
+    updateCountdowns,
     1000
 );
-
-/* =========================================================
-   AUTO REFRESH
-========================================================= */
-
-setInterval(
-    () => {
-
-        if(
-            !document.hidden
-        ){
-
-            loadServer(
-                state.server,
-                true
-            );
-
-        }
-
-    },
-    CONFIG.AUTO_REFRESH
-);
-
-/* =========================================================
-   VISIBILITY
-========================================================= */
-
-document.addEventListener(
-    "visibilitychange",
-    () => {
-
-        if(
-            !document.hidden
-            &&
-            (
-                !state.lastUpdated
-                ||
-                Date.now() -
-                state.lastUpdated >
-                CONFIG.AUTO_REFRESH
-            )
-        ){
-
-            loadServer(
-                state.server,
-                true
-            );
-
-        }
-
-    }
-);
-
-/* =========================================================
-   ONLINE
-========================================================= */
-
-window.addEventListener(
-    "online",
-    () => {
-
-        loadServer(
-            state.server,
-            true
-        );
-
-    }
-);
-
-/* =========================================================
-   BACKGROUND ACTIVITY
-========================================================= */
-
-setInterval(
-    () => {
-
-        document.documentElement.dataset.ffEventActivity =
-            Date.now();
-
-    },
-    CONFIG.BACKGROUND_ACTIVITY
-);
-
-/* =========================================================
-   INITIALIZATION
-========================================================= */
-
-async function init(){
-
-    serverSelect.value =
-        state.server;
-
-    serverName.textContent =
-        SERVER_NAMES[state.server]
-        || state.server.toUpperCase();
-
-    /*
-     * Loader chạy độc lập với API.
-     * API chậm không làm loader treo.
-     */
-    startLoader();
-
-    /*
-     * API chạy ngay.
-     */
-    loadServer(
-        state.server,
-        true
-    );
-
-    /*
-     * Nếu API chưa trả về sau 900ms,
-     * vẫn đảm bảo loader biến mất.
-     */
-    setTimeout(
-        hideLoaderImmediately,
-        900
-    );
-
-}
-
-/* =========================================================
-   START
-========================================================= */
-
-init();
 
 </script>
 
 </body>
-      </html>
+</html>
