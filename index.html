@@ -624,6 +624,10 @@ select.control{
     transform:scale(.94);
 }
 
+/* =========================================================
+   EVENT BODY
+========================================================= */
+
 .event-body{
     padding:17px;
 }
@@ -632,6 +636,37 @@ select.control{
     font-size:19px;
     font-weight:700;
     line-height:1.25;
+}
+
+/* =========================================================
+   GỢI Ý VQ
+========================================================= */
+
+.vq-suggestion{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:9px;
+    padding:6px 10px;
+    border-radius:9px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,106,0,.14),
+            rgba(255,200,87,.06)
+        );
+    border:1px solid rgba(255,106,0,.22);
+    color:var(--orange2);
+    font-size:10px;
+    font-weight:700;
+    line-height:1.2;
+    box-shadow:
+        inset 0 0 15px rgba(255,106,0,.025);
+}
+
+.vq-suggestion strong{
+    color:#fff;
+    font-weight:700;
 }
 
 .event-description{
@@ -868,6 +903,11 @@ footer strong{
         font-size:10px;
     }
 
+    .vq-suggestion{
+        font-size:9px;
+        padding:5px 8px;
+    }
+
 }
 
 /* =========================================================
@@ -899,6 +939,7 @@ footer strong{
 
     <div class="loader-box">
 
+        <!-- GIỮ NGUYÊN LOGO CŨ -->
         <img
             class="loader-logo"
             src="https://cdn.imagetourls.com/uploads/tyImg/1ggIdgxtr.jpg"
@@ -943,6 +984,7 @@ footer strong{
 
         <div class="brand">
 
+            <!-- GIỮ NGUYÊN LOGO CŨ -->
             <img
                 src="https://cdn.imagetourls.com/uploads/tyImg/1ggIdgxtr.jpg"
                 alt="Free Fire Event"
@@ -1230,67 +1272,6 @@ const CONFIG = {
 };
 
 /* =========================================================
-   MÃ TÊN TIẾNG VIỆT
-========================================================= */
-
-/*
-   Chỉ đổi tên hiển thị/xử lý.
-
-   Mã gốc:
-   TW -> VQTO
-   FW -> VQBM
-   TT -> VQ5BI
-
-   KHÔNG thay đổi mã API gốc.
-*/
-
-const VIETNAMESE_CODE_MAP = {
-
-    TW:"VQTO",
-    FW:"VQBM",
-    TT:"VQ5BI"
-
-};
-
-/*
-   Chuyển mã gốc sang mã tiếng Việt.
-*/
-
-function translateCode(value){
-
-    const code =
-        safeString(value).toUpperCase();
-
-    return VIETNAMESE_CODE_MAP[code]
-        || value;
-
-}
-
-/*
-   Chuyển ngược mã tiếng Việt
-   về mã gốc khi cần làm việc
-   với API hoặc dữ liệu gốc.
-*/
-
-const ORIGINAL_CODE_MAP = {
-
-    VQTO:"TW",
-    VQBM:"FW",
-    VQ5BI:"TT"
-
-};
-
-function originalCode(value){
-
-    const code =
-        safeString(value).toUpperCase();
-
-    return ORIGINAL_CODE_MAP[code]
-        || value;
-
-}
-
-/* =========================================================
    SERVER
 ========================================================= */
 
@@ -1417,42 +1398,6 @@ function escapeHTML(value){
 
 }
 
-/* =========================================================
-   CODE TRANSLATION
-========================================================= */
-
-function displayCode(value){
-
-    const original =
-        safeString(value).toUpperCase();
-
-    return translateCode(
-        original
-    );
-
-}
-
-function normalizeCode(value){
-
-    const code =
-        safeString(value).toUpperCase();
-
-    /*
-       Nếu dữ liệu đã là VQTO/VQBM/VQ5BI
-       thì giữ nguyên.
-
-       Nếu là TW/FW/TT thì đổi sang
-       mã tiếng Việt.
-    */
-
-    return translateCode(code);
-
-}
-
-/* =========================================================
-   TIMESTAMP
-========================================================= */
-
 function normalizeTimestamp(value){
 
     if(
@@ -1533,6 +1478,76 @@ function firstValue(
         }
 
     }
+
+    return "";
+
+}
+
+/* =========================================================
+   GỢI Ý VQ
+========================================================= */
+
+/*
+   Tự động nhận mã trong TIÊU ĐỀ:
+
+   TW1  -> VQTO1
+   TW2  -> VQTO2
+   ...
+   TW10 -> VQTO10
+
+   FW1  -> VQBM1
+   FW2  -> VQBM2
+   ...
+   FW10 -> VQBM10
+
+   Không phân biệt chữ hoa/chữ thường.
+*/
+
+function getVQSuggestion(title){
+
+    const text =
+        safeString(title);
+
+    /*
+       Ưu tiên nhận TW trước.
+       Giới hạn từ 1 đến 10.
+    */
+
+    const twMatch =
+        text.match(
+            /\bTW\s*(10|[1-9])\b/i
+        );
+
+    if(twMatch){
+
+        const number =
+            twMatch[1];
+
+        return `VQTO${number}`;
+
+    }
+
+    /*
+       Nhận FW từ 1 đến 10.
+    */
+
+    const fwMatch =
+        text.match(
+            /\bFW\s*(10|[1-9])\b/i
+        );
+
+    if(fwMatch){
+
+        const number =
+            fwMatch[1];
+
+        return `VQBM${number}`;
+
+    }
+
+    /*
+       Không có TW/FW thì không hiển thị.
+    */
 
     return "";
 
@@ -1683,29 +1698,6 @@ function normalizeEvent(
             ]
         );
 
-    /*
-       Lấy type từ API nếu có.
-       Nếu API trả TW/FW/TT thì đổi thành:
-       TW  -> VQTO
-       FW  -> VQBM
-       TT  -> VQ5BI
-    */
-
-    const typeRaw =
-        firstValue(
-            item,
-            [
-                "type",
-                "event_type",
-                "eventType",
-                "category",
-                "code"
-            ]
-        );
-
-    const type =
-        normalizeCode(typeRaw);
-
     return {
 
         id:String(id),
@@ -1721,13 +1713,6 @@ function normalizeEvent(
 
         end:
             normalizeTimestamp(endRaw),
-
-        type:type,
-
-        /*
-           Giữ nguyên dữ liệu gốc để
-           không làm mất thông tin API.
-        */
 
         raw:item
 
@@ -2021,8 +2006,6 @@ function filteredEvents(){
                     event.title
                     + " "
                     + event.description
-                    + " "
-                    + event.type
                 ).toLowerCase();
 
             return haystack.includes(
@@ -2048,8 +2031,7 @@ function getSignature(events){
             event.description,
             event.banner,
             event.start,
-            event.end,
-            event.type
+            event.end
 
         ].join("|")
 
@@ -2118,6 +2100,28 @@ function renderEvents(
                 ||
                 CONFIG.DEFAULT_IMAGE;
 
+            /*
+               Lấy gợi ý VQ trực tiếp
+               từ tiêu đề sự kiện.
+            */
+
+            const vqSuggestion =
+                getVQSuggestion(
+                    event.title
+                );
+
+            const vqHTML =
+                vqSuggestion
+                    ? `
+                        <div class="vq-suggestion">
+                            💡 Gợi ý VQ:
+                            <strong>
+                                ${escapeHTML(vqSuggestion)}
+                            </strong>
+                        </div>
+                    `
+                    : "";
+
             const card =
                 document.createElement(
                     "article"
@@ -2128,28 +2132,6 @@ function renderEvents(
 
             card.dataset.id =
                 event.id;
-
-            /*
-               Hiển thị mã đã chuyển sang
-               tiếng Việt nếu API có type.
-            */
-
-            const typeHTML =
-                event.type
-                    ? `
-                        <div class="time-row">
-                            <span>
-                                Loại
-                            </span>
-
-                            <strong>
-                                ${escapeHTML(
-                                    event.type
-                                )}
-                            </strong>
-                        </div>
-                    `
-                    : "";
 
             card.innerHTML = `
 
@@ -2191,6 +2173,8 @@ function renderEvents(
                         ${escapeHTML(event.title)}
                     </div>
 
+                    ${vqHTML}
+
                     <div class="event-description">
                         ${escapeHTML(event.description)}
                     </div>
@@ -2220,8 +2204,6 @@ function renderEvents(
                             </strong>
 
                         </div>
-
-                        ${typeHTML}
 
                     </div>
 
@@ -2660,9 +2642,7 @@ async function loadServer(
     serverName.textContent =
         SERVER_NAMES[server]
         ||
-        displayCode(
-            server
-        );
+        server.toUpperCase();
 
     localStorage.setItem(
         "ff_server",
@@ -2708,22 +2688,11 @@ async function loadServer(
     state.loading =
         true;
 
-    /*
-       API vẫn nhận mã region gốc.
-       Không dùng VQTO/VQBM/VQ5BI
-       để thay thế region API.
-    */
-
-    const apiRegion =
-        originalCode(
-            server
-        );
-
     const url =
         CONFIG.API_URL.replace(
             "{region}",
             encodeURIComponent(
-                apiRegion
+                server
             )
         );
 
