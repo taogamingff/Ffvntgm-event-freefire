@@ -2,44 +2,63 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <title>FREE FIRE EVENT & UPDATE 🔥</title>
 
+<meta name="description" content="Cập nhật sự kiện Free Fire mới nhất theo từng máy chủ.">
+<meta name="theme-color" content="#050505">
+
 <style>
-/* =====================================================
-   GAR​​ENA FREE FIRE FONT
-   ===================================================== */
+
+/* =========================================================
+   GARENA FREE FIRE FONT
+   TOÀN BỘ WEBSITE CHỈ DÙNG FONT NÀY
+   ========================================================= */
 
 @font-face{
-    font-family:"GFF";
-    src:url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Regular.woff2") format("woff2"),
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Regular.woff") format("woff");
-    font-weight:400;
-    font-style:normal;
-    font-display:swap;
-}
-
-@font-face{
-    font-family:"GFF";
-    src:url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2"),
+    font-family:"GFF-Latin-Bold";
+    src:
+        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2"),
         url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff") format("woff");
     font-weight:700;
     font-style:normal;
     font-display:swap;
 }
 
-/* =====================================================
-   TOÀN BỘ WEBSITE DÙNG GFF
-   ===================================================== */
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+:root{
+    --orange:#ff6a00;
+    --orange2:#ff9d00;
+    --yellow:#ffd000;
+
+    --black:#050505;
+    --black2:#090909;
+
+    --white:#ffffff;
+    --muted:#858585;
+
+    --green:#20df72;
+    --red:#ff4545;
+
+    --border:rgba(255,106,0,.20);
+}
+
+*{
+    box-sizing:border-box;
+}
 
 html,
 body,
 button,
 input,
 select,
-option,
 textarea,
+option,
 a,
 div,
 span,
@@ -52,208 +71,388 @@ h5,
 h6,
 strong,
 b,
-small{
-    font-family:"GFF",sans-serif;
+small,
+label,
+time{
+    font-family:"GFF-Latin-Bold",sans-serif !important;
+    font-weight:700 !important;
 }
 
-*{
-    box-sizing:border-box;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
     margin:0;
-    background:#050505;
+    min-height:100vh;
+
     color:#fff;
+
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(255,106,0,.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(255,157,0,.07),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #030303,
+            #080808 50%,
+            #030303
+        );
+
+    overflow-x:hidden;
 }
 
-/* =====================================================
-   ROOT
-   ===================================================== */
-
-:root{
-    --orange:#ff6a00;
-    --orange2:#ff9d00;
-    --black:#050505;
-    --card:#101010;
-    --border:rgba(255,106,0,.22);
-    --muted:#999;
-    --green:#20df72;
-    --red:#ff4545;
+button,
+input,
+select,
+textarea{
+    outline:none;
 }
 
-/* =====================================================
+button{
+    -webkit-tap-highlight-color:transparent;
+}
+
+::-webkit-scrollbar{
+    width:6px;
+    height:6px;
+}
+
+::-webkit-scrollbar-track{
+    background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+        180deg,
+        var(--orange),
+        var(--orange2)
+    );
+
+    border-radius:50px;
+}
+
+
+/* =========================================================
+   LOADER
+   ========================================================= */
+
+#loader{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,106,0,.14),
+            transparent 35%
+        ),
+        #030303;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease;
+}
+
+#loader.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.loader-box{
+    width:min(86%,360px);
+    text-align:center;
+}
+
+.loader-logo{
+    width:90px;
+    height:90px;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
+    border:1px solid rgba(255,106,0,.4);
+
+    box-shadow:
+        0 0 25px rgba(255,106,0,.2),
+        0 0 60px rgba(255,106,0,.08);
+}
+
+.loader-title{
+    margin-top:18px;
+
+    font-size:18px;
+}
+
+.loader-bar{
+    height:5px;
+
+    margin-top:18px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:#171717;
+}
+
+.loader-progress{
+    width:0;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--orange),
+            var(--yellow)
+        );
+
+    box-shadow:
+        0 0 15px rgba(255,106,0,.6);
+
+    transition:width .15s ease;
+}
+
+.loader-percent{
+    margin-top:8px;
+
+    color:#777;
+
+    font-size:10px;
+}
+
+
+/* =========================================================
    HEADER
-   ===================================================== */
+   ========================================================= */
 
-.header{
+header{
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:5000;
 
-    background:rgba(5,5,5,.92);
-    backdrop-filter:blur(15px);
+    background:rgba(5,5,5,.84);
 
-    border-bottom:1px solid var(--border);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,106,0,.13);
 }
 
 .header-inner{
     width:min(1200px,calc(100% - 24px));
-    min-height:64px;
+
+    min-height:68px;
+
     margin:auto;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     gap:15px;
 }
 
-.logo{
+.brand{
     display:flex;
     align-items:center;
     gap:10px;
+
+    min-width:0;
 }
 
-.logo img{
+.brand img{
     width:42px;
     height:42px;
-    border-radius:11px;
+
     object-fit:cover;
+
+    border-radius:11px;
+
+    border:1px solid rgba(255,106,0,.35);
 }
 
-.logo span{
-    font-weight:700;
+.brand-name{
     font-size:14px;
+    white-space:nowrap;
 }
 
 .nav{
     display:flex;
-    gap:7px;
+    align-items:center;
+    gap:5px;
 }
 
 .nav a{
     color:#aaa;
+
     text-decoration:none;
-    font-size:12px;
+
+    font-size:11px;
+
     padding:10px 12px;
+
     border-radius:9px;
+
+    transition:.2s;
 }
 
 .nav a:hover{
     color:#fff;
-    background:rgba(255,106,0,.1);
+    background:rgba(255,106,0,.09);
 }
 
-.menu{
+.menu-btn{
     display:none;
-
-    border:1px solid var(--border);
-    background:#111;
-    color:#fff;
 
     width:40px;
     height:40px;
+
     border-radius:10px;
 
-    font-size:19px;
+    border:1px solid var(--border);
+
+    background:#111;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:18px;
 }
 
-/* =====================================================
+
+/* =========================================================
    HERO
-   ===================================================== */
+   ========================================================= */
 
 .hero{
     width:min(1200px,calc(100% - 24px));
-    margin:25px auto 18px;
+
+    margin:26px auto 18px;
 }
 
 .hero-box{
+    position:relative;
+
+    overflow:hidden;
+
     padding:30px 24px;
 
-    border-radius:20px;
+    border-radius:21px;
+
+    border:1px solid var(--border);
 
     background:
         radial-gradient(
-            circle at right,
+            circle at 90% 10%,
             rgba(255,106,0,.15),
             transparent 35%
         ),
-        #0d0d0d;
-
-    border:1px solid var(--border);
+        linear-gradient(
+            135deg,
+            rgba(255,106,0,.06),
+            rgba(255,255,255,.02)
+        );
 }
 
-.hero h1{
+.hero-title{
     margin:0;
 
-    font-size:clamp(27px,6vw,55px);
-    line-height:1.05;
+    font-size:clamp(28px,6vw,55px);
 
-    font-weight:700;
+    line-height:1.05;
 }
 
-.hero h1 span{
+.hero-title span{
     color:var(--orange);
 }
 
-.hero p{
-    color:#999;
-    margin:12px 0 0;
-    font-size:13px;
-}
+.hero-subtitle{
+    margin:13px 0 0;
 
-/* =====================================================
-   CONTROLS
-   ===================================================== */
-
-.controls{
-    width:min(1200px,calc(100% - 24px));
-    margin:auto;
-
-    display:grid;
-    grid-template-columns:220px 1fr;
-    gap:10px;
-}
-
-select,
-.search{
-    width:100%;
-    height:46px;
-
-    border-radius:11px;
-    border:1px solid var(--border);
-
-    outline:none;
-
-    background:#111;
-    color:#fff;
-
-    padding:0 13px;
+    color:#888;
 
     font-size:12px;
 }
 
-select option{
+
+/* =========================================================
+   CONTROLS
+   ========================================================= */
+
+.controls{
+    width:min(1200px,calc(100% - 24px));
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:220px 1fr;
+
+    gap:10px;
+}
+
+.server-select,
+.search-input{
+    width:100%;
+    height:46px;
+
+    padding:0 13px;
+
+    border-radius:11px;
+
+    border:1px solid var(--border);
+
+    background:#101010;
+
+    color:#fff;
+
+    font-size:11px;
+}
+
+.server-select:focus,
+.search-input:focus{
+    border-color:rgba(255,106,0,.65);
+
+    box-shadow:
+        0 0 0 3px rgba(255,106,0,.06);
+}
+
+.server-select option{
     background:#111;
     color:#fff;
 }
 
-select:focus,
-.search:focus{
-    border-color:var(--orange);
-}
 
-/* =====================================================
+/* =========================================================
    FILTER
-   ===================================================== */
+   ========================================================= */
 
 .filters{
     width:min(1200px,calc(100% - 24px));
-    margin:12px auto;
+
+    margin:11px auto;
 
     display:flex;
     gap:7px;
 
     overflow-x:auto;
+
     scrollbar-width:none;
 }
 
@@ -261,243 +460,346 @@ select:focus,
     display:none;
 }
 
-.filter{
-    flex:none;
+.filter-btn{
+    flex:0 0 auto;
 
     padding:10px 14px;
 
     border-radius:9px;
 
-    border:1px solid #222;
+    border:1px solid #202020;
+
     background:#101010;
 
     color:#888;
 
     cursor:pointer;
-    font-size:11px;
+
+    font-size:10px;
+
+    transition:.2s;
 }
 
-.filter.active{
+.filter-btn.active{
     color:#fff;
+
     border-color:var(--orange);
-    background:rgba(255,106,0,.12);
+
+    background:rgba(255,106,0,.10);
 }
 
-/* =====================================================
-   INFO
-   ===================================================== */
 
-.info{
+/* =========================================================
+   INFO
+   ========================================================= */
+
+.info-bar{
     width:min(1200px,calc(100% - 24px));
+
     margin:0 auto 14px;
 
     display:flex;
+
     flex-wrap:wrap;
+
     gap:7px;
 }
 
-.info span{
+.info-item{
     padding:8px 11px;
 
     border-radius:8px;
 
-    background:#101010;
-    border:1px solid #1b1b1b;
+    border:1px solid #1c1c1c;
 
-    color:#999;
-    font-size:10px;
+    background:#0f0f0f;
+
+    color:#777;
+
+    font-size:9px;
 }
 
-.info strong{
+.info-item strong{
     color:#fff;
 }
 
 #syncStatus{
     color:var(--green);
+
+    transition:color .2s ease;
 }
 
-/* =====================================================
-   EVENTS
-   ===================================================== */
+
+/* =========================================================
+   MAIN
+   ========================================================= */
 
 main{
     width:min(1200px,calc(100% - 24px));
+
     margin:auto;
-    padding-bottom:50px;
+
+    padding-bottom:55px;
 }
 
-.events{
+.events-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
     gap:14px;
 }
 
-/* =====================================================
-   CARD
-   ===================================================== */
 
-.card{
+/* =========================================================
+   EVENT CARD
+   ========================================================= */
+
+.event-card{
     overflow:hidden;
 
-    background:var(--card);
-
-    border:1px solid #1c1c1c;
     border-radius:16px;
 
-    transition:.2s;
+    background:
+        linear-gradient(
+            180deg,
+            #121212,
+            #0c0c0c
+        );
+
+    border:1px solid #1d1d1d;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.25);
 }
 
-.card:hover{
-    transform:translateY(-2px);
-    border-color:var(--border);
-}
-
-.banner{
+.event-image-wrap{
     position:relative;
+
     aspect-ratio:16/9;
 
-    background:#0b0b0b;
+    background:#090909;
+
+    overflow:hidden;
 }
 
-.banner img{
+.event-image{
+    display:block;
+
     width:100%;
     height:100%;
 
     object-fit:cover;
-    display:block;
 }
 
-.status{
+.image-overlay{
     position:absolute;
-    left:9px;
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.58)
+        );
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.event-status{
+    position:absolute;
+
     top:9px;
+    left:9px;
 
     padding:6px 8px;
 
     border-radius:7px;
 
     font-size:9px;
-    font-weight:700;
 
-    background:rgba(0,0,0,.7);
+    background:rgba(0,0,0,.72);
+
+    backdrop-filter:blur(8px);
 }
 
-.status.live{
-    color:#32e779;
+.event-status.live{
+    color:#37eb80;
+
+    border:1px solid rgba(32,223,114,.2);
 }
 
-.status.upcoming{
-    color:#ffb13b;
+.event-status.upcoming{
+    color:#ffb33f;
+
+    border:1px solid rgba(255,157,0,.2);
 }
 
-.status.ended{
+.event-status.ended{
     color:#999;
+
+    border:1px solid rgba(255,255,255,.08);
 }
 
-.copy{
+
+/* =========================================================
+   COPY BANNER
+   ========================================================= */
+
+.copy-banner{
     position:absolute;
-    right:9px;
+
     top:9px;
+    right:9px;
 
     padding:6px 8px;
 
     border-radius:7px;
 
-    border:1px solid rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.12);
 
-    background:rgba(0,0,0,.7);
+    background:rgba(0,0,0,.72);
+
     color:#fff;
 
     cursor:pointer;
+
     font-size:9px;
+
+    backdrop-filter:blur(8px);
 }
 
-.content{
+.copy-banner:hover{
+    border-color:rgba(255,106,0,.4);
+
+    color:#ffad4b;
+}
+
+
+/* =========================================================
+   EVENT CONTENT
+   ========================================================= */
+
+.event-content{
     padding:13px;
 }
 
-.title{
+.event-title{
     margin:0;
 
-    font-size:16px;
-    line-height:1.3;
+    color:#fff;
 
-    font-weight:700;
+    font-size:16px;
+
+    line-height:1.3;
 }
 
-.vq{
+.event-vq{
     display:inline-block;
 
     margin-top:7px;
+
     padding:5px 7px;
 
     border-radius:6px;
 
-    background:rgba(255,106,0,.08);
-    border:1px solid rgba(255,106,0,.18);
-
     color:#ffae50;
+
+    background:rgba(255,106,0,.08);
+
+    border:1px solid rgba(255,106,0,.16);
 
     font-size:9px;
 }
 
-.description{
+.event-description{
     margin:9px 0 0;
 
-    color:#888;
+    color:#858585;
 
     font-size:10px;
+
     line-height:1.5;
 }
 
-.meta{
-    margin-top:12px;
 
+/* =========================================================
+   META
+   ========================================================= */
+
+.event-meta{
     display:grid;
+
     gap:6px;
+
+    margin-top:12px;
 }
 
-.row{
+.meta-row{
     display:flex;
+
+    align-items:flex-start;
+
     justify-content:space-between;
-    gap:10px;
+
+    gap:12px;
 
     padding-bottom:6px;
 
     border-bottom:1px solid #191919;
 }
 
-.row span:first-child{
+.meta-label{
+    flex:0 0 auto;
+
     color:#666;
-}
 
-.row span:last-child{
-    color:#ccc;
-    text-align:right;
-}
-
-.row span{
     font-size:9px;
 }
+
+.meta-value{
+    color:#d0d0d0;
+
+    font-size:9px;
+
+    text-align:right;
+
+    word-break:break-word;
+}
+
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
 
 .countdown{
     margin-top:10px;
 
     padding:9px;
 
-    text-align:center;
-
     border-radius:8px;
 
-    background:rgba(255,106,0,.06);
-    color:#ffab49;
+    text-align:center;
+
+    color:#ffac4a;
+
+    background:rgba(255,106,0,.055);
+
+    border:1px solid rgba(255,106,0,.09);
 
     font-size:10px;
 }
 
-/* =====================================================
-   EMPTY / LOADING
-   ===================================================== */
+
+/* =========================================================
+   MESSAGE
+   ========================================================= */
 
 .message{
     grid-column:1/-1;
@@ -506,105 +808,131 @@ main{
 
     text-align:center;
 
-    border:1px dashed #222;
+    border:1px dashed #252525;
+
     border-radius:16px;
 
     background:#0c0c0c;
 }
 
+.message-icon{
+    font-size:30px;
+
+    margin-bottom:10px;
+}
+
 .message-title{
-    font-weight:700;
     font-size:16px;
 }
 
 .message-text{
     margin-top:7px;
+
     color:#666;
+
     font-size:10px;
 }
 
-/* =====================================================
+
+/* =========================================================
    FOOTER
-   ===================================================== */
+   ========================================================= */
 
 footer{
-    border-top:1px solid #161616;
+    border-top:1px solid #171717;
 
     padding:25px 15px 35px;
 
     text-align:center;
 }
 
-footer strong{
+.footer-title{
     font-size:12px;
 }
 
-footer p{
-    margin:7px 0 0;
+.footer-text{
+    margin-top:7px;
 
     color:#555;
+
     font-size:9px;
 }
 
-/* =====================================================
+
+/* =========================================================
    TOAST
-   ===================================================== */
+   ========================================================= */
 
 .toast{
     position:fixed;
+
     left:50%;
     bottom:22px;
 
-    transform:translate(-50%,20px);
-
-    opacity:0;
-    pointer-events:none;
+    z-index:99999;
 
     padding:10px 14px;
 
-    background:#151515;
-    border:1px solid var(--border);
     border-radius:9px;
+
+    background:#151515;
+
+    border:1px solid rgba(255,106,0,.3);
+
+    color:#fff;
 
     font-size:10px;
 
-    transition:.2s;
+    opacity:0;
 
-    z-index:9999;
+    transform:
+        translate(-50%,20px);
+
+    pointer-events:none;
+
+    transition:.22s;
 }
 
 .toast.show{
     opacity:1;
-    transform:translate(-50%,0);
+
+    transform:
+        translate(-50%,0);
 }
 
-/* =====================================================
-   MOBILE
-   ===================================================== */
 
-@media(max-width:800px){
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:850px){
 
     .nav{
         display:none;
     }
 
-    .menu{
+    .menu-btn{
         display:block;
     }
+
+    .controls{
+        grid-template-columns:180px 1fr;
+    }
+
+    .events-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+}
+
+@media(max-width:600px){
 
     .controls{
         grid-template-columns:1fr;
     }
 
-    .events{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-@media(max-width:550px){
-
-    .events{
+    .events-grid{
         grid-template-columns:1fr;
     }
 
@@ -612,32 +940,82 @@ footer p{
         padding:24px 18px;
     }
 
-    .hero h1{
+    .hero-title{
         font-size:30px;
     }
 
+    .brand-name{
+        font-size:12px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<header class="header">
+
+<!-- =========================================================
+     LOADER
+     ========================================================= -->
+
+<div id="loader">
+
+    <div class="loader-box">
+
+        <img
+            class="loader-logo"
+            src="https://img-ffvn-tgm-com.vercel.app/images/bya8GLHk.jpg"
+            alt="FFVN.TGM"
+        >
+
+        <div class="loader-title">
+            FREE FIRE EVENT & UPDATE 🔥
+        </div>
+
+        <div class="loader-bar">
+
+            <div
+                class="loader-progress"
+                id="loaderProgress"
+            ></div>
+
+        </div>
+
+        <div
+            class="loader-percent"
+            id="loaderPercent"
+        >
+            0%
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header>
 
     <div class="header-inner">
 
-        <div class="logo">
+        <div class="brand">
 
             <img
                 src="https://img-ffvn-tgm-com.vercel.app/images/bya8GLHk.jpg"
                 alt="FFVN.TGM"
             >
 
-            <span>
+            <span class="brand-name">
                 FFVN.TGM
             </span>
 
         </div>
+
 
         <nav class="nav">
 
@@ -659,9 +1037,11 @@ footer p{
 
         </nav>
 
+
         <button
-            class="menu"
+            class="menu-btn"
             id="menuBtn"
+            type="button"
         >
             ☰
         </button>
@@ -670,6 +1050,11 @@ footer p{
 
 </header>
 
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
 <section
     class="hero"
     id="home"
@@ -677,15 +1062,17 @@ footer p{
 
     <div class="hero-box">
 
-        <h1>
+        <h1 class="hero-title">
+
             FREE FIRE
             <span>
                 EVENT & UPDATE
             </span>
             🔥
+
         </h1>
 
-        <p>
+        <p class="hero-subtitle">
             Cập nhật sự kiện theo từng máy chủ
         </p>
 
@@ -693,9 +1080,17 @@ footer p{
 
 </section>
 
+
+<!-- =========================================================
+     CONTROLS
+     ========================================================= -->
+
 <section class="controls">
 
-    <select id="server">
+    <select
+        class="server-select"
+        id="serverSelect"
+    >
 
         <option value="vn">
             VN - Việt Nam
@@ -743,80 +1138,105 @@ footer p{
 
     </select>
 
+
     <input
-        class="search"
-        id="search"
+        class="search-input"
+        id="searchInput"
         type="search"
         placeholder="Tìm kiếm sự kiện..."
+        autocomplete="off"
     >
 
 </section>
 
+
+<!-- =========================================================
+     FILTER
+     ========================================================= -->
+
 <div class="filters">
 
     <button
-        class="filter active"
+        class="filter-btn active"
         data-filter="all"
+        type="button"
     >
         TẤT CẢ
     </button>
 
     <button
-        class="filter"
+        class="filter-btn"
         data-filter="live"
+        type="button"
     >
         ĐANG DIỄN RA
     </button>
 
     <button
-        class="filter"
+        class="filter-btn"
         data-filter="upcoming"
+        type="button"
     >
         SẮP DIỄN RA
     </button>
 
     <button
-        class="filter"
+        class="filter-btn"
         data-filter="ended"
+        type="button"
     >
         ĐÃ KẾT THÚC
     </button>
 
 </div>
 
-<div class="info">
 
-    <span>
+<!-- =========================================================
+     INFO
+     ========================================================= -->
+
+<div class="info-bar">
+
+    <div class="info-item">
         SERVER:
         <strong id="serverName">
             VN
         </strong>
-    </span>
+    </div>
 
-    <span>
+    <div class="info-item">
         SỰ KIỆN:
-        <strong id="count">
+        <strong id="eventCount">
             0
         </strong>
-    </span>
+    </div>
 
-    <span>
+    <div class="info-item">
         TRẠNG THÁI:
         <strong id="syncStatus">
             ĐANG KẾT NỐI
         </strong>
-    </span>
+    </div>
 
 </div>
+
+
+<!-- =========================================================
+     EVENTS
+     ========================================================= -->
 
 <main id="events">
 
     <div
-        class="events"
-        id="eventList"
+        class="events-grid"
+        id="eventsGrid"
     >
 
         <div class="message">
+
+            <div class="message-icon">
+                🔄
+            </div>
 
             <div class="message-title">
                 ĐANG CẬP NHẬT
@@ -832,51 +1252,64 @@ footer p{
 
 </main>
 
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
 <footer id="footer">
 
-    <strong>
+    <div class="footer-title">
         FREE FIRE EVENT & UPDATE 🔥
-    </strong>
+    </div>
 
-    <p>
+    <div class="footer-text">
         FFVN.TGM • Cập nhật sự kiện Free Fire
-    </p>
+    </div>
 
 </footer>
+
 
 <div
     class="toast"
     id="toast"
 ></div>
 
+
 <script>
 
-/* =====================================================
+/* =========================================================
    CONFIG
-   ===================================================== */
+   ========================================================= */
 
-const API =
-    "/api/events?region=";
+const CONFIG = {
 
-const DEFAULT_IMAGE =
-    "https://img-ffvn-tgm-com.vercel.app/images/JZ15I6Yo.jpg";
+    API:"/api/events?region=",
 
-const REFRESH_TIME =
-    10000;
+    DEFAULT_IMAGE:
+        "https://img-ffvn-tgm-com.vercel.app/images/JZ15I6Yo.jpg",
 
-const TIMEOUT =
-    15000;
+    TIMEOUT:15000,
+
+    AUTO_REFRESH:10000,
+
+    STORAGE_KEY:"ff_server",
+
+    CACHE_PREFIX:"ff_event_cache_"
+
+};
 
 
-/* =====================================================
+/* =========================================================
    STATE
-   ===================================================== */
+   ========================================================= */
 
-let state = {
+const state = {
 
     server:
-        localStorage.getItem("ff_server") ||
-        "vn",
+        localStorage.getItem(
+            CONFIG.STORAGE_KEY
+        ) || "vn",
 
     events:[],
 
@@ -884,44 +1317,60 @@ let state = {
 
     search:"",
 
-    loading:false
+    loading:false,
+
+    lastDataSignature:""
 
 };
 
 
-/* =====================================================
-   ELEMENTS
-   ===================================================== */
+/* =========================================================
+   DOM
+   ========================================================= */
 
-const serverEl =
-    document.getElementById("server");
+const serverSelect =
+    document.getElementById(
+        "serverSelect"
+    );
 
-const listEl =
-    document.getElementById("eventList");
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
 
-const searchEl =
-    document.getElementById("search");
+const eventsGrid =
+    document.getElementById(
+        "eventsGrid"
+    );
 
-const countEl =
-    document.getElementById("count");
+const eventCount =
+    document.getElementById(
+        "eventCount"
+    );
 
-const serverNameEl =
-    document.getElementById("serverName");
+const serverName =
+    document.getElementById(
+        "serverName"
+    );
 
-const syncEl =
-    document.getElementById("syncStatus");
+const syncStatus =
+    document.getElementById(
+        "syncStatus"
+    );
 
-const toastEl =
-    document.getElementById("toast");
+const toast =
+    document.getElementById(
+        "toast"
+    );
 
 
-serverEl.value =
+serverSelect.value =
     state.server;
 
 
-/* =====================================================
-   SERVER NAMES
-   ===================================================== */
+/* =========================================================
+   SERVER
+   ========================================================= */
 
 const SERVER_NAMES = {
 
@@ -940,142 +1389,353 @@ const SERVER_NAMES = {
 };
 
 
-/* =====================================================
-   HTML ESCAPE
-   ===================================================== */
+/* =========================================================
+   ESCAPE
+   ========================================================= */
 
 function escapeHTML(value){
 
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    return String(
+        value ?? ""
+    )
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
-/* =====================================================
-   API FETCH
-   ===================================================== */
+/* =========================================================
+   DATE
+   ========================================================= */
 
-async function getAPI(server){
+function parseDate(value){
 
-    const controller =
-        new AbortController();
+    if(
+        value === null ||
+        value === undefined ||
+        value === ""
+    ){
 
-    const timer =
-        setTimeout(
-            () => controller.abort(),
-            TIMEOUT
-        );
-
-    try{
-
-        const url =
-            API +
-            encodeURIComponent(server) +
-            "&_t=" +
-            Date.now();
-
-        const response =
-            await fetch(
-                url,
-                {
-                    method:"GET",
-                    cache:"no-store",
-                    signal:controller.signal,
-                    headers:{
-                        Accept:"application/json",
-                        "Cache-Control":"no-cache"
-                    }
-                }
-            );
-
-        if(!response.ok){
-
-            throw new Error(
-                "HTTP " + response.status
-            );
-
-        }
-
-        return await response.json();
-
-    }finally{
-
-        clearTimeout(timer);
+        return null;
 
     }
 
+
+    if(
+        value instanceof Date
+    ){
+
+        return isNaN(
+            value.getTime()
+        )
+            ? null
+            : value;
+
+    }
+
+
+    if(
+        typeof value === "number" ||
+        (
+            typeof value === "string" &&
+            /^\d{10,13}$/.test(
+                value.trim()
+            )
+        )
+    ){
+
+        let timestamp =
+            Number(value);
+
+
+        if(
+            String(
+                Math.abs(timestamp)
+            ).length <= 10
+        ){
+
+            timestamp *= 1000;
+
+        }
+
+
+        const unixDate =
+            new Date(timestamp);
+
+
+        if(
+            !isNaN(
+                unixDate.getTime()
+            )
+        ){
+
+            return unixDate;
+
+        }
+
+    }
+
+
+    const text =
+        String(value).trim();
+
+
+    let date =
+        new Date(text);
+
+
+    if(
+        !isNaN(
+            date.getTime()
+        )
+    ){
+
+        return date;
+
+    }
+
+
+    let match =
+        text.match(
+            /^(\d{4})[-\/](\d{1,2})[-\/](\d{1,2})(?:[ T](\d{1,2}):(\d{2})(?::(\d{2}))?)?$/
+        );
+
+
+    if(match){
+
+        date =
+            new Date(
+                Number(match[1]),
+                Number(match[2]) - 1,
+                Number(match[3]),
+                Number(match[4] || 0),
+                Number(match[5] || 0),
+                Number(match[6] || 0)
+            );
+
+
+        if(
+            !isNaN(
+                date.getTime()
+            )
+        ){
+
+            return date;
+
+        }
+
+    }
+
+
+    match =
+        text.match(
+            /^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})(?:[ T](\d{1,2}):(\d{2})(?::(\d{2}))?)?$/
+        );
+
+
+    if(match){
+
+        date =
+            new Date(
+                Number(match[3]),
+                Number(match[2]) - 1,
+                Number(match[1]),
+                Number(match[4] || 0),
+                Number(match[5] || 0),
+                Number(match[6] || 0)
+            );
+
+
+        if(
+            !isNaN(
+                date.getTime()
+            )
+        ){
+
+            return date;
+
+        }
+
+    }
+
+
+    return null;
+
 }
 
 
-/* =====================================================
-   FIND EVENTS
-   ===================================================== */
+/* =========================================================
+   FORMAT DATE
+   ========================================================= */
 
-function findEvents(data){
+function formatDate(value){
 
-    if(!data)
+    const date =
+        parseDate(value);
+
+
+    if(!date){
+
+        return "--";
+
+    }
+
+
+    const day =
+        String(
+            date.getDate()
+        ).padStart(2,"0");
+
+
+    const month =
+        String(
+            date.getMonth() + 1
+        ).padStart(2,"0");
+
+
+    const year =
+        date.getFullYear();
+
+
+    const hours =
+        String(
+            date.getHours()
+        ).padStart(2,"0");
+
+
+    const minutes =
+        String(
+            date.getMinutes()
+        ).padStart(2,"0");
+
+
+    return (
+        day +
+        "/" +
+        month +
+        "/" +
+        year +
+        " " +
+        hours +
+        ":" +
+        minutes
+    );
+
+}
+
+
+/* =========================================================
+   EVENT ARRAY
+   ========================================================= */
+
+function findEventArray(data){
+
+    if(!data){
         return [];
+    }
 
-    if(Array.isArray(data))
+    if(
+        Array.isArray(data)
+    ){
         return data;
+    }
 
-    if(Array.isArray(data.events))
+    if(
+        Array.isArray(data.events)
+    ){
         return data.events;
+    }
 
     if(
         data.data &&
         Array.isArray(data.data.events)
-    )
+    ){
         return data.data.events;
+    }
 
     if(
         data.data &&
         Array.isArray(data.data)
-    )
+    ){
         return data.data;
+    }
+
+    if(
+        data.result &&
+        Array.isArray(data.result.events)
+    ){
+        return data.result.events;
+    }
+
+    if(
+        data.result &&
+        Array.isArray(data.result)
+    ){
+        return data.result;
+    }
 
     return [];
 
 }
 
 
-/* =====================================================
+/* =========================================================
    NORMALIZE
-   ===================================================== */
+   ========================================================= */
 
-function normalize(event,index){
+function normalizeEvent(
+    event,
+    index
+){
+
+    event =
+        event || {};
+
 
     return {
 
         id:
             event.id ??
             event.event_id ??
+            event.eventId ??
             index,
 
         title:
             event.title ??
             event.name ??
+            event.event_name ??
             "Sự kiện Free Fire",
 
         banner:
             event.banner ??
             event.image ??
             event.img ??
-            DEFAULT_IMAGE,
+            event.thumbnail ??
+            CONFIG.DEFAULT_IMAGE,
 
         start:
             event.start ??
             event.start_time ??
+            event.startTime ??
+            event.begin ??
+            event.begin_time ??
+            event.beginTime ??
+            event.startDate ??
+            event.start_date ??
             "",
 
         end:
             event.end ??
             event.end_time ??
+            event.endTime ??
+            event.finish ??
+            event.finish_time ??
+            event.finishTime ??
+            event.endDate ??
+            event.end_date ??
             "",
 
         link:
@@ -1100,143 +1760,192 @@ function normalize(event,index){
 }
 
 
-/* =====================================================
-   DATE
-   ===================================================== */
+/* =========================================================
+   SIGNATURE
+   ========================================================= */
 
-function date(value){
+function createSignature(events){
 
-    if(!value)
-        return null;
+    try{
 
-    const d =
-        new Date(value);
+        return JSON.stringify(
+            events.map(
+                event => ({
 
-    return isNaN(d.getTime())
-        ? null
-        : d;
+                    id:event.id,
+
+                    title:event.title,
+
+                    banner:event.banner,
+
+                    start:event.start,
+
+                    end:event.end,
+
+                    link:event.link,
+
+                    type:event.type,
+
+                    description:event.description
+
+                })
+            )
+        );
+
+    }catch(error){
+
+        return "";
+
+    }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    STATUS
-   ===================================================== */
+   ========================================================= */
 
 function getStatus(event){
 
     const now =
         Date.now();
 
+
     const start =
-        date(event.start);
+        parseDate(
+            event.start
+        );
+
 
     const end =
-        date(event.end);
+        parseDate(
+            event.end
+        );
+
 
     if(
         start &&
-        now < start.getTime()
-    )
+        now <
+        start.getTime()
+    ){
+
         return "upcoming";
+
+    }
+
 
     if(
         end &&
-        now > end.getTime()
-    )
+        now >
+        end.getTime()
+    ){
+
         return "ended";
+
+    }
+
 
     return "live";
 
 }
 
 
-/* =====================================================
-   STATUS TEXT
-   ===================================================== */
+function getStatusText(status){
 
-function statusText(status){
+    if(
+        status === "live"
+    ){
 
-    if(status === "live")
         return "ĐANG DIỄN RA";
 
-    if(status === "upcoming")
+    }
+
+
+    if(
+        status === "upcoming"
+    ){
+
         return "SẮP DIỄN RA";
+
+    }
+
 
     return "ĐÃ KẾT THÚC";
 
 }
 
 
-/* =====================================================
-   DATE FORMAT
-   ===================================================== */
-
-function formatDate(value){
-
-    const d =
-        date(value);
-
-    if(!d)
-        return "--";
-
-    return d.toLocaleString(
-        "vi-VN",
-        {
-            day:"2-digit",
-            month:"2-digit",
-            year:"numeric",
-            hour:"2-digit",
-            minute:"2-digit"
-        }
-    );
-
-}
-
-
-/* =====================================================
+/* =========================================================
    COUNTDOWN
-   ===================================================== */
+   ========================================================= */
 
-function countdown(event){
+function getCountdown(event){
 
     const status =
         getStatus(event);
 
+
     const target =
         status === "upcoming"
-            ? date(event.start)
-            : date(event.end);
+            ? parseDate(event.start)
+            : parseDate(event.end);
 
-    if(!target)
+
+    if(!target){
+
         return "THỜI GIAN CHƯA XÁC ĐỊNH";
 
-    const diff =
+    }
+
+
+    const difference =
         target.getTime() -
         Date.now();
 
-    if(diff <= 0)
+
+    if(
+        difference <= 0
+    ){
+
         return status === "upcoming"
             ? "ĐANG DIỄN RA"
             : "ĐÃ KẾT THÚC";
 
+    }
+
+
     let seconds =
-        Math.floor(diff / 1000);
+        Math.floor(
+            difference / 1000
+        );
+
 
     const days =
-        Math.floor(seconds / 86400);
+        Math.floor(
+            seconds / 86400
+        );
+
 
     seconds %= 86400;
 
+
     const hours =
-        Math.floor(seconds / 3600);
+        Math.floor(
+            seconds / 3600
+        );
+
 
     seconds %= 3600;
 
+
     const minutes =
-        Math.floor(seconds / 60);
+        Math.floor(
+            seconds / 60
+        );
+
 
     seconds %= 60;
+
 
     return (
         days +
@@ -1251,14 +1960,15 @@ function countdown(event){
 }
 
 
-/* =====================================================
+/* =========================================================
    VQ
-   ===================================================== */
+   ========================================================= */
 
-const VQ = {
+const VQ_MAP = {
 
     TW:"VQTO",
     FW:"VQBM",
+
     DW:"VQKB",
     TG:"VQMM",
     LW:"BXNP",
@@ -1266,10 +1976,12 @@ const VQ = {
 
 };
 
+
 function detectVQ(event){
 
     const raw =
         event.raw || {};
+
 
     const text = [
 
@@ -1278,9 +1990,10 @@ function detectVQ(event){
 
         raw.title,
         raw.type,
+        raw.code,
         raw.id,
         raw.event_id,
-        raw.code,
+        raw.eventId,
         raw.name
 
     ]
@@ -1288,8 +2001,9 @@ function detectVQ(event){
     .join(" ")
     .toUpperCase();
 
+
     for(
-        const prefix in VQ
+        const prefix in VQ_MAP
     ){
 
         const regex =
@@ -1299,13 +2013,15 @@ function detectVQ(event){
                 "(10|[1-9])\\b"
             );
 
+
         const match =
             text.match(regex);
+
 
         if(match){
 
             return (
-                VQ[prefix] +
+                VQ_MAP[prefix] +
                 match[1]
             );
 
@@ -1313,19 +2029,177 @@ function detectVQ(event){
 
     }
 
+
     return "";
 
 }
 
 
-/* =====================================================
-   FILTER
-   ===================================================== */
+/* =========================================================
+   CACHE
+   ========================================================= */
 
-function visibleEvents(){
+function getCacheKey(server){
+
+    return (
+        CONFIG.CACHE_PREFIX +
+        server
+    );
+
+}
+
+
+function saveCache(
+    server,
+    events
+){
+
+    try{
+
+        localStorage.setItem(
+            getCacheKey(server),
+
+            JSON.stringify({
+                time:Date.now(),
+                events:events
+            })
+        );
+
+    }catch(error){}
+
+}
+
+
+function readCache(server){
+
+    try{
+
+        const value =
+            localStorage.getItem(
+                getCacheKey(server)
+            );
+
+
+        if(!value){
+            return null;
+        }
+
+
+        const data =
+            JSON.parse(value);
+
+
+        if(
+            !data ||
+            !Array.isArray(
+                data.events
+            )
+        ){
+
+            return null;
+
+        }
+
+
+        return data;
+
+    }catch(error){
+
+        return null;
+
+    }
+
+}
+
+
+/* =========================================================
+   API
+   ========================================================= */
+
+async function fetchAPI(server){
+
+    const controller =
+        new AbortController();
+
+
+    const timeout =
+        setTimeout(
+            () =>
+                controller.abort(),
+            CONFIG.TIMEOUT
+        );
+
+
+    try{
+
+        const url =
+            CONFIG.API +
+            encodeURIComponent(
+                server
+            ) +
+            "&_t=" +
+            Date.now();
+
+
+        const response =
+            await fetch(
+                url,
+                {
+                    method:"GET",
+
+                    cache:"no-store",
+
+                    signal:
+                        controller.signal,
+
+                    headers:{
+                        "Accept":
+                            "application/json",
+
+                        "Cache-Control":
+                            "no-cache, no-store, must-revalidate",
+
+                        "Pragma":
+                            "no-cache"
+                    }
+                }
+            );
+
+
+        if(
+            !response.ok
+        ){
+
+            throw new Error(
+                "HTTP " +
+                response.status
+            );
+
+        }
+
+
+        return await response.json();
+
+    }finally{
+
+        clearTimeout(
+            timeout
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+function getVisibleEvents(){
 
     let events =
         [...state.events];
+
 
     if(
         state.filter !== "all"
@@ -1340,51 +2214,68 @@ function visibleEvents(){
 
     }
 
-    if(state.search){
 
-        const q =
-            state.search
-                .toLowerCase()
-                .trim();
+    const search =
+        state.search
+            .trim()
+            .toLowerCase();
+
+
+    if(search){
 
         events =
             events.filter(
-                event =>
-                    (
-                        event.title +
-                        " " +
-                        event.description +
-                        " " +
+                event => {
+
+                    const text = [
+
+                        event.title,
+                        event.description,
                         event.type
-                    )
-                    .toLowerCase()
-                    .includes(q)
+
+                    ]
+                    .join(" ")
+                    .toLowerCase();
+
+
+                    return text.includes(
+                        search
+                    );
+
+                }
             );
 
     }
+
 
     return events;
 
 }
 
 
-/* =====================================================
+/* =========================================================
    RENDER
-   ===================================================== */
+   ========================================================= */
 
-function render(){
+function renderEvents(){
 
     const events =
-        visibleEvents();
+        getVisibleEvents();
 
-    countEl.textContent =
+
+    eventCount.textContent =
         events.length;
+
 
     if(!events.length){
 
-        listEl.innerHTML = `
+        eventsGrid.innerHTML = `
 
             <div class="message">
+
+                <div class="message-icon">
+                    🔎
+                </div>
 
                 <div class="message-title">
                     KHÔNG CÓ SỰ KIỆN
@@ -1402,97 +2293,151 @@ function render(){
 
     }
 
-    listEl.innerHTML =
+
+    eventsGrid.innerHTML =
         events.map(
-            event => {
+            (event,index) => {
 
                 const status =
                     getStatus(event);
 
+
                 const vq =
                     detectVQ(event);
 
+
+                const image =
+                    event.banner ||
+                    CONFIG.DEFAULT_IMAGE;
+
+
                 return `
 
-                <article class="card">
+                <article
+                    class="event-card"
+                    data-event-id="${escapeHTML(event.id)}"
+                >
 
-                    <div class="banner">
+                    <div class="event-image-wrap">
 
                         <img
-                            src="${escapeHTML(event.banner || DEFAULT_IMAGE)}"
+                            class="event-image"
+                            src="${escapeHTML(image)}"
                             alt="${escapeHTML(event.title)}"
+                            loading="${
+                                index < 3
+                                ? "eager"
+                                : "lazy"
+                            }"
                             onerror="
                                 this.onerror=null;
-                                this.src='${DEFAULT_IMAGE}';
+                                this.src='${CONFIG.DEFAULT_IMAGE}';
                             "
                         >
 
-                        <div class="status ${status}">
-                            ${statusText(status)}
+                        <div
+                            class="image-overlay"
+                        ></div>
+
+
+                        <div
+                            class="event-status ${status}"
+                        >
+                            ${getStatusText(status)}
                         </div>
 
+
                         <button
-                            class="copy"
-                            data-copy="${encodeURIComponent(event.banner || "")}"
+                            type="button"
+                            class="copy-banner"
+                            data-banner="${encodeURIComponent(image)}"
                         >
                             SAO CHÉP
                         </button>
 
                     </div>
 
-                    <div class="content">
 
-                        <h2 class="title">
-                            ${escapeHTML(event.title)}
+                    <div class="event-content">
+
+                        <h2 class="event-title">
+                            ${escapeHTML(
+                                event.title
+                            )}
                         </h2>
+
 
                         ${
                             vq
-                                ? `
-                                <div class="vq">
-                                    ${escapeHTML(vq)}
-                                </div>
-                                `
-                                : ""
+                            ?
+                            `
+                            <div class="event-vq">
+                                ${escapeHTML(vq)}
+                            </div>
+                            `
+                            :
+                            ""
                         }
+
 
                         ${
                             event.description
-                                ? `
-                                <p class="description">
-                                    ${escapeHTML(event.description)}
-                                </p>
-                                `
-                                : ""
+                            ?
+                            `
+                            <p class="event-description">
+                                ${escapeHTML(
+                                    event.description
+                                )}
+                            </p>
+                            `
+                            :
+                            ""
                         }
 
-                        <div class="meta">
 
-                            <div class="row">
-                                <span>BẮT ĐẦU</span>
-                                <span>
+                        <div class="event-meta">
+
+                            <div class="meta-row">
+
+                                <span class="meta-label">
+                                    BẮT ĐẦU:
+                                </span>
+
+                                <span class="meta-value">
                                     ${escapeHTML(
-                                        formatDate(event.start)
+                                        formatDate(
+                                            event.start
+                                        )
                                     )}
                                 </span>
+
                             </div>
 
-                            <div class="row">
-                                <span>KẾT THÚC</span>
-                                <span>
+
+                            <div class="meta-row">
+
+                                <span class="meta-label">
+                                    KẾT THÚC:
+                                </span>
+
+                                <span class="meta-value">
                                     ${escapeHTML(
-                                        formatDate(event.end)
+                                        formatDate(
+                                            event.end
+                                        )
                                     )}
                                 </span>
+
                             </div>
 
                         </div>
 
+
                         <div
                             class="countdown"
-                            data-id="${escapeHTML(event.id)}"
+                            data-countdown-id="${escapeHTML(event.id)}"
                         >
-                            ${countdown(event)}
+                            ${getCountdown(event)}
                         </div>
 
                     </div>
@@ -1508,62 +2453,318 @@ function render(){
 }
 
 
-/* =====================================================
-   LOAD
-   ===================================================== */
+/* =========================================================
+   COUNTDOWN UPDATE
+   KHÔNG RENDER LẠI CARD
+   ========================================================= */
 
-async function load(){
+function updateCountdowns(){
 
-    if(state.loading)
+    document
+        .querySelectorAll(
+            "[data-countdown-id]"
+        )
+        .forEach(
+            element => {
+
+                const id =
+                    element.dataset.countdownId;
+
+
+                const event =
+                    state.events.find(
+                        item =>
+                            String(item.id) ===
+                            String(id)
+                    );
+
+
+                if(!event){
+                    return;
+                }
+
+
+                const text =
+                    getCountdown(event);
+
+
+                if(
+                    element.textContent !==
+                    text
+                ){
+
+                    element.textContent =
+                        text;
+
+                }
+
+
+                const card =
+                    element.closest(
+                        ".event-card"
+                    );
+
+
+                if(!card){
+                    return;
+                }
+
+
+                const statusElement =
+                    card.querySelector(
+                        ".event-status"
+                    );
+
+
+                if(!statusElement){
+                    return;
+                }
+
+
+                const status =
+                    getStatus(event);
+
+
+                const className =
+                    "event-status " +
+                    status;
+
+
+                if(
+                    statusElement.className !==
+                    className
+                ){
+
+                    statusElement.className =
+                        className;
+
+                    statusElement.textContent =
+                        getStatusText(
+                            status
+                        );
+
+                }
+
+            }
+        );
+
+}
+
+
+setInterval(
+    updateCountdowns,
+    1000
+);
+
+
+/* =========================================================
+   SYNC STATUS
+   ========================================================= */
+
+function setSyncStatus(
+    text,
+    color
+){
+
+    syncStatus.textContent =
+        text;
+
+    syncStatus.style.color =
+        color;
+
+}
+
+
+/* =========================================================
+   LOAD SERVER
+   ========================================================= */
+
+async function loadServer(
+    server,
+    initial = false
+){
+
+    if(state.loading){
         return;
+    }
 
-    state.loading = true;
 
-    syncEl.textContent =
-        "ĐANG CẬP NHẬT";
+    state.loading =
+        true;
+
+
+    /*
+       Chỉ hiện trạng thái kết nối
+       trong lần tải đầu tiên.
+    */
+
+    if(initial){
+
+        setSyncStatus(
+            "ĐANG KẾT NỐI",
+            "#ffad45"
+        );
+
+    }
+
+
+    const cached =
+        readCache(server);
+
+
+    if(
+        cached &&
+        state.events.length === 0
+    ){
+
+        const cachedEvents =
+            cached.events.map(
+                normalizeEvent
+            );
+
+
+        state.events =
+            cachedEvents;
+
+
+        state.lastDataSignature =
+            createSignature(
+                cachedEvents
+            );
+
+
+        renderEvents();
+
+    }
+
 
     try{
 
         const data =
-            await getAPI(
-                state.server
+            await fetchAPI(server);
+
+
+        if(
+            server !==
+            state.server
+        ){
+
+            return;
+
+        }
+
+
+        const rawEvents =
+            findEventArray(data);
+
+
+        const events =
+            rawEvents.map(
+                normalizeEvent
             );
 
-        const raw =
-            findEvents(data);
 
-        state.events =
-            raw.map(normalize);
+        const signature =
+            createSignature(
+                events
+            );
 
-        render();
 
-        syncEl.textContent =
-            "ĐÃ ĐỒNG BỘ";
+        /*
+           CHỈ RENDER KHI DỮ LIỆU
+           THỰC SỰ THAY ĐỔI.
+        */
 
-        localStorage.setItem(
-            "ff_server",
-            state.server
-        );
+        if(
+            signature !==
+            state.lastDataSignature
+        ){
+
+            state.events =
+                events;
+
+
+            state.lastDataSignature =
+                signature;
+
+
+            saveCache(
+                server,
+                events
+            );
+
+
+            renderEvents();
+
+        }else{
+
+            /*
+               Không render.
+               Không chớp.
+            */
+
+            saveCache(
+                server,
+                state.events
+            );
+
+        }
+
+
+        /*
+           Auto refresh cũng không đổi
+           trạng thái liên tục.
+        */
+
+        if(initial){
+
+            setSyncStatus(
+                "ĐÃ ĐỒNG BỘ",
+                "#20df72"
+            );
+
+        }else if(
+            syncStatus.textContent !==
+            "ĐÃ ĐỒNG BỘ"
+        ){
+
+            setSyncStatus(
+                "ĐÃ ĐỒNG BỘ",
+                "#20df72"
+            );
+
+        }
 
     }catch(error){
 
-        console.error(error);
+        console.error(
+            "API ERROR:",
+            error
+        );
 
-        syncEl.textContent =
-            "LỖI KẾT NỐI";
 
-        if(!state.events.length){
+        /*
+           Không xóa dữ liệu đang hiển thị.
+        */
 
-            listEl.innerHTML = `
+        if(
+            state.events.length === 0
+        ){
+
+            eventsGrid.innerHTML = `
 
                 <div class="message">
+
+                    <div class="message-icon">
+                        ⚠️
+                    </div>
 
                     <div class="message-title">
                         ĐANG CẬP NHẬT
                     </div>
 
                     <div class="message-text">
-                        Không thể tải dữ liệu sự kiện.
+                        Chưa thể tải dữ liệu sự kiện.
                     </div>
 
                 </div>
@@ -1572,76 +2773,130 @@ async function load(){
 
         }
 
+
+        /*
+           Chỉ báo lỗi khi lần đầu
+           chưa có dữ liệu.
+        */
+
+        if(initial){
+
+            setSyncStatus(
+                "CHỜ KẾT NỐI",
+                "#ff9b45"
+            );
+
+        }
+
     }finally{
 
-        state.loading = false;
+        state.loading =
+            false;
 
     }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    SERVER CHANGE
-   ===================================================== */
+   ========================================================= */
 
-serverEl.addEventListener(
+serverSelect.addEventListener(
     "change",
     () => {
 
+        const server =
+            serverSelect.value;
+
+
+        if(
+            server ===
+            state.server
+        ){
+
+            return;
+
+        }
+
+
         state.server =
-            serverEl.value;
+            server;
 
-        state.events = [];
 
-        state.filter =
-            "all";
+        localStorage.setItem(
+            CONFIG.STORAGE_KEY,
+            server
+        );
 
-        document
-            .querySelectorAll(".filter")
-            .forEach(
-                button =>
-                    button.classList.remove("active")
-            );
 
-        document
-            .querySelector(
-                '[data-filter="all"]'
-            )
-            .classList.add("active");
+        serverName.textContent =
+            SERVER_NAMES[server] ||
+            server.toUpperCase();
 
-        serverNameEl.textContent =
-            SERVER_NAMES[state.server];
 
-        load();
+        state.events =
+            [];
+
+        state.lastDataSignature =
+            "";
+
+
+        eventsGrid.innerHTML = `
+
+            <div class="message">
+
+                <div class="message-icon">
+                    🔄
+                </div>
+
+                <div class="message-title">
+                    ĐANG CẬP NHẬT
+                </div>
+
+                <div class="message-text">
+                    Đang tải dữ liệu máy chủ...
+                </div>
+
+            </div>
+
+        `;
+
+
+        loadServer(
+            server,
+            true
+        );
 
     }
 );
 
 
-/* =====================================================
+/* =========================================================
    SEARCH
-   ===================================================== */
+   ========================================================= */
 
-searchEl.addEventListener(
+searchInput.addEventListener(
     "input",
     event => {
 
         state.search =
             event.target.value;
 
-        render();
+        renderEvents();
 
     }
 );
 
 
-/* =====================================================
-   FILTER BUTTONS
-   ===================================================== */
+/* =========================================================
+   FILTER
+   ========================================================= */
 
 document
-    .querySelectorAll(".filter")
+    .querySelectorAll(
+        ".filter-btn"
+    )
     .forEach(
         button => {
 
@@ -1650,22 +2905,27 @@ document
                 () => {
 
                     document
-                        .querySelectorAll(".filter")
+                        .querySelectorAll(
+                            ".filter-btn"
+                        )
                         .forEach(
-                            b =>
-                                b.classList.remove(
+                            item =>
+                                item.classList.remove(
                                     "active"
                                 )
                         );
+
 
                     button.classList.add(
                         "active"
                     );
 
+
                     state.filter =
                         button.dataset.filter;
 
-                    render();
+
+                    renderEvents();
 
                 }
             );
@@ -1674,9 +2934,9 @@ document
     );
 
 
-/* =====================================================
-   COPY
-   ===================================================== */
+/* =========================================================
+   COPY BANNER
+   ========================================================= */
 
 document.addEventListener(
     "click",
@@ -1684,26 +2944,31 @@ document.addEventListener(
 
         const button =
             event.target.closest(
-                ".copy"
+                ".copy-banner"
             );
 
-        if(!button)
+
+        if(!button){
             return;
+        }
+
 
         const url =
             decodeURIComponent(
-                button.dataset.copy || ""
+                button.dataset.banner || ""
             );
+
 
         if(!url){
 
             showToast(
-                "Không có link banner"
+                "KHÔNG CÓ LINK BANNER"
             );
 
             return;
 
         }
+
 
         try{
 
@@ -1711,15 +2976,59 @@ document.addEventListener(
                 url
             );
 
+
             showToast(
                 "ĐÃ SAO CHÉP LINK BANNER"
             );
 
-        }catch{
+        }catch(error){
 
-            showToast(
-                "KHÔNG THỂ SAO CHÉP"
-            );
+            try{
+
+                const textarea =
+                    document.createElement(
+                        "textarea"
+                    );
+
+
+                textarea.value =
+                    url;
+
+
+                textarea.style.position =
+                    "fixed";
+
+                textarea.style.opacity =
+                    "0";
+
+
+                document.body.appendChild(
+                    textarea
+                );
+
+
+                textarea.select();
+
+
+                document.execCommand(
+                    "copy"
+                );
+
+
+                textarea.remove();
+
+
+                showToast(
+                    "ĐÃ SAO CHÉP LINK BANNER"
+                );
+
+            }catch(error2){
+
+                showToast(
+                    "KHÔNG THỂ SAO CHÉP"
+                );
+
+            }
 
         }
 
@@ -1727,102 +3036,73 @@ document.addEventListener(
 );
 
 
-/* =====================================================
+/* =========================================================
    TOAST
-   ===================================================== */
+   ========================================================= */
 
 let toastTimer;
 
+
 function showToast(message){
 
-    toastEl.textContent =
+    toast.textContent =
         message;
 
-    toastEl.classList.add(
+
+    toast.classList.add(
         "show"
     );
+
 
     clearTimeout(
         toastTimer
     );
 
+
     toastTimer =
         setTimeout(
             () => {
-                toastEl.classList.remove(
+
+                toast.classList.remove(
                     "show"
                 );
+
             },
-            2000
+            2200
         );
 
 }
 
 
-/* =====================================================
-   COUNTDOWN UPDATE
-   ===================================================== */
-
-setInterval(
-    () => {
-
-        document
-            .querySelectorAll(
-                ".countdown"
-            )
-            .forEach(
-                element => {
-
-                    const id =
-                        element.dataset.id;
-
-                    const event =
-                        state.events.find(
-                            item =>
-                                String(item.id) ===
-                                String(id)
-                        );
-
-                    if(event){
-
-                        element.textContent =
-                            countdown(event);
-
-                    }
-
-                }
-            );
-
-    },
-    1000
-);
-
-
-/* =====================================================
-   AUTO REFRESH 24/24
-   ===================================================== */
+/* =========================================================
+   AUTO REFRESH
+   ========================================================= */
 
 setInterval(
     () => {
 
         if(
-            navigator.onLine &&
             document.visibilityState ===
-            "visible"
+            "visible" &&
+            navigator.onLine &&
+            !state.loading
         ){
 
-            load();
+            loadServer(
+                state.server,
+                false
+            );
 
         }
 
     },
-    REFRESH_TIME
+    CONFIG.AUTO_REFRESH
 );
 
 
-/* =====================================================
-   TAB / APP QUAY LẠI
-   ===================================================== */
+/* =========================================================
+   VISIBILITY
+   ========================================================= */
 
 document.addEventListener(
     "visibilitychange",
@@ -1830,44 +3110,94 @@ document.addEventListener(
 
         if(
             document.visibilityState ===
-            "visible"
+            "visible" &&
+            !state.loading
         ){
 
-            load();
+            loadServer(
+                state.server,
+                false
+            );
 
         }
 
     }
 );
 
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
 window.addEventListener(
     "focus",
-    load
+    () => {
+
+        if(
+            !state.loading
+        ){
+
+            loadServer(
+                state.server,
+                false
+            );
+
+        }
+
+    }
 );
+
+
+/* =========================================================
+   ONLINE
+   ========================================================= */
 
 window.addEventListener(
     "online",
-    load
+    () => {
+
+        showToast(
+            "ĐÃ KẾT NỐI INTERNET"
+        );
+
+
+        loadServer(
+            state.server,
+            false
+        );
+
+    }
 );
 
 
-/* =====================================================
+/* =========================================================
    MOBILE MENU
-   ===================================================== */
+   ========================================================= */
 
 document
-    .getElementById("menuBtn")
+    .getElementById(
+        "menuBtn"
+    )
     .addEventListener(
         "click",
         () => {
 
             const nav =
-                document.querySelector(".nav");
+                document.querySelector(
+                    ".nav"
+                );
 
-            if(
-                getComputedStyle(nav).display ===
-                "none"
-            ){
+
+            const opened =
+                nav.dataset.mobile ===
+                "true";
+
+
+            if(!opened){
+
+                nav.dataset.mobile =
+                    "true";
+
 
                 nav.style.display =
                     "flex";
@@ -1876,7 +3206,7 @@ document
                     "absolute";
 
                 nav.style.top =
-                    "64px";
+                    "68px";
 
                 nav.style.right =
                     "12px";
@@ -1884,19 +3214,22 @@ document
                 nav.style.flexDirection =
                     "column";
 
-                nav.style.background =
-                    "#101010";
-
                 nav.style.padding =
                     "8px";
 
+                nav.style.background =
+                    "#101010";
+
                 nav.style.border =
-                    "1px solid #222";
+                    "1px solid rgba(255,106,0,.2)";
 
                 nav.style.borderRadius =
                     "12px";
 
             }else{
+
+                nav.dataset.mobile =
+                    "false";
 
                 nav.removeAttribute(
                     "style"
@@ -1908,16 +3241,117 @@ document
     );
 
 
-/* =====================================================
+/* =========================================================
+   LOADER
+   ========================================================= */
+
+let loaderProgress = 0;
+
+
+const loaderInterval =
+    setInterval(
+        () => {
+
+            loaderProgress +=
+                Math.floor(
+                    Math.random() * 9
+                ) + 4;
+
+
+            if(
+                loaderProgress >= 90
+            ){
+
+                loaderProgress =
+                    90;
+
+                clearInterval(
+                    loaderInterval
+                );
+
+            }
+
+
+            document
+                .getElementById(
+                    "loaderProgress"
+                )
+                .style.width =
+                loaderProgress + "%";
+
+
+            document
+                .getElementById(
+                    "loaderPercent"
+                )
+                .textContent =
+                loaderProgress + "%";
+
+        },
+        100
+    );
+
+
+function hideLoader(){
+
+    document
+        .getElementById(
+            "loaderProgress"
+        )
+        .style.width =
+        "100%";
+
+
+    document
+        .getElementById(
+            "loaderPercent"
+        )
+        .textContent =
+        "100%";
+
+
+    setTimeout(
+        () => {
+
+            document
+                .getElementById(
+                    "loader"
+                )
+                .classList.add(
+                    "hide"
+                );
+
+        },
+        250
+    );
+
+}
+
+
+/* =========================================================
    INIT
-   ===================================================== */
+   ========================================================= */
 
-serverNameEl.textContent =
-    SERVER_NAMES[state.server];
+serverName.textContent =
+    SERVER_NAMES[
+        state.server
+    ] ||
+    state.server.toUpperCase();
 
-load();
+
+loadServer(
+    state.server,
+    true
+)
+.finally(
+    () => {
+
+        hideLoader();
+
+    }
+);
 
 </script>
 
 </body>
-     </html>
+   </html>
