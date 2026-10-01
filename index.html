@@ -6,888 +6,920 @@
 
 <title>FREE FIRE EVENT & UPDATE 🔥</title>
 
-<meta name="description" content="Cập nhật sự kiện Free Fire mới nhất theo từng máy chủ. Theo dõi sự kiện, thời gian bắt đầu, kết thúc và tự động nhận dạng Gợi ý VQ.">
-<meta name="theme-color" content="#050505">
-<meta name="robots" content="index,follow">
+<meta name="description" content="Cập nhật sự kiện Free Fire mới nhất theo từng máy chủ.">
+<meta name="theme-color" content="#ff6a00">
+<meta name="color-scheme" content="dark">
 
+<!-- =========================================================
+     GAR​​ENA FREE FIRE FONT — REGULAR
+     ========================================================= -->
 <style>
-
-@font-face{
-    font-family:"GFF-Latin";
+@font-face {
+    font-family: "GFF-FreeFire";
     src:
         url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Regular.woff2") format("woff2"),
         url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Regular.woff") format("woff"),
         url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Regular.ttf") format("truetype");
-    font-display:swap;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
 }
 
-@font-face{
-    font-family:"GFF-Latin";
+/* =========================================================
+   GAR​​ENA FREE FIRE FONT — BOLD
+   ========================================================= */
+@font-face {
+    font-family: "GFF-FreeFire";
     src:
         url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2"),
         url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff") format("woff"),
         url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.ttf") format("truetype");
-    font-weight:700;
-    font-display:swap;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
 }
 
-:root{
-    --orange:#ff6a00;
-    --orange2:#ff9d3c;
-    --yellow:#ffc857;
-    --red:#ff3d3d;
-    --green:#36e28a;
-    --blue:#4da6ff;
+/* =========================================================
+   RESET
+   ========================================================= */
+:root {
+    --orange: #ff6a00;
+    --orange2: #ff9d00;
+    --yellow: #ffd400;
+    --red: #ff3b30;
+    --green: #20e070;
+    --blue: #3fa9ff;
 
-    --bg:#050505;
-    --panel:rgba(18,18,18,.78);
-    --panel2:rgba(28,28,28,.72);
-    --border:rgba(255,255,255,.10);
-    --text:#fff;
-    --muted:#aaa;
+    --bg: #050505;
+    --bg2: #0b0b0b;
+    --card: rgba(18,18,18,.86);
+    --border: rgba(255,106,0,.24);
 
-    --radius:20px;
+    --text: #ffffff;
+    --muted: #a9a9a9;
+
+    --radius: 18px;
 }
 
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    -webkit-tap-highlight-color:transparent;
+/* =========================================================
+   ÉP TOÀN BỘ WEBSITE DÙNG GFF
+   ========================================================= */
+html,
+body,
+*,
+*::before,
+*::after {
+    font-family: "GFF-FreeFire", sans-serif !important;
+    font-synthesis: none !important;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    min-height:100vh;
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
     background:
-        radial-gradient(circle at 20% 10%,rgba(255,106,0,.12),transparent 30%),
-        radial-gradient(circle at 90% 30%,rgba(255,60,0,.08),transparent 28%),
-        linear-gradient(135deg,#030303,#0b0b0b 50%,#030303);
-    color:var(--text);
-    font-family:"GFF-Latin",Arial,sans-serif;
-    overflow-x:hidden;
+        radial-gradient(circle at 15% 10%, rgba(255,106,0,.12), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(255,145,0,.08), transparent 28%),
+        linear-gradient(180deg, #030303 0%, #080808 45%, #030303 100%);
+    color: var(--text);
+    overflow-x: hidden;
+    font-family: "GFF-FreeFire", sans-serif !important;
 }
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background:
-        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-    background-size:40px 40px;
-    mask-image:linear-gradient(to bottom,black,transparent);
-    z-index:-1;
+/* Tất cả phần tử */
+button,
+input,
+select,
+textarea,
+option,
+label,
+a,
+p,
+span,
+div,
+section,
+article,
+header,
+footer,
+nav,
+main,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b,
+small,
+time {
+    font-family: "GFF-FreeFire", sans-serif !important;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        var(--orange),
+        var(--orange2)
+    );
+    border-radius: 20px;
 }
 
 /* =========================================================
    LOADER
-========================================================= */
-
-.loader{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#030303;
-    transition:opacity .25s ease,visibility .25s ease;
+   ========================================================= */
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,106,0,.15),
+            transparent 35%
+        ),
+        #030303;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .45s ease, visibility .45s ease;
 }
 
-.loader.hide{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
+#loader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
-.loader-box{
-    width:min(90%,390px);
-    text-align:center;
+.loader-box {
+    width: min(86%, 380px);
+    text-align: center;
 }
 
-.loader-logo{
-    width:92px;
-    height:92px;
-    object-fit:cover;
-    border-radius:24px;
-    border:2px solid rgba(255,106,0,.7);
+.loader-logo {
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 24px;
+    border: 1px solid rgba(255,106,0,.45);
     box-shadow:
-        0 0 30px rgba(255,106,0,.25),
-        0 0 80px rgba(255,106,0,.08);
-    animation:loaderPulse 1s infinite alternate;
+        0 0 25px rgba(255,106,0,.25),
+        0 0 70px rgba(255,106,0,.08);
+    margin-bottom: 22px;
 }
 
-@keyframes loaderPulse{
-    from{transform:scale(.96)}
-    to{transform:scale(1.03)}
+.loader-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    margin-bottom: 15px;
 }
 
-.loader-title{
-    margin-top:20px;
-    font-size:25px;
-    font-weight:700;
-    letter-spacing:1px;
+.loader-bar {
+    height: 6px;
+    background: #171717;
+    border-radius: 99px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.06);
 }
 
-.loader-sub{
-    margin-top:6px;
-    color:#aaa;
-    font-size:13px;
+.loader-progress {
+    height: 100%;
+    width: 0%;
+    border-radius: inherit;
+    background: linear-gradient(
+        90deg,
+        var(--orange),
+        var(--yellow)
+    );
+    box-shadow: 0 0 15px rgba(255,106,0,.6);
+    transition: width .2s ease;
 }
 
-.loader-progress{
-    height:7px;
-    margin-top:25px;
-    border-radius:999px;
-    overflow:hidden;
-    background:#1d1d1d;
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.loader-progress-bar{
-    width:0%;
-    height:100%;
-    border-radius:999px;
-    background:linear-gradient(90deg,var(--orange),var(--yellow));
-    box-shadow:0 0 15px rgba(255,106,0,.6);
-    transition:width .08s linear;
-}
-
-.loader-percent{
-    margin-top:9px;
-    color:var(--orange2);
-    font-size:13px;
+.loader-percent {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--muted);
 }
 
 /* =========================================================
    HEADER
-========================================================= */
-
-.header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-    background:rgba(5,5,5,.76);
-    border-bottom:1px solid var(--border);
+   ========================================================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 5000;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    background: rgba(5,5,5,.78);
+    border-bottom: 1px solid rgba(255,106,0,.14);
 }
 
-.header-inner{
-    width:min(1400px,94%);
-    margin:auto;
-    min-height:74px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
+.header-inner {
+    width: min(1180px, calc(100% - 28px));
+    margin: auto;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    min-width:0;
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
 }
 
-.brand img{
-    width:48px;
-    height:48px;
-    border-radius:14px;
-    object-fit:cover;
-    border:1px solid rgba(255,106,0,.45);
+.brand img {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 1px solid rgba(255,106,0,.4);
+    box-shadow: 0 0 20px rgba(255,106,0,.14);
 }
 
-.brand-text{
-    min-width:0;
+.brand-text {
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
 }
 
-.brand-title{
-    font-size:18px;
-    font-weight:700;
-    white-space:nowrap;
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 7px;
 }
 
-.brand-desc{
-    color:#888;
-    font-size:10px;
-    margin-top:2px;
+.nav-link {
+    color: #cfcfcf;
+    text-decoration: none;
+    padding: 10px 12px;
+    border-radius: 11px;
+    font-size: 12px;
+    transition: .2s ease;
 }
 
-.menu-btn{
-    width:45px;
-    height:45px;
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.04);
-    color:white;
-    border-radius:13px;
-    font-size:22px;
-    cursor:pointer;
-    display:none;
+.nav-link:hover,
+.nav-link.active {
+    color: #fff;
+    background: rgba(255,106,0,.1);
+    box-shadow: inset 0 0 0 1px rgba(255,106,0,.15);
 }
 
-/* =========================================================
-   NAV
-========================================================= */
-
-.nav{
-    display:flex;
-    gap:6px;
-}
-
-.nav button{
-    border:0;
-    background:transparent;
-    color:#aaa;
-    padding:11px 13px;
-    border-radius:12px;
-    cursor:pointer;
-    font-family:inherit;
-    font-weight:700;
-    transition:.2s;
-}
-
-.nav button:hover,
-.nav button.active{
-    color:#fff;
-    background:rgba(255,106,0,.13);
+.menu-btn {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255,106,0,.25);
+    border-radius: 12px;
+    background: rgba(255,255,255,.04);
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 /* =========================================================
-   MAIN
-========================================================= */
-
-main{
-    width:min(1400px,94%);
-    margin:auto;
-    padding:28px 0 80px;
+   MOBILE NAV
+   ========================================================= */
+.mobile-nav {
+    display: none;
+    padding: 0 14px 14px;
 }
 
-.hero{
-    position:relative;
-    padding:32px;
-    border-radius:28px;
-    overflow:hidden;
+.mobile-nav.open {
+    display: block;
+}
+
+.mobile-nav a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    padding: 13px 14px;
+    margin-top: 6px;
+    border-radius: 12px;
+    background: rgba(255,255,255,.035);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+    width: min(1180px, calc(100% - 28px));
+    margin: auto;
+    padding: 58px 0 25px;
+}
+
+.hero-card {
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    border: 1px solid rgba(255,106,0,.18);
+    border-radius: 24px;
+
     background:
-        linear-gradient(135deg,rgba(255,106,0,.14),rgba(255,255,255,.025)),
-        rgba(15,15,15,.75);
-    border:1px solid rgba(255,106,0,.18);
-    box-shadow:0 20px 70px rgba(0,0,0,.3);
+        linear-gradient(
+            135deg,
+            rgba(255,106,0,.1),
+            rgba(255,255,255,.025) 45%,
+            rgba(255,255,255,.015)
+        );
+
+    box-shadow:
+        0 20px 80px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.04);
 }
 
-.hero::after{
-    content:"";
-    position:absolute;
-    width:280px;
-    height:280px;
-    right:-100px;
-    top:-130px;
-    border-radius:50%;
-    background:rgba(255,106,0,.13);
-    filter:blur(60px);
+.hero-card::before {
+    content: "";
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    right: -90px;
+    top: -100px;
+    background: var(--orange);
+    filter: blur(100px);
+    opacity: .15;
+    pointer-events: none;
 }
 
-.hero h1{
-    position:relative;
-    z-index:1;
-    font-size:clamp(28px,5vw,50px);
-    line-height:1;
+.hero-title {
+    position: relative;
+    margin: 0;
+    font-size: clamp(28px, 6vw, 58px);
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: -.5px;
 }
 
-.hero h1 span{
-    color:var(--orange);
+.hero-title span {
+    color: var(--orange);
 }
 
-.hero p{
-    position:relative;
-    z-index:1;
-    max-width:800px;
-    margin-top:15px;
-    color:#aaa;
-    line-height:1.7;
-    font-size:14px;
-}
-
-/* =========================================================
-   CONTROLS
-========================================================= */
-
-.controls{
-    display:grid;
-    grid-template-columns:220px 1fr;
-    gap:12px;
-    margin-top:20px;
-}
-
-.control{
-    min-height:52px;
-    border-radius:15px;
-    border:1px solid var(--border);
-    background:var(--panel);
-    color:#fff;
-    padding:0 16px;
-    outline:none;
-    font-family:inherit;
-}
-
-select.control{
-    cursor:pointer;
-}
-
-.search-wrap{
-    position:relative;
-}
-
-.search-wrap input{
-    width:100%;
-    height:52px;
-    border-radius:15px;
-    border:1px solid var(--border);
-    background:var(--panel);
-    color:white;
-    padding:0 18px 0 45px;
-    outline:none;
-    font-family:inherit;
-}
-
-.search-wrap span{
-    position:absolute;
-    left:16px;
-    top:50%;
-    transform:translateY(-50%);
-    color:#777;
+.hero-subtitle {
+    position: relative;
+    margin: 15px 0 0;
+    color: var(--muted);
+    font-size: 14px;
 }
 
 /* =========================================================
-   FILTER
-========================================================= */
+   CONTROL PANEL
+   ========================================================= */
+.controls {
+    width: min(1180px, calc(100% - 28px));
+    margin: 0 auto 20px;
 
-.filters{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:14px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 12px;
 }
 
-.filter{
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.035);
-    color:#999;
-    border-radius:999px;
-    padding:9px 15px;
-    font-family:inherit;
-    font-weight:700;
-    cursor:pointer;
+.control {
+    min-width: 0;
 }
 
-.filter.active{
-    color:white;
-    border-color:rgba(255,106,0,.4);
-    background:rgba(255,106,0,.13);
+.select,
+.search {
+    width: 100%;
+    box-sizing: border-box;
+    height: 48px;
+
+    color: #fff;
+    background: rgba(18,18,18,.92);
+    border: 1px solid rgba(255,106,0,.2);
+    border-radius: 13px;
+    outline: none;
+
+    padding: 0 15px;
+    font-size: 13px;
+
+    transition: .2s ease;
+}
+
+.select:focus,
+.search:focus {
+    border-color: rgba(255,106,0,.65);
+    box-shadow: 0 0 0 3px rgba(255,106,0,.08);
+}
+
+.select option {
+    background: #111;
+    color: #fff;
+}
+
+/* =========================================================
+   FILTERS
+   ========================================================= */
+.filters {
+    width: min(1180px, calc(100% - 28px));
+    margin: 0 auto 15px;
+
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    flex: 0 0 auto;
+
+    min-height: 40px;
+    padding: 0 15px;
+
+    border-radius: 11px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.035);
+
+    color: #aaa;
+    cursor: pointer;
+    font-size: 12px;
+
+    transition: .2s ease;
+}
+
+.filter-btn:hover {
+    color: #fff;
+    border-color: rgba(255,106,0,.25);
+}
+
+.filter-btn.active {
+    color: #fff;
+    border-color: rgba(255,106,0,.55);
+    background: rgba(255,106,0,.12);
+    box-shadow: 0 0 20px rgba(255,106,0,.08);
 }
 
 /* =========================================================
    INFO BAR
-========================================================= */
+   ========================================================= */
+.info-bar {
+    width: min(1180px, calc(100% - 28px));
+    margin: 0 auto 20px;
 
-.info-bar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-top:20px;
-    padding:14px 17px;
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.025);
-    border-radius:15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
 }
 
-.info-left{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:13px;
+.info-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 9px 12px;
+    border-radius: 10px;
+
+    background: rgba(255,255,255,.035);
+    border: 1px solid rgba(255,255,255,.06);
+
+    color: #bdbdbd;
+    font-size: 11px;
 }
 
-.live-dot{
-    width:8px;
-    height:8px;
-    flex:0 0 auto;
-    border-radius:50%;
-    background:var(--green);
-    box-shadow:0 0 12px var(--green);
+.info-item strong {
+    color: #fff;
 }
 
-.info-right{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-    gap:10px;
-    flex-wrap:wrap;
-}
-
-.updated{
-    color:#777;
-    font-size:11px;
+.info-status {
+    color: var(--green) !important;
 }
 
 /* =========================================================
-   AUTO REFRESH STATUS
-========================================================= */
-
-.auto-status{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    color:#777;
-    font-size:10px;
+   MAIN
+   ========================================================= */
+main {
+    width: min(1180px, calc(100% - 28px));
+    margin: auto;
+    padding-bottom: 60px;
 }
 
-.auto-status-dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:var(--green);
-    box-shadow:0 0 10px var(--green);
-    animation:autoPulse 1.5s infinite;
-}
-
-@keyframes autoPulse{
-    0%,100%{
-        opacity:.45;
-        transform:scale(.85);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-/* =========================================================
-   GRID
-========================================================= */
-
-.events-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:20px;
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
 }
 
 /* =========================================================
    EVENT CARD
-========================================================= */
+   ========================================================= */
+.event-card {
+    position: relative;
+    overflow: hidden;
 
-.event-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:var(--radius);
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.06),
-            rgba(255,255,255,.018)
-        );
-    border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 15px 45px rgba(0,0,0,.28);
-    transition:.25s ease;
-}
+    background: var(--card);
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: var(--radius);
 
-.event-card:hover{
-    transform:translateY(-4px);
-    border-color:rgba(255,106,0,.35);
     box-shadow:
-        0 20px 55px rgba(0,0,0,.35),
-        0 0 25px rgba(255,106,0,.06);
+        0 15px 45px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.025);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
 }
 
-.event-image{
-    position:relative;
-    aspect-ratio:16/9;
-    background:#111;
-    overflow:hidden;
+.event-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255,106,0,.3);
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.4),
+        0 0 30px rgba(255,106,0,.05);
 }
 
-.event-image img{
-    width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;
+.event-image-wrap {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #111;
+    overflow: hidden;
 }
 
-.status{
-    position:absolute;
-    top:12px;
-    left:12px;
-    z-index:2;
-    padding:7px 11px;
-    border-radius:999px;
-    font-size:10px;
-    font-weight:700;
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    border:1px solid rgba(255,255,255,.1);
+.event-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .45s ease;
 }
 
-.status.live{
-    color:#fff;
-    background:rgba(27,180,100,.75);
+.event-card:hover .event-image {
+    transform: scale(1.025);
 }
 
-.status.upcoming{
-    color:#fff;
-    background:rgba(255,160,40,.8);
-}
-
-.status.ended{
-    color:#fff;
-    background:rgba(110,110,110,.78);
-}
-
-.status.updating{
-    color:#fff;
-    background:rgba(255,106,0,.75);
-}
-
-/* =========================================================
-   COPY
-========================================================= */
-
-.copy-banner-btn{
-    position:absolute;
-    right:10px;
-    bottom:10px;
-    z-index:3;
-    border:1px solid rgba(255,255,255,.14);
-    background:rgba(0,0,0,.65);
-    color:#fff;
-    padding:6px 9px;
-    border-radius:9px;
-    font-family:inherit;
-    font-size:9px;
-    font-weight:700;
-    cursor:pointer;
-    backdrop-filter:blur(8px);
-    -webkit-backdrop-filter:blur(8px);
-    transition:.2s;
-}
-
-.copy-banner-btn:hover{
-    background:rgba(255,106,0,.85);
-}
-
-.copy-banner-btn:active{
-    transform:scale(.94);
-}
-
-/* =========================================================
-   EVENT BODY
-========================================================= */
-
-.event-body{
-    padding:17px;
-}
-
-.event-title{
-    font-size:19px;
-    font-weight:700;
-    line-height:1.25;
-}
-
-/* =========================================================
-   GỢI Ý VQ
-========================================================= */
-
-.vq-suggestion{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    margin-top:9px;
-    width:max-content;
-    max-width:100%;
-    padding:7px 10px;
-    border-radius:9px;
+.image-overlay {
+    position: absolute;
+    inset: 0;
     background:
         linear-gradient(
-            135deg,
-            rgba(255,106,0,.16),
-            rgba(255,160,40,.06)
+            180deg,
+            transparent 50%,
+            rgba(0,0,0,.65)
         );
-    border:1px solid rgba(255,106,0,.22);
-    color:var(--orange2);
-    font-size:10px;
-    font-weight:700;
-    line-height:1.2;
+    pointer-events: none;
 }
 
-.vq-suggestion-label{
-    color:#999;
+/* =========================================================
+   STATUS
+   ========================================================= */
+.status {
+    position: absolute;
+    left: 11px;
+    top: 11px;
+
+    padding: 6px 9px;
+    border-radius: 8px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,.1);
 }
 
-.vq-suggestion-code{
-    color:#fff;
-    letter-spacing:.4px;
+.status.live {
+    background: rgba(32,224,112,.13);
+    color: #52f28e;
+    border-color: rgba(32,224,112,.25);
 }
 
-.vq-suggestion.unknown{
-    background:rgba(255,255,255,.035);
-    border-color:rgba(255,255,255,.08);
+.status.upcoming {
+    background: rgba(255,157,0,.13);
+    color: #ffb13b;
+    border-color: rgba(255,157,0,.25);
 }
 
-.vq-suggestion.unknown .vq-suggestion-code{
-    color:#777;
+.status.ended {
+    background: rgba(255,255,255,.07);
+    color: #aaa;
 }
 
-.event-description{
-    margin-top:9px;
-    color:#999;
-    font-size:12px;
-    line-height:1.6;
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
+.copy-btn {
+    position: absolute;
+    right: 11px;
+    top: 11px;
+
+    padding: 6px 9px;
+
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,.1);
+
+    color: #fff;
+    background: rgba(0,0,0,.55);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    cursor: pointer;
+    font-size: 10px;
 }
 
-.event-time{
-    margin-top:14px;
-    display:grid;
-    gap:7px;
+.copy-btn:hover {
+    background: rgba(255,106,0,.18);
+    border-color: rgba(255,106,0,.35);
 }
 
-.time-row{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    font-size:11px;
-    color:#888;
+/* =========================================================
+   EVENT CONTENT
+   ========================================================= */
+.event-content {
+    padding: 15px;
 }
 
-.time-row strong{
-    color:#ddd;
-    text-align:right;
+.event-title {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.25;
+    font-weight: 700;
+    color: #fff;
 }
 
-.countdown{
-    margin-top:14px;
-    padding:11px;
-    border-radius:12px;
-    background:rgba(255,106,0,.07);
-    border:1px solid rgba(255,106,0,.12);
-    color:var(--orange2);
-    text-align:center;
-    font-size:13px;
-    font-weight:700;
+.event-vq {
+    margin-top: 8px;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 5px 8px;
+    border-radius: 7px;
+
+    color: #ffae45;
+    background: rgba(255,106,0,.08);
+    border: 1px solid rgba(255,106,0,.17);
+
+    font-size: 10px;
+}
+
+.event-description {
+    margin: 10px 0 0;
+    color: #999;
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+.event-meta {
+    display: grid;
+    gap: 7px;
+    margin-top: 14px;
+}
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.meta-label {
+    color: #777;
+    font-size: 10px;
+}
+
+.meta-value {
+    color: #ddd;
+    font-size: 10px;
+    text-align: right;
+}
+
+.countdown {
+    margin-top: 12px;
+
+    padding: 10px;
+    border-radius: 10px;
+
+    text-align: center;
+
+    background: rgba(255,106,0,.06);
+    border: 1px solid rgba(255,106,0,.12);
+
+    color: #ffad4d;
+    font-size: 11px;
+}
+
+/* =========================================================
+   UPDATING
+   ========================================================= */
+.updating-card {
+    min-height: 260px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border-radius: var(--radius);
+    border: 1px dashed rgba(255,106,0,.22);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255,106,0,.07),
+            transparent 50%
+        ),
+        rgba(15,15,15,.75);
+}
+
+.updating-inner {
+    padding: 30px;
+}
+
+.updating-icon {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.updating-title {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.updating-text {
+    color: #888;
+    margin-top: 8px;
+    font-size: 11px;
 }
 
 /* =========================================================
    EMPTY
-========================================================= */
+   ========================================================= */
+.empty {
+    grid-column: 1 / -1;
 
-.updating-frame{
-    grid-column:1/-1;
-    min-height:330px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    border:1px dashed rgba(255,106,0,.25);
-    border-radius:24px;
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,106,0,.09),
-            transparent 55%
-        ),
-        rgba(255,255,255,.018);
+    padding: 55px 20px;
+    text-align: center;
+
+    border: 1px dashed rgba(255,255,255,.1);
+    border-radius: var(--radius);
+    background: rgba(255,255,255,.02);
 }
 
-.updating-icon{
-    width:72px;
-    height:72px;
-    border-radius:22px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:30px;
-    background:rgba(255,106,0,.08);
-    border:1px solid rgba(255,106,0,.18);
-    margin-bottom:18px;
+.empty-title {
+    font-size: 17px;
+    font-weight: 700;
 }
 
-.updating-title{
-    font-size:23px;
-    font-weight:700;
-}
-
-.updating-text{
-    color:#777;
-    font-size:12px;
-    margin-top:7px;
-    max-width:420px;
-    line-height:1.6;
+.empty-text {
+    margin-top: 8px;
+    color: #777;
+    font-size: 11px;
 }
 
 /* =========================================================
    FOOTER
-========================================================= */
-
-footer{
-    width:min(1400px,94%);
-    margin:auto;
-    padding:25px 0 45px;
-    text-align:center;
-    color:#555;
-    font-size:11px;
+   ========================================================= */
+footer {
+    border-top: 1px solid rgba(255,255,255,.06);
+    padding: 25px 14px 35px;
+    text-align: center;
 }
 
-footer strong{
-    color:#888;
+.footer-title {
+    font-size: 13px;
+    font-weight: 700;
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:1000px){
-
-    .events-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-@media(max-width:700px){
-
-    .header-inner{
-        min-height:66px;
-    }
-
-    .brand img{
-        width:42px;
-        height:42px;
-    }
-
-    .brand-title{
-        font-size:14px;
-    }
-
-    .brand-desc{
-        font-size:8px;
-    }
-
-    .menu-btn{
-        display:block;
-    }
-
-    .nav{
-        position:absolute;
-        top:66px;
-        left:3%;
-        right:3%;
-        display:none;
-        flex-direction:column;
-        padding:10px;
-        border-radius:17px;
-        background:rgba(12,12,12,.96);
-        border:1px solid var(--border);
-        box-shadow:0 20px 50px rgba(0,0,0,.5);
-    }
-
-    .nav.open{
-        display:flex;
-    }
-
-    .nav button{
-        text-align:left;
-        padding:14px;
-    }
-
-    main{
-        width:92%;
-        padding-top:18px;
-    }
-
-    .hero{
-        padding:25px 20px;
-        border-radius:22px;
-    }
-
-    .hero h1{
-        font-size:31px;
-    }
-
-    .controls{
-        grid-template-columns:1fr;
-    }
-
-    .events-grid{
-        grid-template-columns:1fr;
-    }
-
-    .event-title{
-        font-size:18px;
-    }
-
-    .info-bar{
-        align-items:stretch;
-    }
-
-    .info-left{
-        width:100%;
-        flex-wrap:wrap;
-    }
-
-    .info-right{
-        width:100%;
-        justify-content:flex-start;
-    }
-
-    .updated{
-        flex:1;
-        display:flex;
-        align-items:center;
-    }
-
-}
-
-@media(max-width:400px){
-
-    .info-left{
-        gap:7px;
-        font-size:11px;
-    }
-
-    .updated{
-        font-size:10px;
-    }
-
+.footer-text {
+    margin-top: 7px;
+    color: #666;
+    font-size: 10px;
 }
 
 /* =========================================================
-   REDUCE MOTION
-========================================================= */
+   TOAST
+   ========================================================= */
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+    z-index: 9999;
 
-@media(prefers-reduced-motion:reduce){
+    transform: translate(-50%, 20px);
+    opacity: 0;
+    pointer-events: none;
 
-    *,
-    *::before,
-    *::after{
-        animation-duration:.01ms!important;
-        transition-duration:.01ms!important;
-        scroll-behavior:auto!important;
-    }
+    padding: 11px 15px;
+    border-radius: 11px;
 
+    background: rgba(20,20,20,.95);
+    border: 1px solid rgba(255,106,0,.25);
+
+    color: #fff;
+    font-size: 11px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,.4);
+
+    transition: .25s ease;
 }
 
+.toast.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+    .events-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .controls {
+        grid-template-columns: 180px 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .header-inner {
+        min-height: 62px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        padding-top: 30px;
+    }
+
+    .hero-card {
+        padding: 22px;
+        border-radius: 20px;
+    }
+
+    .hero-title {
+        font-size: 31px;
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .event-title {
+        font-size: 16px;
+    }
+
+    .info-bar {
+        gap: 6px;
+    }
+}
+
+@media (max-width: 420px) {
+    .brand-text {
+        font-size: 12px;
+    }
+
+    .hero-title {
+        font-size: 27px;
+    }
+
+    .hero-subtitle {
+        font-size: 11px;
+    }
+
+    .event-content {
+        padding: 13px;
+    }
+}
 </style>
 </head>
 
@@ -895,30 +927,24 @@ footer strong{
 
 <!-- =========================================================
      LOADER
-========================================================= -->
-
-<div class="loader" id="loader">
-
+     ========================================================= -->
+<div id="loader">
     <div class="loader-box">
 
         <img
             class="loader-logo"
             src="https://img-ffvn-tgm-com.vercel.app/images/bya8GLHk.jpg"
-            alt="Free Fire"
+            alt="FFVN.TGM"
         >
 
         <div class="loader-title">
-            XIN CHÀO 🔥
+            FREE FIRE EVENT & UPDATE 🔥
         </div>
 
-        <div class="loader-sub">
-            SỰ KIỆN FREE FIRE
-        </div>
-
-        <div class="loader-progress">
+        <div class="loader-bar">
             <div
-                class="loader-progress-bar"
-                id="loaderBar"
+                class="loader-progress"
+                id="loaderProgress"
             ></div>
         </div>
 
@@ -930,14 +956,12 @@ footer strong{
         </div>
 
     </div>
-
 </div>
 
 <!-- =========================================================
      HEADER
-========================================================= -->
-
-<header class="header">
+     ========================================================= -->
+<header>
 
     <div class="header-inner">
 
@@ -945,670 +969,917 @@ footer strong{
 
             <img
                 src="https://img-ffvn-tgm-com.vercel.app/images/bya8GLHk.jpg"
-                alt="SỰ KIỆN FREE FIRE"
+                alt="FFVN.TGM"
             >
 
             <div class="brand-text">
-
-                <div class="brand-title">
-                    SỰ KIỆN FREE FIRE 🔥
-                </div>
-
-                <div class="brand-desc">
-                    CẬP NHẬT SỰ KIỆN THEO TỪNG MÁY CHỦ
-                </div>
-
+                FFVN.TGM
             </div>
 
         </div>
 
+        <nav class="nav">
+
+            <a
+                href="#home"
+                class="nav-link active"
+            >
+                TRANG CHỦ
+            </a>
+
+            <a
+                href="#events"
+                class="nav-link"
+            >
+                SỰ KIỆN
+            </a>
+
+            <a
+                href="#events"
+                class="nav-link"
+            >
+                UPDATE
+            </a>
+
+            <a
+                href="#footer"
+                class="nav-link"
+            >
+                TIN TỨC
+            </a>
+
+        </nav>
+
         <button
             class="menu-btn"
             id="menuBtn"
-            aria-label="Menu"
+            aria-label="Mở menu"
         >
             ☰
         </button>
 
-        <nav
-            class="nav"
-            id="nav"
-        >
+    </div>
 
-            <button
-                class="active"
-                data-scroll="home"
-            >
-                🏠 Trang chủ
-            </button>
+    <div
+        class="mobile-nav"
+        id="mobileNav"
+    >
 
-            <button data-scroll="events">
-                🔥 Sự kiện
-            </button>
+        <a href="#home">
+            TRANG CHỦ
+        </a>
 
-            <button data-scroll="events">
-                🔄 Update
-            </button>
+        <a href="#events">
+            SỰ KIỆN
+        </a>
 
-            <button data-scroll="events">
-                📰 Tin tức
-            </button>
+        <a href="#events">
+            UPDATE
+        </a>
 
-        </nav>
+        <a href="#footer">
+            TIN TỨC
+        </a>
 
     </div>
 
 </header>
 
 <!-- =========================================================
-     MAIN
-========================================================= -->
+     HERO
+     ========================================================= -->
+<section
+    class="hero"
+    id="home"
+>
 
-<main id="home">
+    <div class="hero-card">
 
-    <section class="hero">
-
-        <h1>
-            FREE FIRE
-            <span>EVENT & UPDATE</span> 🔥
+        <h1 class="hero-title">
+            FREE FIRE <span>EVENT & UPDATE</span> 🔥
         </h1>
 
-        <p>
-            Cập nhật sự kiện Free Fire mới nhất theo từng máy chủ.
-            Hệ thống tự động đồng bộ dữ liệu JSON và tự động cập nhật
-            sự kiện theo máy chủ đang chọn.
+        <p class="hero-subtitle">
+            Cập nhật sự kiện theo từng máy chủ
         </p>
 
-    </section>
+    </div>
 
-    <!-- =====================================================
-         CONTROLS
-    ===================================================== -->
+</section>
 
-    <section class="controls">
+<!-- =========================================================
+     CONTROLS
+     ========================================================= -->
+<section class="controls">
+
+    <div class="control">
 
         <select
-            class="control"
+            class="select"
             id="serverSelect"
         >
 
-            <option value="vn">🇻🇳 Việt Nam</option>
-            <option value="th">🇹🇭 Thái Lan</option>
-            <option value="id">🇮🇩 Indonesia</option>
-            <option value="sg">🇸🇬 Singapore</option>
-            <option value="my">🇲🇾 Malaysia</option>
-            <option value="ph">🇵🇭 Philippines</option>
-            <option value="br">🇧🇷 Brazil</option>
-            <option value="in">🇮🇳 India</option>
-            <option value="pk">🇵🇰 Pakistan</option>
-            <option value="bd">🇧🇩 Bangladesh</option>
-            <option value="eg">🇪🇬 Egypt</option>
+            <option value="vn">
+                VN - Việt Nam
+            </option>
+
+            <option value="th">
+                TH - Thái Lan
+            </option>
+
+            <option value="id">
+                ID - Indonesia
+            </option>
+
+            <option value="sg">
+                SG - Singapore
+            </option>
+
+            <option value="my">
+                MY - Malaysia
+            </option>
+
+            <option value="ph">
+                PH - Philippines
+            </option>
+
+            <option value="br">
+                BR - Brazil
+            </option>
+
+            <option value="in">
+                IN - India
+            </option>
+
+            <option value="pk">
+                PK - Pakistan
+            </option>
+
+            <option value="bd">
+                BD - Bangladesh
+            </option>
+
+            <option value="eg">
+                EG - Egypt
+            </option>
 
         </select>
 
-        <div class="search-wrap">
+    </div>
 
-            <span>🔎</span>
+    <div class="control">
 
-            <input
-                type="search"
-                id="searchInput"
-                placeholder="Tìm kiếm sự kiện..."
-                autocomplete="off"
-            >
-
-        </div>
-
-    </section>
-
-    <!-- =====================================================
-         FILTER
-    ===================================================== -->
-
-    <div class="filters">
-
-        <button
-            class="filter active"
-            data-filter="all"
+        <input
+            type="search"
+            class="search"
+            id="searchInput"
+            placeholder="Tìm kiếm sự kiện..."
+            autocomplete="off"
         >
-            Tất cả
-        </button>
-
-        <button
-            class="filter"
-            data-filter="live"
-        >
-            🟢 Đang diễn ra
-        </button>
-
-        <button
-            class="filter"
-            data-filter="upcoming"
-        >
-            🟠 Sắp diễn ra
-        </button>
-
-        <button
-            class="filter"
-            data-filter="ended"
-        >
-            ⚫ Đã kết thúc
-        </button>
 
     </div>
 
-    <!-- =====================================================
-         INFO
-    ===================================================== -->
+</section>
 
-    <div class="info-bar">
+<!-- =========================================================
+     FILTERS
+     ========================================================= -->
+<div class="filters">
 
-        <div class="info-left">
+    <button
+        class="filter-btn active"
+        data-filter="all"
+    >
+        TẤT CẢ
+    </button>
 
-            <span class="live-dot"></span>
+    <button
+        class="filter-btn"
+        data-filter="live"
+    >
+        ĐANG DIỄN RA
+    </button>
 
-            <span>
-                Máy chủ:
-                <strong id="serverName">
-                    Việt Nam
-                </strong>
-            </span>
+    <button
+        class="filter-btn"
+        data-filter="upcoming"
+    >
+        SẮP DIỄN RA
+    </button>
 
-            <span>
-                •
-                <strong id="eventCount">
-                    0
-                </strong>
-                sự kiện
-            </span>
+    <button
+        class="filter-btn"
+        data-filter="ended"
+    >
+        ĐÃ KẾT THÚC
+    </button>
 
-        </div>
+</div>
 
-        <div class="info-right">
+<!-- =========================================================
+     INFO
+     ========================================================= -->
+<div class="info-bar">
 
-            <div
-                class="auto-status"
-                title="Hệ thống tự động đồng bộ dữ liệu"
-            >
-
-                <span class="auto-status-dot"></span>
-
-                <span>
-                    TỰ ĐỘNG 24/24
-                </span>
-
-            </div>
-
-            <div
-                class="updated"
-                id="updatedText"
-            >
-                Đang tải dữ liệu...
-            </div>
-
-        </div>
-
+    <div class="info-item">
+        SERVER:
+        <strong id="currentServer">
+            VN
+        </strong>
     </div>
 
-    <!-- =====================================================
-         EVENTS
-    ===================================================== -->
+    <div class="info-item">
+        SỰ KIỆN:
+        <strong id="eventCount">
+            0
+        </strong>
+    </div>
 
-    <section
+    <div class="info-item">
+        TRẠNG THÁI:
+        <strong
+            class="info-status"
+            id="syncStatus"
+        >
+            ĐANG KẾT NỐI
+        </strong>
+    </div>
+
+</div>
+
+<!-- =========================================================
+     EVENTS
+     ========================================================= -->
+<main id="events">
+
+    <div
         class="events-grid"
         id="eventsGrid"
     >
 
-        <div class="updating-frame">
+        <div class="updating-card">
 
-            <div class="updating-icon">
-                🔄
-            </div>
+            <div class="updating-inner">
 
-            <div class="updating-title">
-                ĐANG CẬP NHẬT
-            </div>
+                <div class="updating-icon">
+                    🔄
+                </div>
 
-            <div class="updating-text">
-                Đang kết nối dữ liệu sự kiện...
+                <div class="updating-title">
+                    ĐANG CẬP NHẬT
+                </div>
+
+                <div class="updating-text">
+                    Đang tải dữ liệu sự kiện...
+                </div>
+
             </div>
 
         </div>
 
-    </section>
+    </div>
 
 </main>
 
-<footer>
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer id="footer">
 
-    <strong>
-        SỰ KIỆN FREE FIRE 🔥
-    </strong>
+    <div class="footer-title">
+        FREE FIRE EVENT & UPDATE 🔥
+    </div>
 
-    <br>
-
-    Dữ liệu được tự động đồng bộ theo máy chủ được chọn.
+    <div class="footer-text">
+        FFVN.TGM • Cập nhật sự kiện Free Fire
+    </div>
 
 </footer>
 
-<script>
-"use strict";
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
+<div
+    class="toast"
+    id="toast"
+></div>
 
+<script>
 /* =========================================================
    CONFIG
-========================================================= */
+   ========================================================= */
 
 const CONFIG = {
 
-    /*
-       API chính.
-       Khi đổi server:
-       /api/events?region=vn
-       /api/events?region=th
-       ...
-    */
-
-    API_URL:
-        "/api/events?region={region}",
+    API_URL: "/api/events?region={region}",
 
     DEFAULT_IMAGE:
         "https://img-ffvn-tgm-com.vercel.app/images/JZ15I6Yo.jpg",
 
-    /*
-       Timeout mỗi lần gọi API.
-    */
+    REQUEST_TIMEOUT: 15000,
 
-    REQUEST_TIMEOUT:
-        15000,
+    /* Tự động đồng bộ nhanh */
+    AUTO_REFRESH: 10000,
 
-    /*
-       TỰ ĐỘNG ĐỒNG BỘ JSON.
+    /* Cache local */
+    REVALIDATE_AFTER: 10000,
 
-       30 giây/lần.
+    STORAGE_KEY:
+        "ff_server",
 
-       Không cần nút Làm mới.
-    */
-
-    AUTO_REFRESH:
-        30000,
-
-    /*
-       Khi tab quay lại:
-       nếu dữ liệu cũ hơn khoảng thời gian này
-       thì tải mới ngay.
-    */
-
-    REVALIDATE_AFTER:
-        30000
+    CACHE_PREFIX:
+        "ff_event_cache_"
 
 };
 
-/* =========================================================
-   SERVER
-========================================================= */
-
-const SERVER_NAMES = {
-
-    vn:"Việt Nam",
-    th:"Thái Lan",
-    id:"Indonesia",
-    sg:"Singapore",
-    my:"Malaysia",
-    ph:"Philippines",
-    br:"Brazil",
-    in:"India",
-    pk:"Pakistan",
-    bd:"Bangladesh",
-    eg:"Egypt"
-
-};
-
-/* =========================================================
-   VQ MAPPING
-========================================================= */
-
-const VQ_MAPPING = {
-
-    TW:"VQTO",
-    FW:"VQBM",
-    DW:"VQKB",
-    TG:"VQMM",
-    LW:"BXNP",
-    MS:"SHB"
-
-};
-
-/* =========================================================
-   TỰ ĐỘNG NHẬN DẠNG VQ
-========================================================= */
-
-function detectVQ(event){
-
-    if(
-        !event ||
-        typeof event !== "object"
-    ){
-
-        return null;
-
-    }
-
-    const sources = [
-
-        event.title,
-        event.description,
-        event.type,
-        event.id,
-        event.link,
-
-        event.raw?.title,
-        event.raw?.name,
-        event.raw?.type,
-        event.raw?.id,
-        event.raw?.event_id,
-        event.raw?.eventId,
-        event.raw?.key,
-        event.raw?.code,
-        event.raw?.event_code,
-        event.raw?.eventCode,
-        event.raw?.tag,
-        event.raw?.tags
-
-    ];
-
-    const text =
-        sources
-            .filter(
-                value =>
-                    value !== undefined &&
-                    value !== null
-            )
-            .map(
-                value =>
-                    String(value)
-            )
-            .join(" ")
-            .toUpperCase();
-
-    /*
-       TW1 - TW10
-       FW1 - FW10
-       DW1 - DW10
-       TG1 - TG10
-       LW1 - LW10
-       MS1 - MS10
-    */
-
-    for(
-        const prefix of Object.keys(
-            VQ_MAPPING
-        )
-    ){
-
-        const regex =
-            new RegExp(
-                `(?:^|[^A-Z0-9])${prefix}(10|[1-9])(?:$|[^A-Z0-9])`,
-                "i"
-            );
-
-        const match =
-            text.match(regex);
-
-        if(match){
-
-            const number =
-                Number(match[1]);
-
-            return {
-
-                source:
-                    `${prefix}${number}`,
-
-                code:
-                    `${VQ_MAPPING[prefix]}${number}`
-
-            };
-
-        }
-
-    }
-
-    /*
-       Mã VQ trực tiếp
-    */
-
-    const directMappings = [
-
-        "VQTO",
-        "VQBM",
-        "VQKB",
-        "VQMM",
-        "BXNP",
-        "SHB"
-
-    ];
-
-    for(
-        const prefix of directMappings
-    ){
-
-        const regex =
-            new RegExp(
-                `(?:^|[^A-Z0-9])${prefix}(10|[1-9])(?:$|[^A-Z0-9])`,
-                "i"
-            );
-
-        const match =
-            text.match(regex);
-
-        if(match){
-
-            const number =
-                Number(match[1]);
-
-            return {
-
-                source:
-                    `${prefix}${number}`,
-
-                code:
-                    `${prefix}${number}`
-
-            };
-
-        }
-
-    }
-
-    return null;
-
-}
-
-/* =========================================================
-   DOM
-========================================================= */
-
-const $ =
-    selector =>
-        document.querySelector(selector);
-
-const $$ =
-    selector =>
-        document.querySelectorAll(selector);
-
-const loader =
-    $("#loader");
-
-const loaderBar =
-    $("#loaderBar");
-
-const loaderPercent =
-    $("#loaderPercent");
-
-const eventsGrid =
-    $("#eventsGrid");
-
-const serverSelect =
-    $("#serverSelect");
-
-const searchInput =
-    $("#searchInput");
-
-const serverName =
-    $("#serverName");
-
-const eventCount =
-    $("#eventCount");
-
-const updatedText =
-    $("#updatedText");
-
-const menuBtn =
-    $("#menuBtn");
-
-const nav =
-    $("#nav");
 
 /* =========================================================
    STATE
-========================================================= */
+   ========================================================= */
 
 const state = {
 
     server:
-        localStorage.getItem("ff_server")
-        || "vn",
+        localStorage.getItem(CONFIG.STORAGE_KEY) || "vn",
 
-    events:[],
+    events: [],
 
-    loading:false,
+    filter: "all",
 
-    lastUpdated:0,
+    search: "",
 
-    renderedSignature:"",
-
-    filter:"all",
-
-    search:"",
-
-    requestId:0,
-
-    /*
-       Theo dõi lần đồng bộ gần nhất.
-    */
-
-    lastSyncAttempt:0,
-
-    /*
-       Số lần API lỗi liên tiếp.
-    */
-
-    failedRequests:0
+    loading: false
 
 };
 
+
 /* =========================================================
-   UTILITY
-========================================================= */
+   DOM
+   ========================================================= */
 
-function safeString(value){
+const $ = selector =>
+    document.querySelector(selector);
 
-    if(
-        value === undefined ||
-        value === null
-    ){
+const $$ = selector =>
+    document.querySelectorAll(selector);
 
-        return "";
+
+/* =========================================================
+   LOADER
+   ========================================================= */
+
+let loaderProgress = 0;
+
+const loaderTimer = setInterval(() => {
+
+    loaderProgress += Math.floor(
+        Math.random() * 8
+    ) + 3;
+
+    if (loaderProgress >= 92) {
+        loaderProgress = 92;
+        clearInterval(loaderTimer);
+    }
+
+    $("#loaderProgress").style.width =
+        loaderProgress + "%";
+
+    $("#loaderPercent").textContent =
+        loaderProgress + "%";
+
+}, 100);
+
+function hideLoader() {
+
+    loaderProgress = 100;
+
+    $("#loaderProgress").style.width = "100%";
+    $("#loaderPercent").textContent = "100%";
+
+    setTimeout(() => {
+        $("#loader").classList.add("hide");
+    }, 300);
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+let toastTimer;
+
+function showToast(message) {
+
+    const toast = $("#toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    }, 2200);
+}
+
+
+/* =========================================================
+   SERVER NAME
+   ========================================================= */
+
+const SERVER_NAMES = {
+
+    vn: "VN",
+    th: "TH",
+    id: "ID",
+    sg: "SG",
+    my: "MY",
+    ph: "PH",
+    br: "BR",
+    in: "IN",
+    pk: "PK",
+    bd: "BD",
+    eg: "EG"
+
+};
+
+
+/* =========================================================
+   API URL
+   ========================================================= */
+
+function buildApiURL(server) {
+
+    let url =
+        CONFIG.API_URL.replace(
+            "{region}",
+            encodeURIComponent(server)
+        );
+
+    const separator =
+        url.includes("?") ? "&" : "?";
+
+    return (
+        url +
+        separator +
+        "_t=" +
+        Date.now()
+    );
+}
+
+
+/* =========================================================
+   FETCH TIMEOUT
+   ========================================================= */
+
+async function fetchWithTimeout(
+    url,
+    timeout = CONFIG.REQUEST_TIMEOUT
+) {
+
+    const controller =
+        new AbortController();
+
+    const timer =
+        setTimeout(
+            () => controller.abort(),
+            timeout
+        );
+
+    try {
+
+        const response =
+            await fetch(url, {
+
+                method: "GET",
+
+                cache: "no-store",
+
+                signal:
+                    controller.signal,
+
+                headers: {
+
+                    "Accept":
+                        "application/json",
+
+                    "Cache-Control":
+                        "no-cache, no-store, must-revalidate",
+
+                    "Pragma":
+                        "no-cache"
+
+                }
+
+            });
+
+        if (!response.ok) {
+
+            throw new Error(
+                "HTTP " + response.status
+            );
+
+        }
+
+        return await response.json();
+
+    } finally {
+
+        clearTimeout(timer);
 
     }
 
-    return String(value).trim();
+}
+
+
+/* =========================================================
+   FIND EVENT ARRAY
+   ========================================================= */
+
+function findEventArray(payload) {
+
+    if (!payload) {
+        return [];
+    }
+
+    if (Array.isArray(payload)) {
+        return payload;
+    }
+
+    if (
+        Array.isArray(payload.events)
+    ) {
+        return payload.events;
+    }
+
+    if (
+        payload.data &&
+        Array.isArray(payload.data.events)
+    ) {
+        return payload.data.events;
+    }
+
+    if (
+        payload.data &&
+        Array.isArray(payload.data)
+    ) {
+        return payload.data;
+    }
+
+    if (
+        payload.result &&
+        Array.isArray(payload.result.events)
+    ) {
+        return payload.result.events;
+    }
+
+    if (
+        payload.data &&
+        payload.data.data &&
+        Array.isArray(payload.data.data.events)
+    ) {
+        return payload.data.data.events;
+    }
+
+    return [];
 
 }
 
-function escapeHTML(value){
 
-    return safeString(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+/* =========================================================
+   NORMALIZE EVENT
+   ========================================================= */
+
+function normalizeEvent(event, index) {
+
+    if (!event) {
+        event = {};
+    }
+
+    const title =
+        event.title ||
+        event.name ||
+        event.event_name ||
+        "Sự kiện Free Fire";
+
+    const banner =
+        event.banner ||
+        event.image ||
+        event.img ||
+        event.thumbnail ||
+        CONFIG.DEFAULT_IMAGE;
+
+    const start =
+        event.start ||
+        event.start_time ||
+        event.begin ||
+        "";
+
+    const end =
+        event.end ||
+        event.end_time ||
+        event.finish ||
+        "";
+
+    const link =
+        event.link ||
+        event.url ||
+        "";
+
+    const type =
+        event.type ||
+        "";
+
+    const description =
+        event.description ||
+        event.desc ||
+        event.content ||
+        "";
+
+    return {
+
+        id:
+            event.id ||
+            event.event_id ||
+            index,
+
+        title:
+            String(title),
+
+        banner:
+            String(banner),
+
+        start:
+            String(start),
+
+        end:
+            String(end),
+
+        link:
+            String(link),
+
+        type:
+            String(type),
+
+        description:
+            String(description),
+
+        raw:
+            event
+
+    };
 
 }
 
-function normalizeTimestamp(value){
 
-    if(
-        value === undefined ||
-        value === null ||
-        value === ""
-    ){
+/* =========================================================
+   DATE
+   ========================================================= */
+
+function parseDate(value) {
+
+    if (!value) {
+        return null;
+    }
+
+    const date =
+        new Date(value);
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
 
         return null;
 
     }
 
-    if(
-        typeof value === "number"
-    ){
-
-        return value < 10000000000
-            ? value * 1000
-            : value;
-
-    }
-
-    const text =
-        String(value).trim();
-
-    if(
-        /^\d+$/.test(text)
-    ){
-
-        const number =
-            Number(text);
-
-        return number < 10000000000
-            ? number * 1000
-            : number;
-
-    }
-
-    const parsed =
-        Date.parse(text);
-
-    return Number.isNaN(parsed)
-        ? null
-        : parsed;
+    return date;
 
 }
 
-function firstValue(
-    object,
-    keys
-){
 
-    if(
-        !object ||
-        typeof object !== "object"
-    ){
+/* =========================================================
+   STATUS
+   ========================================================= */
 
-        return "";
+function getEventStatus(event) {
+
+    const now =
+        Date.now();
+
+    const start =
+        parseDate(event.start);
+
+    const end =
+        parseDate(event.end);
+
+    if (
+        start &&
+        now < start.getTime()
+    ) {
+
+        return "upcoming";
 
     }
 
-    for(
-        const key of keys
-    ){
+    if (
+        end &&
+        now > end.getTime()
+    ) {
 
-        if(
-            object[key] !== undefined &&
-            object[key] !== null &&
-            object[key] !== ""
-        ){
+        return "ended";
 
-            return object[key];
+    }
+
+    return "live";
+
+}
+
+
+/* =========================================================
+   STATUS TEXT
+   ========================================================= */
+
+function statusText(status) {
+
+    if (status === "live") {
+        return "ĐANG DIỄN RA";
+    }
+
+    if (status === "upcoming") {
+        return "SẮP DIỄN RA";
+    }
+
+    return "ĐÃ KẾT THÚC";
+
+}
+
+
+/* =========================================================
+   FORMAT DATE
+   ========================================================= */
+
+function formatDate(value) {
+
+    const date =
+        parseDate(value);
+
+    if (!date) {
+        return "--";
+    }
+
+    return date.toLocaleString(
+        "vi-VN",
+        {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   COUNTDOWN
+   ========================================================= */
+
+function countdownText(event) {
+
+    const status =
+        getEventStatus(event);
+
+    const target =
+        status === "upcoming"
+            ? parseDate(event.start)
+            : parseDate(event.end);
+
+    if (!target) {
+        return "Thời gian chưa xác định";
+    }
+
+    const diff =
+        target.getTime() -
+        Date.now();
+
+    if (diff <= 0) {
+
+        return status === "upcoming"
+            ? "ĐANG DIỄN RA"
+            : "ĐÃ KẾT THÚC";
+
+    }
+
+    const totalSeconds =
+        Math.floor(diff / 1000);
+
+    const days =
+        Math.floor(
+            totalSeconds / 86400
+        );
+
+    const hours =
+        Math.floor(
+            (totalSeconds % 86400) / 3600
+        );
+
+    const minutes =
+        Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+    const seconds =
+        totalSeconds % 60;
+
+    if (days > 0) {
+
+        return (
+            days + " NGÀY " +
+            String(hours).padStart(2, "0") +
+            ":" +
+            String(minutes).padStart(2, "0") +
+            ":" +
+            String(seconds).padStart(2, "0")
+        );
+
+    }
+
+    return (
+        String(hours).padStart(2, "0") +
+        ":" +
+        String(minutes).padStart(2, "0") +
+        ":" +
+        String(seconds).padStart(2, "0")
+    );
+
+}
+
+
+/* =========================================================
+   VQ AUTO RECOGNITION
+   ========================================================= */
+
+const VQ_MAP = {
+
+    TW: "VQTO",
+    FW: "VQBM",
+
+    DW: "VQKB",
+    TG: "VQMM",
+    LW: "BXNP",
+    MS: "SHB"
+
+};
+
+function detectVQ(event) {
+
+    const raw =
+        event.raw || {};
+
+    const text = [
+
+        event.title,
+        event.type,
+        raw.title,
+        raw.type,
+        raw.code,
+        raw.id,
+        raw.event_id,
+        raw.name
+
+    ]
+        .filter(Boolean)
+        .join(" ")
+        .toUpperCase();
+
+    for (
+        const prefix of Object.keys(VQ_MAP)
+    ) {
+
+        const regex =
+            new RegExp(
+                "\\b" +
+                prefix +
+                "(10|[1-9])\\b",
+                "i"
+            );
+
+        const match =
+            text.match(regex);
+
+        if (match) {
+
+            return (
+                VQ_MAP[prefix] +
+                match[1]
+            );
 
         }
 
@@ -1618,376 +1889,89 @@ function firstValue(
 
 }
 
-/* =========================================================
-   DATE
-========================================================= */
-
-function formatDate(value){
-
-    const timestamp =
-        normalizeTimestamp(value);
-
-    if(!timestamp){
-
-        return "Chưa xác định";
-
-    }
-
-    try{
-
-        return new Intl.DateTimeFormat(
-            "vi-VN",
-            {
-                year:"numeric",
-                month:"2-digit",
-                day:"2-digit",
-                hour:"2-digit",
-                minute:"2-digit",
-                second:"2-digit",
-                hour12:false
-            }
-        ).format(
-            new Date(timestamp)
-        );
-
-    }catch{
-
-        return new Date(timestamp)
-            .toLocaleString("vi-VN");
-
-    }
-
-}
 
 /* =========================================================
-   NORMALIZE EVENT
-========================================================= */
+   ESCAPE HTML
+   ========================================================= */
 
-function normalizeEvent(
-    raw,
-    index
-){
+function escapeHTML(value) {
 
-    const item =
-        raw &&
-        typeof raw === "object"
-            ? raw
-            : {};
-
-    const id =
-        firstValue(
-            item,
-            [
-                "id",
-                "event_id",
-                "eventId",
-                "uuid",
-                "key"
-            ]
+    return String(value ?? "")
+        .replace(
+            /&/g,
+            "&amp;"
         )
-        ||
-        `event-${index}`;
-
-    const title =
-        firstValue(
-            item,
-            [
-                "title",
-                "name",
-                "event_name",
-                "eventName",
-                "subject"
-            ]
+        .replace(
+            /</g,
+            "&lt;"
         )
-        ||
-        "Sự kiện Free Fire";
-
-    const description =
-        firstValue(
-            item,
-            [
-                "description",
-                "desc",
-                "detail",
-                "content",
-                "text"
-            ]
+        .replace(
+            />/g,
+            "&gt;"
         )
-        ||
-        "Thông tin sự kiện Free Fire.";
-
-    const banner =
-        firstValue(
-            item,
-            [
-                "banner",
-                "image",
-                "image_url",
-                "imageUrl",
-                "banner_url",
-                "bannerUrl",
-                "thumbnail",
-                "cover"
-            ]
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
         );
 
-    const startRaw =
-        firstValue(
-            item,
-            [
-                "start",
-                "start_time",
-                "startTime",
-                "start_at",
-                "startAt",
-                "begin",
-                "begin_time",
-                "beginTime",
-                "from"
-            ]
-        );
-
-    const endRaw =
-        firstValue(
-            item,
-            [
-                "end",
-                "end_time",
-                "endTime",
-                "end_at",
-                "endAt",
-                "finish",
-                "finish_time",
-                "finishTime",
-                "to"
-            ]
-        );
-
-    return {
-
-        id:String(id),
-
-        title:String(title),
-
-        description:String(description),
-
-        banner:safeString(banner),
-
-        start:
-            normalizeTimestamp(startRaw),
-
-        end:
-            normalizeTimestamp(endRaw),
-
-        raw:item
-
-    };
-
 }
 
-/* =========================================================
-   FIND EVENT ARRAY
-========================================================= */
-
-function findEventArray(data){
-
-    if(Array.isArray(data)){
-
-        return data;
-
-    }
-
-    if(
-        !data ||
-        typeof data !== "object"
-    ){
-
-        return [];
-
-    }
-
-    const keys = [
-
-        "events",
-        "event",
-        "items",
-        "results",
-        "list",
-        "banners"
-
-    ];
-
-    for(
-        const key of keys
-    ){
-
-        if(Array.isArray(data[key])){
-
-            return data[key];
-
-        }
-
-    }
-
-    if(
-        data.data &&
-        typeof data.data === "object"
-    ){
-
-        if(Array.isArray(data.data)){
-
-            return data.data;
-
-        }
-
-        for(
-            const key of keys
-        ){
-
-            if(
-                Array.isArray(
-                    data.data[key]
-                )
-            ){
-
-                return data.data[key];
-
-            }
-
-        }
-
-    }
-
-    return [];
-
-}
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-function getStatus(event){
-
-    const now =
-        Date.now();
-
-    if(
-        event.start &&
-        now < event.start
-    ){
-
-        return "upcoming";
-
-    }
-
-    if(
-        event.end &&
-        now > event.end
-    ){
-
-        return "ended";
-
-    }
-
-    if(
-        event.start &&
-        event.end
-    ){
-
-        return "live";
-
-    }
-
-    return "updating";
-
-}
-
-/* =========================================================
-   STATUS LABEL
-========================================================= */
-
-function statusLabel(status){
-
-    switch(status){
-
-        case "live":
-            return "🟢 ĐANG DIỄN RA";
-
-        case "upcoming":
-            return "🟠 SẮP DIỄN RA";
-
-        case "ended":
-            return "⚫ ĐÃ KẾT THÚC";
-
-        default:
-            return "🔄 ĐANG CẬP NHẬT";
-
-    }
-
-}
 
 /* =========================================================
    CACHE
-========================================================= */
+   ========================================================= */
 
-function cacheKey(server){
+function cacheKey(server) {
 
-    return `ff_event_cache_${server}`;
+    return (
+        CONFIG.CACHE_PREFIX +
+        server
+    );
 
 }
 
 function saveCache(
     server,
     events
-){
+) {
 
-    try{
+    try {
 
         localStorage.setItem(
             cacheKey(server),
             JSON.stringify({
 
-                time:Date.now(),
+                time: Date.now(),
 
                 events
 
             })
         );
 
-    }catch{}
+    } catch (error) {}
 
 }
 
-function readCache(server){
+function readCache(server) {
 
-    try{
+    try {
 
         const raw =
             localStorage.getItem(
                 cacheKey(server)
             );
 
-        if(!raw){
-
+        if (!raw) {
             return null;
-
         }
 
-        const parsed =
-            JSON.parse(raw);
+        return JSON.parse(raw);
 
-        if(
-            !parsed ||
-            !Array.isArray(parsed.events)
-        ){
-
-            return null;
-
-        }
-
-        return parsed;
-
-    }catch{
+    } catch (error) {
 
         return null;
 
@@ -1995,28 +1979,429 @@ function readCache(server){
 
 }
 
+
 /* =========================================================
-   UPDATING
-========================================================= */
+   FILTER EVENTS
+   ========================================================= */
 
-function renderUpdating(
-    text="Chưa có dữ liệu sự kiện"
-){
+function getVisibleEvents() {
 
-    eventsGrid.innerHTML = `
+    let events =
+        [...state.events];
 
-        <div class="updating-frame">
+    if (
+        state.filter !== "all"
+    ) {
 
-            <div class="updating-icon">
-                🔄
+        events =
+            events.filter(
+                event =>
+                    getEventStatus(event) ===
+                    state.filter
+            );
+
+    }
+
+    const search =
+        state.search
+            .trim()
+            .toLowerCase();
+
+    if (search) {
+
+        events =
+            events.filter(
+                event =>
+                    (
+                        event.title +
+                        " " +
+                        event.description +
+                        " " +
+                        event.type
+                    )
+                    .toLowerCase()
+                    .includes(search)
+            );
+
+    }
+
+    return events;
+
+}
+
+
+/* =========================================================
+   RENDER EVENTS
+   ========================================================= */
+
+function renderEvents() {
+
+    const grid =
+        $("#eventsGrid");
+
+    const events =
+        getVisibleEvents();
+
+    $("#eventCount").textContent =
+        events.length;
+
+    if (!events.length) {
+
+        grid.innerHTML = `
+
+            <div class="empty">
+
+                <div class="empty-title">
+                    KHÔNG CÓ SỰ KIỆN
+                </div>
+
+                <div class="empty-text">
+                    Chưa tìm thấy sự kiện phù hợp.
+                </div>
+
             </div>
 
-            <div class="updating-title">
-                ĐANG CẬP NHẬT
-            </div>
+        `;
 
-            <div class="updating-text">
-                ${escapeHTML(text)}
+        return;
+
+    }
+
+    grid.innerHTML =
+        events.map(
+            (event, index) => {
+
+                const status =
+                    getEventStatus(event);
+
+                const vq =
+                    detectVQ(event);
+
+                const image =
+                    event.banner ||
+                    CONFIG.DEFAULT_IMAGE;
+
+                const description =
+                    event.description ||
+                    "Thông tin sự kiện Free Fire.";
+
+                return `
+
+                    <article
+                        class="event-card"
+                        data-id="${escapeHTML(event.id)}"
+                    >
+
+                        <div class="event-image-wrap">
+
+                            <img
+                                class="event-image"
+                                src="${escapeHTML(image)}"
+                                alt="${escapeHTML(event.title)}"
+                                loading="${
+                                    index < 3
+                                        ? "eager"
+                                        : "lazy"
+                                }"
+                                onerror="
+                                    this.onerror=null;
+                                    this.src='${CONFIG.DEFAULT_IMAGE}';
+                                "
+                            >
+
+                            <div class="image-overlay"></div>
+
+                            <div class="status ${status}">
+                                ${statusText(status)}
+                            </div>
+
+                            ${
+                                event.link
+                                    ? `
+                                    <button
+                                        class="copy-btn"
+                                        onclick="copyBanner('${encodeURIComponent(event.banner)}')"
+                                    >
+                                        SAO CHÉP
+                                    </button>
+                                    `
+                                    : `
+                                    <button
+                                        class="copy-btn"
+                                        onclick="copyBanner('${encodeURIComponent(event.banner)}')"
+                                    >
+                                        SAO CHÉP
+                                    </button>
+                                    `
+                            }
+
+                        </div>
+
+                        <div class="event-content">
+
+                            <h2 class="event-title">
+                                ${escapeHTML(event.title)}
+                            </h2>
+
+                            ${
+                                vq
+                                    ? `
+                                    <div class="event-vq">
+                                        ${escapeHTML(vq)}
+                                    </div>
+                                    `
+                                    : ""
+                            }
+
+                            <p class="event-description">
+                                ${escapeHTML(description)}
+                            </p>
+
+                            <div class="event-meta">
+
+                                <div class="meta-row">
+
+                                    <span class="meta-label">
+                                        BẮT ĐẦU
+                                    </span>
+
+                                    <span class="meta-value">
+                                        ${escapeHTML(
+                                            formatDate(event.start)
+                                        )}
+                                    </span>
+
+                                </div>
+
+                                <div class="meta-row">
+
+                                    <span class="meta-label">
+                                        KẾT THÚC
+                                    </span>
+
+                                    <span class="meta-value">
+                                        ${escapeHTML(
+                                            formatDate(event.end)
+                                        )}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <div
+                                class="countdown"
+                                data-countdown-id="${escapeHTML(event.id)}"
+                            >
+                                ${countdownText(event)}
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                `;
+
+            }
+        ).join("");
+
+}
+
+
+/* =========================================================
+   COPY BANNER
+   ========================================================= */
+
+async function copyBanner(encoded) {
+
+    const url =
+        decodeURIComponent(encoded);
+
+    if (!url) {
+
+        showToast(
+            "Không có link banner"
+        );
+
+        return;
+
+    }
+
+    try {
+
+        await navigator.clipboard.writeText(
+            url
+        );
+
+        showToast(
+            "Đã sao chép link banner"
+        );
+
+    } catch (error) {
+
+        const textarea =
+            document.createElement("textarea");
+
+        textarea.value = url;
+
+        document.body.appendChild(
+            textarea
+        );
+
+        textarea.select();
+
+        document.execCommand(
+            "copy"
+        );
+
+        textarea.remove();
+
+        showToast(
+            "Đã sao chép link banner"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD SERVER
+   ========================================================= */
+
+async function loadServer(
+    server,
+    force = true
+) {
+
+    if (state.loading) {
+        return;
+    }
+
+    state.loading = true;
+
+    $("#syncStatus").textContent =
+        "ĐANG CẬP NHẬT";
+
+    $("#syncStatus").style.color =
+        "#ffad4d";
+
+    /*
+     * Hiển thị cache ngay lập tức
+     * để không phải chờ giao diện.
+     */
+    const cached =
+        readCache(server);
+
+    if (
+        cached &&
+        Array.isArray(cached.events)
+    ) {
+
+        state.events =
+            cached.events.map(
+                (event, index) =>
+                    normalizeEvent(
+                        event,
+                        index
+                    )
+            );
+
+        renderEvents();
+
+    }
+
+    try {
+
+        const url =
+            buildApiURL(server);
+
+        const payload =
+            await fetchWithTimeout(
+                url
+            );
+
+        const rawEvents =
+            findEventArray(payload);
+
+        const events =
+            rawEvents.map(
+                normalizeEvent
+            );
+
+        state.events =
+            events;
+
+        saveCache(
+            server,
+            events
+        );
+
+        renderEvents();
+
+        $("#syncStatus").textContent =
+            "ĐÃ ĐỒNG BỘ";
+
+        $("#syncStatus").style.color =
+            "#20e070";
+
+    } catch (error) {
+
+        console.error(
+            "API ERROR:",
+            error
+        );
+
+        if (
+            !cached ||
+            !Array.isArray(cached.events)
+        ) {
+
+            state.events = [];
+
+            renderUpdatingError();
+
+        }
+
+        $("#syncStatus").textContent =
+            "LỖI KẾT NỐI";
+
+        $("#syncStatus").style.color =
+            "#ff4d4d";
+
+    } finally {
+
+        state.loading = false;
+
+    }
+
+}
+
+
+/* =========================================================
+   ERROR FRAME
+   ========================================================= */
+
+function renderUpdatingError() {
+
+    $("#eventsGrid").innerHTML = `
+
+        <div class="updating-card">
+
+            <div class="updating-inner">
+
+                <div class="updating-icon">
+                    ⚠️
+                </div>
+
+                <div class="updating-title">
+                    ĐANG CẬP NHẬT
+                </div>
+
+                <div class="updating-text">
+                    Không thể tải dữ liệu lúc này.
+                </div>
+
             </div>
 
         </div>
@@ -2025,1062 +2410,36 @@ function renderUpdating(
 
 }
 
-/* =========================================================
-   FILTER
-========================================================= */
-
-function filteredEvents(){
-
-    const search =
-        state.search
-            .toLowerCase()
-            .trim();
-
-    return state.events.filter(
-        event => {
-
-            const status =
-                getStatus(event);
-
-            const matchesFilter =
-                state.filter === "all"
-                ||
-                status === state.filter;
-
-            if(!matchesFilter){
-
-                return false;
-
-            }
-
-            if(!search){
-
-                return true;
-
-            }
-
-            const haystack =
-                (
-                    event.title
-                    + " "
-                    + event.description
-                    + " "
-                    + JSON.stringify(event.raw)
-                ).toLowerCase();
-
-            return haystack.includes(
-                search
-            );
-
-        }
-    );
-
-}
-
-/* =========================================================
-   SIGNATURE
-========================================================= */
-
-function getSignature(events){
-
-    return events.map(
-        event => [
-
-            event.id,
-            event.title,
-            event.description,
-            event.banner,
-            event.start,
-            event.end
-
-        ].join("|")
-
-    ).join("||");
-
-}
-
-/* =========================================================
-   RENDER EVENTS
-========================================================= */
-
-function renderEvents(
-    force=false
-){
-
-    const events =
-        filteredEvents();
-
-    eventCount.textContent =
-        events.length;
-
-    if(!events.length){
-
-        renderUpdating(
-            state.events.length
-                ? "Không có sự kiện phù hợp với bộ lọc hiện tại."
-                : "Chưa có dữ liệu sự kiện"
-        );
-
-        state.renderedSignature =
-            "";
-
-        return;
-
-    }
-
-    const signature =
-        getSignature(events);
-
-    if(
-        !force &&
-        signature ===
-        state.renderedSignature
-    ){
-
-        updateCountdowns();
-
-        return;
-
-    }
-
-    state.renderedSignature =
-        signature;
-
-    const fragment =
-        document.createDocumentFragment();
-
-    events.forEach(
-        (event,index) => {
-
-            const status =
-                getStatus(event);
-
-            const image =
-                event.banner
-                ||
-                CONFIG.DEFAULT_IMAGE;
-
-            const vq =
-                detectVQ(event);
-
-            const vqHTML =
-                vq
-
-                ? `
-
-                    <div
-                        class="vq-suggestion"
-                        title="Tự động nhận dạng từ dữ liệu sự kiện"
-                    >
-
-                        <span class="vq-suggestion-label">
-                            GỢI Ý VQ:
-                        </span>
-
-                        <span class="vq-suggestion-code">
-                            ${escapeHTML(vq.code)}
-                        </span>
-
-                    </div>
-
-                `
-
-                : `
-
-                    <div
-                        class="vq-suggestion unknown"
-                        title="Không tìm thấy mã TW/FW/DW/TG/LW/MS trong dữ liệu API"
-                    >
-
-                        <span class="vq-suggestion-label">
-                            GỢI Ý VQ:
-                        </span>
-
-                        <span class="vq-suggestion-code">
-                            Chưa nhận dạng
-                        </span>
-
-                    </div>
-
-                `;
-
-            const card =
-                document.createElement(
-                    "article"
-                );
-
-            card.className =
-                "event-card";
-
-            card.dataset.id =
-                event.id;
-
-            card.innerHTML = `
-
-                <div class="event-image">
-
-                    <img
-                        src="${escapeHTML(image)}"
-                        alt="${escapeHTML(event.title)}"
-                        loading="${
-                            index < 3
-                                ? "eager"
-                                : "lazy"
-                        }"
-                        decoding="async"
-                        onerror="
-                            if(this.src !== '${CONFIG.DEFAULT_IMAGE}'){
-                                this.src='${CONFIG.DEFAULT_IMAGE}';
-                            }
-                        "
-                    >
-
-                    <div class="status ${status}">
-                        ${statusLabel(status)}
-                    </div>
-
-                    <button
-                        class="copy-banner-btn"
-                        type="button"
-                        data-banner="${escapeHTML(event.banner)}"
-                    >
-                        📋 Sao chép
-                    </button>
-
-                </div>
-
-                <div class="event-body">
-
-                    <div class="event-title">
-                        ${escapeHTML(event.title)}
-                    </div>
-
-                    ${vqHTML}
-
-                    <div class="event-description">
-                        ${escapeHTML(event.description)}
-                    </div>
-
-                    <div class="event-time">
-
-                        <div class="time-row">
-
-                            <span>
-                                BẮT ĐẦU
-                            </span>
-
-                            <strong>
-                                ${formatDate(event.start)}
-                            </strong>
-
-                        </div>
-
-                        <div class="time-row">
-
-                            <span>
-                                KẾT THÚC
-                            </span>
-
-                            <strong>
-                                ${formatDate(event.end)}
-                            </strong>
-
-                        </div>
-
-                        <div class="time-row">
-
-                            <span>
-                                LOẠI
-                            </span>
-
-                            <strong>
-                                •
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                    <div
-                        class="countdown"
-                        data-countdown-id="${escapeHTML(event.id)}"
-                    >
-                        ${getCountdownText(event)}
-                    </div>
-
-                </div>
-
-            `;
-
-            fragment.appendChild(
-                card
-            );
-
-        }
-    );
-
-    eventsGrid.replaceChildren(
-        fragment
-    );
-
-    updateCountdowns();
-
-}
-
-/* =========================================================
-   COPY BANNER
-========================================================= */
-
-async function copyBannerLink(button){
-
-    const banner =
-        button.dataset.banner ||
-        "";
-
-    if(!banner){
-
-        button.textContent =
-            "❌ Không có link";
-
-        setTimeout(
-            () => {
-                button.textContent =
-                    "📋 Sao chép";
-            },
-            1200
-        );
-
-        return;
-
-    }
-
-    try{
-
-        await navigator.clipboard.writeText(
-            banner
-        );
-
-        button.textContent =
-            "✅ Đã sao chép";
-
-    }catch{
-
-        const textarea =
-            document.createElement(
-                "textarea"
-            );
-
-        textarea.value =
-            banner;
-
-        textarea.style.position =
-            "fixed";
-
-        textarea.style.opacity =
-            "0";
-
-        document.body.appendChild(
-            textarea
-        );
-
-        textarea.select();
-
-        try{
-
-            document.execCommand(
-                "copy"
-            );
-
-            button.textContent =
-                "✅ Đã sao chép";
-
-        }catch{
-
-            button.textContent =
-                "❌ Lỗi sao chép";
-
-        }
-
-        textarea.remove();
-
-    }
-
-    setTimeout(
-        () => {
-
-            button.textContent =
-                "📋 Sao chép";
-
-        },
-        1200
-    );
-
-}
-
-/* =========================================================
-   COPY EVENT
-========================================================= */
-
-eventsGrid.addEventListener(
-    "click",
-    event => {
-
-        const button =
-            event.target.closest(
-                ".copy-banner-btn"
-            );
-
-        if(!button){
-
-            return;
-
-        }
-
-        copyBannerLink(
-            button
-        );
-
-    }
-);
-
-/* =========================================================
-   COUNTDOWN
-========================================================= */
-
-function getCountdownText(event){
-
-    const now =
-        Date.now();
-
-    if(
-        event.start &&
-        now < event.start
-    ){
-
-        return "⏳ Bắt đầu sau " +
-            formatDuration(
-                event.start - now
-            );
-
-    }
-
-    if(
-        event.end &&
-        now < event.end
-    ){
-
-        return "🔥 Kết thúc sau " +
-            formatDuration(
-                event.end - now
-            );
-
-    }
-
-    if(
-        event.end &&
-        now >= event.end
-    ){
-
-        return "✓ Sự kiện đã kết thúc";
-
-    }
-
-    return "🔄 Thời gian đang cập nhật";
-
-}
-
-function formatDuration(ms){
-
-    if(ms <= 0){
-
-        return "00:00:00";
-
-    }
-
-    let total =
-        Math.floor(
-            ms / 1000
-        );
-
-    const days =
-        Math.floor(
-            total / 86400
-        );
-
-    total %= 86400;
-
-    const hours =
-        Math.floor(
-            total / 3600
-        );
-
-    total %= 3600;
-
-    const minutes =
-        Math.floor(
-            total / 60
-        );
-
-    const seconds =
-        total % 60;
-
-    const hh =
-        String(hours)
-            .padStart(2,"0");
-
-    const mm =
-        String(minutes)
-            .padStart(2,"0");
-
-    const ss =
-        String(seconds)
-            .padStart(2,"0");
-
-    if(days > 0){
-
-        return `${days} ngày ${hh}:${mm}:${ss}`;
-
-    }
-
-    return `${hh}:${mm}:${ss}`;
-
-}
-
-function updateCountdowns(){
-
-    const elements =
-        document.querySelectorAll(
-            ".countdown[data-countdown-id]"
-        );
-
-    elements.forEach(
-        element => {
-
-            const id =
-                element.dataset.countdownId;
-
-            const event =
-                state.events.find(
-                    item =>
-                        item.id === id
-                );
-
-            if(!event){
-
-                return;
-
-            }
-
-            element.textContent =
-                getCountdownText(
-                    event
-                );
-
-        }
-    );
-
-}
-
-/* =========================================================
-   LOADER
-========================================================= */
-
-let loaderFinished =
-    false;
-
-function hideLoaderImmediately(){
-
-    if(loaderFinished){
-
-        return;
-
-    }
-
-    loaderFinished =
-        true;
-
-    loader.classList.add(
-        "hide"
-    );
-
-}
-
-function startLoader(){
-
-    let progress =
-        0;
-
-    const start =
-        performance.now();
-
-    function tick(now){
-
-        const elapsed =
-            now - start;
-
-        progress =
-            Math.min(
-                100,
-                Math.round(
-                    (elapsed / 700) * 100
-                )
-            );
-
-        loaderBar.style.width =
-            progress + "%";
-
-        loaderPercent.textContent =
-            progress + "%";
-
-        if(progress < 100){
-
-            requestAnimationFrame(
-                tick
-            );
-
-        }else{
-
-            setTimeout(
-                hideLoaderImmediately,
-                60
-            );
-
-        }
-
-    }
-
-    requestAnimationFrame(
-        tick
-    );
-
-}
-
-/* =========================================================
-   FETCH JSON
-========================================================= */
-
-async function fetchWithTimeout(
-    url,
-    timeout
-){
-
-    const controller =
-        new AbortController();
-
-    const timer =
-        setTimeout(
-            () => {
-                controller.abort();
-            },
-            timeout
-        );
-
-    try{
-
-        const response =
-            await fetch(
-                url,
-                {
-                    method:"GET",
-
-                    /*
-                       Không dùng browser cache.
-                    */
-
-                    cache:"no-store",
-
-                    signal:
-                        controller.signal,
-
-                    headers:{
-                        "Accept":
-                            "application/json",
-
-                        "Cache-Control":
-                            "no-cache",
-
-                        "Pragma":
-                            "no-cache"
-                    }
-                }
-            );
-
-        if(!response.ok){
-
-            throw new Error(
-                `HTTP ${response.status}`
-            );
-
-        }
-
-        return await response.json();
-
-    }finally{
-
-        clearTimeout(
-            timer
-        );
-
-    }
-
-}
-
-/* =========================================================
-   BUILD API URL
-========================================================= */
-
-function buildApiURL(server){
-
-    const base =
-        CONFIG.API_URL.replace(
-            "{region}",
-            encodeURIComponent(
-                server
-            )
-        );
-
-    /*
-       Thêm timestamp để tránh lấy JSON cũ
-       từ cache của trình duyệt/CDN.
-    */
-
-    const separator =
-        base.includes("?")
-            ? "&"
-            : "?";
-
-    return (
-        base +
-        separator +
-        "_t=" +
-        Date.now()
-    );
-
-}
-
-/* =========================================================
-   LOAD SERVER
-========================================================= */
-
-async function loadServer(
-    server,
-    force=false
-){
-
-    const requestId =
-        ++state.requestId;
-
-    state.server =
-        server;
-
-    serverSelect.value =
-        server;
-
-    serverName.textContent =
-        SERVER_NAMES[server]
-        ||
-        server.toUpperCase();
-
-    localStorage.setItem(
-        "ff_server",
-        server
-    );
-
-    /*
-       Khi chọn server:
-       luôn ưu tiên tải JSON mới.
-
-       Cache chỉ dùng làm dữ liệu hiển thị
-       tạm thời trong lúc API đang tải.
-    */
-
-    if(!force){
-
-        const cached =
-            readCache(server);
-
-        if(
-            cached &&
-            Array.isArray(cached.events)
-        ){
-
-            state.events =
-                cached.events.map(
-                    (event,index) =>
-                        normalizeEvent(
-                            event,
-                            index
-                        )
-                );
-
-            state.lastUpdated =
-                cached.time || 0;
-
-            state.renderedSignature =
-                "";
-
-            renderEvents(true);
-
-            updatedText.textContent =
-                "Đang đồng bộ dữ liệu mới...";
-
-        }
-
-    }else{
-
-        /*
-           Force refresh:
-           không xóa event đang hiển thị.
-           Chỉ tải JSON mới rồi thay thế.
-        */
-
-        updatedText.textContent =
-            "Đang đồng bộ JSON mới...";
-
-    }
-
-    /*
-       Nếu chưa có dữ liệu thì hiện frame.
-    */
-
-    if(!state.events.length){
-
-        renderUpdating(
-            "Đang kết nối dữ liệu sự kiện..."
-        );
-
-    }
-
-    state.loading =
-        true;
-
-    state.lastSyncAttempt =
-        Date.now();
-
-    const url =
-        buildApiURL(server);
-
-    try{
-
-        const data =
-            await fetchWithTimeout(
-                url,
-                CONFIG.REQUEST_TIMEOUT
-            );
-
-        if(
-            requestId !==
-            state.requestId
-        ){
-
-            return;
-
-        }
-
-        const rawEvents =
-            findEventArray(data);
-
-        const events =
-            rawEvents.map(
-                (item,index) =>
-                    normalizeEvent(
-                        item,
-                        index
-                    )
-            );
-
-        /*
-           JSON mới đã nhận.
-        */
-
-        state.events =
-            events;
-
-        state.lastUpdated =
-            Date.now();
-
-        state.failedRequests =
-            0;
-
-        saveCache(
-            server,
-            events
-        );
-
-        state.renderedSignature =
-            "";
-
-        renderEvents(true);
-
-        updatedText.textContent =
-            "Cập nhật: " +
-            formatDate(
-                state.lastUpdated
-            );
-
-        hideLoaderImmediately();
-
-    }catch(error){
-
-        state.failedRequests++;
-
-        console.warn(
-            "Không thể tải API:",
-            error
-        );
-
-        if(
-            state.events.length
-        ){
-
-            updatedText.textContent =
-                "Đang sử dụng dữ liệu gần nhất • Tự thử lại";
-
-            renderEvents(true);
-
-        }else{
-
-            renderUpdating(
-                "Chưa tải được dữ liệu. Hệ thống sẽ tự động thử lại."
-            );
-
-            updatedText.textContent =
-                "API chưa phản hồi • Tự thử lại";
-
-        }
-
-        hideLoaderImmediately();
-
-    }finally{
-
-        if(
-            requestId ===
-            state.requestId
-        ){
-
-            state.loading =
-                false;
-
-        }
-
-    }
-
-}
-
-/* =========================================================
-   AUTO REFRESH
-========================================================= */
-
-/*
-   Đây là hệ thống tự động làm mới chính.
-
-   Không có nút thủ công.
-
-   Cứ mỗi 30 giây:
-
-   1. Lấy JSON mới.
-   2. Kiểm tra event mới.
-   3. Cập nhật event.
-   4. Cập nhật banner.
-   5. Cập nhật thời gian.
-   6. Cập nhật trạng thái.
-   7. Lưu cache.
-*/
-
-async function autoRefresh(){
-
-    if(
-        state.loading
-    ){
-
-        return;
-
-    }
-
-    if(
-        !navigator.onLine
-    ){
-
-        updatedText.textContent =
-            "Mất kết nối • Chờ mạng trở lại";
-
-        return;
-
-    }
-
-    await loadServer(
-        state.server,
-        true
-    );
-
-}
-
-/*
-   Chạy liên tục.
-*/
-
-setInterval(
-    autoRefresh,
-    CONFIG.AUTO_REFRESH
-);
 
 /* =========================================================
    SERVER CHANGE
-========================================================= */
+   ========================================================= */
 
-serverSelect.addEventListener(
+$("#serverSelect").value =
+    state.server;
+
+$("#currentServer").textContent =
+    SERVER_NAMES[state.server] ||
+    state.server.toUpperCase();
+
+$("#serverSelect").addEventListener(
     "change",
-    async () => {
+    async event => {
 
         const server =
-            serverSelect.value;
-
-        /*
-           Hủy hiệu lực request cũ.
-        */
-
-        state.requestId++;
+            event.target.value;
 
         state.server =
             server;
 
-        state.events =
-            [];
-
-        state.renderedSignature =
-            "";
-
-        state.lastUpdated =
-            0;
-
-        state.failedRequests =
-            0;
-
         localStorage.setItem(
-            "ff_server",
+            CONFIG.STORAGE_KEY,
             server
         );
 
-        serverName.textContent =
-            SERVER_NAMES[server]
-            ||
+        $("#currentServer").textContent =
+            SERVER_NAMES[server] ||
             server.toUpperCase();
-
-        eventCount.textContent =
-            "0";
-
-        updatedText.textContent =
-            "Đang tải JSON mới...";
-
-        renderUpdating(
-            "Đang tải dữ liệu cho máy chủ " +
-            SERVER_NAMES[server] +
-            "..."
-        );
-
-        /*
-           CHỌN SERVER = TẢI JSON MỚI NGAY
-        */
 
         await loadServer(
             server,
@@ -3090,59 +2449,41 @@ serverSelect.addEventListener(
     }
 );
 
+
 /* =========================================================
    SEARCH
-========================================================= */
+   ========================================================= */
 
-let searchTimer;
-
-searchInput.addEventListener(
+$("#searchInput").addEventListener(
     "input",
-    () => {
+    event => {
 
-        clearTimeout(
-            searchTimer
-        );
+        state.search =
+            event.target.value;
 
-        searchTimer =
-            setTimeout(
-                () => {
-
-                    state.search =
-                        searchInput.value;
-
-                    state.renderedSignature =
-                        "";
-
-                    renderEvents(true);
-
-                },
-                120
-            );
+        renderEvents();
 
     }
 );
 
+
 /* =========================================================
    FILTER
-========================================================= */
+   ========================================================= */
 
-$$(".filter").forEach(
+$$(".filter-btn").forEach(
     button => {
 
         button.addEventListener(
             "click",
             () => {
 
-                $$(".filter")
+                $$(".filter-btn")
                     .forEach(
-                        item => {
-
+                        item =>
                             item.classList.remove(
                                 "active"
-                            );
-
-                        }
+                            )
                     );
 
                 button.classList.add(
@@ -3150,66 +2491,44 @@ $$(".filter").forEach(
                 );
 
                 state.filter =
-                    button.dataset.filter
-                    ||
-                    "all";
+                    button.dataset.filter;
 
-                state.renderedSignature =
-                    "";
-
-                renderEvents(true);
+                renderEvents();
 
             }
         );
 
     }
 );
+
 
 /* =========================================================
    MOBILE MENU
-========================================================= */
+   ========================================================= */
 
-menuBtn.addEventListener(
+$("#menuBtn").addEventListener(
     "click",
     () => {
 
-        nav.classList.toggle(
-            "open"
-        );
+        $("#mobileNav")
+            .classList.toggle(
+                "open"
+            );
 
     }
 );
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+$$(".mobile-nav a").forEach(
+    link => {
 
-$$("[data-scroll]").forEach(
-    button => {
-
-        button.addEventListener(
+        link.addEventListener(
             "click",
             () => {
 
-                const target =
-                    button.dataset.scroll;
-
-                const element =
-                    document.getElementById(
-                        target
+                $("#mobileNav")
+                    .classList.remove(
+                        "open"
                     );
-
-                if(element){
-
-                    element.scrollIntoView({
-                        behavior:"smooth"
-                    });
-
-                }
-
-                nav.classList.remove(
-                    "open"
-                );
 
             }
         );
@@ -3217,218 +2536,191 @@ $$("[data-scroll]").forEach(
     }
 );
 
+
 /* =========================================================
-   COUNTDOWN TICK
-========================================================= */
+   COUNTDOWN LOOP
+   ========================================================= */
 
 setInterval(
     () => {
 
-        updateCountdowns();
+        document
+            .querySelectorAll(
+                "[data-countdown-id]"
+            )
+            .forEach(
+                element => {
 
-        const statuses =
-            state.events
-                .map(
-                    event =>
-                        `${event.id}:${getStatus(event)}`
-                )
-                .join("|");
+                    const id =
+                        element.dataset.countdownId;
 
-        if(
-            statuses !==
-            document.documentElement
-                .dataset.ffStatuses
-        ){
+                    const event =
+                        state.events.find(
+                            item =>
+                                String(item.id) ===
+                                String(id)
+                        );
 
-            document.documentElement
-                .dataset.ffStatuses =
-                statuses;
+                    if (event) {
 
-            state.renderedSignature =
-                "";
+                        element.textContent =
+                            countdownText(event);
 
-            renderEvents(true);
+                    }
 
-        }
+                }
+            );
 
     },
     1000
 );
 
+
 /* =========================================================
-   VISIBILITY
-========================================================= */
+   AUTO REFRESH 24/24
+   ========================================================= */
+
+setInterval(
+    () => {
+
+        if (
+            document.visibilityState ===
+            "visible" &&
+            navigator.onLine &&
+            !state.loading
+        ) {
+
+            loadServer(
+                state.server,
+                true
+            );
+
+        }
+
+    },
+    CONFIG.AUTO_REFRESH
+);
+
+
+/* =========================================================
+   KHI QUAY LẠI TAB
+   ========================================================= */
 
 document.addEventListener(
     "visibilitychange",
     () => {
 
-        /*
-           Người dùng quay lại trang:
-           kiểm tra JSON ngay lập tức.
-        */
+        if (
+            document.visibilityState ===
+            "visible"
+        ) {
 
-        if(
-            !document.hidden &&
-            !state.loading
-        ){
-
-            const elapsed =
-                Date.now() -
-                state.lastSyncAttempt;
-
-            if(
-                elapsed >=
-                CONFIG.REVALIDATE_AFTER
-            ){
-
-                autoRefresh();
-
-            }
+            loadServer(
+                state.server,
+                true
+            );
 
         }
 
     }
 );
 
-/* =========================================================
-   ONLINE
-========================================================= */
-
-window.addEventListener(
-    "online",
-    () => {
-
-        /*
-           Có mạng lại:
-           tải JSON mới ngay.
-        */
-
-        if(
-            !state.loading
-        ){
-
-            autoRefresh();
-
-        }
-
-    }
-);
 
 /* =========================================================
-   PAGE FOCUS
-========================================================= */
+   FOCUS
+   ========================================================= */
 
 window.addEventListener(
     "focus",
     () => {
 
-        if(
-            !state.loading
-        ){
-
-            const elapsed =
-                Date.now() -
-                state.lastSyncAttempt;
-
-            if(
-                elapsed >=
-                CONFIG.REVALIDATE_AFTER
-            ){
-
-                autoRefresh();
-
-            }
-
-        }
+        loadServer(
+            state.server,
+            true
+        );
 
     }
 );
 
+
 /* =========================================================
-   PAGE SHOW
-========================================================= */
+   ONLINE
+   ========================================================= */
+
+window.addEventListener(
+    "online",
+    () => {
+
+        showToast(
+            "Đã kết nối Internet"
+        );
+
+        loadServer(
+            state.server,
+            true
+        );
+
+    }
+);
+
+
+/* =========================================================
+   PAGESHOW
+   ========================================================= */
 
 window.addEventListener(
     "pageshow",
     () => {
 
-        if(
-            !state.loading
-        ){
-
-            autoRefresh();
-
-        }
-
-    }
-);
-
-/* =========================================================
-   BACKGROUND ACTIVITY
-========================================================= */
-
-setInterval(
-    () => {
-
-        document.documentElement
-            .dataset.ffEventActivity =
-            Date.now();
-
-    },
-    15000
-);
-
-/* =========================================================
-   INITIALIZATION
-========================================================= */
-
-async function init(){
-
-    if(
-        !SERVER_NAMES[state.server]
-    ){
-
-        state.server =
-            "vn";
-
-        localStorage.setItem(
-            "ff_server",
-            "vn"
+        loadServer(
+            state.server,
+            true
         );
 
     }
+);
 
-    serverSelect.value =
-        state.server;
-
-    serverName.textContent =
-        SERVER_NAMES[state.server];
-
-    startLoader();
-
-    /*
-       Lần đầu vào trang:
-       luôn lấy JSON mới.
-    */
-
-    await loadServer(
-        state.server,
-        true
-    );
-
-    setTimeout(
-        hideLoaderImmediately,
-        1200
-    );
-
-}
 
 /* =========================================================
-   START
-========================================================= */
+   INITIAL
+   ========================================================= */
 
-init();
+document.addEventListener(
+    "DOMContentLoaded",
+    async () => {
+
+        $("#currentServer").textContent =
+            SERVER_NAMES[state.server] ||
+            state.server.toUpperCase();
+
+        /*
+         * Load API ngay lập tức.
+         */
+        await loadServer(
+            state.server,
+            true
+        );
+
+        hideLoader();
+
+    }
+);
+
+
+/* =========================================================
+   FALLBACK FONT CHECK
+   ========================================================= */
+
+document.fonts.ready.then(
+    () => {
+
+        document.documentElement.style.setProperty(
+            "--gff-loaded",
+            "1"
+        );
+
+    }
+);
 
 </script>
 
