@@ -97,9 +97,7 @@ body::before{
     align-items:center;
     justify-content:center;
     background:#030303;
-    transition:
-        opacity .25s ease,
-        visibility .25s ease;
+    transition:opacity .25s ease,visibility .25s ease;
 }
 
 .loader.hide{
@@ -126,12 +124,8 @@ body::before{
 }
 
 @keyframes loaderPulse{
-    from{
-        transform:scale(.96);
-    }
-    to{
-        transform:scale(1.03);
-    }
+    from{transform:scale(.96);}
+    to{transform:scale(1.03);}
 }
 
 .loader-title{
@@ -399,6 +393,83 @@ select.control{
 }
 
 /* =========================================================
+   GỢI Ý VQ
+========================================================= */
+
+.suggestion-box{
+    display:none;
+    margin-top:14px;
+    padding:15px 17px;
+    border-radius:16px;
+    border:1px solid rgba(255,106,0,.20);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,106,0,.10),
+            rgba(255,255,255,.025)
+        );
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.20),
+        inset 0 0 25px rgba(255,106,0,.025);
+}
+
+.suggestion-box.show{
+    display:block;
+}
+
+.suggestion-head{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+}
+
+.suggestion-icon{
+    width:30px;
+    height:30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:9px;
+    background:rgba(255,106,0,.12);
+    border:1px solid rgba(255,106,0,.20);
+}
+
+.suggestion-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:11px;
+}
+
+.suggestion-item{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 11px;
+    border-radius:10px;
+    background:rgba(0,0,0,.30);
+    border:1px solid rgba(255,255,255,.08);
+    font-size:11px;
+}
+
+.suggestion-source{
+    color:#999;
+}
+
+.suggestion-arrow{
+    color:var(--orange);
+    font-weight:700;
+}
+
+.suggestion-result{
+    color:#fff;
+    font-weight:700;
+}
+
+/* =========================================================
    INFO BAR
 ========================================================= */
 
@@ -445,7 +516,7 @@ select.control{
 }
 
 /* =========================================================
-   REFRESH BUTTON
+   REFRESH
 ========================================================= */
 
 .refresh-btn{
@@ -495,12 +566,8 @@ select.control{
 }
 
 @keyframes refreshSpin{
-    from{
-        transform:rotate(0deg);
-    }
-    to{
-        transform:rotate(360deg);
-    }
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
 }
 
 /* =========================================================
@@ -593,7 +660,7 @@ select.control{
 }
 
 /* =========================================================
-   COPY BANNER
+   COPY
 ========================================================= */
 
 .copy-banner-btn{
@@ -624,10 +691,6 @@ select.control{
     transform:scale(.94);
 }
 
-/* =========================================================
-   EVENT BODY
-========================================================= */
-
 .event-body{
     padding:17px;
 }
@@ -636,37 +699,6 @@ select.control{
     font-size:19px;
     font-weight:700;
     line-height:1.25;
-}
-
-/* =========================================================
-   GỢI Ý VQ
-========================================================= */
-
-.vq-suggestion{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    margin-top:9px;
-    padding:6px 10px;
-    border-radius:9px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,106,0,.14),
-            rgba(255,200,87,.06)
-        );
-    border:1px solid rgba(255,106,0,.22);
-    color:var(--orange2);
-    font-size:10px;
-    font-weight:700;
-    line-height:1.2;
-    box-shadow:
-        inset 0 0 15px rgba(255,106,0,.025);
-}
-
-.vq-suggestion strong{
-    color:#fff;
-    font-weight:700;
 }
 
 .event-description{
@@ -712,7 +744,7 @@ select.control{
 }
 
 /* =========================================================
-   EMPTY / UPDATING
+   EMPTY
 ========================================================= */
 
 .updating-frame{
@@ -903,16 +935,12 @@ footer strong{
         font-size:10px;
     }
 
-    .vq-suggestion{
-        font-size:9px;
-        padding:5px 8px;
+    .suggestion-item{
+        width:100%;
+        justify-content:center;
     }
 
 }
-
-/* =========================================================
-   REDUCE MOTION
-========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -939,7 +967,6 @@ footer strong{
 
     <div class="loader-box">
 
-        <!-- GIỮ NGUYÊN LOGO CŨ -->
         <img
             class="loader-logo"
             src="https://cdn.imagetourls.com/uploads/tyImg/1ggIdgxtr.jpg"
@@ -984,7 +1011,6 @@ footer strong{
 
         <div class="brand">
 
-            <!-- GIỮ NGUYÊN LOGO CŨ -->
             <img
                 src="https://cdn.imagetourls.com/uploads/tyImg/1ggIdgxtr.jpg"
                 alt="Free Fire Event"
@@ -1064,9 +1090,7 @@ footer strong{
 
     </section>
 
-    <!-- =====================================================
-         CONTROLS
-    ====================================================== -->
+    <!-- CONTROLS -->
 
     <section class="controls">
 
@@ -1104,9 +1128,7 @@ footer strong{
 
     </section>
 
-    <!-- =====================================================
-         FILTER
-    ====================================================== -->
+    <!-- FILTER -->
 
     <div class="filters">
 
@@ -1141,8 +1163,34 @@ footer strong{
     </div>
 
     <!-- =====================================================
-         INFO
+         GỢI Ý
     ====================================================== -->
+
+    <div
+        class="suggestion-box"
+        id="suggestionBox"
+    >
+
+        <div class="suggestion-head">
+
+            <div class="suggestion-icon">
+                💡
+            </div>
+
+            <span>
+                Gợi ý VQ
+            </span>
+
+        </div>
+
+        <div
+            class="suggestion-list"
+            id="suggestionList"
+        ></div>
+
+    </div>
+
+    <!-- INFO -->
 
     <div class="info-bar">
 
@@ -1197,9 +1245,7 @@ footer strong{
 
     </div>
 
-    <!-- =====================================================
-         EVENTS
-    ====================================================== -->
+    <!-- EVENTS -->
 
     <section
         class="events-grid"
@@ -1225,10 +1271,6 @@ footer strong{
     </section>
 
 </main>
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
 
 <footer>
 
@@ -1290,6 +1332,215 @@ const SERVER_NAMES = {
     eg:"Egypt"
 
 };
+
+/* =========================================================
+   GỢI Ý MÃ VQ
+========================================================= */
+
+const VQ_SUGGESTIONS = {
+
+    TW:{
+        name:"VQTO",
+        label:"TW"
+    },
+
+    FW:{
+        name:"VQBM",
+        label:"FW"
+    },
+
+    DW:{
+        name:"VQKB",
+        label:"DW"
+    },
+
+    TG:{
+        name:"VQMM",
+        label:"TG"
+    },
+
+    LW:{
+        name:"BXNP",
+        label:"LW"
+    },
+
+    MS:{
+        name:"SHB",
+        label:"MS"
+    }
+
+};
+
+/*
+   Nhận chính xác các mã:
+
+   TW1 - TW10
+   FW1 - FW10
+   DW1 - DW10
+   TG1 - TG10
+   LW1 - LW10
+   MS1 - MS10
+
+   Không nhận TW11, FW11...
+*/
+
+function detectSuggestionsFromTitle(title){
+
+    const text =
+        safeString(title)
+            .toUpperCase();
+
+    const results = [];
+
+    Object.keys(
+        VQ_SUGGESTIONS
+    ).forEach(
+        prefix => {
+
+            const rule =
+                new RegExp(
+                    `(?:^|[^A-Z0-9])${prefix}(10|[1-9])(?:$|[^A-Z0-9])`,
+                    "g"
+                );
+
+            let match;
+
+            while(
+                (match = rule.exec(text)) !== null
+            ){
+
+                const number =
+                    Number(match[1]);
+
+                const config =
+                    VQ_SUGGESTIONS[prefix];
+
+                const result =
+                    `${config.name}${number}`;
+
+                if(
+                    !results.some(
+                        item =>
+                            item.source ===
+                            `${prefix}${number}`
+                    )
+                ){
+
+                    results.push({
+
+                        source:
+                            `${prefix}${number}`,
+
+                        result
+
+                    });
+
+                }
+
+            }
+
+        }
+    );
+
+    return results;
+
+}
+
+/* =========================================================
+   RENDER GỢI Ý
+========================================================= */
+
+function updateSuggestionBox(){
+
+    const suggestionBox =
+        $("#suggestionBox");
+
+    const suggestionList =
+        $("#suggestionList");
+
+    if(!suggestionBox || !suggestionList){
+
+        return;
+
+    }
+
+    const allSuggestions = [];
+
+    state.events.forEach(
+        event => {
+
+            const suggestions =
+                detectSuggestionsFromTitle(
+                    event.title
+                );
+
+            suggestions.forEach(
+                item => {
+
+                    if(
+                        !allSuggestions.some(
+                            existing =>
+                                existing.source ===
+                                    item.source &&
+                                existing.result ===
+                                    item.result
+                        )
+                    ){
+
+                        allSuggestions.push(
+                            item
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+    if(!allSuggestions.length){
+
+        suggestionList.innerHTML = "";
+
+        suggestionBox.classList.remove(
+            "show"
+        );
+
+        return;
+
+    }
+
+    suggestionList.innerHTML =
+        allSuggestions
+            .map(
+                item => `
+
+                    <div class="suggestion-item">
+
+                        <span class="suggestion-source">
+                            ${escapeHTML(item.source)}
+                        </span>
+
+                        <span class="suggestion-arrow">
+                            →
+                        </span>
+
+                        <span class="suggestion-result">
+                            ${escapeHTML(item.result)}
+                        </span>
+
+                    </div>
+
+                `
+            )
+            .join("");
+
+    suggestionBox.classList.add(
+        "show"
+    );
+
+}
 
 /* =========================================================
    STATE
@@ -1484,76 +1735,6 @@ function firstValue(
 }
 
 /* =========================================================
-   GỢI Ý VQ
-========================================================= */
-
-/*
-   Tự động nhận mã trong TIÊU ĐỀ:
-
-   TW1  -> VQTO1
-   TW2  -> VQTO2
-   ...
-   TW10 -> VQTO10
-
-   FW1  -> VQBM1
-   FW2  -> VQBM2
-   ...
-   FW10 -> VQBM10
-
-   Không phân biệt chữ hoa/chữ thường.
-*/
-
-function getVQSuggestion(title){
-
-    const text =
-        safeString(title);
-
-    /*
-       Ưu tiên nhận TW trước.
-       Giới hạn từ 1 đến 10.
-    */
-
-    const twMatch =
-        text.match(
-            /\bTW\s*(10|[1-9])\b/i
-        );
-
-    if(twMatch){
-
-        const number =
-            twMatch[1];
-
-        return `VQTO${number}`;
-
-    }
-
-    /*
-       Nhận FW từ 1 đến 10.
-    */
-
-    const fwMatch =
-        text.match(
-            /\bFW\s*(10|[1-9])\b/i
-        );
-
-    if(fwMatch){
-
-        const number =
-            fwMatch[1];
-
-        return `VQBM${number}`;
-
-    }
-
-    /*
-       Không có TW/FW thì không hiển thị.
-    */
-
-    return "";
-
-}
-
-/* =========================================================
    DATE
 ========================================================= */
 
@@ -1742,14 +1923,12 @@ function findEventArray(data){
     }
 
     const directKeys = [
-
         "events",
         "event",
         "items",
         "results",
         "list",
         "banners"
-
     ];
 
     for(
@@ -1837,28 +2016,20 @@ function getStatus(event){
 
 }
 
-/* =========================================================
-   STATUS LABEL
-========================================================= */
-
 function statusLabel(status){
 
     switch(status){
 
         case "live":
-
             return "🟢 ĐANG DIỄN RA";
 
         case "upcoming":
-
             return "🟠 SẮP DIỄN RA";
 
         case "ended":
-
             return "⚫ ĐÃ KẾT THÚC";
 
         default:
-
             return "🔄 ĐANG CẬP NHẬT";
 
     }
@@ -1938,7 +2109,7 @@ function readCache(server){
 }
 
 /* =========================================================
-   RENDER UPDATING
+   UPDATING
 ========================================================= */
 
 function renderUpdating(
@@ -1968,7 +2139,7 @@ function renderUpdating(
 }
 
 /* =========================================================
-   FILTER EVENTS
+   FILTER
 ========================================================= */
 
 function filteredEvents(){
@@ -2053,6 +2224,13 @@ function renderEvents(
     eventCount.textContent =
         events.length;
 
+    /*
+       Luôn cập nhật phần Gợi Ý
+       dựa trên toàn bộ tiêu đề API.
+    */
+
+    updateSuggestionBox();
+
     if(!events.length){
 
         renderUpdating(
@@ -2099,28 +2277,6 @@ function renderEvents(
                 event.banner
                 ||
                 CONFIG.DEFAULT_IMAGE;
-
-            /*
-               Lấy gợi ý VQ trực tiếp
-               từ tiêu đề sự kiện.
-            */
-
-            const vqSuggestion =
-                getVQSuggestion(
-                    event.title
-                );
-
-            const vqHTML =
-                vqSuggestion
-                    ? `
-                        <div class="vq-suggestion">
-                            💡 Gợi ý VQ:
-                            <strong>
-                                ${escapeHTML(vqSuggestion)}
-                            </strong>
-                        </div>
-                    `
-                    : "";
 
             const card =
                 document.createElement(
@@ -2172,8 +2328,6 @@ function renderEvents(
                     <div class="event-title">
                         ${escapeHTML(event.title)}
                     </div>
-
-                    ${vqHTML}
 
                     <div class="event-description">
                         ${escapeHTML(event.description)}
@@ -2326,7 +2480,7 @@ async function copyBannerLink(button){
 }
 
 /* =========================================================
-   EVENT CARD COPY DELEGATION
+   COPY DELEGATION
 ========================================================= */
 
 eventsGrid.addEventListener(
@@ -2564,7 +2718,7 @@ function startLoader(){
 }
 
 /* =========================================================
-   FETCH WITH TIMEOUT
+   FETCH
 ========================================================= */
 
 async function fetchWithTimeout(
@@ -2839,19 +2993,10 @@ async function manualRefresh(){
         true
     );
 
-    if(
+    refreshText.textContent =
         state.lastUpdated
-    ){
-
-        refreshText.textContent =
-            "Đã làm mới";
-
-    }else{
-
-        refreshText.textContent =
-            "Thử lại";
-
-    }
+            ? "Đã làm mới"
+            : "Thử lại";
 
     setTimeout(
         () => {
@@ -2897,6 +3042,11 @@ serverSelect.addEventListener(
 
         state.lastUpdated =
             0;
+
+        state.events =
+            [];
+
+        updateSuggestionBox();
 
         loadServer(
             server,
@@ -3022,8 +3172,7 @@ $$("[data-scroll]").forEach(
                 if(element){
 
                     element.scrollIntoView({
-                        behavior:
-                            "smooth"
+                        behavior:"smooth"
                     });
 
                 }
@@ -3068,9 +3217,7 @@ setInterval(
             state.renderedSignature =
                 "";
 
-            renderEvents(
-                true
-            );
+            renderEvents(true);
 
         }
 
