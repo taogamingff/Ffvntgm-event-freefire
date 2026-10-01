@@ -901,7 +901,7 @@ footer strong{
 
         <img
             class="loader-logo"
-            src="https://img-ffvn-tgm-com.vercel.app/images/yAIlSoI8.jpg"
+            src="https://cdn.imagetourls.com/uploads/tyImg/1ggIdgxtr.jpg"
             alt="Free Fire"
         >
 
@@ -944,7 +944,7 @@ footer strong{
         <div class="brand">
 
             <img
-                src="https://img-ffvn-tgm-com.vercel.app/images/yAIlSoI8.jpg"
+                src="https://cdn.imagetourls.com/uploads/tyImg/1ggIdgxtr.jpg"
                 alt="Free Fire Event"
             >
 
@@ -1230,6 +1230,67 @@ const CONFIG = {
 };
 
 /* =========================================================
+   MÃ TÊN TIẾNG VIỆT
+========================================================= */
+
+/*
+   Chỉ đổi tên hiển thị/xử lý.
+
+   Mã gốc:
+   TW -> VQTO
+   FW -> VQBM
+   TT -> VQ5BI
+
+   KHÔNG thay đổi mã API gốc.
+*/
+
+const VIETNAMESE_CODE_MAP = {
+
+    TW:"VQTO",
+    FW:"VQBM",
+    TT:"VQ5BI"
+
+};
+
+/*
+   Chuyển mã gốc sang mã tiếng Việt.
+*/
+
+function translateCode(value){
+
+    const code =
+        safeString(value).toUpperCase();
+
+    return VIETNAMESE_CODE_MAP[code]
+        || value;
+
+}
+
+/*
+   Chuyển ngược mã tiếng Việt
+   về mã gốc khi cần làm việc
+   với API hoặc dữ liệu gốc.
+*/
+
+const ORIGINAL_CODE_MAP = {
+
+    VQTO:"TW",
+    VQBM:"FW",
+    VQ5BI:"TT"
+
+};
+
+function originalCode(value){
+
+    const code =
+        safeString(value).toUpperCase();
+
+    return ORIGINAL_CODE_MAP[code]
+        || value;
+
+}
+
+/* =========================================================
    SERVER
 ========================================================= */
 
@@ -1355,6 +1416,42 @@ function escapeHTML(value){
         .replace(/'/g,"&#039;");
 
 }
+
+/* =========================================================
+   CODE TRANSLATION
+========================================================= */
+
+function displayCode(value){
+
+    const original =
+        safeString(value).toUpperCase();
+
+    return translateCode(
+        original
+    );
+
+}
+
+function normalizeCode(value){
+
+    const code =
+        safeString(value).toUpperCase();
+
+    /*
+       Nếu dữ liệu đã là VQTO/VQBM/VQ5BI
+       thì giữ nguyên.
+
+       Nếu là TW/FW/TT thì đổi sang
+       mã tiếng Việt.
+    */
+
+    return translateCode(code);
+
+}
+
+/* =========================================================
+   TIMESTAMP
+========================================================= */
 
 function normalizeTimestamp(value){
 
@@ -1586,6 +1683,29 @@ function normalizeEvent(
             ]
         );
 
+    /*
+       Lấy type từ API nếu có.
+       Nếu API trả TW/FW/TT thì đổi thành:
+       TW  -> VQTO
+       FW  -> VQBM
+       TT  -> VQ5BI
+    */
+
+    const typeRaw =
+        firstValue(
+            item,
+            [
+                "type",
+                "event_type",
+                "eventType",
+                "category",
+                "code"
+            ]
+        );
+
+    const type =
+        normalizeCode(typeRaw);
+
     return {
 
         id:String(id),
@@ -1601,6 +1721,13 @@ function normalizeEvent(
 
         end:
             normalizeTimestamp(endRaw),
+
+        type:type,
+
+        /*
+           Giữ nguyên dữ liệu gốc để
+           không làm mất thông tin API.
+        */
 
         raw:item
 
@@ -1894,6 +2021,8 @@ function filteredEvents(){
                     event.title
                     + " "
                     + event.description
+                    + " "
+                    + event.type
                 ).toLowerCase();
 
             return haystack.includes(
@@ -1919,7 +2048,8 @@ function getSignature(events){
             event.description,
             event.banner,
             event.start,
-            event.end
+            event.end,
+            event.type
 
         ].join("|")
 
@@ -1999,6 +2129,28 @@ function renderEvents(
             card.dataset.id =
                 event.id;
 
+            /*
+               Hiển thị mã đã chuyển sang
+               tiếng Việt nếu API có type.
+            */
+
+            const typeHTML =
+                event.type
+                    ? `
+                        <div class="time-row">
+                            <span>
+                                Loại
+                            </span>
+
+                            <strong>
+                                ${escapeHTML(
+                                    event.type
+                                )}
+                            </strong>
+                        </div>
+                    `
+                    : "";
+
             card.innerHTML = `
 
                 <div class="event-image">
@@ -2068,6 +2220,8 @@ function renderEvents(
                             </strong>
 
                         </div>
+
+                        ${typeHTML}
 
                     </div>
 
@@ -2506,17 +2660,14 @@ async function loadServer(
     serverName.textContent =
         SERVER_NAMES[server]
         ||
-        server.toUpperCase();
+        displayCode(
+            server
+        );
 
     localStorage.setItem(
         "ff_server",
         server
     );
-
-    /*
-       Chỉ sử dụng cache để hiển thị
-       nhanh trong trường hợp bình thường.
-    */
 
     const cached =
         force
@@ -2557,11 +2708,22 @@ async function loadServer(
     state.loading =
         true;
 
+    /*
+       API vẫn nhận mã region gốc.
+       Không dùng VQTO/VQBM/VQ5BI
+       để thay thế region API.
+    */
+
+    const apiRegion =
+        originalCode(
+            server
+        );
+
     const url =
         CONFIG.API_URL.replace(
             "{region}",
             encodeURIComponent(
-                server
+                apiRegion
             )
         );
 
@@ -2688,12 +2850,6 @@ async function manualRefresh(){
     updatedText.textContent =
         "Đang tải dữ liệu mới...";
 
-    /*
-       Xóa cache của server hiện tại.
-       Điều này buộc lần gọi này lấy
-       dữ liệu JSON mới từ API.
-    */
-
     try{
 
         localStorage.removeItem(
@@ -2713,11 +2869,6 @@ async function manualRefresh(){
         state.server,
         true
     );
-
-    /*
-       Kiểm tra xem lần tải có thành công
-       hay không dựa trên thời gian cập nhật.
-    */
 
     if(
         state.lastUpdated
@@ -3051,10 +3202,6 @@ setInterval(
 
 async function init(){
 
-    /*
-       Kiểm tra server hợp lệ
-    */
-
     if(
         !SERVER_NAMES[state.server]
     ){
@@ -3076,11 +3223,6 @@ async function init(){
         SERVER_NAMES[state.server];
 
     startLoader();
-
-    /*
-       Lần mở trang đầu tiên:
-       gọi API trực tiếp để có JSON mới.
-    */
 
     loadServer(
         state.server,
