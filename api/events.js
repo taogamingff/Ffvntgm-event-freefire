@@ -4,16 +4,11 @@ export default async function handler(req, res) {
        CORS
        ===================================================== */
 
-    res.setHeader(
-        "Access-Control-Allow-Origin",
-        "*"
-    );
-
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
         "Access-Control-Allow-Methods",
         "GET, OPTIONS"
     );
-
     res.setHeader(
         "Access-Control-Allow-Headers",
         "Content-Type"
@@ -34,17 +29,15 @@ export default async function handler(req, res) {
        ===================================================== */
 
     if(req.method !== "GET"){
-
         return res.status(405).json({
             success:false,
             error:"Method Not Allowed"
         });
-
     }
 
 
     /* =====================================================
-       SERVER ALLOWED
+       ALLOWED SERVERS
        ===================================================== */
 
     const allowedRegions = [
@@ -63,7 +56,7 @@ export default async function handler(req, res) {
 
 
     /* =====================================================
-       GET REGION
+       REGION
        ===================================================== */
 
     const region =
@@ -75,17 +68,11 @@ export default async function handler(req, res) {
 
 
     if(!allowedRegions.includes(region)){
-
         return res.status(400).json({
-
             success:false,
-
             error:"SERVER KHÔNG HỢP LỆ",
-
             allowedRegions
-
         });
-
     }
 
 
@@ -100,17 +87,18 @@ export default async function handler(req, res) {
 
 
     /* =====================================================
-       RETRY
+       FAST RETRY
        ===================================================== */
 
-    const maxAttempts = 3;
+    const MAX_ATTEMPTS = 2;
+    const TIMEOUT = 3000;
 
     let lastError = null;
 
 
     for(
         let attempt = 1;
-        attempt <= maxAttempts;
+        attempt <= MAX_ATTEMPTS;
         attempt++
     ){
 
@@ -120,10 +108,8 @@ export default async function handler(req, res) {
 
         const timeout =
             setTimeout(
-                ()=>{
-                    controller.abort();
-                },
-                15000
+                () => controller.abort(),
+                TIMEOUT
             );
 
 
@@ -208,7 +194,7 @@ export default async function handler(req, res) {
 
             res.setHeader(
                 "Cache-Control",
-                "public, s-maxage=30, stale-while-revalidate=60"
+                "public, s-maxage=5, stale-while-revalidate=20"
             );
 
 
@@ -237,20 +223,20 @@ export default async function handler(req, res) {
             lastError = error;
 
 
-            /* =============================================
-               RETRY DELAY
-               ============================================= */
+            /*
+             * Retry cực ngắn
+             */
 
             if(
                 attempt <
-                maxAttempts
+                MAX_ATTEMPTS
             ){
 
                 await new Promise(
                     resolve =>
                         setTimeout(
                             resolve,
-                            attempt * 700
+                            100
                         )
                 );
 
@@ -262,7 +248,7 @@ export default async function handler(req, res) {
 
 
     /* =====================================================
-       SOURCE FAILED
+       FAILED
        ===================================================== */
 
     return res.status(502).json({
@@ -284,4 +270,4 @@ export default async function handler(req, res) {
 
     });
 
-    }
+}
