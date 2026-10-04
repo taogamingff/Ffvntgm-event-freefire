@@ -1,42 +1,86 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
 <title>FREE FIRE EVENT & UPDATE 🔥</title>
 
-<meta name="description" content="Cập nhật sự kiện Free Fire mới nhất theo từng máy chủ.">
-<meta name="theme-color" content="#050505">
+<meta
+    name="description"
+    content="Cập nhật sự kiện Free Fire mới nhất theo từng máy chủ."
+>
+
+<meta
+    name="theme-color"
+    content="#050505"
+>
+
 
 <style>
 
+/* =========================================================
+   FONT
+   ========================================================= */
+
 @font-face{
+
     font-family:"GFF-Latin-Bold";
+
     src:
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2"),
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff") format("woff");
+        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2")
+        format("woff2"),
+
+        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff")
+        format("woff");
+
     font-weight:700;
     font-style:normal;
     font-display:swap;
+
 }
 
+
+/* =========================================================
+   ROOT
+   ========================================================= */
+
 :root{
+
     --orange:#ff6a00;
     --orange2:#ff9d00;
     --yellow:#ffd000;
+
     --black:#050505;
     --black2:#090909;
+
     --white:#ffffff;
+
     --muted:#858585;
+
     --green:#20df72;
+
     --red:#ff4545;
-    --border:rgba(255,106,0,.20);
+
+    --border:
+        rgba(255,106,0,.20);
+
 }
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 *{
     box-sizing:border-box;
 }
+
 
 html,
 body,
@@ -60,30 +104,43 @@ b,
 small,
 label,
 time{
-    font-family:"GFF-Latin-Bold",sans-serif !important;
+
+    font-family:
+        "GFF-Latin-Bold",
+        sans-serif !important;
+
     font-weight:700 !important;
+
 }
+
 
 html{
     scroll-behavior:smooth;
 }
 
+
 body{
+
     margin:0;
+
     min-height:100vh;
+
     color:#fff;
 
     background:
+
         radial-gradient(
             circle at 10% 0%,
             rgba(255,106,0,.10),
             transparent 30%
         ),
+
         radial-gradient(
             circle at 90% 15%,
             rgba(255,157,0,.07),
             transparent 30%
         ),
+
         linear-gradient(
             180deg,
             #030303,
@@ -92,7 +149,9 @@ body{
         );
 
     overflow-x:hidden;
+
 }
+
 
 button,
 input,
@@ -101,27 +160,39 @@ textarea{
     outline:none;
 }
 
+
 button{
-    -webkit-tap-highlight-color:transparent;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
 }
 
+
 ::-webkit-scrollbar{
+
     width:6px;
     height:6px;
+
 }
+
 
 ::-webkit-scrollbar-track{
     background:#050505;
 }
 
+
 ::-webkit-scrollbar-thumb{
-    background:linear-gradient(
-        180deg,
-        var(--orange),
-        var(--orange2)
-    );
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--orange),
+            var(--orange2)
+        );
 
     border-radius:50px;
+
 }
 
 
@@ -130,87 +201,151 @@ button{
    ========================================================= */
 
 header{
+
     position:sticky;
+
     top:0;
+
     z-index:5000;
 
-    background:rgba(5,5,5,.84);
+    background:
+        rgba(5,5,5,.84);
 
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
+    backdrop-filter:
+        blur(18px);
 
-    border-bottom:1px solid rgba(255,106,0,.13);
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(255,106,0,.13);
+
 }
 
+
 .header-inner{
-    width:min(1200px,calc(100% - 24px));
+
+    width:
+        min(
+            1200px,
+            calc(100% - 24px)
+        );
+
     min-height:68px;
+
     margin:auto;
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
+
     gap:15px;
+
 }
+
 
 .brand{
+
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
     min-width:0;
+
 }
 
+
 .brand img{
+
     width:42px;
+
     height:42px;
 
     object-fit:cover;
+
     border-radius:11px;
 
-    border:1px solid rgba(255,106,0,.35);
+    border:
+        1px solid
+        rgba(255,106,0,.35);
+
 }
+
 
 .brand-name{
+
     font-size:14px;
+
     white-space:nowrap;
+
 }
+
 
 .nav{
+
     display:flex;
+
     align-items:center;
+
     gap:5px;
+
 }
 
+
 .nav a{
+
     color:#aaa;
+
     text-decoration:none;
+
     font-size:11px;
 
     padding:10px 12px;
+
     border-radius:9px;
 
     transition:.2s;
+
 }
+
 
 .nav a:hover{
+
     color:#fff;
-    background:rgba(255,106,0,.09);
+
+    background:
+        rgba(255,106,0,.09);
+
 }
 
+
 .menu-btn{
+
     display:none;
 
     width:40px;
+
     height:40px;
 
     border-radius:10px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid
+        var(--border);
 
     background:#111;
+
     color:#fff;
 
     cursor:pointer;
+
     font-size:18px;
+
 }
 
 
@@ -219,47 +354,80 @@ header{
    ========================================================= */
 
 .hero{
-    width:min(1200px,calc(100% - 24px));
-    margin:26px auto 18px;
+
+    width:
+        min(
+            1200px,
+            calc(100% - 24px)
+        );
+
+    margin:
+        26px auto 18px;
+
 }
 
+
 .hero-box{
+
     position:relative;
+
     overflow:hidden;
 
     padding:30px 24px;
+
     border-radius:21px;
 
-    border:1px solid var(--border);
+    border:
+        1px solid
+        var(--border);
 
     background:
+
         radial-gradient(
             circle at 90% 10%,
             rgba(255,106,0,.15),
             transparent 35%
         ),
+
         linear-gradient(
             135deg,
             rgba(255,106,0,.06),
             rgba(255,255,255,.02)
         );
+
 }
+
 
 .hero-title{
+
     margin:0;
 
-    font-size:clamp(28px,6vw,55px);
+    font-size:
+        clamp(
+            28px,
+            6vw,
+            55px
+        );
+
     line-height:1.05;
+
 }
+
 
 .hero-title span{
     color:var(--orange);
 }
 
+
 .hero-subtitle{
-    margin:13px 0 0;
+
+    margin:
+        13px 0 0;
+
     color:#888;
+
     font-size:12px;
+
 }
 
 
@@ -268,41 +436,68 @@ header{
    ========================================================= */
 
 .controls{
-    width:min(1200px,calc(100% - 24px));
+
+    width:
+        min(
+            1200px,
+            calc(100% - 24px)
+        );
+
     margin:auto;
 
     display:grid;
-    grid-template-columns:220px 1fr;
+
+    grid-template-columns:
+        220px 1fr;
+
     gap:10px;
+
 }
+
 
 .server-select,
 .search-input{
+
     width:100%;
+
     height:46px;
 
     padding:0 13px;
 
     border-radius:11px;
-    border:1px solid var(--border);
+
+    border:
+        1px solid
+        var(--border);
 
     background:#101010;
+
     color:#fff;
 
     font-size:11px;
+
 }
+
 
 .server-select:focus,
 .search-input:focus{
-    border-color:rgba(255,106,0,.65);
+
+    border-color:
+        rgba(255,106,0,.65);
 
     box-shadow:
-        0 0 0 3px rgba(255,106,0,.06);
+        0 0 0 3px
+        rgba(255,106,0,.06);
+
 }
 
+
 .server-select option{
+
     background:#111;
+
     color:#fff;
+
 }
 
 
@@ -311,43 +506,66 @@ header{
    ========================================================= */
 
 .filters{
-    width:min(1200px,calc(100% - 24px));
+
+    width:
+        min(
+            1200px,
+            calc(100% - 24px)
+        );
+
     margin:11px auto;
 
     display:flex;
+
     gap:7px;
 
     overflow-x:auto;
+
     scrollbar-width:none;
+
 }
+
 
 .filters::-webkit-scrollbar{
     display:none;
 }
 
+
 .filter-btn{
+
     flex:0 0 auto;
 
     padding:10px 14px;
 
     border-radius:9px;
-    border:1px solid #202020;
+
+    border:
+        1px solid
+        #202020;
 
     background:#101010;
+
     color:#888;
 
     cursor:pointer;
+
     font-size:10px;
 
     transition:.2s;
+
 }
 
+
 .filter-btn.active{
+
     color:#fff;
 
-    border-color:var(--orange);
+    border-color:
+        var(--orange);
 
-    background:rgba(255,106,0,.10);
+    background:
+        rgba(255,106,0,.10);
+
 }
 
 
@@ -356,33 +574,59 @@ header{
    ========================================================= */
 
 .info-bar{
-    width:min(1200px,calc(100% - 24px));
-    margin:0 auto 14px;
+
+    width:
+        min(
+            1200px,
+            calc(100% - 24px)
+        );
+
+    margin:
+        0 auto 14px;
 
     display:flex;
+
     flex-wrap:wrap;
+
     gap:7px;
+
 }
 
+
 .info-item{
+
     padding:8px 11px;
 
     border-radius:8px;
-    border:1px solid #1c1c1c;
+
+    border:
+        1px solid
+        #1c1c1c;
 
     background:#0f0f0f;
+
     color:#777;
 
     font-size:9px;
+
 }
+
 
 .info-item strong{
     color:#fff;
 }
 
+
 #syncStatus{
+
     color:var(--green);
-    transition:color .2s ease;
+
+    display:inline-block;
+
+    transition:
+        color .15s ease,
+        opacity .15s ease;
+
 }
 
 
@@ -391,18 +635,32 @@ header{
    ========================================================= */
 
 main{
-    width:min(1200px,calc(100% - 24px));
+
+    width:
+        min(
+            1200px,
+            calc(100% - 24px)
+        );
+
     margin:auto;
+
     padding-bottom:55px;
+
 }
 
+
 .events-grid{
+
     display:grid;
 
     grid-template-columns:
-        repeat(3,minmax(0,1fr));
+        repeat(
+            3,
+            minmax(0,1fr)
+        );
 
     gap:14px;
+
 }
 
 
@@ -411,24 +669,32 @@ main{
    ========================================================= */
 
 .event-card{
+
     overflow:hidden;
 
     border-radius:16px;
 
     background:
+
         linear-gradient(
             180deg,
             #121212,
             #0c0c0c
         );
 
-    border:1px solid #1d1d1d;
+    border:
+        1px solid
+        #1d1d1d;
 
     box-shadow:
-        0 12px 35px rgba(0,0,0,.25);
+        0 12px 35px
+        rgba(0,0,0,.25);
+
 }
 
+
 .event-image-wrap{
+
     position:relative;
 
     aspect-ratio:16/9;
@@ -436,29 +702,39 @@ main{
     background:#090909;
 
     overflow:hidden;
+
 }
 
+
 .event-image{
+
     display:block;
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
+
 }
 
+
 .image-overlay{
+
     position:absolute;
+
     inset:0;
 
     pointer-events:none;
 
     background:
+
         linear-gradient(
             180deg,
             rgba(0,0,0,.05),
             rgba(0,0,0,.58)
         );
+
 }
 
 
@@ -467,54 +743,83 @@ main{
    ========================================================= */
 
 .event-status{
+
     position:absolute;
 
     top:9px;
+
     left:9px;
 
     padding:6px 8px;
 
     border-radius:7px;
+
     font-size:9px;
 
-    background:rgba(0,0,0,.72);
+    background:
+        rgba(0,0,0,.72);
 
-    backdrop-filter:blur(8px);
+    backdrop-filter:
+        blur(8px);
+
 }
+
 
 .event-status.live{
+
     color:#37eb80;
-    border:1px solid rgba(32,223,114,.2);
+
+    border:
+        1px solid
+        rgba(32,223,114,.2);
+
 }
+
 
 .event-status.upcoming{
+
     color:#ffb33f;
-    border:1px solid rgba(255,157,0,.2);
+
+    border:
+        1px solid
+        rgba(255,157,0,.2);
+
 }
 
+
 .event-status.ended{
+
     color:#999;
-    border:1px solid rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
 }
 
 
 /* =========================================================
-   COPY BANNER
+   COPY
    ========================================================= */
 
 .copy-banner{
+
     position:absolute;
 
     top:9px;
+
     right:9px;
 
     padding:6px 8px;
 
     border-radius:7px;
 
-    border:1px solid rgba(255,255,255,.12);
+    border:
+        1px solid
+        rgba(255,255,255,.12);
 
-    background:rgba(0,0,0,.72);
+    background:
+        rgba(0,0,0,.72);
 
     color:#fff;
 
@@ -522,12 +827,19 @@ main{
 
     font-size:9px;
 
-    backdrop-filter:blur(8px);
+    backdrop-filter:
+        blur(8px);
+
 }
 
+
 .copy-banner:hover{
-    border-color:rgba(255,106,0,.4);
+
+    border-color:
+        rgba(255,106,0,.4);
+
     color:#ffad4b;
+
 }
 
 
@@ -539,16 +851,22 @@ main{
     padding:13px;
 }
 
+
 .event-title{
+
     margin:0;
 
     color:#fff;
 
     font-size:16px;
+
     line-height:1.3;
+
 }
 
+
 .event-vq{
+
     display:inline-block;
 
     margin-top:7px;
@@ -559,20 +877,29 @@ main{
 
     color:#ffae50;
 
-    background:rgba(255,106,0,.08);
+    background:
+        rgba(255,106,0,.08);
 
-    border:1px solid rgba(255,106,0,.16);
+    border:
+        1px solid
+        rgba(255,106,0,.16);
 
     font-size:9px;
+
 }
 
+
 .event-description{
-    margin:9px 0 0;
+
+    margin:
+        9px 0 0;
 
     color:#858585;
 
     font-size:10px;
+
     line-height:1.5;
+
 }
 
 
@@ -581,37 +908,56 @@ main{
    ========================================================= */
 
 .event-meta{
+
     display:grid;
+
     gap:6px;
+
     margin-top:12px;
+
 }
 
+
 .meta-row{
+
     display:flex;
 
     align-items:flex-start;
+
     justify-content:space-between;
 
     gap:12px;
 
     padding-bottom:6px;
 
-    border-bottom:1px solid #191919;
+    border-bottom:
+        1px solid
+        #191919;
+
 }
+
 
 .meta-label{
+
     flex:0 0 auto;
+
     color:#666;
+
     font-size:9px;
+
 }
 
+
 .meta-value{
+
     color:#d0d0d0;
 
     font-size:9px;
+
     text-align:right;
 
     word-break:break-word;
+
 }
 
 
@@ -620,6 +966,7 @@ main{
    ========================================================= */
 
 .countdown{
+
     margin-top:10px;
 
     padding:9px;
@@ -630,11 +977,15 @@ main{
 
     color:#ffac4a;
 
-    background:rgba(255,106,0,.055);
+    background:
+        rgba(255,106,0,.055);
 
-    border:1px solid rgba(255,106,0,.09);
+    border:
+        1px solid
+        rgba(255,106,0,.09);
 
     font-size:10px;
+
 }
 
 
@@ -643,31 +994,46 @@ main{
    ========================================================= */
 
 .message{
+
     grid-column:1/-1;
 
     padding:50px 20px;
 
     text-align:center;
 
-    border:1px dashed #252525;
+    border:
+        1px dashed
+        #252525;
+
     border-radius:16px;
 
     background:#0c0c0c;
+
 }
 
+
 .message-icon{
+
     font-size:30px;
+
     margin-bottom:10px;
+
 }
+
 
 .message-title{
     font-size:16px;
 }
 
+
 .message-text{
+
     margin-top:7px;
+
     color:#666;
+
     font-size:10px;
+
 }
 
 
@@ -676,22 +1042,32 @@ main{
    ========================================================= */
 
 footer{
-    border-top:1px solid #171717;
 
-    padding:25px 15px 35px;
+    border-top:
+        1px solid
+        #171717;
+
+    padding:
+        25px 15px 35px;
 
     text-align:center;
+
 }
+
 
 .footer-title{
     font-size:12px;
 }
 
+
 .footer-text{
+
     margin-top:7px;
 
     color:#555;
+
     font-size:9px;
+
 }
 
 
@@ -700,9 +1076,11 @@ footer{
    ========================================================= */
 
 .toast{
+
     position:fixed;
 
     left:50%;
+
     bottom:22px;
 
     z-index:99999;
@@ -713,7 +1091,9 @@ footer{
 
     background:#151515;
 
-    border:1px solid rgba(255,106,0,.3);
+    border:
+        1px solid
+        rgba(255,106,0,.3);
 
     color:#fff;
 
@@ -727,13 +1107,17 @@ footer{
     pointer-events:none;
 
     transition:.22s;
+
 }
 
+
 .toast.show{
+
     opacity:1;
 
     transform:
         translate(-50%,0);
+
 }
 
 
@@ -747,38 +1131,61 @@ footer{
         display:none;
     }
 
+
     .menu-btn{
         display:block;
     }
 
+
     .controls{
-        grid-template-columns:180px 1fr;
+
+        grid-template-columns:
+            180px 1fr;
+
     }
 
+
     .events-grid{
+
         grid-template-columns:
-            repeat(2,minmax(0,1fr));
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
     }
 
 }
 
+
 @media(max-width:600px){
 
     .controls{
+
         grid-template-columns:1fr;
+
     }
+
 
     .events-grid{
+
         grid-template-columns:1fr;
+
     }
 
+
     .hero-box{
-        padding:24px 18px;
+
+        padding:
+            24px 18px;
+
     }
+
 
     .hero-title{
         font-size:30px;
     }
+
 
     .brand-name{
         font-size:12px;
@@ -787,7 +1194,9 @@ footer{
 }
 
 </style>
+
 </head>
+
 
 <body>
 
@@ -862,11 +1271,13 @@ footer{
         <h1 class="hero-title">
 
             SỰ KIỆN
+
             <span>
                 FREE FIRE 🔥
             </span>
 
         </h1>
+
 
         <p class="hero-subtitle">
             Cập nhật sự kiện theo từng máy chủ Free Fire
@@ -960,6 +1371,7 @@ footer{
         TẤT CẢ
     </button>
 
+
     <button
         class="filter-btn"
         data-filter="live"
@@ -968,6 +1380,7 @@ footer{
         ĐANG DIỄN RA
     </button>
 
+
     <button
         class="filter-btn"
         data-filter="upcoming"
@@ -975,6 +1388,7 @@ footer{
     >
         SẮP DIỄN RA
     </button>
+
 
     <button
         class="filter-btn"
@@ -994,24 +1408,35 @@ footer{
 <div class="info-bar">
 
     <div class="info-item">
+
         SERVER:
+
         <strong id="serverName">
             VN
         </strong>
+
     </div>
 
+
     <div class="info-item">
+
         SỰ KIỆN:
+
         <strong id="eventCount">
             0
         </strong>
+
     </div>
 
+
     <div class="info-item">
+
         TRẠNG THÁI:
+
         <strong id="syncStatus">
             ĐANG KẾT NỐI
         </strong>
+
     </div>
 
 </div>
@@ -1034,12 +1459,14 @@ footer{
                 🔄
             </div>
 
+
             <div class="message-title">
-                ĐANG CẬP NHẬT
+                ĐANG KẾT NỐI
             </div>
 
+
             <div class="message-text">
-                Đang tải dữ liệu sự kiện...
+                Đang đồng bộ dữ liệu sự kiện...
             </div>
 
         </div>
@@ -1059,12 +1486,17 @@ footer{
         FREE FIRE EVENT & UPDATE 🔥
     </div>
 
+
     <div class="footer-text">
         FFVN.TGM • Cập nhật sự kiện Free Fire
     </div>
 
 </footer>
 
+
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
 
 <div
     class="toast"
@@ -1085,9 +1517,9 @@ const CONFIG = {
     DEFAULT_IMAGE:
         "https://img-ffvn-tgm-com.vercel.app/images/JZ15I6Yo.jpg",
 
-    TIMEOUT:15000,
+    TIMEOUT:3000,
 
-    AUTO_REFRESH:10000,
+    AUTO_REFRESH:5000,
 
     STORAGE_KEY:"ff_server",
 
@@ -1129,30 +1561,36 @@ const serverSelect =
         "serverSelect"
     );
 
+
 const searchInput =
     document.getElementById(
         "searchInput"
     );
+
 
 const eventsGrid =
     document.getElementById(
         "eventsGrid"
     );
 
+
 const eventCount =
     document.getElementById(
         "eventCount"
     );
+
 
 const serverName =
     document.getElementById(
         "serverName"
     );
 
+
 const syncStatus =
     document.getElementById(
         "syncStatus"
     );
+
 
 const toast =
     document.getElementById(
@@ -1165,7 +1603,7 @@ serverSelect.value =
 
 
 /* =========================================================
-   SERVER
+   SERVER NAMES
    ========================================================= */
 
 const SERVER_NAMES = {
@@ -1194,17 +1632,37 @@ function escapeHTML(value){
     return String(
         value ?? ""
     )
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 
 }
 
 
 /* =========================================================
-   DATE
+   DATE PARSER
    ========================================================= */
 
 function parseDate(value){
@@ -1304,12 +1762,19 @@ function parseDate(value){
 
         date =
             new Date(
+
                 Number(match[1]),
+
                 Number(match[2]) - 1,
+
                 Number(match[3]),
+
                 Number(match[4] || 0),
+
                 Number(match[5] || 0),
+
                 Number(match[6] || 0)
+
             );
 
 
@@ -1336,12 +1801,19 @@ function parseDate(value){
 
         date =
             new Date(
+
                 Number(match[3]),
+
                 Number(match[2]) - 1,
+
                 Number(match[1]),
+
                 Number(match[4] || 0),
+
                 Number(match[5] || 0),
+
                 Number(match[6] || 0)
+
             );
 
 
@@ -1383,13 +1855,19 @@ function formatDate(value){
     const day =
         String(
             date.getDate()
-        ).padStart(2,"0");
+        ).padStart(
+            2,
+            "0"
+        );
 
 
     const month =
         String(
             date.getMonth() + 1
-        ).padStart(2,"0");
+        ).padStart(
+            2,
+            "0"
+        );
 
 
     const year =
@@ -1399,16 +1877,23 @@ function formatDate(value){
     const hours =
         String(
             date.getHours()
-        ).padStart(2,"0");
+        ).padStart(
+            2,
+            "0"
+        );
 
 
     const minutes =
         String(
             date.getMinutes()
-        ).padStart(2,"0");
+        ).padStart(
+            2,
+            "0"
+        );
 
 
     return (
+
         day +
         "/" +
         month +
@@ -1418,60 +1903,90 @@ function formatDate(value){
         hours +
         ":" +
         minutes
+
     );
 
 }
 
 
 /* =========================================================
-   EVENT ARRAY
+   FIND EVENT ARRAY
    ========================================================= */
 
 function findEventArray(data){
 
     if(!data){
+
         return [];
+
     }
+
 
     if(
         Array.isArray(data)
     ){
+
         return data;
+
     }
+
 
     if(
         Array.isArray(data.events)
     ){
+
         return data.events;
+
     }
+
 
     if(
         data.data &&
-        Array.isArray(data.data.events)
+        Array.isArray(
+            data.data.events
+        )
     ){
+
         return data.data.events;
+
     }
+
 
     if(
         data.data &&
-        Array.isArray(data.data)
+        Array.isArray(
+            data.data
+        )
     ){
+
         return data.data;
+
     }
+
 
     if(
         data.result &&
-        Array.isArray(data.result.events)
+        Array.isArray(
+            data.result.events
+        )
     ){
+
         return data.result.events;
+
     }
+
 
     if(
         data.result &&
-        Array.isArray(data.result)
+        Array.isArray(
+            data.result
+        )
     ){
+
         return data.result;
+
     }
+
 
     return [];
 
@@ -1499,11 +2014,13 @@ function normalizeEvent(
             event.eventId ??
             index,
 
+
         title:
             event.title ??
             event.name ??
             event.event_name ??
             "Sự kiện Free Fire",
+
 
         banner:
             event.banner ??
@@ -1511,6 +2028,7 @@ function normalizeEvent(
             event.img ??
             event.thumbnail ??
             CONFIG.DEFAULT_IMAGE,
+
 
         start:
             event.start ??
@@ -1523,6 +2041,7 @@ function normalizeEvent(
             event.start_date ??
             "",
 
+
         end:
             event.end ??
             event.end_time ??
@@ -1534,20 +2053,24 @@ function normalizeEvent(
             event.end_date ??
             "",
 
+
         link:
             event.link ??
             event.url ??
             "",
 
+
         type:
             event.type ??
             "",
+
 
         description:
             event.description ??
             event.desc ??
             event.content ??
             "",
+
 
         raw:event
 
@@ -1565,23 +2088,33 @@ function createSignature(events){
     try{
 
         return JSON.stringify(
+
             events.map(
                 event => ({
 
                     id:event.id,
+
                     title:event.title,
+
                     banner:event.banner,
+
                     start:event.start,
+
                     end:event.end,
+
                     link:event.link,
+
                     type:event.type,
-                    description:event.description
+
+                    description:
+                        event.description
 
                 })
             )
+
         );
 
-    }catch(error){
+    }catch{
 
         return "";
 
@@ -1676,8 +2209,14 @@ function getCountdown(event){
 
     const target =
         status === "upcoming"
-            ? parseDate(event.start)
-            : parseDate(event.end);
+
+            ? parseDate(
+                event.start
+            )
+
+            : parseDate(
+                event.end
+            );
 
 
     if(!target){
@@ -1697,7 +2236,9 @@ function getCountdown(event){
     ){
 
         return status === "upcoming"
+
             ? "ĐANG DIỄN RA"
+
             : "ĐÃ KẾT THÚC";
 
     }
@@ -1737,13 +2278,23 @@ function getCountdown(event){
 
 
     return (
+
         days +
         " NGÀY " +
-        String(hours).padStart(2,"0") +
+
+        String(hours)
+            .padStart(2,"0") +
+
         ":" +
-        String(minutes).padStart(2,"0") +
+
+        String(minutes)
+            .padStart(2,"0") +
+
         ":" +
-        String(seconds).padStart(2,"0")
+
+        String(seconds)
+            .padStart(2,"0")
+
     );
 
 }
@@ -1756,11 +2307,15 @@ function getCountdown(event){
 const VQ_MAP = {
 
     TW:"VQTO",
+
     FW:"VQBM",
 
     DW:"VQKB",
+
     TG:"VQMM",
+
     LW:"BXNP",
+
     MS:"SHB"
 
 };
@@ -1775,19 +2330,29 @@ function detectVQ(event){
     const text = [
 
         event.title,
+
         event.type,
 
         raw.title,
+
         raw.type,
+
         raw.code,
+
         raw.id,
+
         raw.event_id,
+
         raw.eventId,
+
         raw.name
 
     ]
+
     .filter(Boolean)
+
     .join(" ")
+
     .toUpperCase();
 
 
@@ -1797,21 +2362,27 @@ function detectVQ(event){
 
         const regex =
             new RegExp(
+
                 "\\b" +
                 prefix +
                 "(10|[1-9])\\b"
+
             );
 
 
         const match =
-            text.match(regex);
+            text.match(
+                regex
+            );
 
 
         if(match){
 
             return (
+
                 VQ_MAP[prefix] +
                 match[1]
+
             );
 
         }
@@ -1831,8 +2402,10 @@ function detectVQ(event){
 function getCacheKey(server){
 
     return (
+
         CONFIG.CACHE_PREFIX +
         server
+
     );
 
 }
@@ -1846,15 +2419,22 @@ function saveCache(
     try{
 
         localStorage.setItem(
+
             getCacheKey(server),
 
             JSON.stringify({
-                time:Date.now(),
-                events:events
+
+                time:
+                    Date.now(),
+
+                events:
+                    events
+
             })
+
         );
 
-    }catch(error){}
+    }catch{}
 
 }
 
@@ -1870,19 +2450,26 @@ function readCache(server){
 
 
         if(!value){
+
             return null;
+
         }
 
 
         const data =
-            JSON.parse(value);
+            JSON.parse(
+                value
+            );
 
 
         if(
+
             !data ||
+
             !Array.isArray(
                 data.events
             )
+
         ){
 
             return null;
@@ -1892,7 +2479,7 @@ function readCache(server){
 
         return data;
 
-    }catch(error){
+    }catch{
 
         return null;
 
@@ -1913,27 +2500,38 @@ async function fetchAPI(server){
 
     const timeout =
         setTimeout(
+
             () =>
                 controller.abort(),
+
             CONFIG.TIMEOUT
+
         );
 
 
     try{
 
         const url =
+
             CONFIG.API +
+
             encodeURIComponent(
                 server
             ) +
+
             "&_t=" +
+
             Date.now();
 
 
         const response =
+
             await fetch(
+
                 url,
+
                 {
+
                     method:"GET",
 
                     cache:"no-store",
@@ -1942,16 +2540,17 @@ async function fetchAPI(server){
                         controller.signal,
 
                     headers:{
+
                         "Accept":
                             "application/json",
 
                         "Cache-Control":
-                            "no-cache, no-store, must-revalidate",
-
-                        "Pragma":
                             "no-cache"
+
                     }
+
                 }
+
             );
 
 
@@ -1960,14 +2559,17 @@ async function fetchAPI(server){
         ){
 
             throw new Error(
+
                 "HTTP " +
                 response.status
+
             );
 
         }
 
 
         return await response.json();
+
 
     }finally{
 
@@ -1981,7 +2583,7 @@ async function fetchAPI(server){
 
 
 /* =========================================================
-   FILTER
+   VISIBLE EVENTS
    ========================================================= */
 
 function getVisibleEvents(){
@@ -1996,9 +2598,12 @@ function getVisibleEvents(){
 
         events =
             events.filter(
+
                 event =>
+
                     getStatus(event) ===
                     state.filter
+
             );
 
     }
@@ -2014,16 +2619,21 @@ function getVisibleEvents(){
 
         events =
             events.filter(
+
                 event => {
 
                     const text = [
 
                         event.title,
+
                         event.description,
+
                         event.type
 
                     ]
+
                     .join(" ")
+
                     .toLowerCase();
 
 
@@ -2032,6 +2642,7 @@ function getVisibleEvents(){
                     );
 
                 }
+
             );
 
     }
@@ -2043,7 +2654,7 @@ function getVisibleEvents(){
 
 
 /* =========================================================
-   RENDER
+   RENDER EVENTS
    ========================================================= */
 
 function renderEvents(){
@@ -2084,7 +2695,9 @@ function renderEvents(){
 
 
     eventsGrid.innerHTML =
+
         events.map(
+
             (event,index) => {
 
                 const status =
@@ -2124,6 +2737,7 @@ function renderEvents(){
                             "
                         >
 
+
                         <div class="image-overlay"></div>
 
 
@@ -2148,28 +2762,36 @@ function renderEvents(){
                     <div class="event-content">
 
                         <h2 class="event-title">
+
                             ${escapeHTML(
                                 event.title
                             )}
+
                         </h2>
 
 
                         ${
                             vq
+
                             ?
+
                             `
                             <div class="event-vq">
                                 ${escapeHTML(vq)}
                             </div>
                             `
+
                             :
+
                             ""
                         }
 
 
                         ${
                             event.description
+
                             ?
+
                             `
                             <p class="event-description">
                                 ${escapeHTML(
@@ -2177,7 +2799,9 @@ function renderEvents(){
                                 )}
                             </p>
                             `
+
                             :
+
                             ""
                         }
 
@@ -2190,12 +2814,15 @@ function renderEvents(){
                                     BẮT ĐẦU:
                                 </span>
 
+
                                 <span class="meta-value">
+
                                     ${escapeHTML(
                                         formatDate(
                                             event.start
                                         )
                                     )}
+
                                 </span>
 
                             </div>
@@ -2207,12 +2834,15 @@ function renderEvents(){
                                     KẾT THÚC:
                                 </span>
 
+
                                 <span class="meta-value">
+
                                     ${escapeHTML(
                                         formatDate(
                                             event.end
                                         )
                                     )}
+
                                 </span>
 
                             </div>
@@ -2224,7 +2854,9 @@ function renderEvents(){
                             class="countdown"
                             data-countdown-id="${escapeHTML(event.id)}"
                         >
+
                             ${getCountdown(event)}
+
                         </div>
 
                     </div>
@@ -2234,14 +2866,16 @@ function renderEvents(){
                 `;
 
             }
+
         )
+
         .join("");
 
 }
 
 
 /* =========================================================
-   COUNTDOWN UPDATE
+   COUNTDOWN LOOP
    ========================================================= */
 
 function updateCountdowns(){
@@ -2250,7 +2884,9 @@ function updateCountdowns(){
         .querySelectorAll(
             "[data-countdown-id]"
         )
+
         .forEach(
+
             element => {
 
                 const id =
@@ -2259,14 +2895,19 @@ function updateCountdowns(){
 
                 const event =
                     state.events.find(
+
                         item =>
+
                             String(item.id) ===
                             String(id)
+
                     );
 
 
                 if(!event){
+
                     return;
+
                 }
 
 
@@ -2292,7 +2933,9 @@ function updateCountdowns(){
 
 
                 if(!card){
+
                     return;
+
                 }
 
 
@@ -2303,7 +2946,9 @@ function updateCountdowns(){
 
 
                 if(!statusElement){
+
                     return;
+
                 }
 
 
@@ -2324,6 +2969,7 @@ function updateCountdowns(){
                     statusElement.className =
                         className;
 
+
                     statusElement.textContent =
                         getStatusText(
                             status
@@ -2332,6 +2978,7 @@ function updateCountdowns(){
                 }
 
             }
+
         );
 
 }
@@ -2355,6 +3002,7 @@ function setSyncStatus(
     syncStatus.textContent =
         text;
 
+
     syncStatus.style.color =
         color;
 
@@ -2362,7 +3010,7 @@ function setSyncStatus(
 
 
 /* =========================================================
-   LOAD SERVER
+   FAST LOAD SERVER
    ========================================================= */
 
 async function loadServer(
@@ -2371,7 +3019,9 @@ async function loadServer(
 ){
 
     if(state.loading){
+
         return;
+
     }
 
 
@@ -2379,51 +3029,76 @@ async function loadServer(
         true;
 
 
-    if(initial){
+    /*
+     * 0ms:
+     * ĐANG KẾT NỐI
+     */
 
-        setSyncStatus(
-            "ĐANG KẾT NỐI",
-            "#ffad45"
-        );
+    setSyncStatus(
 
-    }
+        "ĐANG KẾT NỐI",
 
+        "#ffad45"
+
+    );
+
+
+    /*
+     * CACHE:
+     * Hiển thị ngay lập tức
+     */
 
     const cached =
         readCache(server);
 
 
-    if(
-        cached &&
-        state.events.length === 0
-    ){
+    if(cached){
 
         const cachedEvents =
+
             cached.events.map(
                 normalizeEvent
             );
 
 
-        state.events =
-            cachedEvents;
+        if(
+            state.events.length === 0
+        ){
+
+            state.events =
+                cachedEvents;
 
 
-        state.lastDataSignature =
-            createSignature(
-                cachedEvents
-            );
+            state.lastDataSignature =
+
+                createSignature(
+                    cachedEvents
+                );
 
 
-        renderEvents();
+            renderEvents();
+
+        }
 
     }
 
 
+    /*
+     * API
+     */
+
     try{
 
         const data =
-            await fetchAPI(server);
+            await fetchAPI(
+                server
+            );
 
+
+        /*
+         * Bỏ response cũ nếu
+         * người dùng đổi server.
+         */
 
         if(
             server !==
@@ -2464,28 +3139,30 @@ async function loadServer(
                 signature;
 
 
-            saveCache(
-                server,
-                events
-            );
-
-
             renderEvents();
-
-        }else{
-
-            saveCache(
-                server,
-                state.events
-            );
 
         }
 
 
-        setSyncStatus(
-            "ĐÃ ĐỒNG BỘ",
-            "#20df72"
+        saveCache(
+            server,
+            events
         );
+
+
+        /*
+         * Thành công thật:
+         * chuyển trạng thái NGAY.
+         */
+
+        setSyncStatus(
+
+            "ĐÃ ĐỒNG BỘ",
+
+            "#20df72"
+
+        );
+
 
     }catch(error){
 
@@ -2495,9 +3172,33 @@ async function loadServer(
         );
 
 
+        /*
+         * Có dữ liệu cache:
+         * giữ trạng thái ổn định.
+         */
+
         if(
-            state.events.length === 0
+            state.events.length > 0
         ){
+
+            setSyncStatus(
+
+                "ĐÃ ĐỒNG BỘ",
+
+                "#20df72"
+
+            );
+
+        }else{
+
+            setSyncStatus(
+
+                "CHỜ KẾT NỐI",
+
+                "#ff9b45"
+
+            );
+
 
             eventsGrid.innerHTML = `
 
@@ -2521,16 +3222,6 @@ async function loadServer(
 
         }
 
-
-        if(initial){
-
-            setSyncStatus(
-                "CHỜ KẾT NỐI",
-                "#ff9b45"
-            );
-
-        }
-
     }finally{
 
         state.loading =
@@ -2546,21 +3237,13 @@ async function loadServer(
    ========================================================= */
 
 serverSelect.addEventListener(
+
     "change",
+
     () => {
 
         const server =
             serverSelect.value;
-
-
-        if(
-            server ===
-            state.server
-        ){
-
-            return;
-
-        }
 
 
         state.server =
@@ -2568,18 +3251,23 @@ serverSelect.addEventListener(
 
 
         localStorage.setItem(
+
             CONFIG.STORAGE_KEY,
+
             server
+
         );
 
 
         serverName.textContent =
+
             SERVER_NAMES[server] ||
             server.toUpperCase();
 
 
         state.events =
             [];
+
 
         state.lastDataSignature =
             "";
@@ -2594,11 +3282,11 @@ serverSelect.addEventListener(
                 </div>
 
                 <div class="message-title">
-                    ĐANG CẬP NHẬT
+                    ĐANG KẾT NỐI
                 </div>
 
                 <div class="message-text">
-                    Đang tải dữ liệu máy chủ...
+                    Đang đồng bộ dữ liệu máy chủ...
                 </div>
 
             </div>
@@ -2606,12 +3294,27 @@ serverSelect.addEventListener(
         `;
 
 
+        setSyncStatus(
+
+            "ĐANG KẾT NỐI",
+
+            "#ffad45"
+
+        );
+
+
+        /*
+         * Không delay.
+         * Gọi API ngay.
+         */
+
         loadServer(
             server,
             true
         );
 
     }
+
 );
 
 
@@ -2620,15 +3323,19 @@ serverSelect.addEventListener(
    ========================================================= */
 
 searchInput.addEventListener(
+
     "input",
+
     event => {
 
         state.search =
             event.target.value;
 
+
         renderEvents();
 
     }
+
 );
 
 
@@ -2640,22 +3347,29 @@ document
     .querySelectorAll(
         ".filter-btn"
     )
+
     .forEach(
+
         button => {
 
             button.addEventListener(
+
                 "click",
+
                 () => {
 
                     document
                         .querySelectorAll(
                             ".filter-btn"
                         )
+
                         .forEach(
+
                             item =>
                                 item.classList.remove(
                                     "active"
                                 )
+
                         );
 
 
@@ -2671,9 +3385,11 @@ document
                     renderEvents();
 
                 }
+
             );
 
         }
+
     );
 
 
@@ -2682,7 +3398,9 @@ document
    ========================================================= */
 
 document.addEventListener(
+
     "click",
+
     async event => {
 
         const button =
@@ -2692,7 +3410,9 @@ document.addEventListener(
 
 
         if(!button){
+
             return;
+
         }
 
 
@@ -2724,7 +3444,7 @@ document.addEventListener(
                 "ĐÃ SAO CHÉP LINK BANNER"
             );
 
-        }catch(error){
+        }catch{
 
             try{
 
@@ -2740,6 +3460,7 @@ document.addEventListener(
 
                 textarea.style.position =
                     "fixed";
+
 
                 textarea.style.opacity =
                     "0";
@@ -2765,7 +3486,7 @@ document.addEventListener(
                     "ĐÃ SAO CHÉP LINK BANNER"
                 );
 
-            }catch(error2){
+            }catch{
 
                 showToast(
                     "KHÔNG THỂ SAO CHÉP"
@@ -2776,6 +3497,7 @@ document.addEventListener(
         }
 
     }
+
 );
 
 
@@ -2804,6 +3526,7 @@ function showToast(message){
 
     toastTimer =
         setTimeout(
+
             () => {
 
                 toast.classList.remove(
@@ -2811,7 +3534,9 @@ function showToast(message){
                 );
 
             },
+
             2200
+
         );
 
 }
@@ -2822,13 +3547,22 @@ function showToast(message){
    ========================================================= */
 
 setInterval(
+
     () => {
 
         if(
+
             document.visibilityState ===
-            "visible" &&
-            navigator.onLine &&
+            "visible"
+
+            &&
+
+            navigator.onLine
+
+            &&
+
             !state.loading
+
         ){
 
             loadServer(
@@ -2839,7 +3573,9 @@ setInterval(
         }
 
     },
+
     CONFIG.AUTO_REFRESH
+
 );
 
 
@@ -2848,13 +3584,20 @@ setInterval(
    ========================================================= */
 
 document.addEventListener(
+
     "visibilitychange",
+
     () => {
 
         if(
+
             document.visibilityState ===
-            "visible" &&
+            "visible"
+
+            &&
+
             !state.loading
+
         ){
 
             loadServer(
@@ -2865,6 +3608,7 @@ document.addEventListener(
         }
 
     }
+
 );
 
 
@@ -2873,7 +3617,9 @@ document.addEventListener(
    ========================================================= */
 
 window.addEventListener(
+
     "focus",
+
     () => {
 
         if(
@@ -2888,6 +3634,7 @@ window.addEventListener(
         }
 
     }
+
 );
 
 
@@ -2896,7 +3643,9 @@ window.addEventListener(
    ========================================================= */
 
 window.addEventListener(
+
     "online",
+
     () => {
 
         showToast(
@@ -2910,6 +3659,7 @@ window.addEventListener(
         );
 
     }
+
 );
 
 
@@ -2921,8 +3671,11 @@ document
     .getElementById(
         "menuBtn"
     )
+
     .addEventListener(
+
         "click",
+
         () => {
 
             const nav =
@@ -2945,26 +3698,34 @@ document
                 nav.style.display =
                     "flex";
 
+
                 nav.style.position =
                     "absolute";
+
 
                 nav.style.top =
                     "68px";
 
+
                 nav.style.right =
                     "12px";
+
 
                 nav.style.flexDirection =
                     "column";
 
+
                 nav.style.padding =
                     "8px";
+
 
                 nav.style.background =
                     "#101010";
 
+
                 nav.style.border =
                     "1px solid rgba(255,106,0,.2)";
+
 
                 nav.style.borderRadius =
                     "12px";
@@ -2974,6 +3735,7 @@ document
                 nav.dataset.mobile =
                     "false";
 
+
                 nav.removeAttribute(
                     "style"
                 );
@@ -2981,6 +3743,7 @@ document
             }
 
         }
+
     );
 
 
@@ -2989,11 +3752,19 @@ document
    ========================================================= */
 
 serverName.textContent =
+
     SERVER_NAMES[
         state.server
-    ] ||
+    ]
+
+    ||
+
     state.server.toUpperCase();
 
+
+/*
+ * Gọi ngay khi trang mở.
+ */
 
 loadServer(
     state.server,
@@ -3002,5 +3773,6 @@ loadServer(
 
 </script>
 
+
 </body>
-   </html>
+    </html>
