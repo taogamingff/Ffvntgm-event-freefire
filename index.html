@@ -9,11 +9,11 @@
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
 
-<title>FREE FIRE EVENT & UPDATE 🔥</title>
+<title>SỰ KIỆN FREE FIRE 🔥 🔥</title>
 
 <meta
     name="description"
-    content="Cập nhật sự kiện Free Fire mới nhất theo từng máy chủ."
+    content="Cập nhật sự kiện Free Fire mới nhất theo từng máy chủ,Website Thông tin Sự kiện Free Fire."
 >
 
 <meta
@@ -448,7 +448,7 @@ header{
     display:grid;
 
     grid-template-columns:
-        220px 1fr;
+        220px 1fr auto;
 
     gap:10px;
 
@@ -497,6 +497,236 @@ header{
     background:#111;
 
     color:#fff;
+
+}
+
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.refresh-wrap{
+
+    position:relative;
+
+    min-width:190px;
+
+}
+
+
+.refresh-main-btn{
+
+    width:100%;
+
+    height:46px;
+
+    padding:0 13px;
+
+    border-radius:11px;
+
+    border:
+        1px solid
+        rgba(255,106,0,.35);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,106,0,.16),
+            rgba(255,157,0,.07)
+        );
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    transition:
+        .18s ease;
+
+}
+
+
+.refresh-main-btn:hover{
+
+    border-color:
+        var(--orange);
+
+    background:
+        rgba(255,106,0,.15);
+
+    transform:
+        translateY(-1px);
+
+}
+
+
+.refresh-main-btn:active{
+
+    transform:
+        scale(.97);
+
+}
+
+
+.refresh-icon{
+
+    display:inline-block;
+
+    font-size:14px;
+
+    transition:
+        transform .3s ease;
+
+}
+
+
+.refresh-main-btn.refreshing
+.refresh-icon{
+
+    animation:
+        refreshSpin .55s linear infinite;
+
+}
+
+
+@keyframes refreshSpin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+.refresh-menu{
+
+    position:absolute;
+
+    top:53px;
+
+    right:0;
+
+    width:100%;
+
+    padding:6px;
+
+    border-radius:12px;
+
+    border:
+        1px solid
+        rgba(255,106,0,.25);
+
+    background:
+        rgba(12,12,12,.98);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.45);
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:
+        translateY(-6px);
+
+    transition:
+        .16s ease;
+
+    z-index:3000;
+
+}
+
+
+.refresh-menu.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.refresh-option{
+
+    width:100%;
+
+    min-height:40px;
+
+    padding:8px 10px;
+
+    margin:2px 0;
+
+    border:0;
+
+    border-radius:8px;
+
+    background:transparent;
+
+    color:#aaa;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    font-size:9px;
+
+    transition:
+        .15s ease;
+
+}
+
+
+.refresh-option:hover{
+
+    color:#fff;
+
+    background:
+        rgba(255,106,0,.10);
+
+}
+
+
+.refresh-option:active{
+
+    background:
+        rgba(255,106,0,.18);
+
+}
+
+
+.refresh-option .option-icon{
+
+    display:inline-block;
+
+    width:23px;
+
+    color:var(--orange);
+
+    font-size:12px;
 
 }
 
@@ -1145,6 +1375,16 @@ footer{
     }
 
 
+    .refresh-wrap{
+
+        grid-column:
+            1 / -1;
+
+        min-width:0;
+
+    }
+
+
     .events-grid{
 
         grid-template-columns:
@@ -1163,6 +1403,13 @@ footer{
     .controls{
 
         grid-template-columns:1fr;
+
+    }
+
+
+    .refresh-wrap{
+
+        grid-column:auto;
 
     }
 
@@ -1280,7 +1527,8 @@ footer{
 
 
         <p class="hero-subtitle">
-            Cập nhật sự kiện theo từng máy chủ Free Fire
+            Cập nhật sự kiện theo từng máy chủ Free Fire | NẾU CÓ LỖI ĐANG KẾT NỐI HOÀI
+            THÌ TẢI LẠI TRANG NHÉ! 
         </p>
 
     </div>
@@ -1353,6 +1601,94 @@ footer{
         placeholder="Tìm kiếm sự kiện..."
         autocomplete="off"
     >
+
+
+    <!-- =====================================================
+         REFRESH
+         ===================================================== -->
+
+    <div
+        class="refresh-wrap"
+        id="refreshWrap"
+    >
+
+        <button
+            class="refresh-main-btn"
+            id="refreshMainBtn"
+            type="button"
+            aria-expanded="false"
+        >
+
+            <span
+                class="refresh-icon"
+                id="refreshIcon"
+            >
+                🔄
+            </span>
+
+            <span>
+                LÀM MỚI SỰ KIỆN
+            </span>
+
+            <span>
+                ▾
+            </span>
+
+        </button>
+
+
+        <div
+            class="refresh-menu"
+            id="refreshMenu"
+        >
+
+            <button
+                class="refresh-option"
+                id="refreshAllBtn"
+                type="button"
+            >
+
+                <span class="option-icon">
+                    🔄
+                </span>
+
+                LÀM MỚI TOÀN BỘ
+
+            </button>
+
+
+            <button
+                class="refresh-option"
+                id="refreshEventBtn"
+                type="button"
+            >
+
+                <span class="option-icon">
+                    ⚡
+                </span>
+
+                LÀM MỚI EVENT / SỰ KIỆN
+
+            </button>
+
+
+            <button
+                class="refresh-option"
+                id="refreshCodeBtn"
+                type="button"
+            >
+
+                <span class="option-icon">
+                    🧩
+                </span>
+
+                LÀM MỚI CODE
+
+            </button>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1483,12 +1819,12 @@ footer{
 <footer id="footer">
 
     <div class="footer-title">
-        FREE FIRE EVENT & UPDATE 🔥
+        SỰ KIỆN FREE FIRE 🔥
     </div>
 
 
     <div class="footer-text">
-        FFVN.TGM • Cập nhật sự kiện Free Fire
+        FFVN.TGM • Cập nhật sự kiện Free Fire 
     </div>
 
 </footer>
@@ -1595,6 +1931,42 @@ const syncStatus =
 const toast =
     document.getElementById(
         "toast"
+    );
+
+
+const refreshMainBtn =
+    document.getElementById(
+        "refreshMainBtn"
+    );
+
+
+const refreshMenu =
+    document.getElementById(
+        "refreshMenu"
+    );
+
+
+const refreshIcon =
+    document.getElementById(
+        "refreshIcon"
+    );
+
+
+const refreshAllBtn =
+    document.getElementById(
+        "refreshAllBtn"
+    );
+
+
+const refreshEventBtn =
+    document.getElementById(
+        "refreshEventBtn"
+    );
+
+
+const refreshCodeBtn =
+    document.getElementById(
+        "refreshCodeBtn"
     );
 
 
@@ -3029,11 +3401,6 @@ async function loadServer(
         true;
 
 
-    /*
-     * 0ms:
-     * ĐANG KẾT NỐI
-     */
-
     setSyncStatus(
 
         "ĐANG KẾT NỐI",
@@ -3042,11 +3409,6 @@ async function loadServer(
 
     );
 
-
-    /*
-     * CACHE:
-     * Hiển thị ngay lập tức
-     */
 
     const cached =
         readCache(server);
@@ -3083,10 +3445,6 @@ async function loadServer(
     }
 
 
-    /*
-     * API
-     */
-
     try{
 
         const data =
@@ -3094,11 +3452,6 @@ async function loadServer(
                 server
             );
 
-
-        /*
-         * Bỏ response cũ nếu
-         * người dùng đổi server.
-         */
 
         if(
             server !==
@@ -3150,11 +3503,6 @@ async function loadServer(
         );
 
 
-        /*
-         * Thành công thật:
-         * chuyển trạng thái NGAY.
-         */
-
         setSyncStatus(
 
             "ĐÃ ĐỒNG BỘ",
@@ -3171,11 +3519,6 @@ async function loadServer(
             error
         );
 
-
-        /*
-         * Có dữ liệu cache:
-         * giữ trạng thái ổn định.
-         */
 
         if(
             state.events.length > 0
@@ -3230,6 +3573,312 @@ async function loadServer(
     }
 
 }
+
+
+/* =========================================================
+   REFRESH MENU
+   ========================================================= */
+
+function closeRefreshMenu(){
+
+    refreshMenu.classList.remove(
+        "show"
+    );
+
+
+    refreshMainBtn.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+
+}
+
+
+function openRefreshMenu(){
+
+    refreshMenu.classList.add(
+        "show"
+    );
+
+
+    refreshMainBtn.setAttribute(
+        "aria-expanded",
+        "true"
+    );
+
+}
+
+
+/* =========================================================
+   REFRESH MAIN BUTTON
+   ========================================================= */
+
+refreshMainBtn.addEventListener(
+
+    "click",
+
+    event => {
+
+        event.stopPropagation();
+
+
+        const opened =
+            refreshMenu.classList.contains(
+                "show"
+            );
+
+
+        if(opened){
+
+            closeRefreshMenu();
+
+        }else{
+
+            openRefreshMenu();
+
+        }
+
+    }
+
+);
+
+
+/* =========================================================
+   REFRESH - TOÀN BỘ
+   ========================================================= */
+
+refreshAllBtn.addEventListener(
+
+    "click",
+
+    event => {
+
+        event.stopPropagation();
+
+
+        closeRefreshMenu();
+
+
+        showToast(
+            "ĐANG LÀM MỚI TOÀN BỘ..."
+        );
+
+
+        refreshMainBtn.classList.add(
+            "refreshing"
+        );
+
+
+        /*
+         * Xóa cache Event hiện tại
+         * để trang tải lại hoàn toàn.
+         */
+
+        try{
+
+            localStorage.removeItem(
+                getCacheKey(
+                    state.server
+                )
+            );
+
+        }catch{}
+
+
+        setTimeout(
+
+            () => {
+
+                location.reload();
+
+            },
+
+            120
+
+        );
+
+    }
+
+);
+
+
+/* =========================================================
+   REFRESH - EVENT
+   ========================================================= */
+
+refreshEventBtn.addEventListener(
+
+    "click",
+
+    async event => {
+
+        event.stopPropagation();
+
+
+        closeRefreshMenu();
+
+
+        if(state.loading){
+
+            showToast(
+                "ĐANG ĐỒNG BỘ, VUI LÒNG CHỜ..."
+            );
+
+            return;
+
+        }
+
+
+        refreshMainBtn.classList.add(
+            "refreshing"
+        );
+
+
+        refreshIcon.textContent =
+            "↻";
+
+
+        setSyncStatus(
+
+            "ĐANG KẾT NỐI",
+
+            "#ffad45"
+
+        );
+
+
+        showToast(
+            "ĐANG LÀM MỚI EVENT..."
+        );
+
+
+        try{
+
+            await loadServer(
+                state.server,
+                false
+            );
+
+
+            if(
+                state.events.length > 0
+            ){
+
+                showToast(
+                    "ĐÃ LÀM MỚI EVENT"
+                );
+
+            }else{
+
+                showToast(
+                    "EVENT CHƯA CÓ DỮ LIỆU"
+                );
+
+            }
+
+        }finally{
+
+            refreshMainBtn.classList.remove(
+                "refreshing"
+            );
+
+
+            refreshIcon.textContent =
+                "🔄";
+
+        }
+
+    }
+
+);
+
+
+/* =========================================================
+   REFRESH - CODE
+   ========================================================= */
+
+refreshCodeBtn.addEventListener(
+
+    "click",
+
+    event => {
+
+        event.stopPropagation();
+
+
+        closeRefreshMenu();
+
+
+        showToast(
+            "ĐANG LÀM MỚI CODE..."
+        );
+
+
+        refreshMainBtn.classList.add(
+            "refreshing"
+        );
+
+
+        /*
+         * Cache-buster:
+         * tải lại HTML/CSS/JS mới
+         * bằng URL có timestamp.
+         */
+
+        setTimeout(
+
+            () => {
+
+                const url =
+                    new URL(
+                        window.location.href
+                    );
+
+
+                url.searchParams.set(
+                    "_code",
+                    Date.now().toString()
+                );
+
+
+                window.location.replace(
+                    url.toString()
+                );
+
+            },
+
+            120
+
+        );
+
+    }
+
+);
+
+
+/* =========================================================
+   CLICK OUTSIDE REFRESH MENU
+   ========================================================= */
+
+document.addEventListener(
+
+    "click",
+
+    event => {
+
+        if(
+            !event.target.closest(
+                "#refreshWrap"
+            )
+        ){
+
+            closeRefreshMenu();
+
+        }
+
+    }
+
+);
 
 
 /* =========================================================
@@ -3302,11 +3951,6 @@ serverSelect.addEventListener(
 
         );
 
-
-        /*
-         * Không delay.
-         * Gọi API ngay.
-         */
 
         loadServer(
             server,
