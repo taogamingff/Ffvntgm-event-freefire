@@ -1,17 +1,34 @@
 export default async function handler(req, res) {
 
     /* =====================================================
-       CORS
+       CORS + CACHE
        ===================================================== */
 
     res.setHeader("Access-Control-Allow-Origin", "*");
+
     res.setHeader(
         "Access-Control-Allow-Methods",
         "GET, OPTIONS"
     );
+
     res.setHeader(
         "Access-Control-Allow-Headers",
         "Content-Type"
+    );
+
+    res.setHeader(
+        "Cache-Control",
+        "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+    );
+
+    res.setHeader(
+        "CDN-Cache-Control",
+        "no-store"
+    );
+
+    res.setHeader(
+        "Vercel-CDN-Cache-Control",
+        "no-store"
     );
 
 
@@ -19,7 +36,7 @@ export default async function handler(req, res) {
        OPTIONS
        ===================================================== */
 
-    if(req.method === "OPTIONS"){
+    if (req.method === "OPTIONS") {
         return res.status(204).end();
     }
 
@@ -28,10 +45,10 @@ export default async function handler(req, res) {
        METHOD
        ===================================================== */
 
-    if(req.method !== "GET"){
+    if (req.method !== "GET") {
         return res.status(405).json({
-            success:false,
-            error:"Method Not Allowed"
+            success: false,
+            error: "Method Not Allowed"
         });
     }
 
@@ -59,18 +76,15 @@ export default async function handler(req, res) {
        REGION
        ===================================================== */
 
-    const region =
-        String(
-            req.query?.region || ""
-        )
-        .trim()
-        .toLowerCase();
+    const region = String(
+        req.query?.region || ""
+    ).trim().toLowerCase();
 
 
-    if(!allowedRegions.includes(region)){
+    if (!allowedRegions.includes(region)) {
         return res.status(400).json({
-            success:false,
-            error:"SERVER KHÔNG HỢP LỆ",
+            success: false,
+            error: "SERVER KHÔNG HỢP LỆ",
             allowedRegions
         });
     }
@@ -87,115 +101,72 @@ export default async function handler(req, res) {
 
 
     /* =====================================================
-       FAST RETRY
+       RETRY + TIMEOUT
        ===================================================== */
 
     const MAX_ATTEMPTS = 2;
-    const TIMEOUT = 3000;
+    const TIMEOUT = 5000;
 
     let lastError = null;
 
 
-    for(
+    for (
         let attempt = 1;
         attempt <= MAX_ATTEMPTS;
         attempt++
-    ){
+    ) {
 
-        const controller =
-            new AbortController();
+        const controller = new AbortController();
 
-
-        const timeout =
-            setTimeout(
-                () => controller.abort(),
-                TIMEOUT
-            );
+        const timeout = setTimeout(
+            () => controller.abort(),
+            TIMEOUT
+        );
 
 
-        try{
+        try {
 
-            const response =
-                await fetch(
-                    target,
-                    {
-                        method:"GET",
+            const response = await fetch(target, {
+                method: "GET",
 
-                        headers:{
-                            "Accept":
-                                "application/json",
+                headers: {
+                    "Accept": "application/json",
+                    "User-Agent": "FREE-FIRE-EVENT-UPDATE",
+                    "Cache-Control": "no-cache"
+                },
 
-                            "User-Agent":
-                                "FREE-FIRE-EVENT-UPDATE"
-                        },
+                cache: "no-store",
 
-                        signal:
-                            controller.signal
-                    }
-                );
+                signal: controller.signal
+            });
 
 
-            const text =
-                await response.text();
+            const text = await response.text();
 
 
-            clearTimeout(timeout);
-
-
-            /* =============================================
-               HTTP ERROR
-               ============================================= */
-
-            if(!response.ok){
-
+            if (!response.ok) {
                 throw new Error(
                     `Source API HTTP ${response.status}`
                 );
-
             }
 
 
-            /* =============================================
-               EMPTY
-               ============================================= */
-
-            if(!text.trim()){
-
+            if (!text.trim()) {
                 throw new Error(
                     "API trả về dữ liệu rỗng"
                 );
-
             }
 
-
-            /* =============================================
-               JSON
-               ============================================= */
 
             let data;
 
-            try{
-
-                data =
-                    JSON.parse(text);
-
-            }catch{
-
+            try {
+                data = JSON.parse(text);
+            } catch {
                 throw new Error(
                     "API nguồn không trả về JSON hợp lệ"
                 );
-
             }
-
-
-            /* =============================================
-               CACHE
-               ============================================= */
-
-            res.setHeader(
-                "Cache-Control",
-                "public, s-maxage=5, stale-while-revalidate=20"
-            );
 
 
             /* =============================================
@@ -203,45 +174,25 @@ export default async function handler(req, res) {
                ============================================= */
 
             return res.status(200).json({
-
-                success:true,
-
+                success: true,
                 region,
-
-                fetchedAt:
-                    new Date().toISOString(),
-
+                fetchedAt: new Date().toISOString(),
                 data
-
             });
 
 
-        }catch(error){
-
-            clearTimeout(timeout);
+        } catch (error) {
 
             lastError = error;
 
-
-            /*
-             * Retry cực ngắn
-             */
-
-            if(
-                attempt <
-                MAX_ATTEMPTS
-            ){
-
+            if (attempt < MAX_ATTEMPTS) {
                 await new Promise(
-                    resolve =>
-                        setTimeout(
-                            resolve,
-                            100
-                        )
+                    resolve => setTimeout(resolve, 150)
                 );
-
             }
 
+        } finally {
+            clearTimeout(timeout);
         }
 
     }
@@ -252,13 +203,9 @@ export default async function handler(req, res) {
        ===================================================== */
 
     return res.status(502).json({
-
-        success:false,
-
+        success: false,
         region,
-
-        error:
-            "KHÔNG THỂ LẤY DỮ LIỆU API",
+        error: "KHÔNG THỂ LẤY DỮ LIỆU API",
 
         message:
             lastError?.name === "AbortError"
@@ -267,7 +214,6 @@ export default async function handler(req, res) {
                     lastError?.message ||
                     "Unknown error"
                 )
-
     });
 
 }
