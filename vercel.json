@@ -1,18 +1,24 @@
 {
-  "version": 2,
-  "functions": {
-    "api/*.js": {
-      "runtime": "nodejs20.x"
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/api/events",
-      "destination": "/api/events.js"
-    },
-    {
-      "source": "/api/regions",
-      "destination": "/api/regions.js"
-    }
-  ]
+"version": 2,
+"rewrites": [
+{
+"source": "/api/events",
+"destination": "/api/events.js"
+},
+{
+"source": "/api/regions",
+"destination": "/api/regions.js"
+}
+],
+"headers": [
+{
+"source": "/api/(.*)",
+"headers": [
+{
+"key": "Cache-Control",
+"value": "public, s-maxage=60, stale-while-revalidate=300"
+}
+]
+}
+]
 }
