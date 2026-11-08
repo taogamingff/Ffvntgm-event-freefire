@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "region": "VN",
+  "events": [
+    {
+      "id": "demo001",
+      "title": "Sự kiện Free Fire",
+      "description": "Dữ liệu minh họa cho website Táo Gaming.",
+      "image": "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg",
+      "start": "",
+      "end": "",
+      "url": ""
+    }
+  ],
+  "notices": [],
+  "updates": []
+}
