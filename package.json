@@ -1,0 +1,16 @@
+{
+  "name": "ff-events-center",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Free Fire region events dashboard for Vercel",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "devDependencies": {
+    "vercel": "^39.2.0"
+  }
+}
