@@ -1,96 +1,370 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#10131d">
-  <title>FF Events — Event Center</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101018">
+  <title>SỰ KIỆN FREE FIRE NEW</title>
+  <meta name="description" content="Cập nhật sự kiện Free Fire, thông tin máy chủ và những hoạt động nổi bật. Theo dõi lịch sự kiện để không bỏ lỡ phần quà hấp dẫn cùng Táo Gaming.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sự Kiện Free Fire 🔥 | Táo Gaming">
+  <meta property="og:description" content="Cập nhật sự kiện Free Fire mới nhất, lịch hoạt động và thông tin nổi bật dành cho cộng đồng game thủ.">
+  <meta property="og:image" content="https://azerst-image-vn.vercel.app/images/Logowebtaogaming.jpg">
+  <meta property="og:site_name" content="SỰ KIỆN FREE FIRE NEW">
+  <link rel="icon" href="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
+  <link rel="preconnect" href="https://dl.dir.freefiremobile.com" crossorigin>
+  <link rel="preconnect" href="https://azerst-image-vn.vercel.app" crossorigin>
   <style>
-    :root{color-scheme:dark;--bg:#0b0e16;--panel:#151a27;--line:#293247;--muted:#9aa6bd;--gold:#ffc857;--cyan:#42d9e8}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#26324b 0,transparent 35%),linear-gradient(135deg,#090c13,#111827);color:#f4f6fb;font:15px/1.5 system-ui,Arial,sans-serif;min-height:100vh}
-    header{padding:28px 5vw 22px;border-bottom:1px solid #ffffff14;background:#080b12b8}
-    .brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--gold),#f07828);display:grid;place-items:center;color:#151515;font-weight:1000;font-size:20px}
-    h1{font-size:clamp(22px,4vw,34px);margin:0;letter-spacing:.5px}header p{margin:5px 0 0;color:var(--muted)}
-    main{width:min(1180px,92vw);margin:28px auto 60px}.toolbar,.panel{background:#111725e8;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 15px 45px #0005}
-    .toolbar{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}.field label{display:block;color:#c8d0df;font-size:12px;font-weight:700;margin-bottom:7px;text-transform:uppercase;letter-spacing:.8px}
-    select,input{width:100%;background:#0b101b;border:1px solid #34415b;border-radius:10px;color:white;padding:12px;font:inherit;outline:none}select:focus,input:focus{border-color:var(--cyan)}
-    button{border:0;border-radius:10px;padding:12px 20px;font-weight:800;background:linear-gradient(135deg,var(--gold),#ff9c38);color:#17120a;cursor:pointer}button:disabled{opacity:.55;cursor:wait}
-    .status{margin:14px 2px;color:var(--muted);min-height:24px}.status.error{color:#ff8d8d}.status.ok{color:#8de7bd}
-    .meta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.pill{border:1px solid var(--line);background:#151c2b;border-radius:99px;padding:6px 11px;color:#cbd4e5;font-size:12px}
-    .section-title{display:flex;justify-content:space-between;align-items:center;margin:28px 2px 14px}.section-title h2{font-size:19px;margin:0}.count{color:var(--muted);font-size:13px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:16px}.event{overflow:hidden;border:1px solid var(--line);background:linear-gradient(160deg,#1a2233,#101522);border-radius:15px}
-    .event img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#20283a;display:block}.event-body{padding:13px}.event h3{font-size:15px;margin:0 0 8px}.event small{color:var(--muted)}.event a{display:inline-block;margin-top:10px;color:var(--gold);font-weight:700;text-decoration:none}
-    .empty{padding:35px;text-align:center;border:1px dashed #3b4963;border-radius:14px;color:var(--muted);grid-column:1/-1}
-    footer{text-align:center;color:#76839a;padding:24px;font-size:12px}
-    @media(max-width:700px){.toolbar{grid-template-columns:1fr}.toolbar button{width:100%}header{padding:22px 4vw}}
+    @font-face{
+      font-family:"GFF-Latin-Bold";
+      src:
+        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2"),
+        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff") format("woff");
+      font-weight:700;
+      font-style:normal;
+      font-display:swap;
+    }
+    :root{
+      --bg:#0b0b11;--panel:#14141e;--panel2:#1b1b27;--line:rgba(255,255,255,.09);
+      --text:#f6f6fb;--muted:#a5a5b5;--gold:#ffbd36;--orange:#ff6a24;
+      --green:#4bd69a;--red:#ff646e;--radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:
+      radial-gradient(ellipse at 15% -10%,rgba(255,112,34,.17),transparent 38%),
+      radial-gradient(ellipse at 100% 20%,rgba(255,189,54,.08),transparent 28%),var(--bg);
+      color:var(--text);font-family:"GFF-Latin-Bold",sans-serif;min-height:100vh}
+    button,input,select{font:inherit}
+    a{color:inherit;text-decoration:none}
+    .shell{width:min(1180px,calc(100% - 32px));margin:auto}
+    .topbar{border-bottom:1px solid var(--line);background:rgba(10,10,16,.82);backdrop-filter:blur(16px);position:sticky;top:0;z-index:20}
+    .topbar-inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand img{width:46px;height:46px;border-radius:13px;object-fit:cover;border:1px solid rgba(255,189,54,.45);background:#222}
+    .brand-name{font-size:15px;letter-spacing:.5px;line-height:1.2}
+    .brand-sub{font-size:10px;color:var(--muted);margin-top:5px;letter-spacing:1.2px}
+    .top-actions{display:flex;align-items:center;gap:10px}
+    .tiktok{border:1px solid var(--line);background:#191923;border-radius:999px;padding:10px 14px;font-size:12px;white-space:nowrap}
+    .tiktok:hover{border-color:var(--gold);color:var(--gold)}
+    .hero{padding:44px 0 26px}
+    .hero-card{position:relative;overflow:hidden;border:1px solid rgba(255,189,54,.2);border-radius:26px;
+      background:linear-gradient(115deg,rgba(255,110,34,.17),rgba(23,23,34,.96) 52%,rgba(255,189,54,.08));
+      padding:34px;min-height:225px;display:flex;align-items:center}
+    .hero-card:after{content:"";position:absolute;width:290px;height:290px;border-radius:50%;right:7%;top:-145px;
+      border:1px solid rgba(255,189,54,.22);box-shadow:0 0 0 28px rgba(255,189,54,.025),0 0 0 58px rgba(255,189,54,.02)}
+    .hero-content{position:relative;z-index:1;max-width:690px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
+    .pulse{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+    h1{font-size:clamp(29px,5vw,48px);line-height:1.08;margin:14px 0 12px;letter-spacing:-.5px}
+    .hero p{color:#c5c5d0;line-height:1.75;font-size:13px;margin:0;max-width:620px}
+    .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+    .tag{font-size:10px;padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);color:#d5d5df}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:25px 0 14px}
+    .section-title{font-size:18px;margin:0}
+    .section-caption{font-family:"GFF-Latin-Bold",sans-serif;color:var(--muted);font-size:11px;margin-top:6px}
+    .toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .select-wrap{position:relative}
+    select{appearance:none;background:#1a1a25;border:1px solid var(--line);color:var(--text);padding:12px 40px 12px 14px;border-radius:12px;outline:none;min-width:190px;font-size:12px}
+    .select-wrap:after{content:"⌄";position:absolute;right:14px;top:8px;color:var(--gold);pointer-events:none;font-size:18px}
+    .btn{border:0;border-radius:12px;padding:12px 16px;background:linear-gradient(135deg,var(--gold),var(--orange));color:#17110a;cursor:pointer;font-size:12px;transition:.2s}
+    .btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
+    .btn:disabled{opacity:.55;cursor:wait;transform:none}
+    .status-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 2px 18px;color:var(--muted);font-family:"GFF-Latin-Bold",sans-serif;font-size:11px}
+    .status{display:inline-flex;align-items:center;gap:7px}
+    .status-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
+    .status.error .status-dot{background:var(--red)}
+    .status.loading .status-dot{background:var(--gold);animation:blink .8s infinite alternate}
+    @keyframes blink{to{opacity:.25}}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .event-card{background:linear-gradient(180deg,#191923,#12121a);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:.22s;min-width:0}
+    .event-card:hover{transform:translateY(-3px);border-color:rgba(255,189,54,.35)}
+    .event-image{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#242431}
+    .event-body{padding:15px}
+    .event-title{font-size:14px;line-height:1.4;margin:0 0 8px}
+    .event-desc{font-family:"GFF-Latin-Bold",sans-serif;color:#aeadbd;font-size:11px;line-height:1.6;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .event-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:14px;color:#88889a;font-family:"GFF-Latin-Bold",sans-serif;font-size:10px}
+    .event-link{color:var(--gold);font-size:10px}
+    .empty{grid-column:1/-1;border:1px dashed rgba(255,255,255,.15);border-radius:18px;padding:32px 18px;text-align:center;background:rgba(255,255,255,.02)}
+    .empty-icon{font-size:30px;margin-bottom:10px}
+    .empty strong{display:block;font-size:14px;margin-bottom:7px}
+    .empty p{font-family:"GFF-Latin-Bold",sans-serif;color:var(--muted);font-size:12px;line-height:1.6;margin:0}
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0}
+    .info-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
+    .info-panel h3{font-size:14px;margin:0 0 14px}
+    .info-list{display:grid;gap:10px}
+    .info-item{padding:11px 12px;border-radius:11px;background:rgba(255,255,255,.035);font-size:11px;line-height:1.5}
+    .info-item small{display:block;color:var(--muted);font-family:"GFF-Latin-Bold",sans-serif;font-size:10px;margin-top:4px}
+    .footer{border-top:1px solid var(--line);padding:24px 0 32px;margin-top:34px;color:var(--muted);font-family:"GFF-Latin-Bold",sans-serif;font-size:11px;line-height:1.8}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+    .footer-brand{display:flex;align-items:center;gap:10px}
+    .footer-brand img{width:34px;height:34px;object-fit:cover;border-radius:9px}
+    .footer strong{color:#f1f1f6;font-family:"GFF-Latin-Bold",sans-serif}
+    .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#252532;border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:11px;z-index:40;transition:.25s;max-width:calc(100% - 30px);text-align:center}
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:600px){
+      .shell{width:min(100% - 22px,1180px)}.topbar-inner{height:65px}.brand img{width:40px;height:40px}
+      .brand-name{font-size:12px}.brand-sub{font-size:9px}.tiktok{padding:9px 10px;font-size:10px}
+      .hero{padding-top:22px}.hero-card{padding:24px 20px;min-height:220px}.hero-card:after{right:-120px}
+      .section-head{align-items:flex-start;flex-direction:column}.toolbar{width:100%}.select-wrap{flex:1}
+      select{width:100%;min-width:0}.btn{white-space:nowrap}.grid{gap:10px}
+      .event-body{padding:11px}.event-title{font-size:12px}.event-desc{font-size:10px}
+      .info-grid{grid-template-columns:1fr;gap:12px}.status-row{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:390px){.grid{grid-template-columns:1fr}.event-image{aspect-ratio:16/8}}
   </style>
 </head>
 <body>
-<header><div class="brand"><div class="logo">FF</div><div><h1>EVENT CENTER</h1><p>Theo dõi sự kiện và cập nhật Free Fire theo khu vực</p></div></div></header>
-<main>
-  <section class="toolbar">
-    <div class="field"><label for="server">Chọn máy chủ</label><select id="server"></select></div>
-    <div class="field"><label for="region">Region tự động nhận dạng</label><input id="region" value="VN" readonly></div>
-    <button id="loadBtn">TẢI SỰ KIỆN</button>
-  </section>
-  <div id="status" class="status" role="status">Đang khởi tạo...</div>
-  <div class="meta"><span class="pill" id="regionTag">Region: VN</span><span class="pill" id="updatedTag">Chưa cập nhật</span></div>
-  <section><div class="section-title"><h2>🎯 Sự kiện</h2><span class="count" id="eventCount">0 mục</span></div><div class="grid" id="events"></div></section>
-  <section><div class="section-title"><h2>📢 Thông báo</h2><span class="count" id="noticeCount">0 mục</span></div><div class="grid" id="notices"></div></section>
-  <section><div class="section-title"><h2>🔄 Cập nhật cộng đồng</h2><span class="count" id="updateCount">0 mục</span></div><div class="grid" id="updates"></div></section>
-</main>
-<footer>FF Event Center • Dữ liệu được lấy từ dịch vụ sự kiện bên ngoài. Không phải website chính thức của Garena.</footer>
-<script>
-const SERVERS = [
-  {name:"Việt Nam",code:"VN"},{name:"Singapore",code:"SG"},{name:"Indonesia",code:"ID"},
-  {name:"Thái Lan",code:"TH"},{name:"Đài Loan",code:"TW"},{name:"Brazil",code:"BR"},
-  {name:"Hoa Kỳ",code:"US"},{name:"Nam Mỹ",code:"SAC"},{name:"Bắc Mỹ",code:"NA"},
-  {name:"Châu Âu",code:"EU"},{name:"Trung Đông",code:"ME"},{name:"Ấn Độ",code:"IND"},
-  {name:"Pakistan",code:"PK"},{name:"Bangladesh",code:"BD"},{name:"Nga",code:"RU"},
-  {name:"CIS",code:"CIS"}
-];
-const $ = id => document.getElementById(id);
-const server = $("server"), region = $("region"), statusBox = $("status");
-SERVERS.forEach(s => { const o=document.createElement("option"); o.value=s.code; o.textContent=`${s.name} (${s.code})`; server.append(o); });
-function setStatus(message,kind=""){statusBox.textContent=message;statusBox.className="status "+kind;}
-function dateLabel(value){if(!value)return "Thời gian chưa rõ";const d=new Date(Number(value)*1000);return Number.isNaN(d.getTime())?"":d.toLocaleString("vi-VN");}
-function card(item){
-  const article=document.createElement("article");article.className="event";
-  if(item.banner){const img=document.createElement("img");img.src=item.banner;img.alt=item.title||"Banner sự kiện";img.loading="lazy";img.onerror=()=>img.style.display="none";article.append(img);}
-  const body=document.createElement("div");body.className="event-body";
-  const title=document.createElement("h3");title.textContent=item.title||"Chưa có tiêu đề";
-  const time=document.createElement("small");time.textContent=`Bắt đầu: ${dateLabel(item.start)}${item.end?" · Kết thúc: "+dateLabel(item.end):""}`;
-  body.append(title,time);
-  const href=item.link||item.link_alt;
-  if(href){try{const u=new URL(href);if(["https:","http:"].includes(u.protocol)){const a=document.createElement("a");a.href=u.href;a.target="_blank";a.rel="noopener noreferrer";a.textContent="Xem chi tiết ↗";body.append(a);}}catch{}}
-  article.append(body);return article;
-}
-function renderList(id,items,countId){
-  const target=$(id);target.replaceChildren();const safe=Array.isArray(items)?items:[];
-  $(countId).textContent=`${safe.length} mục`;
-  if(!safe.length){const e=document.createElement("div");e.className="empty";e.textContent="Chưa có dữ liệu cho khu vực này.";target.append(e);return;}
-  safe.forEach(x=>target.append(card(x)));
-}
-async function loadEvents(){
-  const code=server.value;region.value=code;$("regionTag").textContent=`Region: ${code}`;
-  $("loadBtn").disabled=true;setStatus(`Đang tải dữ liệu máy chủ ${code}...`);
-  try{
-    const response=await fetch(`/api/events?region=${encodeURIComponent(code)}`,{headers:{Accept:"application/json"}});
-    const data=await response.json().catch(()=>({}));
-    if(!response.ok)throw new Error(data.error||`HTTP ${response.status}`);
-    if(data.status==="error")throw new Error(data.message||"API trả về lỗi.");
-    renderList("events",data.events,$("eventCount").id);
-    renderList("notices",data.notices,$("noticeCount").id);
-    renderList("updates",data.updates,$("updateCount").id);
-    $("updatedTag").textContent=data.timestamp?`Cập nhật: ${new Date(data.timestamp).toLocaleString("vi-VN")}`:"Đã tải dữ liệu";
-    setStatus(`Tải dữ liệu ${data.region||code} thành công.`, "ok");
-  }catch(err){
-    setStatus(`Không thể tải dữ liệu: ${err.message}. Hãy kiểm tra cấu hình API hoặc thử lại.`, "error");
-    renderList("events",[], "eventCount");renderList("notices",[],"noticeCount");renderList("updates",[],"updateCount");
-  }finally{$("loadBtn").disabled=false;}
-}
-server.addEventListener("change",()=>{region.value=server.value;loadEvents();});
-$("loadBtn").addEventListener("click",loadEvents);
-loadEvents();
-</script>
-</body></html>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="/" aria-label="Sự Kiện Free Fire New">
+        <img src="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg" alt="Logo Táo Gaming"
+             onerror="this.style.visibility='hidden'">
+        <div>
+          <div class="brand-name">SỰ KIỆN FREE FIRE NEW</div>
+          <div class="brand-sub">POWERED BY TÁO GAMING</div>
+        </div>
+      </a>
+      <div class="top-actions">
+        <a class="tiktok" href="https://www.tiktok.com/@taogamingffvn" target="_blank" rel="noopener noreferrer">TikTok · @taogamingffvn ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-content">
+          <div class="eyebrow"><span class="pulse"></span> FREE FIRE COMMUNITY UPDATE</div>
+          <h1>Sự Kiện Free Fire 🔥</h1>
+          <p>Cập nhật nhanh những sự kiện, hoạt động và thông tin nổi bật trong thế giới Free Fire. Theo dõi nội dung theo từng máy chủ, khám phá sự kiện đang diễn ra và chủ động chuẩn bị cho những phần thưởng hấp dẫn.</p>
+          <div class="hero-tags">
+            <span class="tag">⚡ Cập nhật theo máy chủ</span>
+            <span class="tag">🎮 Free Fire VN</span>
+            <span class="tag">🍎 Táo Gaming</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="events-heading">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title" id="events-heading">Sự kiện nổi bật</h2>
+          <div class="section-caption">Chọn máy chủ để tải dữ liệu tương ứng</div>
+        </div>
+        <div class="toolbar">
+          <div class="select-wrap">
+            <select id="regionSelect" aria-label="Chọn máy chủ">
+              <option value="VN">🇻🇳 Việt Nam (VN)</option>
+            </select>
+          </div>
+          <button class="btn" id="refreshBtn" type="button">↻ Làm mới</button>
+        </div>
+      </div>
+      <div class="status-row">
+        <div class="status" id="status"><span class="status-dot"></span><span id="statusText">Đang chuẩn bị tải dữ liệu...</span></div>
+        <span id="updatedAt">Chưa cập nhật</span>
+      </div>
+      <div class="grid" id="eventsGrid">
+        <div class="empty"><div class="empty-icon">🔥</div><strong>Đang tải sự kiện</strong><p>Vui lòng chờ trong giây lát...</p></div>
+      </div>
+    </section>
+
+    <section class="info-grid">
+      <div class="info-panel">
+        <h3>📢 Thông báo</h3>
+        <div class="info-list" id="noticesList"><div class="info-item">Đang tải thông báo...</div></div>
+      </div>
+      <div class="info-panel">
+        <h3>🆕 Cập nhật mới</h3>
+        <div class="info-list" id="updatesList"><div class="info-item">Đang tải thông tin...</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <img src="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg" alt="Táo Gaming">
+        <div><strong>SỰ KIỆN FREE FIRE NEW</strong><br>Thông tin cộng đồng được tổng hợp theo máy chủ.</div>
+      </div>
+      <div>
+        Kênh TikTok: <a href="https://www.tiktok.com/@taogamingffvn" target="_blank" rel="noopener noreferrer"><strong>@taogamingffvn</strong></a><br>
+        Fan-made community project · Không phải website chính thức của Garena.
+      </div>
+    </div>
+  </footer>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script>
+    const FALLBACK_IMAGE = "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
+    const REGION_FALLBACK = [
+      {code:"VN",name:"Việt Nam",flag:"🇻🇳"},{code:"SG",name:"Singapore",flag:"🇸🇬"},
+      {code:"ID",name:"Indonesia",flag:"🇮🇩"},{code:"TH",name:"Thái Lan",flag:"🇹🇭"},
+      {code:"TW",name:"Đài Loan",flag:"🇹🇼"},{code:"BR",name:"Brazil",flag:"🇧🇷"},
+      {code:"US",name:"Hoa Kỳ",flag:"🇺🇸"},{code:"SAC",name:"Nam Mỹ",flag:"🌎"},
+      {code:"NA",name:"Bắc Mỹ",flag:"🌎"},{code:"EU",name:"Châu Âu",flag:"🇪🇺"},
+      {code:"ME",name:"Trung Đông",flag:"🌍"},{code:"IND",name:"Ấn Độ",flag:"🇮🇳"},
+      {code:"PK",name:"Pakistan",flag:"🇵🇰"},{code:"BD",name:"Bangladesh",flag:"🇧🇩"},
+      {code:"RU",name:"Nga",flag:"🇷🇺"},{code:"CIS",name:"CIS",flag:"🌐"}
+    ];
+
+    const regionSelect = document.getElementById("regionSelect");
+    const refreshBtn = document.getElementById("refreshBtn");
+    const eventsGrid = document.getElementById("eventsGrid");
+    const statusEl = document.getElementById("status");
+    const statusText = document.getElementById("statusText");
+    const updatedAt = document.getElementById("updatedAt");
+    let toastTimer;
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+    }
+
+    function setStatus(message, state="") {
+      statusEl.className = "status " + state;
+      statusText.textContent = message;
+    }
+
+    function safeText(value, fallback="") {
+      if (value === null || value === undefined) return fallback;
+      if (typeof value === "string" || typeof value === "number") return String(value);
+      return fallback;
+    }
+
+    function firstValue(obj, keys, fallback="") {
+      for (const key of keys) {
+        if (obj && obj[key] !== undefined && obj[key] !== null && obj[key] !== "") return obj[key];
+      }
+      return fallback;
+    }
+
+    function normalizeArray(data, keys) {
+      if (Array.isArray(data)) return data;
+      for (const key of keys) {
+        if (data && Array.isArray(data[key])) return data[key];
+      }
+      return [];
+    }
+
+    function escapeHtml(value) {
+      return String(value).replace(/[&<>"']/g, ch => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+      })[ch]);
+    }
+
+    function renderEvents(data) {
+      const events = normalizeArray(data, ["events","data","event","items","banners"]);
+      if (!events.length) {
+        eventsGrid.innerHTML = `<div class="empty"><div class="empty-icon">🎮</div><strong>Chưa có sự kiện được cung cấp</strong><p>Máy chủ hiện chưa trả về danh sách sự kiện. Hãy thử tải lại sau.</p></div>`;
+        return;
+      }
+
+      eventsGrid.innerHTML = events.map((item, index) => {
+        const obj = (typeof item === "string") ? {title:item} : (item || {});
+        const title = safeText(firstValue(obj, ["title","name","event_name","eventName"], `Sự kiện ${index + 1}`));
+        const desc = safeText(firstValue(obj, ["description","desc","content","detail"], "Thông tin sự kiện đang được cập nhật."));
+        const image = safeText(firstValue(obj, ["image","img","banner","thumbnail","image_url","cover"], FALLBACK_IMAGE));
+        const link = safeText(firstValue(obj, ["url","link","web_url","redirect"], ""));
+        const start = safeText(firstValue(obj, ["start","start_date","startDate","from"], ""));
+        const end = safeText(firstValue(obj, ["end","end_date","endDate","to"], ""));
+        const meta = [start, end].filter(Boolean).join(" — ") || "Free Fire";
+        const linkMarkup = link && /^https?:\/\//i.test(link)
+          ? `<a class="event-link" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Xem chi tiết ↗</a>`
+          : `<span class="event-link">Sự kiện Free Fire</span>`;
+        return `<article class="event-card">
+          <img class="event-image" src="${escapeHtml(image)}" alt="${escapeHtml(title)}"
+               loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
+          <div class="event-body">
+            <h3 class="event-title">${escapeHtml(title)}</h3>
+            <p class="event-desc">${escapeHtml(desc)}</p>
+            <div class="event-meta"><span>${escapeHtml(meta)}</span>${linkMarkup}</div>
+          </div>
+        </article>`;
+      }).join("");
+    }
+
+    function renderInfo(targetId, items, emptyText) {
+      const target = document.getElementById(targetId);
+      if (!items.length) {
+        target.innerHTML = `<div class="info-item">${escapeHtml(emptyText)}</div>`;
+        return;
+      }
+      target.innerHTML = items.map(item => {
+        const obj = typeof item === "string" ? {title:item} : (item || {});
+        const title = safeText(firstValue(obj, ["title","name","message","content","text"], "Thông tin"));
+        const desc = safeText(firstValue(obj, ["description","desc","detail","date","time"], ""));
+        return `<div class="info-item">${escapeHtml(title)}${desc ? `<small>${escapeHtml(desc)}</small>` : ""}</div>`;
+      }).join("");
+    }
+
+    async function loadRegions() {
+      try {
+        const response = await fetch("/api/regions", {headers:{Accept:"application/json"}});
+        if (!response.ok) throw new Error("regions endpoint");
+        const data = await response.json();
+        const regions = Array.isArray(data.regions) ? data.regions : REGION_FALLBACK;
+        regionSelect.innerHTML = regions.map(region =>
+          `<option value="${escapeHtml(region.code)}">${escapeHtml(region.flag || "🌐")} ${escapeHtml(region.name)} (${escapeHtml(region.code)})</option>`
+        ).join("");
+      } catch {
+        regionSelect.innerHTML = REGION_FALLBACK.map(region =>
+          `<option value="${region.code}">${region.flag} ${region.name} (${region.code})</option>`
+        ).join("");
+      }
+    }
+
+    async function loadEvents() {
+      const region = regionSelect.value || "VN";
+      refreshBtn.disabled = true;
+      refreshBtn.textContent = "Đang tải...";
+      setStatus(`Đang lấy dữ liệu máy chủ ${region}...`, "loading");
+      eventsGrid.innerHTML = `<div class="empty"><div class="empty-icon">⚡</div><strong>Đang đồng bộ dữ liệu</strong><p>Vui lòng đợi trong giây lát.</p></div>`;
+
+      try {
+        const response = await fetch(`/api/events?region=${encodeURIComponent(region)}`, {
+          method:"GET", headers:{Accept:"application/json"}, cache:"no-store"
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          const message = data.error || `Máy chủ trả về HTTP ${response.status}`;
+          throw new Error(message);
+        }
+
+        renderEvents(data);
+        const notices = normalizeArray(data, ["notices","notifications","announcement"]);
+        const updates = normalizeArray(data, ["updates","update","news","changes"]);
+        renderInfo("noticesList", notices, "Hiện chưa có thông báo mới.");
+        renderInfo("updatesList", updates, "Hiện chưa có cập nhật mới.");
+        setStatus(`Đã tải dữ liệu máy chủ ${region}`, "");
+        updatedAt.textContent = "Cập nhật lúc " + new Date().toLocaleTimeString("vi-VN");
+      } catch (error) {
+        eventsGrid.innerHTML = `<div class="empty"><div class="empty-icon">⚠️</div><strong>Không thể tải dữ liệu sự kiện</strong><p>${escapeHtml(error.message || "Đã xảy ra lỗi.")}<br>Kiểm tra kết nối hoặc thử lại sau.</p></div>`;
+        renderInfo("noticesList", [], "Không thể tải thông báo.");
+        renderInfo("updatesList", [], "Không thể tải cập nhật.");
+        setStatus("Có lỗi khi kết nối dữ liệu", "error");
+        updatedAt.textContent = "Chưa thể cập nhật";
+        showToast("Không tải được dữ liệu. Vui lòng thử lại.");
+      } finally {
+        refreshBtn.disabled = false;
+        refreshBtn.textContent = "↻ Làm mới";
+      }
+    }
+
+    regionSelect.addEventListener("change", loadEvents);
+    refreshBtn.addEventListener("click", loadEvents);
+
+    (async function init() {
+      await loadRegions();
+      regionSelect.value = "VN";
+      await loadEvents();
+    })();
+  </script>
+</body>
+</html>
