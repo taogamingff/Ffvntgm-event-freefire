@@ -3,18 +3,17 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0b10">
 
 <title>Sự Kiện Free Fire 🔥</title>
 
 <link rel="icon" href="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
-<meta property="og:title" content="SỰ KIỆN FREE FIRE NEW">
-<meta property="og:description" content="Cập nhật sự kiện Free Fire Việt Nam">
-<meta property="og:image" content="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
+<link rel="apple-touch-icon" href="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
 
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<meta property="og:title" content="SỰ KIỆN FREE FIRE NEW">
+<meta property="og:description" content="Cập nhật sự kiện Free Fire">
+<meta property="og:image" content="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
 
 <style>
 @font-face{
@@ -28,11 +27,16 @@
 
 :root{
     --bg:#0b0b10;
-    --panel:#171720;
+    --panel:#15151f;
+    --panel2:#1d1d29;
     --orange:#ff7900;
     --yellow:#ffc45b;
-    --green:#21cf83;
+    --white:#fff;
     --muted:#9999aa;
+    --green:#21cf83;
+    --red:#ff5353;
+    --blue:#4aabff;
+    --line:#ffffff15;
 }
 
 *{
@@ -41,24 +45,37 @@
     padding:0;
 }
 
+html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+}
+
 body{
     min-height:100vh;
-    color:white;
+    overflow-x:hidden;
+    color:var(--white);
+    font-family:"GFF",Arial,sans-serif;
     background-color:var(--bg);
     background-image:
       linear-gradient(#ffffff08 1px,transparent 1px),
       linear-gradient(90deg,#ffffff08 1px,transparent 1px),
-      radial-gradient(ellipse at 15% 0%,#ff710018,transparent 40%);
-    background-size:18px 18px,18px 18px,auto;
-    font-family:"GFF",Arial,sans-serif;
+      radial-gradient(ellipse at 15% 0%,#ff710018,transparent 40%),
+      radial-gradient(ellipse at 90% 40%,#263d6818,transparent 45%);
+    background-size:18px 18px,18px 18px,auto,auto;
+    background-attachment:fixed;
 }
 
 button,input,select{
     font:inherit;
 }
 
-button{cursor:pointer}
-a{color:inherit}
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+}
 
 .container{
     width:min(1240px,94%);
@@ -70,205 +87,199 @@ a{color:inherit}
 .header{
     position:relative;
     overflow:hidden;
-    padding:22px 0 30px;
-    background:linear-gradient(115deg,#17131b,#21150e,#101018);
-    border-bottom:1px solid #ff8a0030;
+    padding:22px 0 32px;
+    background:linear-gradient(115deg,#17131bfa,#21150efa,#101018fa);
+    border-bottom:1px solid #ff8a002c;
+}
+
+.header::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.45;
+    background:
+      linear-gradient(#ffffff08 1px,transparent 1px),
+      linear-gradient(90deg,#ffffff08 1px,transparent 1px);
+    background-size:22px 22px;
+}
+
+.header::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    right:-100px;
+    top:-180px;
+    border-radius:50%;
+    background:#ff79002b;
+    filter:blur(80px);
+    pointer-events:none;
+}
+
+.header-inner{
+    position:relative;
+    z-index:1;
 }
 
 .topbar{
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    gap:12px;
+    justify-content:space-between;
+    gap:15px;
 }
 
 .brand{
     display:flex;
     align-items:center;
     gap:12px;
+    min-width:0;
 }
 
 .brand-logo{
-    width:52px;
-    height:52px;
+    width:54px;
+    height:54px;
     object-fit:contain;
-    border-radius:12px;
+    border-radius:13px;
+    flex-shrink:0;
 }
 
 .brand h1{
+    font-size:clamp(16px,2.5vw,23px);
     color:var(--yellow);
-    font-size:clamp(14px,2.5vw,22px);
+    letter-spacing:.3px;
 }
 
 .brand p{
+    color:#aaaab8;
+    font-size:10px;
     margin-top:5px;
-    color:#aaa;
-    font-size:9px;
 }
 
 .tiktok{
-    padding:10px 12px;
-    border:1px solid #ffffff25;
-    border-radius:8px;
+    flex-shrink:0;
     text-decoration:none;
-    font-size:10px;
+    padding:10px 14px;
+    border:1px solid #ffffff20;
+    background:#ffffff0c;
+    border-radius:9px;
+    font-size:11px;
+    transition:.2s;
+}
+
+.tiktok:hover{
+    border-color:var(--orange);
+    background:#ff790018;
 }
 
 .hero{
     display:grid;
     grid-template-columns:1.2fr .8fr;
-    gap:22px;
+    gap:25px;
     align-items:center;
-    margin-top:30px;
+    margin-top:32px;
 }
 
 .hero h2{
-    font-size:clamp(27px,5vw,45px);
-    line-height:1.2;
+    font-size:clamp(28px,5vw,48px);
+    line-height:1.15;
 }
 
-.hero h2 span{color:var(--orange)}
+.hero h2 span{
+    color:var(--orange);
+    text-shadow:0 0 25px #ff79004a;
+}
 
 .hero p{
-    margin-top:12px;
-    color:#bbb;
-    font:13px/1.8 Arial,sans-serif;
+    color:#b9b9c7;
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    line-height:1.8;
+    margin-top:13px;
+    max-width:570px;
 }
 
 .hero-image{
     width:100%;
-    max-height:180px;
+    max-height:190px;
     object-fit:cover;
-    border-radius:12px;
+    border-radius:14px;
     border:1px solid #ffffff20;
-}
-
-/* ONLINE */
-
-.online-section{
-    padding:18px 0 0;
-}
-
-.online-card{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    padding:16px 19px;
-    border:1px solid #21cf8340;
-    border-radius:12px;
-    background:linear-gradient(110deg,#10251f,#15151f 65%);
-    box-shadow:0 8px 25px #0004;
-}
-
-.online-left{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.online-icon{
-    width:42px;
-    height:42px;
-    display:grid;
-    place-items:center;
-    border-radius:10px;
-    color:var(--green);
-    background:#21cf8315;
-    border:1px solid #21cf8340;
-    font-size:20px;
-}
-
-.online-title{font-size:12px}
-
-.online-subtitle{
-    color:#999;
-    font:10px Arial,sans-serif;
-    margin-top:5px;
-}
-
-.online-right{
-    text-align:center;
-}
-
-.online-right strong{
-    display:block;
-    color:var(--green);
-    font-size:24px;
-}
-
-.online-right span{
-    color:var(--green);
-    font-size:9px;
-    letter-spacing:1px;
-}
-
-.online-dot{
-    display:inline-block;
-    width:8px;
-    height:8px;
-    margin-right:5px;
-    border-radius:50%;
-    background:var(--green);
-    box-shadow:0 0 10px var(--green);
-    animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse{
-    50%{opacity:.3}
+    box-shadow:0 15px 40px #0008;
 }
 
 /* MAIN */
 
-main{padding:28px 0 50px}
+main{
+    padding:28px 0 55px;
+}
 
-.heading{
+.section-heading{
     display:flex;
     align-items:center;
     gap:10px;
+    font-size:19px;
     margin-bottom:16px;
-    font-size:18px;
 }
 
-.heading:before{
+.section-heading::before{
     content:"";
     width:4px;
     height:22px;
-    background:var(--orange);
     border-radius:5px;
+    background:var(--orange);
+    box-shadow:0 0 12px #ff790080;
+    flex-shrink:0;
 }
 
-.heading span{color:var(--yellow)}
+.section-heading span{
+    color:var(--yellow);
+}
+
+/* CONTROLS */
 
 .toolbar{
     display:grid;
-    grid-template-columns:1fr 1fr 1.3fr auto;
-    gap:9px;
-    margin-bottom:13px;
+    grid-template-columns:1.1fr 1fr 1.3fr auto;
+    gap:10px;
+    margin-bottom:15px;
 }
 
 .control{
-    width:100%;
     min-width:0;
-    padding:12px;
+    width:100%;
+    padding:12px 13px;
     color:white;
     background:#171720;
-    border:1px solid #ffffff20;
-    border-radius:8px;
+    border:1px solid #ffffff19;
+    border-radius:9px;
     outline:none;
-    font-size:11px;
+    font-size:12px;
 }
 
-.control:focus{border-color:var(--orange)}
-.control option{background:#171720}
+.control:focus{
+    border-color:var(--orange);
+    box-shadow:0 0 0 3px #ff790018;
+}
+
+.control option{
+    background:#171720;
+}
 
 .refresh-btn{
     border:0;
-    padding:11px 15px;
-    border-radius:8px;
-    color:white;
+    padding:12px 17px;
+    color:#fff;
+    border-radius:9px;
     background:linear-gradient(135deg,#ff9b24,#f05a00);
-    font-size:11px;
+    box-shadow:0 5px 18px #ff79002a;
+    font-size:12px;
+    transition:.2s;
+}
+
+.refresh-btn:hover{
+    filter:brightness(1.12);
+    transform:translateY(-2px);
 }
 
 .refresh-btn:disabled{
@@ -277,37 +288,55 @@ main{padding:28px 0 50px}
 }
 
 .server-info{
-    color:#999;
-    font-size:10px;
+    color:var(--muted);
+    font-size:11px;
     margin-bottom:20px;
 }
 
-.server-info b{color:var(--yellow)}
+.server-info b{
+    color:var(--yellow);
+}
+
+/* STATISTICS */
 
 .stats{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:10px;
-    margin-bottom:28px;
+    gap:12px;
+    margin-bottom:30px;
 }
 
 .stat{
-    padding:15px 8px;
+    position:relative;
+    overflow:hidden;
+    padding:17px 12px;
     text-align:center;
-    border:1px solid #ffffff15;
-    border-radius:10px;
-    background:#171720;
+    background:linear-gradient(145deg,#1d1d29,#12121a);
+    border:1px solid var(--line);
+    border-radius:12px;
+}
+
+.stat::after{
+    content:"";
+    position:absolute;
+    width:80px;
+    height:80px;
+    right:-40px;
+    top:-40px;
+    border-radius:50%;
+    background:#ff79001c;
+    filter:blur(15px);
 }
 
 .stat strong{
     display:block;
     color:var(--yellow);
-    font-size:25px;
+    font-size:27px;
 }
 
 .stat span{
-    color:#999;
-    font-size:9px;
+    color:var(--muted);
+    font-size:10px;
 }
 
 /* EVENTS */
@@ -315,26 +344,28 @@ main{padding:28px 0 50px}
 .events-grid{
     display:grid;
     grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:16px;
+    gap:17px;
 }
 
 .event-card{
     min-width:0;
     overflow:hidden;
-    border:1px solid #ffffff18;
-    border-radius:12px;
     background:linear-gradient(145deg,#1b1b27,#111119);
-    transition:.25s;
+    border:1px solid #ffffff15;
+    border-radius:13px;
+    transition:transform .25s,border-color .25s,box-shadow .25s;
 }
 
 .event-card:hover{
     transform:translateY(-4px);
-    border-color:#ff790080;
+    border-color:#ff8a0066;
+    box-shadow:0 12px 30px #0007;
 }
 
 .event-image-wrap{
+    height:180px;
     position:relative;
-    height:175px;
+    overflow:hidden;
     background:#252532;
 }
 
@@ -342,126 +373,213 @@ main{padding:28px 0 50px}
     width:100%;
     height:100%;
     object-fit:cover;
+    transition:transform .4s;
+}
+
+.event-card:hover .event-image{
+    transform:scale(1.04);
 }
 
 .status{
     position:absolute;
-    top:10px;
-    left:10px;
-    padding:6px 9px;
-    border-radius:5px;
-    font-size:9px;
-    background:#555;
+    top:11px;
+    left:11px;
+    padding:7px 10px;
+    border-radius:6px;
+    color:white;
+    font-size:10px;
+    background:#444;
+    box-shadow:0 3px 10px #0005;
 }
 
 .status.live{background:#117b4b}
 .status.upcoming{background:#a35a0b}
 .status.ended{background:#8a3030}
+.status.unknown{background:#55556a}
 
-.event-content{padding:14px}
+.event-content{
+    padding:15px;
+}
 
 .event-title{
-    font-size:14px;
+    font-size:15px;
     line-height:1.5;
+    min-height:43px;
+    overflow-wrap:anywhere;
 }
 
 .event-desc{
-    margin-top:8px;
-    color:#aaa;
-    font:12px/1.7 Arial,sans-serif;
+    margin-top:9px;
+    color:#aaaaba;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    line-height:1.7;
+    overflow-wrap:anywhere;
+    white-space:pre-wrap;
 }
 
 .event-date{
     display:grid;
-    gap:8px;
-    padding-top:12px;
+    gap:9px;
+    padding-top:13px;
     margin-top:12px;
-    border-top:1px solid #ffffff15;
+    border-top:1px solid #ffffff12;
     font-size:10px;
-    color:#bbb;
+    color:#bcbcca;
 }
 
-.event-date b{color:var(--yellow)}
+.event-date b{
+    color:var(--yellow);
+}
 
 .event-link{
     display:block;
-    margin-top:12px;
-    padding:10px;
     text-align:center;
-    text-decoration:none;
-    border:1px solid #ff8a0045;
+    margin-top:13px;
+    padding:11px;
     border-radius:7px;
+    text-decoration:none;
+    font-size:11px;
     color:var(--yellow);
+    border:1px solid #ff8a0045;
     background:#ff8a0013;
-    font-size:10px;
+    transition:.2s;
 }
+
+.event-link:hover{
+    background:#ff8a0030;
+}
+
+/* LOADING */
 
 .empty,.loading{
     grid-column:1/-1;
-    padding:35px 15px;
     text-align:center;
+    padding:40px 15px;
+    background:#15151e;
     border:1px dashed #ffffff25;
-    border-radius:10px;
-    background:#171720;
-    color:#aaa;
-    font-size:12px;
+    border-radius:12px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+.loading{
+    color:var(--yellow);
+}
+
+.error{
+    color:#ff9292;
 }
 
 /* UPDATES */
 
-.updates-section{margin-top:40px}
+.updates-section{
+    margin-top:42px;
+}
+
+.updates-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    margin-bottom:16px;
+}
+
+.updates-header .section-heading{
+    margin:0;
+}
+
+.updates-label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:7px 10px;
+    border:1px solid #ff8a0035;
+    border-radius:20px;
+    color:var(--yellow);
+    background:#ff8a0010;
+    font-size:9px;
+    white-space:nowrap;
+}
 
 .updates-list{
     display:grid;
-    gap:12px;
+    gap:13px;
 }
 
 .update-card{
+    position:relative;
+    overflow:hidden;
     display:grid;
-    grid-template-columns:45px minmax(0,1fr);
-    gap:12px;
-    padding:15px;
-    border:1px solid #ffffff17;
-    border-radius:11px;
-    background:#181822;
+    grid-template-columns:52px minmax(0,1fr);
+    gap:14px;
+    padding:17px;
+    border:1px solid #ffffff14;
+    border-radius:12px;
+    background:linear-gradient(110deg,#1c1c28,#13131c);
+    transition:.25s;
+}
+
+.update-card:hover{
+    border-color:#ff8a0055;
+    transform:translateY(-2px);
+    box-shadow:0 8px 25px #0005;
 }
 
 .update-icon{
-    width:43px;
-    height:43px;
-    display:grid;
-    place-items:center;
-    border-radius:10px;
-    background:#ff790018;
-    border:1px solid #ff790040;
-    font-size:20px;
+    width:49px;
+    height:49px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    font-size:22px;
+    color:var(--yellow);
+    background:linear-gradient(145deg,#ff8a0025,#ff8a0008);
+    border:1px solid #ff8a0035;
+}
+
+.update-main{
+    min-width:0;
+}
+
+.update-topline{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    margin-bottom:8px;
 }
 
 .update-tag{
-    display:inline-block;
-    padding:4px 7px;
     color:var(--yellow);
-    border:1px solid #ff790040;
+    background:#ff8a0018;
+    border:1px solid #ff8a0030;
     border-radius:4px;
+    padding:4px 7px;
     font-size:9px;
 }
 
 .update-date{
-    margin-left:7px;
-    color:#888;
-    font:10px Arial,sans-serif;
+    color:#858596;
+    font-family:Arial,sans-serif;
+    font-size:10px;
 }
 
 .update-title{
-    margin-top:8px;
-    font-size:13px;
-    line-height:1.6;
+    font-size:14px;
+    line-height:1.5;
+    color:#fff;
+    overflow-wrap:anywhere;
 }
 
 .update-description{
+    color:#b6b6c5;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    line-height:1.8;
     margin-top:8px;
-    color:#aaa;
-    font:12px/1.8 Arial,sans-serif;
     white-space:pre-wrap;
     overflow-wrap:anywhere;
 }
@@ -475,41 +593,53 @@ main{padding:28px 0 50px}
 
 .update-bottom{
     display:flex;
-    flex-wrap:wrap;
+    align-items:center;
     justify-content:space-between;
+    flex-wrap:wrap;
     gap:10px;
-    margin-top:10px;
+    margin-top:12px;
 }
 
-.update-author,.update-link{
+.update-author{
+    color:#858596;
     font-size:10px;
-    color:#999;
 }
-
-.update-link{color:var(--yellow);text-decoration:none}
 
 .update-more{
-    padding:0;
-    border:0;
-    background:none;
     color:var(--yellow);
+    border:0;
+    background:transparent;
     font-size:10px;
+    padding:5px 0;
+}
+
+.update-more:hover{
+    color:#fff;
 }
 
 .update-image{
+    display:block;
     width:100%;
-    max-height:250px;
+    max-height:260px;
     object-fit:cover;
-    border-radius:8px;
-    margin-top:10px;
+    border-radius:9px;
+    margin-top:12px;
+    border:1px solid #ffffff16;
+}
+
+.update-link{
+    color:var(--yellow);
+    font-size:10px;
+    text-decoration:none;
 }
 
 .update-empty{
-    padding:25px;
     text-align:center;
+    padding:30px 15px;
+    background:#15151e;
     border:1px dashed #ffffff20;
-    border-radius:10px;
-    color:#999;
+    border-radius:12px;
+    color:#9999aa;
     font-size:12px;
     line-height:1.8;
 }
@@ -517,45 +647,177 @@ main{padding:28px 0 50px}
 /* FOOTER */
 
 .footer{
-    padding:24px 0;
-    text-align:center;
-    background:#09090e;
+    padding:25px 0;
     border-top:1px solid #ffffff15;
-    color:#888;
+    background:#09090e;
+    text-align:center;
+    color:#858595;
     font-size:10px;
     line-height:1.9;
 }
 
-.footer b{color:var(--yellow)}
+.footer b{
+    color:var(--yellow);
+}
+
+/* RESPONSIVE */
 
 @media(min-width:1500px){
-    .events-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .container{
+        width:min(1350px,92%);
+    }
+
+    .events-grid{
+        grid-template-columns:repeat(4,minmax(0,1fr));
+    }
 }
 
 @media(max-width:1000px){
-    .events-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .toolbar{grid-template-columns:1fr 1fr}
+    .events-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+    .toolbar{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero{
+        grid-template-columns:1fr 1fr;
+    }
 }
 
 @media(max-width:650px){
-    .container{width:92%}
-    .brand-logo{width:43px;height:43px}
-    .brand h1{font-size:13px}
-    .brand p{font-size:8px}
-    .tiktok{font-size:8px;padding:8px}
-    .hero{grid-template-columns:1fr;gap:15px}
-    .hero h2{font-size:30px}
-    .hero-image{max-height:145px}
-    .events-grid{grid-template-columns:1fr}
-    .event-image-wrap{height:190px}
-    .heading{font-size:15px}
-    .update-card{grid-template-columns:38px minmax(0,1fr);padding:12px}
-    .update-icon{width:37px;height:37px}
+    .container{
+        width:92%;
+    }
+
+    .header{
+        padding:16px 0 24px;
+    }
+
+    .brand-logo{
+        width:43px;
+        height:43px;
+    }
+
+    .brand h1{
+        font-size:15px;
+    }
+
+    .brand p{
+        font-size:8px;
+    }
+
+    .tiktok{
+        padding:8px 9px;
+        font-size:9px;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        gap:17px;
+        margin-top:25px;
+    }
+
+    .hero h2{
+        font-size:31px;
+    }
+
+    .hero-image{
+        max-height:145px;
+    }
+
+    .toolbar{
+        grid-template-columns:1fr 1fr;
+        gap:8px;
+    }
+
+    .control{
+        padding:11px 9px;
+        font-size:11px;
+    }
+
+    .refresh-btn{
+        padding:11px 9px;
+        font-size:11px;
+    }
+
+    .stats{
+        gap:8px;
+    }
+
+    .stat{
+        padding:13px 7px;
+    }
+
+    .stat strong{
+        font-size:23px;
+    }
+
+    .events-grid{
+        grid-template-columns:1fr;
+        gap:13px;
+    }
+
+    .event-image-wrap{
+        height:190px;
+    }
+
+    .section-heading{
+        font-size:16px;
+    }
+
+    .update-card{
+        grid-template-columns:40px minmax(0,1fr);
+        gap:10px;
+        padding:13px;
+    }
+
+    .update-icon{
+        width:39px;
+        height:39px;
+        font-size:18px;
+    }
+
+    .update-title{
+        font-size:13px;
+    }
 }
 
 @media(max-width:360px){
-    .toolbar{grid-template-columns:1fr}
-    .brand h1{font-size:11px}
+    .brand h1{
+        font-size:12px;
+    }
+
+    .brand p{
+        font-size:7px;
+    }
+
+    .tiktok{
+        font-size:8px;
+        padding:7px;
+    }
+
+    .toolbar{
+        grid-template-columns:1fr;
+    }
+
+    .hero h2{
+        font-size:26px;
+    }
+
+    .updates-label{
+        font-size:8px;
+        padding:6px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+        scroll-behavior:auto!important;
+        transition:none!important;
+        animation:none!important;
+    }
 }
 </style>
 </head>
@@ -563,13 +825,13 @@ main{padding:28px 0 50px}
 <body>
 
 <header class="header">
-<div class="container">
+<div class="container header-inner">
 
     <div class="topbar">
         <div class="brand">
             <img class="brand-logo"
                  src="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg"
-                 alt="Táo Gaming">
+                 alt="Logo Táo Gaming">
 
             <div>
                 <h1>SỰ KIỆN FREE FIRE NEW</h1>
@@ -579,8 +841,9 @@ main{padding:28px 0 50px}
 
         <a class="tiktok"
            href="https://www.tiktok.com/@taogamingffvn"
-           target="_blank" rel="noopener">
-            TikTok @taogamingffvn
+           target="_blank"
+           rel="noopener">
+           TikTok @taogamingffvn
         </a>
     </div>
 
@@ -588,7 +851,7 @@ main{padding:28px 0 50px}
         <div>
             <h2>CẬP NHẬT <span>SỰ KIỆN</span><br>FREE FIRE 🔥</h2>
             <p>
-                Theo dõi sự kiện và thông tin cập nhật
+                Theo dõi sự kiện, thời gian và thông tin cập nhật
                 từ các máy chủ Free Fire.
             </p>
         </div>
@@ -602,38 +865,13 @@ main{padding:28px 0 50px}
 </div>
 </header>
 
-<!-- ONLINE -->
-<section class="online-section">
-<div class="container">
-    <div class="online-card">
-        <div class="online-left">
-            <div class="online-icon">
-                <span class="online-dot"></span>
-                ◉
-            </div>
-
-            <div>
-                <div class="online-title">HỆ THỐNG ONLINE</div>
-                <div class="online-subtitle">
-                    Số phiên truy cập website hiện tại
-                </div>
-            </div>
-        </div>
-
-        <div class="online-right">
-            <strong id="onlineText">N/A</strong>
-            <span>ONLINE</span>
-        </div>
-    </div>
-</div>
-</section>
-
 <main class="container">
 
-    <h2 class="heading">CHỌN <span>SERVER</span></h2>
+    <h2 class="section-heading">CHỌN <span>SERVER</span></h2>
 
     <div class="toolbar">
-        <select id="serverSelect" class="control">
+
+        <select id="serverSelect" class="control" aria-label="Chọn server">
             <option value="VN">🇻🇳 Việt Nam (VN)</option>
             <option value="ID">🇮🇩 Indonesia (ID)</option>
             <option value="TH">🇹🇭 Thái Lan (TH)</option>
@@ -652,7 +890,7 @@ main{padding:28px 0 50px}
             <option value="SAC">🌎 Nam Mỹ (SAC)</option>
         </select>
 
-        <select id="statusFilter" class="control">
+        <select id="statusFilter" class="control" aria-label="Lọc trạng thái">
             <option value="all">Tất cả sự kiện</option>
             <option value="live">Đang diễn ra</option>
             <option value="upcoming">Sắp diễn ra</option>
@@ -660,17 +898,21 @@ main{padding:28px 0 50px}
             <option value="unknown">Chưa xác định</option>
         </select>
 
-        <input id="searchInput" class="control"
-               type="search" placeholder="Tìm kiếm sự kiện...">
+        <input id="searchInput"
+               class="control"
+               type="search"
+               placeholder="Tìm kiếm sự kiện..."
+               aria-label="Tìm kiếm sự kiện">
 
-        <button id="refreshBtn" class="refresh-btn">
+        <button id="refreshBtn" class="refresh-btn" type="button">
             ↻ Tải lại
         </button>
+
     </div>
 
     <p class="server-info">
         Server: <b id="serverName">Việt Nam</b>
-        • Mã: <b id="serverCode">VN</b>
+        • Mã khu vực: <b id="serverCode">VN</b>
     </p>
 
     <div class="stats">
@@ -678,215 +920,230 @@ main{padding:28px 0 50px}
             <strong id="totalCount">0</strong>
             <span>Tổng sự kiện</span>
         </div>
+
         <div class="stat">
             <strong id="liveCount">0</strong>
             <span>Đang diễn ra</span>
         </div>
+
         <div class="stat">
             <strong id="upcomingCount">0</strong>
             <span>Sắp diễn ra</span>
         </div>
+
         <div class="stat">
             <strong id="endedCount">0</strong>
             <span>Đã kết thúc</span>
         </div>
     </div>
 
-    <h2 class="heading">DANH SÁCH <span>SỰ KIỆN</span></h2>
+    <h2 class="section-heading">DANH SÁCH <span>SỰ KIỆN</span></h2>
 
     <div id="eventsGrid" class="events-grid">
-        <div class="loading">Đang tải sự kiện...</div>
+        <div class="loading">⏳ Đang tải dữ liệu sự kiện...</div>
     </div>
 
     <section class="updates-section">
-        <h2 class="heading"><span>🆕 CẬP NHẬT MỚI</span></h2>
+
+        <div class="updates-header">
+            <h2 class="section-heading">
+                <span>🆕 CẬP NHẬT MỚI</span>
+            </h2>
+
+            <div class="updates-label">
+                ● THÔNG TIN MỚI
+            </div>
+        </div>
 
         <div id="updatesList" class="updates-list">
-            <div class="update-empty">Đang tải cập nhật...</div>
+            <div class="update-empty">
+                Đang kiểm tra thông tin cập nhật...
+            </div>
         </div>
+
     </section>
 
 </main>
 
 <footer class="footer">
-<div class="container">
-    <b>SỰ KIỆN FREE FIRE NEW</b><br>
-    Trang thông tin cộng đồng, không thuộc website chính thức của Garena.<br>
-    © 2026 • TikTok: @taogamingffvn
-</div>
+    <div class="container">
+        <b>SỰ KIỆN FREE FIRE NEW</b><br>
+        Trang thông tin cộng đồng, không thuộc website chính thức của Garena.<br>
+        © 2026 • TikTok: @taogamingffvn
+    </div>
 </footer>
 
 <script>
 "use strict";
 
 /* =====================================
-   FIREBASE CONFIG
+   CẤU HÌNH
 ===================================== */
 
-const FIREBASE_CONFIG = {
-    apiKey: "AIzaSyBbDjvJ22cTcDT0UhHprTUV9Hbfe2aCW0",
-    authDomain: "online-54304.firebaseapp.com",
-    databaseURL: "https://online-54304-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "online-54304",
-    storageBucket: "online-54304.firebasestorage.app",
-    messagingSenderId: "480852659082",
-    appId: "1:480852659082:web:7c76718c1d143aefe95673",
-    measurementId: "G-9HL1926D4V"
+const API_URL="/api/events";
+
+const SERVER_NAMES={
+    VN:"Việt Nam",
+    ID:"Indonesia",
+    TH:"Thái Lan",
+    SG:"Singapore",
+    BR:"Brazil",
+    US:"Hoa Kỳ",
+    TW:"Đài Loan",
+    IN:"Ấn Độ",
+    PK:"Pakistan",
+    BD:"Bangladesh",
+    EU:"Châu Âu",
+    ME:"Trung Đông",
+    RU:"Nga",
+    CIS:"CIS",
+    NA:"Bắc Mỹ",
+    SAC:"Nam Mỹ"
 };
 
-const $ = id => document.getElementById(id);
+const EVENT_TITLE_VI={
+    "BOOYAH PASS":"Thẻ Booyah",
+    "BOOYAH PASS PREMIUM":"Thẻ Booyah Cao Cấp",
+    "LUCKY ROYALE":"Vòng Quay May Mắn",
+    "WEAPON ROYALE":"Vòng Quay Vũ Khí",
+    "GOLD ROYALE":"Vòng Quay Vàng",
+    "DIAMOND ROYALE":"Vòng Quay Kim Cương",
+    "INCUBATOR":"Vòng Quay Súng Tiến Hóa",
+    "TOP UP":"Nạp Kim Cương",
+    "TOP-UP":"Nạp Kim Cương",
+    "LOGIN REWARD":"Đăng Nhập Nhận Quà",
+    "DAILY LOGIN":"Đăng Nhập Hằng Ngày",
+    "DAILY REWARD":"Quà Hằng Ngày",
+    "WEEKLY REWARD":"Quà Hằng Tuần",
+    "RECHARGE EVENT":"Sự Kiện Nạp Kim Cương",
+    "MYSTERY SHOP":"Cửa Hàng Bí Ẩn",
+    "WEB EVENT":"Sự Kiện Web",
+    "NEW EVENT":"Sự Kiện Mới",
+    "NEW ARRIVAL":"Vật Phẩm Mới",
+    "WEEKEND EVENT":"Sự Kiện Cuối Tuần",
+    "SPECIAL EVENT":"Sự Kiện Đặc Biệt"
+};
 
-function setOnlineText(value){
-    $("onlineText").textContent = value;
-}
+function translateTitle(title){
+    if(!title) return "Sự kiện Free Fire";
 
-function initOnlineCounter(){
-    if(typeof firebase === "undefined"){
-        setOnlineText("N/A");
-        return;
+    const original=String(title).trim();
+    const upper=original.toUpperCase();
+
+    if(EVENT_TITLE_VI[upper]){
+        return EVENT_TITLE_VI[upper];
     }
 
-    try{
-        if(!firebase.apps.length){
-            firebase.initializeApp(FIREBASE_CONFIG);
-        }
+    const translations=[
+        [/\bLOGIN\b/gi,"Đăng Nhập"],
+        [/\bREWARD(S)?\b/gi,"Phần Thưởng"],
+        [/\bMISSION(S)?\b/gi,"Nhiệm Vụ"],
+        [/\bCOLLECTION\b/gi,"Bộ Sưu Tập"],
+        [/\bBUNDLE(S)?\b/gi,"Gói Trang Phục"],
+        [/\bEMOTE(S)?\b/gi,"Điệu Nhảy"],
+        [/\bWEAPON(S)?\b/gi,"Vũ Khí"],
+        [/\bSKIN(S)?\b/gi,"Trang Phục"],
+        [/\bDAILY\b/gi,"Hằng Ngày"],
+        [/\bWEEKLY\b/gi,"Hằng Tuần"],
+        [/\bSPECIAL\b/gi,"Đặc Biệt"],
+        [/\bFREE\b/gi,"Miễn Phí"],
+        [/\bEVENT(S)?\b/gi,"Sự Kiện"],
+        [/\bSPIN\b/gi,"Vòng Quay"],
+        [/\bNEW\b/gi,"Mới"],
+        [/\bSHOP\b/gi,"Cửa Hàng"],
+        [/\bGIFT(S)?\b/gi,"Quà Tặng"],
+        [/\bEXCHANGE\b/gi,"Đổi Quà"]
+    ];
 
-        const db = firebase.database();
+    let result=original;
 
-        const sessions = db.ref("sitePresence/sessions");
-        const connected = db.ref(".info/connected");
+    translations.forEach(([pattern,replacement])=>{
+        result=result.replace(pattern,replacement);
+    });
 
-        const id = window.crypto?.randomUUID
-            ? crypto.randomUUID()
-            : "session_" + Date.now() + "_" +
-              Math.random().toString(36).slice(2);
-
-        const mine = sessions.child(id);
-
-        connected.on("value", snap => {
-            if(snap.val() !== true){
-                setOnlineText("N/A");
-                return;
-            }
-
-            mine.onDisconnect().remove()
-                .then(() => mine.set({
-                    connectedAt:
-                        firebase.database.ServerValue.TIMESTAMP,
-                    lastSeen:
-                        firebase.database.ServerValue.TIMESTAMP,
-                    deviceType:
-                        /Mobi|Android|iPhone/i.test(navigator.userAgent)
-                        ? "Mobile" : "Desktop"
-                }))
-                .catch(error => {
-                    console.error("Presence error:",error);
-                    setOnlineText("N/A");
-                });
-        });
-
-        sessions.on("value", snap => {
-            setOnlineText(
-                "(" + snap.numChildren().toLocaleString("vi-VN") +
-                " ONLINE)"
-            );
-        }, error => {
-            console.error("Firebase read error:",error);
-            setOnlineText("N/A");
-        });
-
-    }catch(error){
-        console.error("Firebase error:",error);
-        setOnlineText("N/A");
-    }
+    return result;
 }
 
 /* =====================================
-   EVENT API
+   TIỆN ÍCH
 ===================================== */
 
-const API_URL = "/api/events";
+const $=id=>document.getElementById(id);
 
-const SERVER_NAMES = {
-    VN:"Việt Nam",ID:"Indonesia",TH:"Thái Lan",
-    SG:"Singapore",BR:"Brazil",US:"Hoa Kỳ",
-    TW:"Đài Loan",IN:"Ấn Độ",PK:"Pakistan",
-    BD:"Bangladesh",EU:"Châu Âu",ME:"Trung Đông",
-    RU:"Nga",CIS:"CIS",NA:"Bắc Mỹ",SAC:"Nam Mỹ"
-};
-
-let allEvents = [];
-let allUpdates = [];
+let allEvents=[];
+let allUpdates=[];
 
 function escapeHTML(value){
-    return String(value ?? "").replace(/[&<>"']/g, c => ({
+    return String(value??"").replace(/[&<>"']/g,char=>({
         "&":"&amp;",
         "<":"&lt;",
         ">":"&gt;",
         '"':"&quot;",
         "'":"&#39;"
-    })[c]);
+    })[char]);
 }
 
 function firstValue(obj,keys){
+    if(!obj || typeof obj!=="object") return "";
+
     for(const key of keys){
-        if(obj?.[key] !== undefined &&
-           obj[key] !== null &&
-           obj[key] !== ""){
-            return obj[key];
+        const value=obj[key];
+
+        if(value!==undefined && value!==null && value!==""){
+            return value;
         }
     }
+
     return "";
 }
 
 function parseDate(value){
-    if(value === null || value === undefined || value === ""){
+    if(value===null || value===undefined || value===""){
         return null;
     }
 
-    if(typeof value === "number"){
-        const date = new Date(
-            value < 1000000000000 ? value * 1000 : value
-        );
-        return isNaN(date.getTime()) ? null : date;
+    if(typeof value==="number"){
+        const date=new Date(value<1000000000000?value*1000:value);
+        return isNaN(date.getTime())?null:date;
     }
 
-    const text = String(value).trim();
+    const text=String(value).trim();
 
     if(/^\d{10,13}$/.test(text)){
         return parseDate(Number(text));
     }
 
-    const date = new Date(text);
-    return isNaN(date.getTime()) ? null : date;
+    const date=new Date(text);
+    return isNaN(date.getTime())?null:date;
 }
 
 function formatDate(value){
-    const date = parseDate(value);
-
+    const date=parseDate(value);
     if(!date) return "Chưa cập nhật";
 
     return new Intl.DateTimeFormat("vi-VN",{
-        day:"2-digit",month:"2-digit",year:"numeric"
+        day:"2-digit",
+        month:"2-digit",
+        year:"numeric"
     }).format(date);
 }
 
 function getStatus(start,end){
-    const now = Date.now();
-    const s = parseDate(start);
-    const e = parseDate(end);
+    const now=Date.now();
+    const s=parseDate(start);
+    const e=parseDate(end);
 
-    if(s && now < s.getTime()){
+    if(s && now<s.getTime()){
         return {key:"upcoming",label:"Sắp diễn ra"};
     }
 
-    if(e && now > e.getTime()){
+    if(e && now>e.getTime()){
         return {key:"ended",label:"Đã kết thúc"};
     }
 
     if(
-        (s && now >= s.getTime() && (!e || now <= e.getTime())) ||
-        (!s && e && now <= e.getTime())
+        (s && now>=s.getTime() && (!e || now<=e.getTime())) ||
+        (!s && e && now<=e.getTime())
     ){
         return {key:"live",label:"Đang diễn ra"};
     }
@@ -898,44 +1155,56 @@ function safeUrl(value){
     if(!value) return "";
 
     try{
-        const url = new URL(String(value),location.origin);
+        const url=new URL(String(value),location.origin);
 
-        if(url.protocol === "http:" || url.protocol === "https:"){
+        if(url.protocol==="http:" || url.protocol==="https:"){
             return url.href;
         }
-    }catch(error){}
+    }catch(e){}
 
     return "";
 }
 
-function normalizeEvent(item,index){
-    return {
-        id:item.id || item.event_id || index,
-        title:firstValue(item,[
-            "title","name","event_name","eventName",
-            "event_title","eventTitle","heading"
-        ]) || "Sự kiện " + (index+1),
+function getArray(source,keys){
+    for(const key of keys){
+        if(Array.isArray(source?.[key])){
+            return source[key];
+        }
+    }
 
+    return [];
+}
+
+/* =====================================
+   NHẬN DIỆN SỰ KIỆN
+===================================== */
+
+function normalizeEvent(item,index){
+    const title=firstValue(item,[
+        "title","name","event_name","eventName",
+        "event_title","eventTitle","heading"
+    ]);
+
+    return {
+        id:item.id||item.event_id||index,
+        title:translateTitle(title||`Sự kiện ${index+1}`),
+        originalTitle:title||"",
         image:safeUrl(firstValue(item,[
             "image","img","banner","thumbnail",
             "image_url","imageUrl","cover"
         ])),
-
         start:firstValue(item,[
             "start","start_date","startDate",
             "start_time","startTime","begin","begin_at"
         ]),
-
         end:firstValue(item,[
             "end","end_date","endDate",
             "end_time","endTime","expire","expire_at"
         ]),
-
         description:firstValue(item,[
-            "description","desc","content","detail",
-            "message","text"
-        ]) || "",
-
+            "description","desc","content",
+            "detail","message","text"
+        ])||"",
         link:safeUrl(firstValue(item,[
             "url","link","web_url","webUrl","redirect"
         ]))
@@ -943,50 +1212,65 @@ function normalizeEvent(item,index){
 }
 
 /* =====================================
-   UPDATE PARSER
+   NHẬN DIỆN CẬP NHẬT MỚI
 ===================================== */
 
-function cleanText(value){
-    if(value === null || value === undefined) return "";
+function cleanText(value,depth=0){
+    if(value===null || value===undefined || depth>6){
+        return "";
+    }
 
-    if(typeof value === "string" || typeof value === "number"){
+    if(typeof value==="string" || typeof value==="number"){
         return String(value).trim();
     }
 
     if(Array.isArray(value)){
-        return value.map(cleanText).filter(Boolean).join("\n");
+        return value
+            .map(item=>cleanText(item,depth+1))
+            .filter(Boolean)
+            .join("\n");
     }
 
-    if(typeof value === "object"){
-        for(const key of [
+    if(typeof value==="object"){
+        const preferred=[
             "text","content","description","detail",
-            "message","body","html"
-        ]){
-            if(value[key] !== undefined){
-                const result = cleanText(value[key]);
+            "message","value","body","html"
+        ];
+
+        for(const key of preferred){
+            if(value[key]!==undefined){
+                const result=cleanText(value[key],depth+1);
                 if(result) return result;
             }
         }
+
+        return "";
     }
 
     return "";
 }
 
 function findFieldDeep(obj,keys,depth=0){
-    if(!obj || typeof obj !== "object" || depth > 5){
+    if(!obj || typeof obj!=="object" || depth>5){
         return "";
     }
 
     for(const key of keys){
-        if(obj[key] !== undefined && obj[key] !== null && obj[key] !== ""){
-            const value = cleanText(obj[key]);
-            if(value) return value;
+        if(
+            Object.prototype.hasOwnProperty.call(obj,key) &&
+            obj[key]!==null &&
+            obj[key]!==undefined &&
+            obj[key]!==""
+        ){
+            const result=cleanText(obj[key]);
+
+            if(result) return result;
         }
     }
 
     for(const value of Object.values(obj)){
-        if(value && typeof value === "object"){
-            const result = findFieldDeep(value,keys,depth+1);
+        if(value && typeof value==="object"){
+            const result=findFieldDeep(value,keys,depth+1);
             if(result) return result;
         }
     }
@@ -995,9 +1279,9 @@ function findFieldDeep(obj,keys,depth=0){
 }
 
 function normalizeUpdate(item,index){
-    if(typeof item === "string"){
+    if(typeof item==="string"){
         return {
-            title:"Thông tin cập nhật " + (index+1),
+            title:`Thông tin cập nhật ${index+1}`,
             description:item,
             date:"",
             author:"",
@@ -1006,59 +1290,64 @@ function normalizeUpdate(item,index){
         };
     }
 
+    const title=findFieldDeep(item,[
+        "title","name","heading","subject",
+        "update_title","news_title","announcement_title"
+    ]);
+
+    const description=findFieldDeep(item,[
+        "description","desc","content","detail",
+        "details","message","text","body","note",
+        "summary","paragraph","long_description",
+        "full_description","update_content",
+        "news_content","announcement",
+        "information","html","post_content"
+    ]);
+
     return {
-        title:findFieldDeep(item,[
-            "title","name","heading","subject",
-            "update_title","news_title","announcement_title"
-        ]) || "Thông tin cập nhật " + (index+1),
-
-        description:findFieldDeep(item,[
-            "description","desc","content","detail",
-            "details","message","text","body","note",
-            "summary","paragraph","full_description",
-            "update_content","news_content","announcement",
-            "information","html","post_content"
-        ]),
-
+        title:title||`Thông tin cập nhật ${index+1}`,
+        description:description||"",
         date:findFieldDeep(item,[
             "date","time","created_at","createdAt",
             "updated_at","updatedAt","published_at","timestamp"
         ]),
-
         author:findFieldDeep(item,[
             "author","by","publisher","source_name"
         ]),
-
         image:safeUrl(findFieldDeep(item,[
             "image","img","banner","thumbnail",
             "image_url","cover","picture"
         ])),
-
         link:safeUrl(findFieldDeep(item,[
             "url","link","web_url","webUrl","source_url"
         ]))
     };
 }
 
+/*
+  Tìm các danh sách cập nhật trong JSON.
+  Hỗ trợ nhiều cấu trúc lồng nhau.
+*/
+
 function extractUpdateArray(source,depth=0){
-    if(!source || typeof source !== "object" || depth > 5){
+    if(!source || typeof source!=="object" || depth>5){
         return [];
     }
 
-    const keys = [
+    const keys=[
         "updates","update","news","changes",
         "notices","notifications","announcements",
         "announcement","changelogs","latest_updates"
     ];
 
     for(const key of keys){
-        const value = source[key];
+        const value=source[key];
 
         if(Array.isArray(value)){
             return value;
         }
 
-        if(value && typeof value === "object"){
+        if(value && typeof value==="object"){
             if(
                 value.title || value.name ||
                 value.content || value.description ||
@@ -1067,14 +1356,15 @@ function extractUpdateArray(source,depth=0){
                 return [value];
             }
 
-            const nested = extractUpdateArray(value,depth+1);
+            const nested=extractUpdateArray(value,depth+1);
+
             if(nested.length) return nested;
         }
     }
 
     for(const value of Object.values(source)){
-        if(value && typeof value === "object"){
-            const nested = extractUpdateArray(value,depth+1);
+        if(value && typeof value==="object"){
+            const nested=extractUpdateArray(value,depth+1);
             if(nested.length) return nested;
         }
     }
@@ -1082,154 +1372,211 @@ function extractUpdateArray(source,depth=0){
     return [];
 }
 
+/*
+  Một số API trả một object cập nhật trực tiếp
+  thay vì bọc trong mảng updates/news.
+*/
+
+function findStandaloneUpdate(source){
+    if(!source || typeof source!=="object") return [];
+
+    const hasTitle=!!findFieldDeep(source,[
+        "update_title","news_title","announcement_title"
+    ]);
+
+    const hasContent=!!findFieldDeep(source,[
+        "update_content","news_content","post_content"
+    ]);
+
+    if(hasTitle || hasContent){
+        return [source];
+    }
+
+    return [];
+}
+
 function extractPayload(json){
-    const roots = [
-        json,
-        json?.data,
-        json?.result,
-        json?.response
-    ].filter(value => value && typeof value === "object");
+    const roots=[];
 
-    let events = [];
-    let updates = [];
-
-    for(const root of roots){
-        if(Array.isArray(root)){
-            events.push(...root);
-        }else{
-            for(const key of ["events","event","banners"]){
-                if(Array.isArray(root[key])){
-                    events.push(...root[key]);
-                }
-            }
-        }
-
-        if(!updates.length){
-            updates = extractUpdateArray(root);
+    function addRoot(value){
+        if(value && typeof value==="object" && !roots.includes(value)){
+            roots.push(value);
         }
     }
 
-    return {events,updates};
+    addRoot(json);
+    addRoot(json?.data);
+    addRoot(json?.result);
+    addRoot(json?.response);
+
+    const events=[];
+    let updates=[];
+
+    for(const root of roots){
+        events.push(
+            ...getArray(root,[
+                "events","event","banners","items"
+            ])
+        );
+
+        if(!updates.length){
+            updates=extractUpdateArray(root);
+        }
+    }
+
+    if(!updates.length){
+        updates=findStandaloneUpdate(json);
+    }
+
+    if(!events.length && Array.isArray(json)){
+        events.push(...json);
+    }
+
+    return {
+        events,
+        updates
+    };
 }
 
 /* =====================================
-   LOAD API
+   TẢI API
 ===================================== */
 
 async function loadEvents(){
-    const grid = $("eventsGrid");
-    const button = $("refreshBtn");
-    const server = $("serverSelect").value;
+    const grid=$("eventsGrid");
+    const button=$("refreshBtn");
+    const server=$("serverSelect").value;
 
-    button.disabled = true;
-    button.textContent = "Đang tải...";
+    button.disabled=true;
+    button.textContent="Đang tải...";
 
-    grid.innerHTML =
-        '<div class="loading">Đang tải dữ liệu sự kiện...</div>';
+    grid.innerHTML='<div class="loading">⏳ Đang tải dữ liệu sự kiện...</div>';
 
-    $("serverName").textContent = SERVER_NAMES[server] || server;
-    $("serverCode").textContent = server;
+    $("serverName").textContent=SERVER_NAMES[server]||server;
+    $("serverCode").textContent=server;
 
     try{
-        const response = await fetch(
-            API_URL + "?region=" + encodeURIComponent(server),
+        const response=await fetch(
+            `${API_URL}?region=${encodeURIComponent(server)}`,
             {
+                method:"GET",
                 cache:"no-store",
-                headers:{"Accept":"application/json"}
+                headers:{
+                    "Accept":"application/json"
+                }
             }
         );
 
         if(!response.ok){
-            throw new Error("HTTP " + response.status);
+            throw new Error(`HTTP ${response.status}`);
         }
 
-        const json = await response.json();
+        const json=await response.json();
 
         console.log("API RESPONSE:",json);
 
-        const payload = extractPayload(json);
+        const payload=extractPayload(json);
 
-        allEvents = payload.events.map(normalizeEvent);
-        allUpdates = payload.updates.map(normalizeUpdate);
+        allEvents=payload.events.map(normalizeEvent);
+        allUpdates=payload.updates.map(normalizeUpdate);
 
         renderEvents();
         renderUpdates();
 
     }catch(error){
-        console.error(error);
+        console.error("API ERROR:",error);
 
-        allEvents = [];
-        allUpdates = [];
-
-        grid.innerHTML = `
-          <div class="empty">
-            Không thể tải dữ liệu sự kiện.<br>
-            ${escapeHTML(error.message)}
+        grid.innerHTML=`
+          <div class="empty error">
+            <b>Không thể tải dữ liệu sự kiện.</b><br>
+            ${escapeHTML(error.message)}<br>
+            Kiểm tra API /api/events trên Vercel.
           </div>
         `;
+
+        allEvents=[];
+        allUpdates=[];
 
         updateStats();
         renderUpdates();
 
     }finally{
-        button.disabled = false;
-        button.textContent = "↻ Tải lại";
+        button.disabled=false;
+        button.textContent="↻ Tải lại";
     }
 }
 
 /* =====================================
-   RENDER EVENTS
+   HIỂN THỊ SỰ KIỆN
 ===================================== */
 
 function updateStats(){
-    const counts = {
-        live:0,upcoming:0,ended:0,unknown:0
+    const counts={
+        live:0,
+        upcoming:0,
+        ended:0,
+        unknown:0
     };
 
     allEvents.forEach(event=>{
         counts[getStatus(event.start,event.end).key]++;
     });
 
-    $("totalCount").textContent = allEvents.length;
-    $("liveCount").textContent = counts.live;
-    $("upcomingCount").textContent = counts.upcoming;
-    $("endedCount").textContent = counts.ended;
+    $("totalCount").textContent=allEvents.length;
+    $("liveCount").textContent=counts.live;
+    $("upcomingCount").textContent=counts.upcoming;
+    $("endedCount").textContent=counts.ended;
 }
 
 function renderEvents(){
-    const grid = $("eventsGrid");
-    const keyword = $("searchInput").value.trim().toLowerCase();
-    const filter = $("statusFilter").value;
+    const grid=$("eventsGrid");
+    const keyword=$("searchInput").value.trim().toLowerCase();
+    const filter=$("statusFilter").value;
 
-    const filtered = allEvents.filter(event=>{
-        const status = getStatus(event.start,event.end);
+    const filtered=allEvents.filter(event=>{
+        const status=getStatus(event.start,event.end);
 
-        return (
-            (filter === "all" || status.key === filter) &&
-            (
-                !keyword ||
-                String(event.title).toLowerCase().includes(keyword) ||
-                String(event.description).toLowerCase().includes(keyword)
-            )
-        );
+        const matchesStatus=
+            filter==="all" || status.key===filter;
+
+        const matchesSearch=
+            !keyword ||
+            event.title.toLowerCase().includes(keyword) ||
+            event.description.toLowerCase().includes(keyword) ||
+            event.originalTitle.toLowerCase().includes(keyword);
+
+        return matchesStatus && matchesSearch;
     });
 
     updateStats();
 
     if(!filtered.length){
-        grid.innerHTML =
-            '<div class="empty">Không tìm thấy sự kiện phù hợp.</div>';
+        grid.innerHTML=`
+          <div class="empty">
+            Không tìm thấy sự kiện phù hợp.
+          </div>
+        `;
         return;
     }
 
-    grid.innerHTML = filtered.map(event=>{
-        const status = getStatus(event.start,event.end);
+    grid.innerHTML=filtered.map(event=>{
+        const status=getStatus(event.start,event.end);
 
-        const image = event.image ||
-            "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
+        const image=event.image ||
+          "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
+
+        const link=event.link
+          ? `<a class="event-link"
+                 href="${escapeHTML(event.link)}"
+                 target="_blank"
+                 rel="noopener">
+                 XEM CHI TIẾT SỰ KIỆN ↗
+             </a>`
+          : "";
 
         return `
           <article class="event-card">
+
             <div class="event-image-wrap">
               <img class="event-image"
                    src="${escapeHTML(image)}"
@@ -1254,102 +1601,116 @@ function renderEvents(){
               }
 
               <div class="event-date">
-                <div>🟢 Bắt đầu: <b>${formatDate(event.start)}</b></div>
-                <div>🔴 Kết thúc: <b>${formatDate(event.end)}</b></div>
+                <div>
+                  🟢 Thời gian bắt đầu:
+                  <b>${formatDate(event.start)}</b>
+                </div>
+
+                <div>
+                  🔴 Thời gian kết thúc:
+                  <b>${formatDate(event.end)}</b>
+                </div>
               </div>
 
-              ${
-                event.link
-                ? `<a class="event-link"
-                      href="${escapeHTML(event.link)}"
-                      target="_blank" rel="noopener">
-                      XEM CHI TIẾT ↗
-                   </a>`
-                : ""
-              }
+              ${link}
             </div>
+
           </article>
         `;
     }).join("");
 }
 
 /* =====================================
-   RENDER UPDATES
+   HIỂN THỊ CẬP NHẬT MỚI
 ===================================== */
 
 function renderUpdates(){
-    const list = $("updatesList");
+    const list=$("updatesList");
 
     if(!allUpdates.length){
-        list.innerHTML = `
+        list.innerHTML=`
           <div class="update-empty">
-            📢<br>
-            <b>Chưa có thông tin cập nhật</b><br>
-            API hiện chưa trả về danh sách cập nhật.
+            <div style="font-size:28px;margin-bottom:10px">📢</div>
+            <b>Chưa có thông tin cập nhật</b>
+            <p style="margin-top:7px">
+              API hiện chưa trả về danh sách cập nhật.
+            </p>
           </div>
         `;
         return;
     }
 
-    list.innerHTML = allUpdates.map((item,index)=>{
-        const id = "update-detail-" + index;
-        const description = item.description || "";
-        const long = description.length > 220;
+    list.innerHTML=allUpdates.map((item,index)=>{
+        const id=`update-detail-${index}`;
+        const description=item.description||"";
+        const long=description.length>220;
+
+        const image=item.image
+            ? `<img class="update-image"
+                    src="${escapeHTML(item.image)}"
+                    alt=""
+                    loading="lazy"
+                    onerror="this.style.display='none'">`
+            : "";
+
+        const descriptionHTML=description
+            ? `<p id="${id}" class="update-description ${long?"collapsed":""}">${escapeHTML(description)}</p>`
+            : `<p class="update-description">API chỉ cung cấp tiêu đề, chưa có nội dung chi tiết.</p>`;
+
+        const moreButton=long
+            ? `<button class="update-more"
+                       type="button"
+                       aria-expanded="false"
+                       onclick="toggleUpdate('${id}',this)">
+                    Xem thêm ↓
+               </button>`
+            : "";
+
+        const sourceLink=item.link
+            ? `<a class="update-link"
+                  href="${escapeHTML(item.link)}"
+                  target="_blank"
+                  rel="noopener">Xem nguồn ↗</a>`
+            : "";
 
         return `
           <article class="update-card">
+
             <div class="update-icon">📢</div>
 
-            <div>
-              <span class="update-tag">CẬP NHẬT MỚI</span>
-              <span class="update-date">
-                ${item.date ? escapeHTML(formatDate(item.date)) : ""}
-              </span>
+            <div class="update-main">
+
+              <div class="update-topline">
+                <span class="update-tag">CẬP NHẬT MỚI</span>
+
+                <span class="update-date">
+                  ${item.date
+                    ? "📅 "+escapeHTML(formatDate(item.date))
+                    : ""}
+                </span>
+              </div>
 
               <h3 class="update-title">
                 ${escapeHTML(item.title)}
               </h3>
 
-              ${
-                item.image
-                ? `<img class="update-image"
-                        src="${escapeHTML(item.image)}"
-                        alt=""
-                        loading="lazy"
-                        onerror="this.style.display='none'">`
-                : ""
-              }
+              ${image}
 
-              <p id="${id}"
-                 class="update-description ${long?"collapsed":""}">
-                ${escapeHTML(description || "API chỉ cung cấp tiêu đề, chưa có nội dung chi tiết.")}
-              </p>
+              ${descriptionHTML}
 
               <div class="update-bottom">
+
                 <span class="update-author">
-                  ${item.author ? "Nguồn: "+escapeHTML(item.author) : "SỰ KIỆN FREE FIRE NEW"}
+                  ${item.author
+                    ? "Nguồn: "+escapeHTML(item.author)
+                    : "SỰ KIỆN FREE FIRE NEW"}
                 </span>
 
-                ${
-                    long
-                    ? `<button class="update-more"
-                               onclick="toggleUpdate('${id}',this)"
-                               aria-expanded="false">
-                           Xem thêm ↓
-                       </button>`
-                    : ""
-                }
+                ${moreButton}
+                ${sourceLink}
 
-                ${
-                    item.link
-                    ? `<a class="update-link"
-                          href="${escapeHTML(item.link)}"
-                          target="_blank" rel="noopener">
-                          Xem nguồn ↗
-                       </a>`
-                    : ""
-                }
               </div>
+
             </div>
           </article>
         `;
@@ -1357,37 +1718,47 @@ function renderUpdates(){
 }
 
 function toggleUpdate(id,button){
-    const element = $(id);
-    if(!element) return;
+    const description=$(id);
 
-    const expanded =
-        button.getAttribute("aria-expanded") === "true";
+    if(!description) return;
 
-    element.classList.toggle("collapsed",expanded);
+    const expanded=button.getAttribute("aria-expanded")==="true";
 
-    button.setAttribute("aria-expanded",String(!expanded));
+    description.classList.toggle("collapsed",expanded);
 
-    button.textContent = expanded
+    button.setAttribute(
+        "aria-expanded",
+        String(!expanded)
+    );
+
+    button.textContent=expanded
         ? "Xem thêm ↓"
         : "Thu gọn ↑";
 }
 
 /* =====================================
-   EVENTS
+   ĐIỀU KHIỂN
 ===================================== */
 
 $("serverSelect").addEventListener("change",loadEvents);
+
 $("statusFilter").addEventListener("change",renderEvents);
+
 $("searchInput").addEventListener("input",renderEvents);
+
 $("refreshBtn").addEventListener("click",loadEvents);
 
 /* =====================================
-   START
+   KHỞI ĐỘNG
 ===================================== */
 
 loadEvents();
-initOnlineCounter();
+
+setInterval(()=>{
+    renderEvents();
+},60000);
 
 </script>
+
 </body>
 </html>
