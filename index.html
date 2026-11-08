@@ -5,11 +5,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0b10">
+
 <title>Sự Kiện Free Fire 🔥</title>
+
+<link rel="icon" href="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
+<link rel="apple-touch-icon" href="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
 
 <meta property="og:title" content="SỰ KIỆN FREE FIRE NEW">
 <meta property="og:description" content="Cập nhật sự kiện Free Fire">
-<meta property="og:image" content="https://azerst-image-vn.vercel.app/images/Logowebtaogaming.jpg">
+<meta property="og:image" content="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
 
 <style>
 @font-face{
@@ -23,16 +27,16 @@
 
 :root{
     --bg:#0b0b10;
-    --panel:#14141d;
-    --panel2:#1b1b27;
+    --panel:#15151f;
+    --panel2:#1d1d29;
     --orange:#ff7900;
     --yellow:#ffc45b;
     --white:#fff;
     --muted:#9999aa;
-    --line:#ffffff12;
     --green:#21cf83;
     --red:#ff5353;
     --blue:#4aabff;
+    --line:#ffffff15;
 }
 
 *{
@@ -52,18 +56,12 @@ body{
     color:var(--white);
     font-family:"GFF",Arial,sans-serif;
     background-color:var(--bg);
-
-    /* NỀN SỌC Ô VUÔNG NHỎ */
     background-image:
       linear-gradient(#ffffff08 1px,transparent 1px),
       linear-gradient(90deg,#ffffff08 1px,transparent 1px),
       radial-gradient(ellipse at 15% 0%,#ff710018,transparent 40%),
       radial-gradient(ellipse at 90% 40%,#263d6818,transparent 45%);
-    background-size:
-      18px 18px,
-      18px 18px,
-      auto,
-      auto;
+    background-size:18px 18px,18px 18px,auto,auto;
     background-attachment:fixed;
 }
 
@@ -90,8 +88,7 @@ a{
     position:relative;
     overflow:hidden;
     padding:22px 0 32px;
-    background:
-      linear-gradient(115deg,#17131bfa,#21150efa,#101018fa);
+    background:linear-gradient(115deg,#17131bfa,#21150efa,#101018fa);
     border-bottom:1px solid #ff8a002c;
 }
 
@@ -232,6 +229,7 @@ main{
     border-radius:5px;
     background:var(--orange);
     box-shadow:0 0 12px #ff790080;
+    flex-shrink:0;
 }
 
 .section-heading span{
@@ -341,7 +339,7 @@ main{
     font-size:10px;
 }
 
-/* EVENT CARDS */
+/* EVENTS */
 
 .events-grid{
     display:grid;
@@ -452,7 +450,7 @@ main{
     background:#ff8a0030;
 }
 
-/* EMPTY / LOADING */
+/* LOADING */
 
 .empty,.loading{
     grid-column:1/-1;
@@ -474,9 +472,7 @@ main{
     color:#ff9292;
 }
 
-/* ==================================
-   CẬP NHẬT MỚI - THIẾT KẾ CHUYÊN NGHIỆP
-================================== */
+/* UPDATES */
 
 .updates-section{
     margin-top:42px;
@@ -521,14 +517,13 @@ main{
     padding:17px;
     border:1px solid #ffffff14;
     border-radius:12px;
-    background:
-      linear-gradient(110deg,#1c1c28,#13131c);
+    background:linear-gradient(110deg,#1c1c28,#13131c);
     transition:.25s;
 }
 
 .update-card:hover{
     border-color:#ff8a0055;
-    transform:translateX(3px);
+    transform:translateY(-2px);
     box-shadow:0 8px 25px #0005;
 }
 
@@ -584,7 +579,7 @@ main{
     font-family:Arial,sans-serif;
     font-size:12px;
     line-height:1.8;
-    margin-top:7px;
+    margin-top:8px;
     white-space:pre-wrap;
     overflow-wrap:anywhere;
 }
@@ -622,20 +617,36 @@ main{
     color:#fff;
 }
 
+.update-image{
+    display:block;
+    width:100%;
+    max-height:260px;
+    object-fit:cover;
+    border-radius:9px;
+    margin-top:12px;
+    border:1px solid #ffffff16;
+}
+
+.update-link{
+    color:var(--yellow);
+    font-size:10px;
+    text-decoration:none;
+}
+
 .update-empty{
     text-align:center;
-    padding:28px 15px;
+    padding:30px 15px;
     background:#15151e;
     border:1px dashed #ffffff20;
     border-radius:12px;
     color:#9999aa;
     font-size:12px;
+    line-height:1.8;
 }
 
 /* FOOTER */
 
 .footer{
-    position:relative;
     padding:25px 0;
     border-top:1px solid #ffffff15;
     background:#09090e;
@@ -649,9 +660,7 @@ main{
     color:var(--yellow);
 }
 
-/* ==================================
-   RESPONSIVE - LAPTOP / TABLET / MOBILE
-================================== */
+/* RESPONSIVE */
 
 @media(min-width:1500px){
     .container{
@@ -803,7 +812,6 @@ main{
     }
 }
 
-/* Giảm chuyển động nếu thiết bị yêu cầu */
 @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{
         scroll-behavior:auto!important;
@@ -823,8 +831,7 @@ main{
         <div class="brand">
             <img class="brand-logo"
                  src="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg"
-                 alt="Logo Táo Gaming"
-                 onerror="this.style.display='none'">
+                 alt="Logo Táo Gaming">
 
             <div>
                 <h1>SỰ KIỆN FREE FIRE NEW</h1>
@@ -844,7 +851,7 @@ main{
         <div>
             <h2>CẬP NHẬT <span>SỰ KIỆN</span><br>FREE FIRE 🔥</h2>
             <p>
-                Theo dõi sự kiện, thời gian và thông tin mới nhất
+                Theo dõi sự kiện, thời gian và thông tin cập nhật
                 từ các máy chủ Free Fire.
             </p>
         </div>
@@ -863,7 +870,8 @@ main{
     <h2 class="section-heading">CHỌN <span>SERVER</span></h2>
 
     <div class="toolbar">
-        <select id="serverSelect" class="control">
+
+        <select id="serverSelect" class="control" aria-label="Chọn server">
             <option value="VN">🇻🇳 Việt Nam (VN)</option>
             <option value="ID">🇮🇩 Indonesia (ID)</option>
             <option value="TH">🇹🇭 Thái Lan (TH)</option>
@@ -882,7 +890,7 @@ main{
             <option value="SAC">🌎 Nam Mỹ (SAC)</option>
         </select>
 
-        <select id="statusFilter" class="control">
+        <select id="statusFilter" class="control" aria-label="Lọc trạng thái">
             <option value="all">Tất cả sự kiện</option>
             <option value="live">Đang diễn ra</option>
             <option value="upcoming">Sắp diễn ra</option>
@@ -893,11 +901,13 @@ main{
         <input id="searchInput"
                class="control"
                type="search"
-               placeholder="Tìm kiếm sự kiện...">
+               placeholder="Tìm kiếm sự kiện..."
+               aria-label="Tìm kiếm sự kiện">
 
-        <button id="refreshBtn" class="refresh-btn">
+        <button id="refreshBtn" class="refresh-btn" type="button">
             ↻ Tải lại
         </button>
+
     </div>
 
     <p class="server-info">
@@ -933,7 +943,6 @@ main{
         <div class="loading">⏳ Đang tải dữ liệu sự kiện...</div>
     </div>
 
-    <!-- CẬP NHẬT MỚI -->
     <section class="updates-section">
 
         <div class="updates-header">
@@ -966,6 +975,10 @@ main{
 
 <script>
 "use strict";
+
+/* =====================================
+   CẤU HÌNH
+===================================== */
 
 const API_URL="/api/events";
 
@@ -1050,6 +1063,10 @@ function translateTitle(title){
 
     return result;
 }
+
+/* =====================================
+   TIỆN ÍCH
+===================================== */
 
 const $=id=>document.getElementById(id);
 
@@ -1158,6 +1175,10 @@ function getArray(source,keys){
     return [];
 }
 
+/* =====================================
+   NHẬN DIỆN SỰ KIỆN
+===================================== */
+
 function normalizeEvent(item,index){
     const title=firstValue(item,[
         "title","name","event_name","eventName",
@@ -1190,56 +1211,246 @@ function normalizeEvent(item,index){
     };
 }
 
+/* =====================================
+   NHẬN DIỆN CẬP NHẬT MỚI
+===================================== */
+
+function cleanText(value,depth=0){
+    if(value===null || value===undefined || depth>6){
+        return "";
+    }
+
+    if(typeof value==="string" || typeof value==="number"){
+        return String(value).trim();
+    }
+
+    if(Array.isArray(value)){
+        return value
+            .map(item=>cleanText(item,depth+1))
+            .filter(Boolean)
+            .join("\n");
+    }
+
+    if(typeof value==="object"){
+        const preferred=[
+            "text","content","description","detail",
+            "message","value","body","html"
+        ];
+
+        for(const key of preferred){
+            if(value[key]!==undefined){
+                const result=cleanText(value[key],depth+1);
+                if(result) return result;
+            }
+        }
+
+        return "";
+    }
+
+    return "";
+}
+
+function findFieldDeep(obj,keys,depth=0){
+    if(!obj || typeof obj!=="object" || depth>5){
+        return "";
+    }
+
+    for(const key of keys){
+        if(
+            Object.prototype.hasOwnProperty.call(obj,key) &&
+            obj[key]!==null &&
+            obj[key]!==undefined &&
+            obj[key]!==""
+        ){
+            const result=cleanText(obj[key]);
+
+            if(result) return result;
+        }
+    }
+
+    for(const value of Object.values(obj)){
+        if(value && typeof value==="object"){
+            const result=findFieldDeep(value,keys,depth+1);
+            if(result) return result;
+        }
+    }
+
+    return "";
+}
+
 function normalizeUpdate(item,index){
+    if(typeof item==="string"){
+        return {
+            title:`Thông tin cập nhật ${index+1}`,
+            description:item,
+            date:"",
+            author:"",
+            image:"",
+            link:""
+        };
+    }
+
+    const title=findFieldDeep(item,[
+        "title","name","heading","subject",
+        "update_title","news_title","announcement_title"
+    ]);
+
+    const description=findFieldDeep(item,[
+        "description","desc","content","detail",
+        "details","message","text","body","note",
+        "summary","paragraph","long_description",
+        "full_description","update_content",
+        "news_content","announcement",
+        "information","html","post_content"
+    ]);
+
     return {
-        title:firstValue(item,[
-            "title","name","heading","subject","update_title"
-        ])||`Thông tin cập nhật ${index+1}`,
-
-        description:firstValue(item,[
-            "description","desc","content","detail",
-            "message","text","body","note"
-        ])||"Chưa có nội dung chi tiết.",
-
-        date:firstValue(item,[
+        title:title||`Thông tin cập nhật ${index+1}`,
+        description:description||"",
+        date:findFieldDeep(item,[
             "date","time","created_at","createdAt",
             "updated_at","updatedAt","published_at","timestamp"
         ]),
-
-        author:firstValue(item,[
+        author:findFieldDeep(item,[
             "author","by","publisher","source_name"
-        ])
+        ]),
+        image:safeUrl(findFieldDeep(item,[
+            "image","img","banner","thumbnail",
+            "image_url","cover","picture"
+        ])),
+        link:safeUrl(findFieldDeep(item,[
+            "url","link","web_url","webUrl","source_url"
+        ]))
     };
+}
+
+/*
+  Tìm các danh sách cập nhật trong JSON.
+  Hỗ trợ nhiều cấu trúc lồng nhau.
+*/
+
+function extractUpdateArray(source,depth=0){
+    if(!source || typeof source!=="object" || depth>5){
+        return [];
+    }
+
+    const keys=[
+        "updates","update","news","changes",
+        "notices","notifications","announcements",
+        "announcement","changelogs","latest_updates"
+    ];
+
+    for(const key of keys){
+        const value=source[key];
+
+        if(Array.isArray(value)){
+            return value;
+        }
+
+        if(value && typeof value==="object"){
+            if(
+                value.title || value.name ||
+                value.content || value.description ||
+                value.text || value.message
+            ){
+                return [value];
+            }
+
+            const nested=extractUpdateArray(value,depth+1);
+
+            if(nested.length) return nested;
+        }
+    }
+
+    for(const value of Object.values(source)){
+        if(value && typeof value==="object"){
+            const nested=extractUpdateArray(value,depth+1);
+            if(nested.length) return nested;
+        }
+    }
+
+    return [];
+}
+
+/*
+  Một số API trả một object cập nhật trực tiếp
+  thay vì bọc trong mảng updates/news.
+*/
+
+function findStandaloneUpdate(source){
+    if(!source || typeof source!=="object") return [];
+
+    const hasTitle=!!findFieldDeep(source,[
+        "update_title","news_title","announcement_title"
+    ]);
+
+    const hasContent=!!findFieldDeep(source,[
+        "update_content","news_content","post_content"
+    ]);
+
+    if(hasTitle || hasContent){
+        return [source];
+    }
+
+    return [];
 }
 
 function extractPayload(json){
-    let source=json;
+    const roots=[];
 
-    if(source?.data && !Array.isArray(source.data)){
-        source=source.data;
+    function addRoot(value){
+        if(value && typeof value==="object" && !roots.includes(value)){
+            roots.push(value);
+        }
+    }
+
+    addRoot(json);
+    addRoot(json?.data);
+    addRoot(json?.result);
+    addRoot(json?.response);
+
+    const events=[];
+    let updates=[];
+
+    for(const root of roots){
+        events.push(
+            ...getArray(root,[
+                "events","event","banners","items"
+            ])
+        );
+
+        if(!updates.length){
+            updates=extractUpdateArray(root);
+        }
+    }
+
+    if(!updates.length){
+        updates=findStandaloneUpdate(json);
+    }
+
+    if(!events.length && Array.isArray(json)){
+        events.push(...json);
     }
 
     return {
-        events:getArray(source,[
-            "events","event","banners","items"
-        ]),
-        updates:[
-            ...getArray(source,["updates","update","news","changes"]),
-            ...getArray(source,["notices","notifications","announcement"])
-        ]
+        events,
+        updates
     };
 }
+
+/* =====================================
+   TẢI API
+===================================== */
 
 async function loadEvents(){
     const grid=$("eventsGrid");
     const button=$("refreshBtn");
+    const server=$("serverSelect").value;
 
     button.disabled=true;
     button.textContent="Đang tải...";
 
-    grid.innerHTML='<div class="loading">⏳ Đang tải dữ liệu...</div>';
-
-    const server=$("serverSelect").value;
+    grid.innerHTML='<div class="loading">⏳ Đang tải dữ liệu sự kiện...</div>';
 
     $("serverName").textContent=SERVER_NAMES[server]||server;
     $("serverCode").textContent=server;
@@ -1250,7 +1461,9 @@ async function loadEvents(){
             {
                 method:"GET",
                 cache:"no-store",
-                headers:{"Accept":"application/json"}
+                headers:{
+                    "Accept":"application/json"
+                }
             }
         );
 
@@ -1259,20 +1472,19 @@ async function loadEvents(){
         }
 
         const json=await response.json();
+
+        console.log("API RESPONSE:",json);
+
         const payload=extractPayload(json);
 
         allEvents=payload.events.map(normalizeEvent);
         allUpdates=payload.updates.map(normalizeUpdate);
 
-        if(!allEvents.length && Array.isArray(json)){
-            allEvents=json.map(normalizeEvent);
-        }
-
         renderEvents();
         renderUpdates();
 
     }catch(error){
-        console.error(error);
+        console.error("API ERROR:",error);
 
         grid.innerHTML=`
           <div class="empty error">
@@ -1284,6 +1496,7 @@ async function loadEvents(){
 
         allEvents=[];
         allUpdates=[];
+
         updateStats();
         renderUpdates();
 
@@ -1292,6 +1505,10 @@ async function loadEvents(){
         button.textContent="↻ Tải lại";
     }
 }
+
+/* =====================================
+   HIỂN THỊ SỰ KIỆN
+===================================== */
 
 function updateStats(){
     const counts={
@@ -1319,9 +1536,11 @@ function renderEvents(){
     const filtered=allEvents.filter(event=>{
         const status=getStatus(event.start,event.end);
 
-        const matchesStatus=filter==="all" || status.key===filter;
+        const matchesStatus=
+            filter==="all" || status.key===filter;
 
-        const matchesSearch=!keyword ||
+        const matchesSearch=
+            !keyword ||
             event.title.toLowerCase().includes(keyword) ||
             event.description.toLowerCase().includes(keyword) ||
             event.originalTitle.toLowerCase().includes(keyword);
@@ -1332,7 +1551,11 @@ function renderEvents(){
     updateStats();
 
     if(!filtered.length){
-        grid.innerHTML='<div class="empty">Không tìm thấy sự kiện phù hợp.</div>';
+        grid.innerHTML=`
+          <div class="empty">
+            Không tìm thấy sự kiện phù hợp.
+          </div>
+        `;
         return;
     }
 
@@ -1343,11 +1566,17 @@ function renderEvents(){
           "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
 
         const link=event.link
-          ? `<a class="event-link" href="${escapeHTML(event.link)}" target="_blank" rel="noopener">XEM CHI TIẾT SỰ KIỆN ↗</a>`
+          ? `<a class="event-link"
+                 href="${escapeHTML(event.link)}"
+                 target="_blank"
+                 rel="noopener">
+                 XEM CHI TIẾT SỰ KIỆN ↗
+             </a>`
           : "";
 
         return `
           <article class="event-card">
+
             <div class="event-image-wrap">
               <img class="event-image"
                    src="${escapeHTML(image)}"
@@ -1361,25 +1590,39 @@ function renderEvents(){
             </div>
 
             <div class="event-content">
-              <h3 class="event-title">${escapeHTML(event.title)}</h3>
+              <h3 class="event-title">
+                ${escapeHTML(event.title)}
+              </h3>
 
-              ${event.description
+              ${
+                event.description
                 ? `<p class="event-desc">${escapeHTML(event.description)}</p>`
-                : ""}
+                : ""
+              }
 
               <div class="event-date">
-                <div>🟢 Thời gian bắt đầu: <b>${formatDate(event.start)}</b></div>
-                <div>🔴 Thời gian kết thúc: <b>${formatDate(event.end)}</b></div>
+                <div>
+                  🟢 Thời gian bắt đầu:
+                  <b>${formatDate(event.start)}</b>
+                </div>
+
+                <div>
+                  🔴 Thời gian kết thúc:
+                  <b>${formatDate(event.end)}</b>
+                </div>
               </div>
 
               ${link}
             </div>
+
           </article>
         `;
     }).join("");
 }
 
-/* CẬP NHẬT MỚI */
+/* =====================================
+   HIỂN THỊ CẬP NHẬT MỚI
+===================================== */
 
 function renderUpdates(){
     const list=$("updatesList");
@@ -1387,10 +1630,10 @@ function renderUpdates(){
     if(!allUpdates.length){
         list.innerHTML=`
           <div class="update-empty">
-            <div style="font-size:25px;margin-bottom:8px">📢</div>
-            <b>Chưa có thông tin cập nhật mới</b>
-            <p style="margin-top:6px">
-              Thông tin sẽ xuất hiện tại đây khi API cung cấp dữ liệu.
+            <div style="font-size:28px;margin-bottom:10px">📢</div>
+            <b>Chưa có thông tin cập nhật</b>
+            <p style="margin-top:7px">
+              API hiện chưa trả về danh sách cập nhật.
             </p>
           </div>
         `;
@@ -1398,18 +1641,52 @@ function renderUpdates(){
     }
 
     list.innerHTML=allUpdates.map((item,index)=>{
-        const long=String(item.description).length>220;
-        const id=`update-${index}`;
+        const id=`update-detail-${index}`;
+        const description=item.description||"";
+        const long=description.length>220;
+
+        const image=item.image
+            ? `<img class="update-image"
+                    src="${escapeHTML(item.image)}"
+                    alt=""
+                    loading="lazy"
+                    onerror="this.style.display='none'">`
+            : "";
+
+        const descriptionHTML=description
+            ? `<p id="${id}" class="update-description ${long?"collapsed":""}">${escapeHTML(description)}</p>`
+            : `<p class="update-description">API chỉ cung cấp tiêu đề, chưa có nội dung chi tiết.</p>`;
+
+        const moreButton=long
+            ? `<button class="update-more"
+                       type="button"
+                       aria-expanded="false"
+                       onclick="toggleUpdate('${id}',this)">
+                    Xem thêm ↓
+               </button>`
+            : "";
+
+        const sourceLink=item.link
+            ? `<a class="update-link"
+                  href="${escapeHTML(item.link)}"
+                  target="_blank"
+                  rel="noopener">Xem nguồn ↗</a>`
+            : "";
 
         return `
           <article class="update-card">
+
             <div class="update-icon">📢</div>
 
             <div class="update-main">
+
               <div class="update-topline">
-                <span class="update-tag">CẬP NHẬT</span>
+                <span class="update-tag">CẬP NHẬT MỚI</span>
+
                 <span class="update-date">
-                  ${item.date? "📅 "+escapeHTML(formatDate(item.date)):""}
+                  ${item.date
+                    ? "📅 "+escapeHTML(formatDate(item.date))
+                    : ""}
                 </span>
               </div>
 
@@ -1417,24 +1694,23 @@ function renderUpdates(){
                 ${escapeHTML(item.title)}
               </h3>
 
-              <p id="${id}" class="update-description ${long?"collapsed":""}">
-                ${escapeHTML(item.description)}
-              </p>
+              ${image}
+
+              ${descriptionHTML}
 
               <div class="update-bottom">
+
                 <span class="update-author">
-                  ${item.author?"Nguồn: "+escapeHTML(item.author):"SỰ KIỆN FREE FIRE NEW"}
+                  ${item.author
+                    ? "Nguồn: "+escapeHTML(item.author)
+                    : "SỰ KIỆN FREE FIRE NEW"}
                 </span>
 
-                ${long?`
-                  <button class="update-more"
-                    type="button"
-                    aria-expanded="false"
-                    onclick="toggleUpdate('${id}',this)">
-                    Xem thêm ↓
-                  </button>
-                `:""}
+                ${moreButton}
+                ${sourceLink}
+
               </div>
+
             </div>
           </article>
         `;
@@ -1443,21 +1719,38 @@ function renderUpdates(){
 
 function toggleUpdate(id,button){
     const description=$(id);
+
+    if(!description) return;
+
     const expanded=button.getAttribute("aria-expanded")==="true";
 
     description.classList.toggle("collapsed",expanded);
-    button.setAttribute("aria-expanded",String(!expanded));
-    button.textContent=expanded?"Xem thêm ↓":"Thu gọn ↑";
+
+    button.setAttribute(
+        "aria-expanded",
+        String(!expanded)
+    );
+
+    button.textContent=expanded
+        ? "Xem thêm ↓"
+        : "Thu gọn ↑";
 }
 
-/* SỰ KIỆN GIAO DIỆN */
+/* =====================================
+   ĐIỀU KHIỂN
+===================================== */
 
 $("serverSelect").addEventListener("change",loadEvents);
+
 $("statusFilter").addEventListener("change",renderEvents);
+
 $("searchInput").addEventListener("input",renderEvents);
+
 $("refreshBtn").addEventListener("click",loadEvents);
 
-/* KHỞI ĐỘNG */
+/* =====================================
+   KHỞI ĐỘNG
+===================================== */
 
 loadEvents();
 
