@@ -1,370 +1,807 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101018">
-  <title>SỰ KIỆN FREE FIRE NEW</title>
-  <meta name="description" content="Cập nhật sự kiện Free Fire, thông tin máy chủ và những hoạt động nổi bật. Theo dõi lịch sự kiện để không bỏ lỡ phần quà hấp dẫn cùng Táo Gaming.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Sự Kiện Free Fire 🔥 | Táo Gaming">
-  <meta property="og:description" content="Cập nhật sự kiện Free Fire mới nhất, lịch hoạt động và thông tin nổi bật dành cho cộng đồng game thủ.">
-  <meta property="og:image" content="https://azerst-image-vn.vercel.app/images/Logowebtaogaming.jpg">
-  <meta property="og:site_name" content="SỰ KIỆN FREE FIRE NEW">
-  <link rel="icon" href="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
-  <link rel="preconnect" href="https://dl.dir.freefiremobile.com" crossorigin>
-  <link rel="preconnect" href="https://azerst-image-vn.vercel.app" crossorigin>
-  <style>
-    @font-face{
-      font-family:"GFF-Latin-Bold";
-      src:
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2"),
-        url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff") format("woff");
-      font-weight:700;
-      font-style:normal;
-      font-display:swap;
-    }
-    :root{
-      --bg:#0b0b11;--panel:#14141e;--panel2:#1b1b27;--line:rgba(255,255,255,.09);
-      --text:#f6f6fb;--muted:#a5a5b5;--gold:#ffbd36;--orange:#ff6a24;
-      --green:#4bd69a;--red:#ff646e;--radius:18px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:
-      radial-gradient(ellipse at 15% -10%,rgba(255,112,34,.17),transparent 38%),
-      radial-gradient(ellipse at 100% 20%,rgba(255,189,54,.08),transparent 28%),var(--bg);
-      color:var(--text);font-family:"GFF-Latin-Bold",sans-serif;min-height:100vh}
-    button,input,select{font:inherit}
-    a{color:inherit;text-decoration:none}
-    .shell{width:min(1180px,calc(100% - 32px));margin:auto}
-    .topbar{border-bottom:1px solid var(--line);background:rgba(10,10,16,.82);backdrop-filter:blur(16px);position:sticky;top:0;z-index:20}
-    .topbar-inner{height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}
-    .brand{display:flex;align-items:center;gap:12px;min-width:0}
-    .brand img{width:46px;height:46px;border-radius:13px;object-fit:cover;border:1px solid rgba(255,189,54,.45);background:#222}
-    .brand-name{font-size:15px;letter-spacing:.5px;line-height:1.2}
-    .brand-sub{font-size:10px;color:var(--muted);margin-top:5px;letter-spacing:1.2px}
-    .top-actions{display:flex;align-items:center;gap:10px}
-    .tiktok{border:1px solid var(--line);background:#191923;border-radius:999px;padding:10px 14px;font-size:12px;white-space:nowrap}
-    .tiktok:hover{border-color:var(--gold);color:var(--gold)}
-    .hero{padding:44px 0 26px}
-    .hero-card{position:relative;overflow:hidden;border:1px solid rgba(255,189,54,.2);border-radius:26px;
-      background:linear-gradient(115deg,rgba(255,110,34,.17),rgba(23,23,34,.96) 52%,rgba(255,189,54,.08));
-      padding:34px;min-height:225px;display:flex;align-items:center}
-    .hero-card:after{content:"";position:absolute;width:290px;height:290px;border-radius:50%;right:7%;top:-145px;
-      border:1px solid rgba(255,189,54,.22);box-shadow:0 0 0 28px rgba(255,189,54,.025),0 0 0 58px rgba(255,189,54,.02)}
-    .hero-content{position:relative;z-index:1;max-width:690px}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:11px;letter-spacing:1.5px;text-transform:uppercase}
-    .pulse{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
-    h1{font-size:clamp(29px,5vw,48px);line-height:1.08;margin:14px 0 12px;letter-spacing:-.5px}
-    .hero p{color:#c5c5d0;line-height:1.75;font-size:13px;margin:0;max-width:620px}
-    .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
-    .tag{font-size:10px;padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.04);color:#d5d5df}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:25px 0 14px}
-    .section-title{font-size:18px;margin:0}
-    .section-caption{font-family:"GFF-Latin-Bold",sans-serif;color:var(--muted);font-size:11px;margin-top:6px}
-    .toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-    .select-wrap{position:relative}
-    select{appearance:none;background:#1a1a25;border:1px solid var(--line);color:var(--text);padding:12px 40px 12px 14px;border-radius:12px;outline:none;min-width:190px;font-size:12px}
-    .select-wrap:after{content:"⌄";position:absolute;right:14px;top:8px;color:var(--gold);pointer-events:none;font-size:18px}
-    .btn{border:0;border-radius:12px;padding:12px 16px;background:linear-gradient(135deg,var(--gold),var(--orange));color:#17110a;cursor:pointer;font-size:12px;transition:.2s}
-    .btn:hover{transform:translateY(-1px);filter:brightness(1.08)}
-    .btn:disabled{opacity:.55;cursor:wait;transform:none}
-    .status-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:12px 2px 18px;color:var(--muted);font-family:"GFF-Latin-Bold",sans-serif;font-size:11px}
-    .status{display:inline-flex;align-items:center;gap:7px}
-    .status-dot{width:7px;height:7px;border-radius:50%;background:var(--green)}
-    .status.error .status-dot{background:var(--red)}
-    .status.loading .status-dot{background:var(--gold);animation:blink .8s infinite alternate}
-    @keyframes blink{to{opacity:.25}}
-    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-    .event-card{background:linear-gradient(180deg,#191923,#12121a);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:.22s;min-width:0}
-    .event-card:hover{transform:translateY(-3px);border-color:rgba(255,189,54,.35)}
-    .event-image{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#242431}
-    .event-body{padding:15px}
-    .event-title{font-size:14px;line-height:1.4;margin:0 0 8px}
-    .event-desc{font-family:"GFF-Latin-Bold",sans-serif;color:#aeadbd;font-size:11px;line-height:1.6;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-    .event-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:14px;color:#88889a;font-family:"GFF-Latin-Bold",sans-serif;font-size:10px}
-    .event-link{color:var(--gold);font-size:10px}
-    .empty{grid-column:1/-1;border:1px dashed rgba(255,255,255,.15);border-radius:18px;padding:32px 18px;text-align:center;background:rgba(255,255,255,.02)}
-    .empty-icon{font-size:30px;margin-bottom:10px}
-    .empty strong{display:block;font-size:14px;margin-bottom:7px}
-    .empty p{font-family:"GFF-Latin-Bold",sans-serif;color:var(--muted);font-size:12px;line-height:1.6;margin:0}
-    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0}
-    .info-panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px}
-    .info-panel h3{font-size:14px;margin:0 0 14px}
-    .info-list{display:grid;gap:10px}
-    .info-item{padding:11px 12px;border-radius:11px;background:rgba(255,255,255,.035);font-size:11px;line-height:1.5}
-    .info-item small{display:block;color:var(--muted);font-family:"GFF-Latin-Bold",sans-serif;font-size:10px;margin-top:4px}
-    .footer{border-top:1px solid var(--line);padding:24px 0 32px;margin-top:34px;color:var(--muted);font-family:"GFF-Latin-Bold",sans-serif;font-size:11px;line-height:1.8}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
-    .footer-brand{display:flex;align-items:center;gap:10px}
-    .footer-brand img{width:34px;height:34px;object-fit:cover;border-radius:9px}
-    .footer strong{color:#f1f1f6;font-family:"GFF-Latin-Bold",sans-serif}
-    .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#252532;border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:11px;z-index:40;transition:.25s;max-width:calc(100% - 30px);text-align:center}
-    .toast.show{opacity:1;transform:translate(-50%,0)}
-    @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:600px){
-      .shell{width:min(100% - 22px,1180px)}.topbar-inner{height:65px}.brand img{width:40px;height:40px}
-      .brand-name{font-size:12px}.brand-sub{font-size:9px}.tiktok{padding:9px 10px;font-size:10px}
-      .hero{padding-top:22px}.hero-card{padding:24px 20px;min-height:220px}.hero-card:after{right:-120px}
-      .section-head{align-items:flex-start;flex-direction:column}.toolbar{width:100%}.select-wrap{flex:1}
-      select{width:100%;min-width:0}.btn{white-space:nowrap}.grid{gap:10px}
-      .event-body{padding:11px}.event-title{font-size:12px}.event-desc{font-size:10px}
-      .info-grid{grid-template-columns:1fr;gap:12px}.status-row{align-items:flex-start;flex-direction:column}
-    }
-    @media(max-width:390px){.grid{grid-template-columns:1fr}.event-image{aspect-ratio:16/8}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101018">
+
+<title>SỰ KIỆN FREE FIRE NEW</title>
+
+<meta name="description" content="Cập nhật sự kiện Free Fire, hoạt động nổi bật và thông tin theo từng máy chủ cùng Táo Gaming.">
+
+<meta property="og:title" content="Sự Kiện Free Fire 🔥">
+<meta property="og:description" content="Cập nhật sự kiện Free Fire mới nhất cùng Táo Gaming.">
+<meta property="og:image" content="https://azerst-image-vn.vercel.app/images/Logowebtaogaming.jpg">
+
+<link rel="icon" href="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
+
+<style>
+@font-face {
+  font-family: "GFF";
+  src:
+    url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff2") format("woff2"),
+    url("https://dl.dir.freefiremobile.com/common/web_event/common/fonts/website/GFFLatinW05-Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --bg: #0b0b11;
+  --panel: #171720;
+  --gold: #ffbd36;
+  --orange: #ff6a24;
+  --text: #ffffff;
+  --muted: #aaaab8;
+  --border: rgba(255,255,255,.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, #392014 0, transparent 35%),
+    var(--bg);
+  color: var(--text);
+  font-family: "GFF", sans-serif;
+  min-height: 100vh;
+}
+
+button, select {
+  font-family: "GFF", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1150px, 94%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(12,12,18,.94);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(15px);
+}
+
+.nav {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.brand-name {
+  font-size: 14px;
+}
+
+.brand-sub {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.tiktok {
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 10px 13px;
+  font-size: 11px;
+}
+
+.hero {
+  margin-top: 28px;
+  padding: 35px 28px;
+  border: 1px solid rgba(255,189,54,.25);
+  border-radius: 22px;
+  background: linear-gradient(
+    120deg,
+    rgba(255,106,36,.2),
+    #191923 60%,
+    rgba(255,189,54,.08)
+  );
+}
+
+.hero-label {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-size: clamp(28px,5vw,46px);
+  margin: 15px 0 12px;
+}
+
+.hero p {
+  color: #c4c4ce;
+  font-size: 13px;
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.tag {
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 8px 12px;
+  font-size: 10px;
+  background: rgba(255,255,255,.04);
+}
+
+.section-head {
+  margin: 30px 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.section-head h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.section-head p {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 9px;
+}
+
+select {
+  background: var(--panel);
+  color: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  outline: none;
+}
+
+.btn {
+  background: linear-gradient(135deg,var(--gold),var(--orange));
+  color: #17110a;
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: .5;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 10px;
+  margin: 15px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 15px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+  background: #252530;
+}
+
+.card-body {
+  padding: 14px;
+}
+
+.card h3 {
+  font-size: 13px;
+  margin: 0 0 9px;
+}
+
+.card p {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.card-meta a {
+  color: var(--gold);
+}
+
+.empty {
+  grid-column: 1/-1;
+  padding: 35px 15px;
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.info-box {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 17px;
+}
+
+.info-box h3 {
+  font-size: 14px;
+  margin-top: 0;
+}
+
+.info-item {
+  padding: 11px;
+  background: rgba(255,255,255,.04);
+  border-radius: 9px;
+  font-size: 11px;
+  margin-top: 9px;
+  line-height: 1.6;
+}
+
+.info-item small {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+footer {
+  margin-top: 35px;
+  padding: 25px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+footer strong {
+  color: white;
+}
+
+@media(max-width:800px) {
+  .grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:550px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 25px 18px;
+  }
+
+  .brand-name {
+    font-size: 11px;
+  }
+
+  .tiktok {
+    font-size: 9px;
+    padding: 9px;
+  }
+
+  .section-head {
+    align-items: flex-start;
+  }
+
+  .toolbar {
+    width: 100%;
+  }
+
+  .toolbar select {
+    flex: 1;
+    min-width: 0;
+  }
+}
+</style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="shell topbar-inner">
-      <a class="brand" href="/" aria-label="Sự Kiện Free Fire New">
-        <img src="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg" alt="Logo Táo Gaming"
-             onerror="this.style.visibility='hidden'">
-        <div>
-          <div class="brand-name">SỰ KIỆN FREE FIRE NEW</div>
-          <div class="brand-sub">POWERED BY TÁO GAMING</div>
-        </div>
-      </a>
-      <div class="top-actions">
-        <a class="tiktok" href="https://www.tiktok.com/@taogamingffvn" target="_blank" rel="noopener noreferrer">TikTok · @taogamingffvn ↗</a>
-      </div>
-    </div>
-  </header>
 
-  <main class="shell">
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-content">
-          <div class="eyebrow"><span class="pulse"></span> FREE FIRE COMMUNITY UPDATE</div>
-          <h1>Sự Kiện Free Fire 🔥</h1>
-          <p>Cập nhật nhanh những sự kiện, hoạt động và thông tin nổi bật trong thế giới Free Fire. Theo dõi nội dung theo từng máy chủ, khám phá sự kiện đang diễn ra và chủ động chuẩn bị cho những phần thưởng hấp dẫn.</p>
-          <div class="hero-tags">
-            <span class="tag">⚡ Cập nhật theo máy chủ</span>
-            <span class="tag">🎮 Free Fire VN</span>
-            <span class="tag">🍎 Táo Gaming</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section aria-labelledby="events-heading">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title" id="events-heading">Sự kiện nổi bật</h2>
-          <div class="section-caption">Chọn máy chủ để tải dữ liệu tương ứng</div>
-        </div>
-        <div class="toolbar">
-          <div class="select-wrap">
-            <select id="regionSelect" aria-label="Chọn máy chủ">
-              <option value="VN">🇻🇳 Việt Nam (VN)</option>
-            </select>
-          </div>
-          <button class="btn" id="refreshBtn" type="button">↻ Làm mới</button>
-        </div>
-      </div>
-      <div class="status-row">
-        <div class="status" id="status"><span class="status-dot"></span><span id="statusText">Đang chuẩn bị tải dữ liệu...</span></div>
-        <span id="updatedAt">Chưa cập nhật</span>
-      </div>
-      <div class="grid" id="eventsGrid">
-        <div class="empty"><div class="empty-icon">🔥</div><strong>Đang tải sự kiện</strong><p>Vui lòng chờ trong giây lát...</p></div>
-      </div>
-    </section>
-
-    <section class="info-grid">
-      <div class="info-panel">
-        <h3>📢 Thông báo</h3>
-        <div class="info-list" id="noticesList"><div class="info-item">Đang tải thông báo...</div></div>
-      </div>
-      <div class="info-panel">
-        <h3>🆕 Cập nhật mới</h3>
-        <div class="info-list" id="updatesList"><div class="info-item">Đang tải thông tin...</div></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="shell footer-inner">
-      <div class="footer-brand">
-        <img src="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg" alt="Táo Gaming">
-        <div><strong>SỰ KIỆN FREE FIRE NEW</strong><br>Thông tin cộng đồng được tổng hợp theo máy chủ.</div>
-      </div>
+<header>
+  <div class="container nav">
+    <a class="brand" href="/">
+      <img
+        src="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg"
+        alt="Táo Gaming"
+      >
       <div>
-        Kênh TikTok: <a href="https://www.tiktok.com/@taogamingffvn" target="_blank" rel="noopener noreferrer"><strong>@taogamingffvn</strong></a><br>
-        Fan-made community project · Không phải website chính thức của Garena.
+        <div class="brand-name">SỰ KIỆN FREE FIRE NEW</div>
+        <div class="brand-sub">POWERED BY TÁO GAMING</div>
+      </div>
+    </a>
+
+    <a
+      class="tiktok"
+      href="https://www.tiktok.com/@taogamingffvn"
+      target="_blank"
+      rel="noopener"
+    >
+      TikTok @taogamingffvn ↗
+    </a>
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <div class="hero-label">🔥 FREE FIRE COMMUNITY UPDATE</div>
+
+    <h1>Sự Kiện Free Fire 🔥</h1>
+
+    <p>
+      Chào mừng bạn đến với SỰ KIỆN FREE FIRE NEW.
+      Theo dõi các sự kiện, hoạt động nổi bật và thông tin
+      cập nhật theo từng máy chủ. Cùng Táo Gaming khám phá
+      những nội dung mới trong thế giới Free Fire.
+    </p>
+
+    <div class="tags">
+      <span class="tag">⚡ Cập nhật máy chủ</span>
+      <span class="tag">🎮 Free Fire VN</span>
+      <span class="tag">🍎 Táo Gaming</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div>
+        <h2>Sự kiện nổi bật</h2>
+        <p>Chọn máy chủ để tải dữ liệu sự kiện</p>
+      </div>
+
+      <div class="toolbar">
+        <select id="region">
+          <option value="VN">🇻🇳 Việt Nam</option>
+        </select>
+
+        <button class="btn" id="refresh">
+          ↻ Làm mới
+        </button>
       </div>
     </div>
-  </footer>
-  <div class="toast" id="toast" role="status"></div>
 
-  <script>
-    const FALLBACK_IMAGE = "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
-    const REGION_FALLBACK = [
-      {code:"VN",name:"Việt Nam",flag:"🇻🇳"},{code:"SG",name:"Singapore",flag:"🇸🇬"},
-      {code:"ID",name:"Indonesia",flag:"🇮🇩"},{code:"TH",name:"Thái Lan",flag:"🇹🇭"},
-      {code:"TW",name:"Đài Loan",flag:"🇹🇼"},{code:"BR",name:"Brazil",flag:"🇧🇷"},
-      {code:"US",name:"Hoa Kỳ",flag:"🇺🇸"},{code:"SAC",name:"Nam Mỹ",flag:"🌎"},
-      {code:"NA",name:"Bắc Mỹ",flag:"🌎"},{code:"EU",name:"Châu Âu",flag:"🇪🇺"},
-      {code:"ME",name:"Trung Đông",flag:"🌍"},{code:"IND",name:"Ấn Độ",flag:"🇮🇳"},
-      {code:"PK",name:"Pakistan",flag:"🇵🇰"},{code:"BD",name:"Bangladesh",flag:"🇧🇩"},
-      {code:"RU",name:"Nga",flag:"🇷🇺"},{code:"CIS",name:"CIS",flag:"🌐"}
-    ];
+    <div class="status">
+      <span id="status">Đang khởi tạo...</span>
+      <span id="updated">Chưa cập nhật</span>
+    </div>
 
-    const regionSelect = document.getElementById("regionSelect");
-    const refreshBtn = document.getElementById("refreshBtn");
-    const eventsGrid = document.getElementById("eventsGrid");
-    const statusEl = document.getElementById("status");
-    const statusText = document.getElementById("statusText");
-    const updatedAt = document.getElementById("updatedAt");
-    let toastTimer;
+    <div class="grid" id="events">
+      <div class="empty">Đang tải dữ liệu sự kiện...</div>
+    </div>
+  </section>
 
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      toast.textContent = message;
-      toast.classList.add("show");
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+  <section class="info-grid">
+    <div class="info-box">
+      <h3>📢 Thông báo</h3>
+      <div id="notices">
+        <div class="info-item">Đang tải...</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>🆕 Cập nhật mới</h3>
+      <div id="updates">
+        <div class="info-item">Đang tải...</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <strong>SỰ KIỆN FREE FIRE NEW</strong><br>
+    Kênh TikTok:
+    <a href="https://www.tiktok.com/@taogamingffvn">
+      <strong>@taogamingffvn</strong>
+    </a>
+    <br>
+    Dự án cộng đồng, không phải website chính thức của Garena.
+  </div>
+</footer>
+
+<script>
+const FALLBACK_IMAGE =
+  "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
+
+const REGION_LIST = [
+  ["VN","Việt Nam","🇻🇳"],
+  ["SG","Singapore","🇸🇬"],
+  ["ID","Indonesia","🇮🇩"],
+  ["TH","Thái Lan","🇹🇭"],
+  ["TW","Đài Loan","🇹🇼"],
+  ["BR","Brazil","🇧🇷"],
+  ["US","Hoa Kỳ","🇺🇸"],
+  ["SAC","Nam Mỹ","🌎"],
+  ["NA","Bắc Mỹ","🌎"],
+  ["EU","Châu Âu","🇪🇺"],
+  ["ME","Trung Đông","🌍"],
+  ["IND","Ấn Độ","🇮🇳"],
+  ["PK","Pakistan","🇵🇰"],
+  ["BD","Bangladesh","🇧🇩"],
+  ["RU","Nga","🇷🇺"],
+  ["CIS","CIS","🌐"]
+];
+
+const regionSelect = document.getElementById("region");
+const eventsBox = document.getElementById("events");
+const statusBox = document.getElementById("status");
+const updatedBox = document.getElementById("updated");
+const refreshButton = document.getElementById("refresh");
+
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+function getValue(object, keys, fallback = "") {
+  for (const key of keys) {
+    if (
+      object &&
+      object[key] !== undefined &&
+      object[key] !== null &&
+      object[key] !== ""
+    ) {
+      return object[key];
     }
+  }
+  return fallback;
+}
 
-    function setStatus(message, state="") {
-      statusEl.className = "status " + state;
-      statusText.textContent = message;
+function getArray(data, keys) {
+  if (Array.isArray(data)) return data;
+
+  for (const key of keys) {
+    if (Array.isArray(data?.[key])) {
+      return data[key];
     }
+  }
 
-    function safeText(value, fallback="") {
-      if (value === null || value === undefined) return fallback;
-      if (typeof value === "string" || typeof value === "number") return String(value);
-      return fallback;
-    }
+  return [];
+}
 
-    function firstValue(obj, keys, fallback="") {
-      for (const key of keys) {
-        if (obj && obj[key] !== undefined && obj[key] !== null && obj[key] !== "") return obj[key];
-      }
-      return fallback;
-    }
+function renderInfo(id, items, emptyText) {
+  const box = document.getElementById(id);
 
-    function normalizeArray(data, keys) {
-      if (Array.isArray(data)) return data;
-      for (const key of keys) {
-        if (data && Array.isArray(data[key])) return data[key];
-      }
-      return [];
-    }
+  if (!items.length) {
+    box.innerHTML =
+      `<div class="info-item">${escapeHTML(emptyText)}</div>`;
+    return;
+  }
 
-    function escapeHtml(value) {
-      return String(value).replace(/[&<>"']/g, ch => ({
-        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-      })[ch]);
-    }
+  box.innerHTML = items.map(item => {
+    const obj = typeof item === "string"
+      ? {title: item}
+      : (item || {});
 
-    function renderEvents(data) {
-      const events = normalizeArray(data, ["events","data","event","items","banners"]);
-      if (!events.length) {
-        eventsGrid.innerHTML = `<div class="empty"><div class="empty-icon">🎮</div><strong>Chưa có sự kiện được cung cấp</strong><p>Máy chủ hiện chưa trả về danh sách sự kiện. Hãy thử tải lại sau.</p></div>`;
-        return;
-      }
+    const title = getValue(
+      obj,
+      ["title","name","message","content","text"],
+      "Thông tin"
+    );
 
-      eventsGrid.innerHTML = events.map((item, index) => {
-        const obj = (typeof item === "string") ? {title:item} : (item || {});
-        const title = safeText(firstValue(obj, ["title","name","event_name","eventName"], `Sự kiện ${index + 1}`));
-        const desc = safeText(firstValue(obj, ["description","desc","content","detail"], "Thông tin sự kiện đang được cập nhật."));
-        const image = safeText(firstValue(obj, ["image","img","banner","thumbnail","image_url","cover"], FALLBACK_IMAGE));
-        const link = safeText(firstValue(obj, ["url","link","web_url","redirect"], ""));
-        const start = safeText(firstValue(obj, ["start","start_date","startDate","from"], ""));
-        const end = safeText(firstValue(obj, ["end","end_date","endDate","to"], ""));
-        const meta = [start, end].filter(Boolean).join(" — ") || "Free Fire";
-        const linkMarkup = link && /^https?:\/\//i.test(link)
-          ? `<a class="event-link" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">Xem chi tiết ↗</a>`
-          : `<span class="event-link">Sự kiện Free Fire</span>`;
-        return `<article class="event-card">
-          <img class="event-image" src="${escapeHtml(image)}" alt="${escapeHtml(title)}"
-               loading="lazy" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'">
-          <div class="event-body">
-            <h3 class="event-title">${escapeHtml(title)}</h3>
-            <p class="event-desc">${escapeHtml(desc)}</p>
-            <div class="event-meta"><span>${escapeHtml(meta)}</span>${linkMarkup}</div>
+    const description = getValue(
+      obj,
+      ["description","desc","detail","date","time"],
+      ""
+    );
+
+    return `
+      <div class="info-item">
+        ${escapeHTML(title)}
+        ${description
+          ? `<small>${escapeHTML(description)}</small>`
+          : ""}
+      </div>
+    `;
+  }).join("");
+}
+
+function renderEvents(data) {
+  const items = getArray(data, [
+    "events",
+    "data",
+    "event",
+    "items",
+    "banners"
+  ]);
+
+  if (!items.length) {
+    eventsBox.innerHTML = `
+      <div class="empty">
+        🎮<br>
+        Hiện chưa có dữ liệu sự kiện.
+      </div>
+    `;
+    return;
+  }
+
+  eventsBox.innerHTML = items.map((item, index) => {
+    const obj = typeof item === "string"
+      ? {title: item}
+      : (item || {});
+
+    const title = getValue(
+      obj,
+      ["title","name","event_name","eventName"],
+      `Sự kiện ${index + 1}`
+    );
+
+    const description = getValue(
+      obj,
+      ["description","desc","content","detail"],
+      "Thông tin sự kiện đang được cập nhật."
+    );
+
+    const image = getValue(
+      obj,
+      ["image","img","banner","thumbnail","image_url","cover"],
+      FALLBACK_IMAGE
+    );
+
+    const link = getValue(
+      obj,
+      ["url","link","web_url","redirect"],
+      ""
+    );
+
+    const start = getValue(
+      obj,
+      ["start","start_date","startDate","from"],
+      ""
+    );
+
+    const end = getValue(
+      obj,
+      ["end","end_date","endDate","to"],
+      ""
+    );
+
+    const safeLink = /^https?:\/\//i.test(link);
+
+    return `
+      <article class="card">
+        <img
+          src="${escapeHTML(image)}"
+          alt="${escapeHTML(title)}"
+          loading="lazy"
+          onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"
+        >
+
+        <div class="card-body">
+          <h3>${escapeHTML(title)}</h3>
+
+          <p>${escapeHTML(description)}</p>
+
+          <div class="card-meta">
+            <span>${escapeHTML([start,end].filter(Boolean).join(" - ") || "Free Fire")}</span>
+
+            ${
+              safeLink
+                ? `<a href="${escapeHTML(link)}" target="_blank" rel="noopener">Chi tiết ↗</a>`
+                : `<span>Sự kiện</span>`
+            }
           </div>
-        </article>`;
-      }).join("");
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+async function loadRegions() {
+  try {
+    const response = await fetch("/api/regions");
+
+    if (!response.ok) {
+      throw new Error("Không tải được danh sách máy chủ");
     }
 
-    function renderInfo(targetId, items, emptyText) {
-      const target = document.getElementById(targetId);
-      if (!items.length) {
-        target.innerHTML = `<div class="info-item">${escapeHtml(emptyText)}</div>`;
-        return;
+    const data = await response.json();
+
+    const regions = Array.isArray(data.regions)
+      ? data.regions
+      : null;
+
+    if (!regions) throw new Error("Dữ liệu khu vực không hợp lệ");
+
+    regionSelect.innerHTML = regions.map(region => `
+      <option value="${escapeHTML(region.code)}">
+        ${escapeHTML(region.flag || "🌐")}
+        ${escapeHTML(region.name)}
+      </option>
+    `).join("");
+
+  } catch (error) {
+    regionSelect.innerHTML = REGION_LIST.map(region => `
+      <option value="${region[0]}">
+        ${region[2]} ${region[1]}
+      </option>
+    `).join("");
+  }
+}
+
+async function loadEvents() {
+  const region = regionSelect.value || "VN";
+
+  refreshButton.disabled = true;
+  refreshButton.textContent = "Đang tải...";
+  statusBox.textContent = `Đang tải máy chủ ${region}...`;
+
+  eventsBox.innerHTML = `
+    <div class="empty">
+      ⚡<br>
+      Đang đồng bộ dữ liệu sự kiện...
+    </div>
+  `;
+
+  try {
+    const response = await fetch(
+      `/api/events?region=${encodeURIComponent(region)}`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json"
+        },
+        cache: "no-store"
       }
-      target.innerHTML = items.map(item => {
-        const obj = typeof item === "string" ? {title:item} : (item || {});
-        const title = safeText(firstValue(obj, ["title","name","message","content","text"], "Thông tin"));
-        const desc = safeText(firstValue(obj, ["description","desc","detail","date","time"], ""));
-        return `<div class="info-item">${escapeHtml(title)}${desc ? `<small>${escapeHtml(desc)}</small>` : ""}</div>`;
-      }).join("");
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(
+        data.error || `HTTP ${response.status}`
+      );
     }
 
-    async function loadRegions() {
-      try {
-        const response = await fetch("/api/regions", {headers:{Accept:"application/json"}});
-        if (!response.ok) throw new Error("regions endpoint");
-        const data = await response.json();
-        const regions = Array.isArray(data.regions) ? data.regions : REGION_FALLBACK;
-        regionSelect.innerHTML = regions.map(region =>
-          `<option value="${escapeHtml(region.code)}">${escapeHtml(region.flag || "🌐")} ${escapeHtml(region.name)} (${escapeHtml(region.code)})</option>`
-        ).join("");
-      } catch {
-        regionSelect.innerHTML = REGION_FALLBACK.map(region =>
-          `<option value="${region.code}">${region.flag} ${region.name} (${region.code})</option>`
-        ).join("");
-      }
-    }
+    renderEvents(data);
 
-    async function loadEvents() {
-      const region = regionSelect.value || "VN";
-      refreshBtn.disabled = true;
-      refreshBtn.textContent = "Đang tải...";
-      setStatus(`Đang lấy dữ liệu máy chủ ${region}...`, "loading");
-      eventsGrid.innerHTML = `<div class="empty"><div class="empty-icon">⚡</div><strong>Đang đồng bộ dữ liệu</strong><p>Vui lòng đợi trong giây lát.</p></div>`;
+    renderInfo(
+      "notices",
+      getArray(data, [
+        "notices",
+        "notifications",
+        "announcement"
+      ]),
+      "Hiện chưa có thông báo mới."
+    );
 
-      try {
-        const response = await fetch(`/api/events?region=${encodeURIComponent(region)}`, {
-          method:"GET", headers:{Accept:"application/json"}, cache:"no-store"
-        });
-        const data = await response.json().catch(() => ({}));
-        if (!response.ok) {
-          const message = data.error || `Máy chủ trả về HTTP ${response.status}`;
-          throw new Error(message);
-        }
+    renderInfo(
+      "updates",
+      getArray(data, [
+        "updates",
+        "update",
+        "news",
+        "changes"
+      ]),
+      "Hiện chưa có cập nhật mới."
+    );
 
-        renderEvents(data);
-        const notices = normalizeArray(data, ["notices","notifications","announcement"]);
-        const updates = normalizeArray(data, ["updates","update","news","changes"]);
-        renderInfo("noticesList", notices, "Hiện chưa có thông báo mới.");
-        renderInfo("updatesList", updates, "Hiện chưa có cập nhật mới.");
-        setStatus(`Đã tải dữ liệu máy chủ ${region}`, "");
-        updatedAt.textContent = "Cập nhật lúc " + new Date().toLocaleTimeString("vi-VN");
-      } catch (error) {
-        eventsGrid.innerHTML = `<div class="empty"><div class="empty-icon">⚠️</div><strong>Không thể tải dữ liệu sự kiện</strong><p>${escapeHtml(error.message || "Đã xảy ra lỗi.")}<br>Kiểm tra kết nối hoặc thử lại sau.</p></div>`;
-        renderInfo("noticesList", [], "Không thể tải thông báo.");
-        renderInfo("updatesList", [], "Không thể tải cập nhật.");
-        setStatus("Có lỗi khi kết nối dữ liệu", "error");
-        updatedAt.textContent = "Chưa thể cập nhật";
-        showToast("Không tải được dữ liệu. Vui lòng thử lại.");
-      } finally {
-        refreshBtn.disabled = false;
-        refreshBtn.textContent = "↻ Làm mới";
-      }
-    }
+    statusBox.textContent =
+      `Đã tải dữ liệu máy chủ ${region}`;
 
-    regionSelect.addEventListener("change", loadEvents);
-    refreshBtn.addEventListener("click", loadEvents);
+    updatedBox.textContent =
+      "Cập nhật lúc " +
+      new Date().toLocaleTimeString("vi-VN");
 
-    (async function init() {
-      await loadRegions();
-      regionSelect.value = "VN";
-      await loadEvents();
-    })();
-  </script>
+  } catch (error) {
+    eventsBox.innerHTML = `
+      <div class="empty">
+        ⚠️<br>
+        <strong>Không thể tải dữ liệu sự kiện</strong><br>
+        ${escapeHTML(error.message)}
+        <br>
+        Vui lòng thử lại sau.
+      </div>
+    `;
+
+    renderInfo(
+      "notices",
+      [],
+      "Không thể tải thông báo."
+    );
+
+    renderInfo(
+      "updates",
+      [],
+      "Không thể tải cập nhật."
+    );
+
+    statusBox.textContent =
+      "Có lỗi khi kết nối API.";
+
+    updatedBox.textContent =
+      "Chưa thể cập nhật";
+  } finally {
+    refreshButton.disabled = false;
+    refreshButton.textContent = "↻ Làm mới";
+  }
+}
+
+regionSelect.addEventListener("change", loadEvents);
+refreshButton.addEventListener("click", loadEvents);
+
+async function init() {
+  await loadRegions();
+  regionSelect.value = "VN";
+  await loadEvents();
+}
+
+init();
+</script>
+
 </body>
 </html>
