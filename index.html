@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b0b10">
 <title>SỰ KIỆN FREE FIRE NEW</title>
-
 <link rel="icon" href="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg">
 
 <style>
@@ -22,13 +21,10 @@
 :root{
     --bg:#0b0b10;
     --panel:#171720;
-    --panel2:#20202c;
     --orange:#ff7900;
     --yellow:#ffc45b;
     --white:#fff;
     --muted:#9999aa;
-    --green:#21cf83;
-    --red:#ff5353;
     --line:#ffffff18;
 }
 
@@ -52,10 +48,7 @@ button,input,select{font:inherit}
 button{cursor:pointer}
 a{color:inherit}
 [hidden]{display:none!important}
-
 .container{width:min(1240px,94%);margin:auto}
-
-/* HEADER */
 
 .header{
     position:relative;
@@ -68,633 +61,284 @@ a{color:inherit}
 .header:after{
     content:"";
     position:absolute;
-    width:350px;
-    height:350px;
-    right:-100px;
-    top:-180px;
+    width:350px;height:350px;
+    right:-100px;top:-180px;
     border-radius:50%;
     background:#ff79002b;
     filter:blur(80px);
 }
 
 .header-inner{position:relative;z-index:1}
-
-.topbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
+.topbar,.brand,.hero,.updates-header,.update-topline,.update-bottom{
+    display:flex;align-items:center;
+    justify-content:space-between;gap:15px;
 }
 
-.brand{display:flex;align-items:center;gap:12px;min-width:0}
-
-.brand-logo{
-    width:54px;
-    height:54px;
-    object-fit:contain;
-    border-radius:13px;
-    flex-shrink:0;
-}
-
-.brand h1{
-    font-size:clamp(15px,2.5vw,23px);
-    color:var(--yellow);
-}
-
+.brand{justify-content:flex-start;min-width:0}
+.brand-logo{width:54px;height:54px;object-fit:contain;border-radius:13px}
+.brand h1{font-size:clamp(15px,2.5vw,23px);color:var(--yellow)}
 .brand p{color:#aaa;font-size:10px;margin-top:5px}
-
 .tiktok{
-    flex-shrink:0;
-    text-decoration:none;
-    padding:10px 14px;
-    border:1px solid #ffffff20;
-    background:#ffffff0c;
-    border-radius:9px;
-    font-size:11px;
+    flex-shrink:0;text-decoration:none;padding:10px 14px;
+    border:1px solid #ffffff20;background:#ffffff0c;
+    border-radius:9px;font-size:11px;
 }
-
 .tiktok:hover{border-color:var(--orange)}
 
 .hero{
     display:grid;
     grid-template-columns:1.2fr .8fr;
-    gap:25px;
     align-items:center;
     margin-top:32px;
 }
-
-.hero h2{
-    font-size:clamp(28px,5vw,48px);
-    line-height:1.15;
-}
-
-.hero h2 span{
-    color:var(--orange);
-    text-shadow:0 0 25px #ff79004a;
-}
-
+.hero h2{font-size:clamp(28px,5vw,48px);line-height:1.15}
+.hero h2 span{color:var(--orange);text-shadow:0 0 25px #ff79004a}
 .hero p{
-    color:#b9b9c7;
-    font-family:Arial,sans-serif;
-    font-size:13px;
-    line-height:1.8;
-    margin-top:13px;
-    max-width:570px;
+    color:#b9b9c7;font:13px/1.8 Arial,sans-serif;
+    margin-top:13px;max-width:570px;
 }
-
 .hero-image{
-    width:100%;
-    max-height:190px;
-    object-fit:cover;
-    border-radius:14px;
-    border:1px solid #ffffff20;
+    width:100%;max-height:190px;object-fit:cover;
+    border-radius:14px;border:1px solid #ffffff20;
 }
-
-/* MAIN */
 
 main{padding:30px 0 55px}
-
 .section-heading{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:19px;
-    margin-bottom:16px;
+    display:flex;align-items:center;gap:10px;
+    font-size:19px;margin-bottom:16px;
 }
-
 .section-heading:before{
-    content:"";
-    width:4px;
-    height:22px;
-    border-radius:5px;
-    background:var(--orange);
-    box-shadow:0 0 12px #ff790080;
+    content:"";width:4px;height:22px;border-radius:5px;
+    background:var(--orange);box-shadow:0 0 12px #ff790080;
 }
-
 .section-heading span{color:var(--yellow)}
-
-/* TOOLBAR */
 
 .toolbar{
     display:grid;
     grid-template-columns:1.1fr 1fr 1.3fr auto;
-    gap:10px;
-    margin-bottom:15px;
+    gap:10px;margin-bottom:15px;
 }
-
 .control{
-    width:100%;
-    min-width:0;
-    padding:12px 13px;
-    color:white;
-    background:#171720;
-    border:1px solid #ffffff19;
-    border-radius:9px;
-    outline:none;
-    font-size:12px;
+    width:100%;min-width:0;padding:12px 13px;color:white;
+    background:#171720;border:1px solid #ffffff19;
+    border-radius:9px;outline:none;font-size:12px;
 }
-
-.control:focus{
-    border-color:var(--orange);
-    box-shadow:0 0 0 3px #ff790018;
-}
-
+.control:focus{border-color:var(--orange);box-shadow:0 0 0 3px #ff790018}
 .control option{background:#171720}
-
 .refresh-btn{
-    border:0;
-    padding:12px 17px;
-    color:#fff;
-    border-radius:9px;
-    background:linear-gradient(135deg,#ff9b24,#f05a00);
-    font-size:12px;
+    border:0;padding:12px 17px;color:#fff;border-radius:9px;
+    background:linear-gradient(135deg,#ff9b24,#f05a00);font-size:12px;
 }
-
 .refresh-btn:disabled{opacity:.6;cursor:wait}
-
-.server-info{
-    color:var(--muted);
-    font-size:11px;
-    margin-bottom:20px;
-}
-
+.server-info{color:var(--muted);font-size:11px;margin-bottom:20px}
 .server-info b{color:var(--yellow)}
 
-/* STATS */
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-bottom:30px;
+.translation-info{
+    display:flex;align-items:center;gap:8px;
+    padding:10px 12px;margin-bottom:20px;
+    color:#c6c6d0;background:#171720;
+    border:1px solid #ffffff15;border-radius:8px;
+    font:11px/1.6 Arial,sans-serif;
 }
+.translation-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:#21cf83;flex-shrink:0;
+}
+.translation-info.translating .translation-dot{
+    background:var(--yellow);animation:pulse 1s infinite;
+}
+@keyframes pulse{50%{opacity:.3}}
 
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:30px}
 .stat{
-    padding:17px 12px;
-    text-align:center;
+    padding:17px 12px;text-align:center;
     background:linear-gradient(145deg,#1d1d29,#12121a);
-    border:1px solid var(--line);
-    border-radius:12px;
+    border:1px solid var(--line);border-radius:12px;
 }
-
-.stat strong{
-    display:block;
-    color:var(--yellow);
-    font-size:27px;
-}
-
+.stat strong{display:block;color:var(--yellow);font-size:27px}
 .stat span{color:var(--muted);font-size:10px}
 
-/* EVENT CARDS */
-
-.events-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:17px;
-}
-
+.events-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
 .event-card{
-    min-width:0;
-    overflow:hidden;
+    min-width:0;overflow:hidden;
     background:linear-gradient(145deg,#1b1b27,#111119);
-    border:1px solid #ffffff15;
-    border-radius:13px;
-    transition:.25s;
+    border:1px solid #ffffff15;border-radius:13px;transition:.25s;
 }
-
 .event-card:hover{
-    transform:translateY(-4px);
-    border-color:#ff8a0066;
+    transform:translateY(-4px);border-color:#ff8a0066;
     box-shadow:0 12px 30px #0007;
 }
-
-.event-image-wrap{
-    height:180px;
-    position:relative;
-    overflow:hidden;
-    background:#252532;
-}
-
-.event-image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform .4s;
-}
-
+.event-image-wrap{height:180px;position:relative;overflow:hidden;background:#252532}
+.event-image{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .event-card:hover .event-image{transform:scale(1.04)}
-
 .status{
-    position:absolute;
-    top:11px;
-    left:11px;
-    padding:7px 10px;
-    border-radius:6px;
-    color:white;
-    font-size:10px;
-    background:#555;
+    position:absolute;top:11px;left:11px;padding:7px 10px;
+    border-radius:6px;color:white;font-size:10px;background:#555;
 }
-
 .status.live{background:#117b4b}
 .status.upcoming{background:#a35a0b}
 .status.ended{background:#8a3030}
 .status.unknown{background:#55556a}
-
 .event-content{padding:15px}
-
-.event-title{
-    font-size:15px;
-    line-height:1.5;
-    min-height:43px;
-    overflow-wrap:anywhere;
-}
-
+.event-title{font-size:15px;line-height:1.5;min-height:43px;overflow-wrap:anywhere}
 .event-desc{
-    margin-top:9px;
-    color:#aaaaba;
-    font:12px/1.7 Arial,sans-serif;
+    margin-top:9px;color:#aaaaba;font:12px/1.7 Arial,sans-serif;
     overflow-wrap:anywhere;
 }
-
 .event-date{
-    display:grid;
-    gap:9px;
-    padding-top:13px;
-    margin-top:12px;
-    border-top:1px solid #ffffff12;
-    font-size:10px;
-    color:#bcbcca;
+    display:grid;gap:9px;padding-top:13px;margin-top:12px;
+    border-top:1px solid #ffffff12;font-size:10px;color:#bcbcca;
 }
-
 .event-date b{color:var(--yellow)}
-
 .event-detail-btn{
-    display:block;
-    width:100%;
-    margin-top:13px;
-    padding:11px;
-    border-radius:7px;
-    font-size:11px;
-    color:var(--yellow);
-    border:1px solid #ff8a0045;
-    background:#ff8a0013;
+    display:block;width:100%;margin-top:13px;padding:11px;
+    border-radius:7px;font-size:11px;color:var(--yellow);
+    border:1px solid #ff8a0045;background:#ff8a0013;
 }
-
 .event-detail-btn:hover{background:#ff8a0030}
 
-/* ITEM PREVIEW */
-
 .card-item{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-top:13px;
-    padding:9px;
-    border-radius:8px;
-    background:#ffffff08;
+    display:flex;align-items:center;gap:10px;margin-top:13px;
+    padding:9px;border-radius:8px;background:#ffffff08;
     border:1px solid #ffffff13;
 }
-
-.card-item img{
-    width:48px;
-    height:48px;
-    object-fit:contain;
-    flex-shrink:0;
-}
-
+.card-item img{width:48px;height:48px;object-fit:contain;flex-shrink:0}
 .card-item-name{font-size:10px;color:#ddd}
 .card-item-id{color:#888;font:10px Arial,sans-serif;margin-top:5px}
 
-/* STATES */
-
 .empty,.loading{
-    grid-column:1/-1;
-    text-align:center;
-    padding:40px 15px;
-    background:#15151e;
-    border:1px dashed #ffffff25;
-    border-radius:12px;
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.8;
+    grid-column:1/-1;text-align:center;padding:40px 15px;
+    background:#15151e;border:1px dashed #ffffff25;
+    border-radius:12px;color:var(--muted);font-size:13px;line-height:1.8;
 }
-
 .loading{color:var(--yellow)}
 .error{color:#ff9292}
 
-/* UPDATES */
-
 .updates-section{margin-top:42px}
-
-.updates-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:16px;
-}
-
+.updates-header{margin-bottom:16px}
 .updates-header .section-heading{margin:0}
-
 .updates-label{
-    padding:7px 10px;
-    border:1px solid #ff8a0035;
-    border-radius:20px;
-    color:var(--yellow);
-    background:#ff8a0010;
-    font-size:9px;
+    padding:7px 10px;border:1px solid #ff8a0035;
+    border-radius:20px;color:var(--yellow);
+    background:#ff8a0010;font-size:9px;
 }
-
 .updates-list{display:grid;gap:13px}
-
 .update-card{
-    display:grid;
-    grid-template-columns:52px minmax(0,1fr);
-    gap:14px;
-    padding:17px;
-    border:1px solid #ffffff14;
-    border-radius:12px;
-    background:linear-gradient(110deg,#1c1c28,#13131c);
+    display:grid;grid-template-columns:52px minmax(0,1fr);
+    gap:14px;padding:17px;border:1px solid #ffffff14;
+    border-radius:12px;background:linear-gradient(110deg,#1c1c28,#13131c);
 }
-
 .update-icon{
-    width:49px;
-    height:49px;
-    display:grid;
-    place-items:center;
-    border-radius:12px;
-    font-size:22px;
-    color:var(--yellow);
-    background:#ff8a0018;
-    border:1px solid #ff8a0035;
+    width:49px;height:49px;display:grid;place-items:center;
+    border-radius:12px;font-size:22px;color:var(--yellow);
+    background:#ff8a0018;border:1px solid #ff8a0035;
 }
-
 .update-main{min-width:0}
-
-.update-topline{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:8px;
-    margin-bottom:8px;
-}
-
+.update-topline{justify-content:flex-start;flex-wrap:wrap;margin-bottom:8px}
 .update-tag{
-    color:var(--yellow);
-    background:#ff8a0018;
-    border:1px solid #ff8a0030;
-    border-radius:4px;
-    padding:4px 7px;
-    font-size:9px;
+    color:var(--yellow);background:#ff8a0018;
+    border:1px solid #ff8a0030;border-radius:4px;
+    padding:4px 7px;font-size:9px;
 }
-
 .update-date{color:#858596;font:10px Arial,sans-serif}
 .update-title{font-size:14px;line-height:1.5;overflow-wrap:anywhere}
-
 .update-description{
-    color:#b6b6c5;
-    font:12px/1.8 Arial,sans-serif;
-    margin-top:8px;
-    white-space:pre-wrap;
-    overflow-wrap:anywhere;
+    color:#b6b6c5;font:12px/1.8 Arial,sans-serif;
+    margin-top:8px;white-space:pre-wrap;overflow-wrap:anywhere;
 }
-
 .update-description.collapsed{
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
+    display:-webkit-box;-webkit-line-clamp:3;
+    -webkit-box-orient:vertical;overflow:hidden;
 }
-
-.update-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:12px;
-}
-
+.update-bottom{justify-content:space-between;flex-wrap:wrap;margin-top:12px}
 .update-author{color:#858596;font-size:10px}
-
 .update-more,.update-link{
-    color:var(--yellow);
-    border:0;
-    background:transparent;
-    font-size:10px;
-    text-decoration:none;
+    color:var(--yellow);border:0;background:transparent;
+    font-size:10px;text-decoration:none;
 }
-
 .update-image{
-    display:block;
-    width:100%;
-    max-height:260px;
-    object-fit:cover;
-    border-radius:9px;
-    margin-top:12px;
+    display:block;width:100%;max-height:260px;
+    object-fit:cover;border-radius:9px;margin-top:12px;
 }
-
 .update-empty{
-    text-align:center;
-    padding:30px 15px;
-    background:#15151e;
-    border:1px dashed #ffffff20;
-    border-radius:12px;
-    color:#9999aa;
-    font-size:12px;
-    line-height:1.8;
+    text-align:center;padding:30px 15px;background:#15151e;
+    border:1px dashed #ffffff20;border-radius:12px;
+    color:#9999aa;font-size:12px;line-height:1.8;
 }
-
-/* DETAIL MODAL */
 
 .detail-modal{
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:16px;
-    background:#000c;
-    backdrop-filter:blur(8px);
+    position:fixed;inset:0;z-index:9999;display:none;
+    align-items:center;justify-content:center;padding:16px;
+    background:#000c;backdrop-filter:blur(8px);
 }
-
 .detail-modal.active{display:flex}
-
 .detail-box{
-    position:relative;
-    width:min(650px,100%);
-    max-height:90vh;
-    overflow-y:auto;
-    background:linear-gradient(145deg,#20202d,#101018);
-    border:1px solid #ff790060;
-    border-radius:15px;
-    box-shadow:0 20px 70px #000b;
+    position:relative;width:min(650px,100%);max-height:90vh;
+    overflow-y:auto;background:linear-gradient(145deg,#20202d,#101018);
+    border:1px solid #ff790060;border-radius:15px;box-shadow:0 20px 70px #000b;
 }
-
 .detail-close{
-    position:absolute;
-    top:12px;
-    right:12px;
-    z-index:2;
-    width:36px;
-    height:36px;
-    border:1px solid #ffffff30;
-    border-radius:9px;
-    color:#fff;
-    background:#000a;
-    font-size:20px;
+    position:absolute;top:12px;right:12px;z-index:2;
+    width:36px;height:36px;border:1px solid #ffffff30;
+    border-radius:9px;color:#fff;background:#000a;font-size:20px;
 }
-
-.detail-banner{
-    width:100%;
-    max-height:240px;
-    object-fit:cover;
-    display:block;
-    background:#222;
-}
-
+.detail-banner{width:100%;max-height:240px;object-fit:cover;display:block;background:#222}
 .detail-body{padding:20px}
-
-.detail-title{
-    font-size:21px;
-    line-height:1.5;
-    color:var(--yellow);
-}
-
+.detail-title{font-size:21px;line-height:1.5;color:var(--yellow)}
 .detail-description{
-    margin-top:15px;
-    color:#c5c5d0;
-    font:13px/1.8 Arial,sans-serif;
-    white-space:pre-wrap;
-    overflow-wrap:anywhere;
+    margin-top:15px;color:#c5c5d0;font:13px/1.8 Arial,sans-serif;
+    white-space:pre-wrap;overflow-wrap:anywhere;
 }
-
-.detail-info{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:18px;
-}
-
+.detail-info{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
 .detail-info-item{
-    padding:12px;
-    border:1px solid #ffffff16;
-    border-radius:9px;
-    background:#ffffff08;
+    padding:12px;border:1px solid #ffffff16;
+    border-radius:9px;background:#ffffff08;
 }
-
-.detail-info-item span{
-    display:block;
-    color:#888;
-    font-size:10px;
-    margin-bottom:7px;
-}
-
+.detail-info-item span{display:block;color:#888;font-size:10px;margin-bottom:7px}
 .detail-info-item b{color:var(--yellow);font-size:12px}
 
-/* MAIN ITEM */
-
 .main-item-section{
-    margin-top:20px;
-    padding:15px;
-    border:1px solid #ff9b2445;
-    border-radius:11px;
-    background:linear-gradient(120deg,#ff790016,#ffffff04);
+    margin-top:20px;padding:15px;border:1px solid #ff9b2445;
+    border-radius:11px;background:linear-gradient(120deg,#ff790016,#ffffff04);
 }
-
-.main-item-heading{
-    color:var(--yellow);
-    font-size:13px;
-    margin-bottom:13px;
-}
-
-.main-item-content{
-    display:flex;
-    align-items:center;
-    gap:14px;
-}
-
+.main-item-heading{color:var(--yellow);font-size:13px;margin-bottom:13px}
+.main-item-content{display:flex;align-items:center;gap:14px}
 .main-item-image{
-    width:90px;
-    height:90px;
-    object-fit:contain;
-    padding:7px;
-    flex-shrink:0;
-    background:#ffffff0b;
-    border:1px solid #ffffff20;
-    border-radius:10px;
+    width:90px;height:90px;object-fit:contain;padding:7px;
+    flex-shrink:0;background:#ffffff0b;border:1px solid #ffffff20;border-radius:10px;
 }
-
 .main-item-name{font-size:13px;line-height:1.6}
 .main-item-id{color:#999;font:11px Arial,sans-serif;margin-top:7px}
-
 .main-item-empty{color:#999;font:12px/1.7 Arial,sans-serif}
-
-.item-actions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:9px;
-    margin-top:14px;
-}
-
+.item-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
 .item-action{
-    display:block;
-    width:100%;
-    padding:12px 9px;
-    text-align:center;
-    border:1px solid #ff9b2450;
-    border-radius:8px;
+    display:block;width:100%;padding:12px 9px;text-align:center;
+    border:1px solid #ff9b2450;border-radius:8px;
     background:linear-gradient(135deg,#34344b,#202033);
-    color:var(--yellow);
-    font-size:10px;
-    text-decoration:none;
+    color:var(--yellow);font-size:10px;text-decoration:none;
 }
-
-.item-action.primary{
-    background:linear-gradient(135deg,#ff9b24,#f05a00);
-    border:0;
-    color:white;
-}
-
+.item-action.primary{background:linear-gradient(135deg,#ff9b24,#f05a00);border:0;color:white}
 .detail-action{
-    display:block;
-    width:100%;
-    margin-top:18px;
-    padding:13px;
-    text-align:center;
-    border:0;
-    border-radius:8px;
-    background:linear-gradient(135deg,#ff9b24,#f05a00);
-    color:white;
-    text-decoration:none;
-    font-size:12px;
+    display:block;width:100%;margin-top:18px;padding:13px;text-align:center;
+    border:0;border-radius:8px;background:linear-gradient(135deg,#ff9b24,#f05a00);
+    color:white;text-decoration:none;font-size:12px;
 }
-
-/* FOOTER */
 
 .footer{
-    padding:25px 0;
-    border-top:1px solid #ffffff15;
-    background:#09090e;
-    text-align:center;
-    color:#858595;
-    font-size:10px;
-    line-height:1.9;
+    padding:25px 0;border-top:1px solid #ffffff15;
+    background:#09090e;text-align:center;color:#858595;
+    font-size:10px;line-height:1.9;
 }
-
 .footer b{color:var(--yellow)}
 
 @media(min-width:1500px){
     .container{width:min(1350px,92%)}
     .events-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
-
 @media(max-width:1000px){
     .events-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     .toolbar{grid-template-columns:1fr 1fr}
 }
-
 @media(max-width:650px){
     .container{width:92%}
     .header{padding:16px 0 24px}
@@ -706,8 +350,7 @@ main{padding:30px 0 55px}
     .hero h2{font-size:31px}
     .hero-image{max-height:145px}
     .toolbar{grid-template-columns:1fr 1fr;gap:8px}
-    .control{padding:11px 9px;font-size:11px}
-    .refresh-btn{padding:11px 9px;font-size:11px}
+    .control,.refresh-btn{padding:11px 9px;font-size:11px}
     .stats{gap:8px}
     .stat{padding:13px 7px}
     .stat strong{font-size:23px}
@@ -722,20 +365,14 @@ main{padding:30px 0 55px}
     .detail-banner{max-height:180px}
     .main-item-image{width:75px;height:75px}
 }
-
 @media(max-width:360px){
     .brand h1{font-size:12px}
     .tiktok{font-size:8px;padding:7px}
     .toolbar{grid-template-columns:1fr}
     .hero h2{font-size:26px}
 }
-
 @media(prefers-reduced-motion:reduce){
-    *,*::before,*::after{
-        scroll-behavior:auto!important;
-        transition:none!important;
-        animation:none!important;
-    }
+    *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
 }
 </style>
 </head>
@@ -744,50 +381,31 @@ main{padding:30px 0 55px}
 
 <header class="header">
 <div class="container header-inner">
-
     <div class="topbar">
         <div class="brand">
-            <img class="brand-logo"
-                 src="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg"
-                 alt="Logo Táo Gaming">
-
+            <img class="brand-logo" src="https://azerst-image-vn.vercel.app/images/Logotaogaming.jpg" alt="Logo Táo Gaming">
             <div>
                 <h1>SỰ KIỆN FREE FIRE NEW</h1>
                 <p>FREE FIRE VIỆT NAM • EVENT CENTER</p>
             </div>
         </div>
-
-        <a class="tiktok"
-           href="https://www.tiktok.com/@taogamingffvn"
-           target="_blank" rel="noopener">
-           TikTok @taogamingffvn
-        </a>
+        <a class="tiktok" href="https://www.tiktok.com/@taogamingffvn" target="_blank" rel="noopener">TikTok @taogamingffvn</a>
     </div>
 
     <div class="hero">
         <div>
             <h2>CẬP NHẬT <span>SỰ KIỆN</span><br>FREE FIRE 🔥</h2>
-            <p>
-                Theo dõi sự kiện, thời gian và thông tin cập nhật
-                từ các máy chủ Free Fire.
-            </p>
+            <p>Theo dõi sự kiện, thời gian và thông tin cập nhật từ các máy chủ Free Fire.</p>
         </div>
-
-        <img class="hero-image"
-             src="https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg"
-             alt="Free Fire"
-             onerror="this.style.display='none'">
+        <img class="hero-image" src="https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg" alt="Free Fire" onerror="this.style.display='none'">
     </div>
-
 </div>
 </header>
 
 <main class="container">
-
     <h2 class="section-heading">CHỌN <span>SERVER</span></h2>
 
     <div class="toolbar">
-
         <select id="serverSelect" class="control">
             <option value="VN">🇻🇳 Việt Nam (VN)</option>
             <option value="ID">🇮🇩 Indonesia (ID)</option>
@@ -815,12 +433,8 @@ main{padding:30px 0 55px}
             <option value="unknown">Chưa xác định</option>
         </select>
 
-        <input id="searchInput" class="control"
-               type="search" placeholder="Tìm kiếm sự kiện...">
-
-        <button id="refreshBtn" class="refresh-btn" type="button">
-            ↻ Tải lại
-        </button>
+        <input id="searchInput" class="control" type="search" placeholder="Tìm kiếm sự kiện...">
+        <button id="refreshBtn" class="refresh-btn" type="button">↻ Tải lại</button>
     </div>
 
     <p class="server-info">
@@ -828,23 +442,16 @@ main{padding:30px 0 55px}
         • Mã khu vực: <b id="serverCode">VN</b>
     </p>
 
+    <div class="translation-info" id="translationInfo">
+        <span class="translation-dot"></span>
+        <span id="translationStatus">Bộ dịch Free Fire VN đang sẵn sàng.</span>
+    </div>
+
     <div class="stats">
-        <div class="stat">
-            <strong id="totalCount">0</strong>
-            <span>Tổng sự kiện</span>
-        </div>
-        <div class="stat">
-            <strong id="liveCount">0</strong>
-            <span>Đang diễn ra</span>
-        </div>
-        <div class="stat">
-            <strong id="upcomingCount">0</strong>
-            <span>Sắp diễn ra</span>
-        </div>
-        <div class="stat">
-            <strong id="endedCount">0</strong>
-            <span>Đã kết thúc</span>
-        </div>
+        <div class="stat"><strong id="totalCount">0</strong><span>Tổng sự kiện</span></div>
+        <div class="stat"><strong id="liveCount">0</strong><span>Đang diễn ra</span></div>
+        <div class="stat"><strong id="upcomingCount">0</strong><span>Sắp diễn ra</span></div>
+        <div class="stat"><strong id="endedCount">0</strong><span>Đã kết thúc</span></div>
     </div>
 
     <h2 class="section-heading">DANH SÁCH <span>SỰ KIỆN</span></h2>
@@ -858,12 +465,10 @@ main{padding:30px 0 55px}
             <h2 class="section-heading"><span>🆕 CẬP NHẬT MỚI</span></h2>
             <div class="updates-label">● THÔNG TIN MỚI</div>
         </div>
-
         <div id="updatesList" class="updates-list">
             <div class="update-empty">Đang kiểm tra thông tin cập nhật...</div>
         </div>
     </section>
-
 </main>
 
 <footer class="footer">
@@ -874,84 +479,34 @@ main{padding:30px 0 55px}
     </div>
 </footer>
 
-<!-- CHI TIẾT SỰ KIỆN -->
-
-<div class="detail-modal" id="eventModal"
-     role="dialog" aria-modal="true"
-     aria-labelledby="detailTitle"
-     onclick="closeEventModal(event)">
-
+<div class="detail-modal" id="eventModal" role="dialog" aria-modal="true" aria-labelledby="detailTitle" onclick="closeEventModal(event)">
     <div class="detail-box" onclick="event.stopPropagation()">
-
-        <button class="detail-close"
-                type="button"
-                onclick="closeEventModal()"
-                aria-label="Đóng">×</button>
-
-        <img id="detailBanner" class="detail-banner"
-             src="" alt="Banner sự kiện">
+        <button class="detail-close" type="button" onclick="closeEventModal()" aria-label="Đóng">×</button>
+        <img id="detailBanner" class="detail-banner" src="" alt="Banner sự kiện">
 
         <div class="detail-body">
-
-            <h2 id="detailTitle" class="detail-title">
-                Chi tiết sự kiện
-            </h2>
-
+            <h2 id="detailTitle" class="detail-title">Chi tiết sự kiện</h2>
             <p id="detailDescription" class="detail-description"></p>
 
             <div class="detail-info">
-                <div class="detail-info-item">
-                    <span>THỜI GIAN BẮT ĐẦU</span>
-                    <b id="detailStart">Chưa cập nhật</b>
-                </div>
-
-                <div class="detail-info-item">
-                    <span>THỜI GIAN KẾT THÚC</span>
-                    <b id="detailEnd">Chưa cập nhật</b>
-                </div>
-
-                <div class="detail-info-item">
-                    <span>TRẠNG THÁI</span>
-                    <b id="detailStatus">Chưa xác định</b>
-                </div>
-
-                <div class="detail-info-item">
-                    <span>MÃ SỰ KIỆN</span>
-                    <b id="detailCode">N/A</b>
-                </div>
+                <div class="detail-info-item"><span>THỜI GIAN BẮT ĐẦU</span><b id="detailStart">Chưa cập nhật</b></div>
+                <div class="detail-info-item"><span>THỜI GIAN KẾT THÚC</span><b id="detailEnd">Chưa cập nhật</b></div>
+                <div class="detail-info-item"><span>TRẠNG THÁI</span><b id="detailStatus">Chưa xác định</b></div>
+                <div class="detail-info-item"><span>MÃ SỰ KIỆN</span><b id="detailCode">N/A</b></div>
             </div>
 
             <div class="main-item-section">
-                <h3 class="main-item-heading">
-                    VẬT PHẨM CHÍNH TRONG SỰ KIỆN
-                </h3>
-
+                <h3 class="main-item-heading">VẬT PHẨM CHÍNH TRONG SỰ KIỆN</h3>
                 <div id="mainItemContent">
-                    <p class="main-item-empty">
-                        Chưa nhận diện được vật phẩm chính.
-                    </p>
+                    <p class="main-item-empty">Chưa nhận diện được vật phẩm chính.</p>
                 </div>
-
                 <div class="item-actions" id="itemActions" hidden>
-                    <button class="item-action"
-                            type="button"
-                            id="copyItemId">
-                        SAO CHÉP ID
-                    </button>
-
-                    <a class="item-action primary"
-                       href="https://ff-item.netlify.app/"
-                       target="_blank" rel="noopener">
-                        TRA CỨU FF ITEM ↗
-                    </a>
+                    <button class="item-action" type="button" id="copyItemId">SAO CHÉP ID</button>
+                    <a class="item-action primary" href="https://ff-item.netlify.app/" target="_blank" rel="noopener">TRA CỨU FF ITEM ↗</a>
                 </div>
             </div>
 
-            <a id="detailLink" class="detail-action"
-               href="#" target="_blank" rel="noopener" hidden>
-                XEM SỰ KIỆN ↗
-            </a>
-
+            <a id="detailLink" class="detail-action" href="#" target="_blank" rel="noopener" hidden>XEM SỰ KIỆN ↗</a>
         </div>
     </div>
 </div>
@@ -959,34 +514,20 @@ main{padding:30px 0 55px}
 <script>
 "use strict";
 
-/* =====================================
+/* =========================================
    CẤU HÌNH
-===================================== */
+========================================= */
 
 const API_URL="/api/events";
-
-const ITEM_ICON_BASE=
-    "https://kingofgames02.github.io/Free-Fire-Items-Library/ff-icons/";
-
+const ITEM_ICON_BASE="https://kingofgames02.github.io/Free-Fire-Items-Library/ff-icons/";
 const ITEM_LIBRARY_URL="https://ff-item.netlify.app/";
+const TRANSLATE_API="https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=vi&dt=t&q=";
 
 const SERVER_NAMES={
-    VN:"Việt Nam",
-    ID:"Indonesia",
-    TH:"Thái Lan",
-    SG:"Singapore",
-    BR:"Brazil",
-    US:"Hoa Kỳ",
-    TW:"Đài Loan",
-    IND:"Ấn Độ",
-    PK:"Pakistan",
-    BD:"Bangladesh",
-    EU:"Châu Âu",
-    ME:"Trung Đông",
-    RU:"Nga",
-    CIS:"CIS",
-    NA:"Bắc Mỹ",
-    SAC:"Nam Mỹ"
+    VN:"Việt Nam",ID:"Indonesia",TH:"Thái Lan",SG:"Singapore",
+    BR:"Brazil",US:"Hoa Kỳ",TW:"Đài Loan",IND:"Ấn Độ",
+    PK:"Pakistan",BD:"Bangladesh",EU:"Châu Âu",ME:"Trung Đông",
+    RU:"Nga",CIS:"CIS",NA:"Bắc Mỹ",SAC:"Nam Mỹ"
 };
 
 const EVENT_CODE_MAP={
@@ -999,11 +540,17 @@ const EVENT_CODE_MAP={
     TT1:"VQ5BI1"
 };
 
-const EVENT_TITLE_VI={
-    "STORM ARENA":"GÓI TRANG PHỤC BÁ KHÍ",
+/*
+  Từ điển ưu tiên.
+  Có thể bổ sung các tên sự kiện đã được xác nhận
+  theo bản dịch Free Fire Việt Nam.
+*/
+const FF_DICTIONARY={
+    "STORM ARENA BUNDLES":"Gói Trang Phục Bá Khí",
+    "STORM ARENA":"Đấu Trường Bão Tố",
     "HOM XAC - DAU TRUONG BAO TO":"Hòm Xác - Đấu Trường Bão Tố",
-    "BOOYAH PASS":"Thẻ Booyah",
     "BOOYAH PASS PREMIUM":"Thẻ Booyah Cao Cấp",
+    "BOOYAH PASS":"Thẻ Booyah",
     "LUCKY ROYALE":"Vòng Quay May Mắn",
     "WEAPON ROYALE":"Vòng Quay Vũ Khí",
     "GOLD ROYALE":"Vòng Quay Vàng",
@@ -1021,94 +568,309 @@ const EVENT_TITLE_VI={
     "NEW EVENT":"Sự Kiện Mới",
     "NEW ARRIVAL":"Vật Phẩm Mới",
     "WEEKEND EVENT":"Sự Kiện Cuối Tuần",
-    "SPECIAL EVENT":"Sự Kiện Đặc Biệt"
+    "SPECIAL EVENT":"Sự Kiện Đặc Biệt",
+    "FREE FIRE":"Free Fire",
+    "FREE FIRE MAX":"Free Fire MAX",
+    "GUILD":"Quân Đoàn",
+    "CHARACTER":"Nhân Vật",
+    "CHARACTERS":"Nhân Vật",
+    "BUNDLE":"Gói Trang Phục",
+    "BUNDLES":"Gói Trang Phục",
+    "OUTFIT":"Trang Phục",
+    "OUTFITS":"Trang Phục",
+    "SKIN":"Trang Phục",
+    "SKINS":"Trang Phục",
+    "EMOTE":"Điệu Nhảy",
+    "EMOTES":"Điệu Nhảy",
+    "BACKPACK":"Ba Lô",
+    "PARACHUTE":"Dù",
+    "LOOT BOX":"Hòm Đồ",
+    "LOOT CRATE":"Hòm Đồ",
+    "WEAPON":"Vũ Khí",
+    "WEAPONS":"Vũ Khí",
+    "GUN SKIN":"Skin Súng",
+    "GUN SKINS":"Skin Súng",
+    "PET":"Thú Cưng",
+    "PETS":"Thú Cưng",
+    "VEHICLE":"Phương Tiện",
+    "VEHICLE SKIN":"Trang Phục Phương Tiện",
+    "REWARD":"Phần Thưởng",
+    "REWARDS":"Phần Thưởng",
+    "MISSION":"Nhiệm Vụ",
+    "MISSIONS":"Nhiệm Vụ",
+    "COLLECTION":"Bộ Sưu Tập",
+    "COLLECTIONS":"Bộ Sưu Tập",
+    "DAILY":"Hằng Ngày",
+    "WEEKLY":"Hằng Tuần",
+    "MONTHLY":"Hằng Tháng",
+    "SPECIAL":"Đặc Biệt",
+    "FREE":"Miễn Phí",
+    "EVENT":"Sự Kiện",
+    "EVENTS":"Sự Kiện",
+    "SPIN":"Vòng Quay",
+    "SHOP":"Cửa Hàng",
+    "GIFTS":"Quà Tặng",
+    "GIFT":"Quà Tặng",
+    "EXCHANGE":"Đổi Quà",
+    "EXCHANGE STORE":"Cửa Hàng Đổi Quà",
+    "TOKEN":"Huy Hiệu",
+    "TOKENS":"Huy Hiệu",
+    "DIAMOND":"Kim Cương",
+    "DIAMONDS":"Kim Cương",
+    "GOLD":"Vàng",
+    "KING":"Vua",
+    "QUEEN":"Nữ Hoàng",
+    "LEGENDARY":"Huyền Thoại",
+    "EPIC":"Sử Thi",
+    "RARE":"Hiếm",
+    "ELITE":"Tinh Anh",
+    "PREMIUM":"Cao Cấp",
+    "BATTLE":"Chiến Đấu",
+    "ARENA":"Đấu Trường",
+    "BATTLE ROYALE":"Sinh Tồn",
+    "CLASH SQUAD":"Tử Chiến",
+    "RANKED":"Xếp Hạng",
+    "RANK":"Xếp Hạng",
+    "UPDATE":"Cập Nhật",
+    "UPDATES":"Cập Nhật",
+    "ANNIVERSARY":"Sinh Nhật",
+    "CELEBRATION":"Lễ Hội",
+    "FESTIVAL":"Lễ Hội",
+    "CHALLENGE":"Thử Thách",
+    "CHALLENGES":"Thử Thách",
+    "SURVIVAL":"Sinh Tồn",
+    "TREASURE":"Kho Báu",
+    "TREASURE HUNT":"Săn Kho Báu",
+    "LUCKY":"May Mắn",
+    "DRAW":"Vòng Quay",
+    "TOP PLAYER":"Người Chơi Hàng Đầu",
+    "TOP UP BONUS":"Thưởng Nạp Kim Cương",
+    "FIRST TOP UP":"Nạp Lần Đầu",
+    "RETURNING PLAYER":"Người Chơi Trở Lại",
+    "WELCOME BACK":"Chào Mừng Trở Lại",
+    "NEW YEAR":"Năm Mới",
+    "CHRISTMAS":"Giáng Sinh",
+    "HALLOWEEN":"Halloween",
+    "VALENTINE":"Valentine",
+    "SUMMER":"Mùa Hè",
+    "WINTER":"Mùa Đông",
+    "SPRING":"Mùa Xuân",
+    "AUTUMN":"Mùa Thu"
 };
 
 const $=id=>document.getElementById(id);
-
 let allEvents=[];
 let allUpdates=[];
 let activeItemId="";
+const translationCache=new Map();
 
-/* =====================================
+/* =========================================
    CHUYỂN MÃ SỰ KIỆN
-===================================== */
+========================================= */
 
 function convertEventCode(text){
-    if(!text) return "";
-
-    return String(text).replace(
-        /\b(TW1|DW1|TG1|LW1|MS1|FW1|TT1)(?=\s*[-:])/gi,
+    return String(text||"").replace(
+        /\b(TW1|DW1|TG1|LW1|MS1|FW1|TT1)\b/gi,
         code=>EVENT_CODE_MAP[code.toUpperCase()]||code
     );
 }
-
-/* =====================================
-   DỊCH TÊN SỰ KIỆN
-===================================== */
 
 function normalizeForDictionary(text){
     return String(text||"")
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g,"")
-        .replace(/đ/g,"d")
-        .replace(/Đ/g,"D")
+        .replace(/đ/gi,"d")
         .replace(/\s+/g," ")
         .trim()
         .toUpperCase();
 }
 
-function translateTitle(title){
-    if(!title) return "Sự kiện Free Fire";
+/* =========================================
+   DỊCH BẰNG TỪ ĐIỂN
+========================================= */
 
-    const converted=convertEventCode(String(title).trim());
-    const normalized=normalizeForDictionary(converted);
+function dictionaryTranslate(text){
+    if(!text) return "";
 
-    if(EVENT_TITLE_VI[normalized]){
-        return EVENT_TITLE_VI[normalized];
+    let result=String(text).trim();
+    const normalized=normalizeForDictionary(result);
+
+    if(FF_DICTIONARY[normalized]){
+        return FF_DICTIONARY[normalized];
     }
 
-    const translations=[
-        [/\bLOGIN\b/gi,"Đăng Nhập"],
-        [/\bREWARDS?\b/gi,"Phần Thưởng"],
-        [/\bMISSIONS?\b/gi,"Nhiệm Vụ"],
-        [/\bCOLLECTION\b/gi,"Bộ Sưu Tập"],
-        [/\bBUNDLES?\b/gi,"Gói Trang Phục"],
-        [/\bEMOTES?\b/gi,"Điệu Nhảy"],
-        [/\bWEAPONS?\b/gi,"Vũ Khí"],
-        [/\bSKINS?\b/gi,"Trang Phục"],
-        [/\bDAILY\b/gi,"Hằng Ngày"],
-        [/\bWEEKLY\b/gi,"Hằng Tuần"],
-        [/\bSPECIAL\b/gi,"Đặc Biệt"],
-        [/\bFREE\b/gi,"Miễn Phí"],
-        [/\bEVENTS?\b/gi,"Sự Kiện"],
-        [/\bSPIN\b/gi,"Vòng Quay"],
-        [/\bNEW\b/gi,"Mới"],
-        [/\bSHOP\b/gi,"Cửa Hàng"],
-        [/\bGIFTS?\b/gi,"Quà Tặng"],
-        [/\bEXCHANGE\b/gi,"Đổi Quà"]
-    ];
+    /*
+      Thay thế cụm từ dài trước để tránh
+      các từ ngắn làm hỏng cụm từ dài.
+    */
+    const entries=Object.entries(FF_DICTIONARY)
+        .sort((a,b)=>b[0].length-a[0].length);
 
-    let result=converted;
+    for(const [english,vietnamese] of entries){
+        const escaped=english.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+        const pattern=new RegExp("(?<![A-Z0-9])"+escaped+"(?![A-Z0-9])","gi");
+        result=result.replace(pattern,vietnamese);
+    }
 
-    translations.forEach(([pattern,replacement])=>{
-        result=result.replace(pattern,replacement);
+    return result;
+}
+
+/* =========================================
+   BẢO VỆ MÃ SỰ KIỆN KHI DỊCH
+========================================= */
+
+function protectEventCodes(text){
+    const codes=[];
+
+    let protectedText=String(text||"").replace(
+        /\b(TW1|DW1|TG1|LW1|MS1|FW1|TT1|VQTO1|VQKB1|VQMM1|BXNP1|SHB1|VQBM1|VQ5BI1)\b/gi,
+        code=>{
+            const converted=EVENT_CODE_MAP[code.toUpperCase()]||code.toUpperCase();
+            const token="FFCODETOKEN"+codes.length+"END";
+            codes.push({token,code:converted});
+            return token;
+        }
+    );
+
+    return {text:protectedText,codes};
+}
+
+function restoreEventCodes(text,codes){
+    let result=String(text||"");
+
+    codes.forEach(item=>{
+        result=result.replaceAll(item.token,item.code);
     });
 
     return result;
 }
 
-/* =====================================
+/* =========================================
+   DỊCH TỰ ĐỘNG
+========================================= */
+
+async function googleTranslate(text){
+    const source=String(text||"").trim();
+    if(!source) return "";
+
+    if(translationCache.has(source)){
+        return translationCache.get(source);
+    }
+
+    const protectedData=protectEventCodes(source);
+    const dictionaryResult=dictionaryTranslate(protectedData.text);
+
+    /*
+      Nếu toàn bộ nội dung đã được từ điển xử lý
+      thì không cần gọi dịch vụ bên ngoài.
+    */
+    const url=TRANSLATE_API+encodeURIComponent(protectedData.text);
+
+    try{
+        const response=await fetch(url,{
+            method:"GET",
+            headers:{"Accept":"application/json"}
+        });
+
+        if(!response.ok){
+            throw new Error("Translation HTTP "+response.status);
+        }
+
+        const data=await response.json();
+
+        let translated="";
+
+        if(Array.isArray(data)&&Array.isArray(data[0])){
+            translated=data[0]
+                .map(part=>Array.isArray(part)?part[0]||"":"")
+                .join("");
+        }
+
+        if(!translated.trim()){
+            throw new Error("Không nhận được nội dung dịch");
+        }
+
+        translated=restoreEventCodes(translated,protectedData.codes);
+        translated=dictionaryTranslate(translated);
+
+        translationCache.set(source,translated);
+        return translated;
+
+    }catch(error){
+        console.warn("Không gọi được dịch vụ dịch:",error);
+
+        const fallback=restoreEventCodes(
+            dictionaryResult,
+            protectedData.codes
+        );
+
+        translationCache.set(source,fallback);
+        return fallback;
+    }
+}
+
+/*
+  Chỉ dịch nội dung chữ, không thay đổi ID,
+  URL, ngày tháng hoặc mã sự kiện.
+*/
+async function translateObjectText(object,fields){
+    for(const field of fields){
+        if(typeof object[field]==="string"&&object[field].trim()){
+            object[field]=await googleTranslate(object[field]);
+        }
+    }
+}
+
+async function translateAllContent(){
+    const info=$("translationInfo");
+    const status=$("translationStatus");
+
+    info.classList.add("translating");
+    status.textContent="Đang tự động dịch tên sự kiện sang tiếng Việt...";
+
+    /*
+      Giới hạn số tác vụ đồng thời để tránh
+      gửi quá nhiều yêu cầu dịch cùng lúc.
+    */
+    const tasks=[];
+
+    for(const event of allEvents){
+        tasks.push(async()=>{
+            event.title=await googleTranslate(event.title);
+            event.description=await googleTranslate(event.description);
+        });
+    }
+
+    for(const update of allUpdates){
+        tasks.push(async()=>{
+            update.title=await googleTranslate(update.title);
+            update.description=await googleTranslate(update.description);
+        });
+    }
+
+    const concurrency=3;
+
+    for(let i=0;i<tasks.length;i+=concurrency){
+        await Promise.all(
+            tasks.slice(i,i+concurrency).map(task=>task())
+        );
+
+        renderEvents();
+        renderUpdates();
+    }
+
+    info.classList.remove("translating");
+    status.textContent=
+        "Đã xử lý dịch tiếng Việt cho tiêu đề, mô tả và thông tin cập nhật.";
+}
+
+/* =========================================
    TIỆN ÍCH
-===================================== */
+========================================= */
 
 function escapeHTML(value){
     return String(value??"").replace(/[&<>"']/g,char=>({
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#39;"
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
     })[char]);
 }
 
@@ -1130,10 +892,7 @@ function parseDate(value){
     if(value===null||value===undefined||value==="") return null;
 
     if(typeof value==="number"){
-        const date=new Date(
-            value<1000000000000?value*1000:value
-        );
-
+        const date=new Date(value<1000000000000?value*1000:value);
         return isNaN(date.getTime())?null:date;
     }
 
@@ -1152,9 +911,7 @@ function formatDate(value){
     if(!date) return "Chưa cập nhật";
 
     return new Intl.DateTimeFormat("vi-VN",{
-        day:"2-digit",
-        month:"2-digit",
-        year:"numeric"
+        day:"2-digit",month:"2-digit",year:"numeric"
     }).format(date);
 }
 
@@ -1163,18 +920,11 @@ function getStatus(start,end){
     const s=parseDate(start);
     const e=parseDate(end);
 
-    if(s&&now<s.getTime()){
-        return {key:"upcoming",label:"Sắp diễn ra"};
-    }
+    if(s&&now<s.getTime()) return {key:"upcoming",label:"Sắp diễn ra"};
+    if(e&&now>e.getTime()) return {key:"ended",label:"Đã kết thúc"};
 
-    if(e&&now>e.getTime()){
-        return {key:"ended",label:"Đã kết thúc"};
-    }
-
-    if(
-        (s&&now>=s.getTime()&&(!e||now<=e.getTime()))||
-        (!s&&e&&now<=e.getTime())
-    ){
+    if((s&&now>=s.getTime()&&(!e||now<=e.getTime()))||
+       (!s&&e&&now<=e.getTime())){
         return {key:"live",label:"Đang diễn ra"};
     }
 
@@ -1195,34 +945,26 @@ function safeUrl(value){
     return "";
 }
 
-/* =====================================
+/* =========================================
    TÌM DỮ LIỆU LỒNG NHAU
-===================================== */
+========================================= */
 
 function findDeepValue(obj,keys,depth=0){
-    if(!obj||typeof obj!=="object"||depth>8){
-        return null;
-    }
+    if(!obj||typeof obj!=="object"||depth>8) return null;
 
     for(const key of keys){
-        if(
-            Object.prototype.hasOwnProperty.call(obj,key)&&
-            obj[key]!==null&&
-            obj[key]!==undefined&&
-            obj[key]!==""
-        ){
+        if(Object.prototype.hasOwnProperty.call(obj,key)){
             const value=obj[key];
 
-            if(typeof value==="string"||typeof value==="number"){
-                return String(value).trim();
-            }
+            if(value!==null&&value!==undefined&&value!==""){
+                if(typeof value==="string"||typeof value==="number"){
+                    return String(value).trim();
+                }
 
-            if(typeof value==="object"){
-                const nested=findDeepValue(value,[
-                    "id","item_id","itemId","value","url"
-                ],depth+1);
-
-                if(nested) return nested;
+                if(typeof value==="object"){
+                    const nested=findDeepValue(value,["id","item_id","itemId","value","url"],depth+1);
+                    if(nested) return nested;
+                }
             }
         }
     }
@@ -1238,9 +980,7 @@ function findDeepValue(obj,keys,depth=0){
 }
 
 function findDeepText(obj,keys,depth=0){
-    if(!obj||typeof obj!=="object"||depth>8){
-        return "";
-    }
+    if(!obj||typeof obj!=="object"||depth>8) return "";
 
     for(const key of keys){
         const value=obj[key];
@@ -1250,10 +990,7 @@ function findDeepText(obj,keys,depth=0){
         }
 
         if(value&&typeof value==="object"&&!Array.isArray(value)){
-            const nested=findDeepText(value,[
-                "text","name","title","value","description"
-            ],depth+1);
-
+            const nested=findDeepText(value,["text","name","title","value","description"],depth+1);
             if(nested) return nested;
         }
     }
@@ -1268,21 +1005,17 @@ function findDeepText(obj,keys,depth=0){
     return "";
 }
 
-/* =====================================
-   NHẬN DIỆN ID VẬT PHẨM
-===================================== */
+/* =========================================
+   NHẬN DIỆN VẬT PHẨM
+========================================= */
 
 function normalizeItemId(value){
     if(value===null||value===undefined) return "";
 
     const text=String(value).trim();
-
-    const match=text.match(
-        /(?:^|\/)(\d{6,12})(?:\.png)?(?:\?.*)?$/i
-    );
+    const match=text.match(/(?:^|\/)(\d{6,12})(?:\.png)?(?:\?.*)?$/i);
 
     if(match) return match[1];
-
     if(/^\d{6,12}$/.test(text)) return text;
 
     return "";
@@ -1291,101 +1024,57 @@ function normalizeItemId(value){
 function extractMainItem(event){
     const raw=event.raw||event;
 
-    /*
-      Ưu tiên trường ID vật phẩm chính.
-      Nếu API không có trường này, mới thử các trường ID chung.
-    */
-
     const priorityKeys=[
-        "main_item_id",
-        "mainItemId",
-        "featured_item_id",
-        "featuredItemId",
-        "primary_item_id",
-        "primaryItemId",
-        "main_reward_id",
-        "mainRewardId",
-        "featured_reward_id",
-        "featuredRewardId",
-        "reward_item_id",
-        "rewardItemId"
+        "main_item_id","mainItemId","featured_item_id",
+        "featuredItemId","primary_item_id","primaryItemId",
+        "main_reward_id","mainRewardId","featured_reward_id",
+        "featuredRewardId","reward_item_id","rewardItemId"
     ];
 
     const fallbackKeys=[
-        "item_id",
-        "itemId",
-        "icon_id",
-        "iconId",
-        "itemID",
-        "rewardID"
+        "item_id","itemId","icon_id","iconId","itemID","rewardID"
     ];
 
-    let id=normalizeItemId(
-        findDeepValue(raw,priorityKeys)
-    );
+    let id=normalizeItemId(findDeepValue(raw,priorityKeys));
 
     if(!id){
-        id=normalizeItemId(
-            findDeepValue(raw,fallbackKeys)
-        );
+        id=normalizeItemId(findDeepValue(raw,fallbackKeys));
     }
 
     if(!id){
         const imageValue=findDeepValue(raw,[
-            "item_icon",
-            "itemIcon",
-            "reward_icon",
-            "rewardIcon",
-            "item_image",
-            "itemImage",
-            "icon_url",
-            "iconUrl"
+            "item_icon","itemIcon","reward_icon","rewardIcon",
+            "item_image","itemImage","icon_url","iconUrl"
         ]);
-
         id=normalizeItemId(imageValue);
     }
 
     const name=findDeepText(raw,[
-        "main_item_name",
-        "mainItemName",
-        "featured_item_name",
-        "featuredItemName",
-        "item_name",
-        "itemName",
-        "reward_name",
-        "rewardName"
+        "main_item_name","mainItemName","featured_item_name",
+        "featuredItemName","item_name","itemName","reward_name","rewardName"
     ]);
 
     const description=findDeepText(raw,[
-        "item_description",
-        "itemDescription",
-        "reward_description",
-        "rewardDescription"
+        "item_description","itemDescription",
+        "reward_description","rewardDescription"
     ]);
 
     return {
         id,
         name:name||"Vật phẩm Free Fire",
         description:description||"",
-        image:id
-            ?ITEM_ICON_BASE+encodeURIComponent(id)+".png"
-            :""
+        image:id?ITEM_ICON_BASE+encodeURIComponent(id)+".png":""
     };
 }
 
-/* =====================================
+/* =========================================
    CHUẨN HÓA SỰ KIỆN
-===================================== */
+========================================= */
 
 function normalizeEvent(item,index){
     const originalTitle=firstValue(item,[
-        "title",
-        "name",
-        "event_name",
-        "eventName",
-        "event_title",
-        "eventTitle",
-        "heading"
+        "title","name","event_name","eventName",
+        "event_title","eventTitle","heading"
     ])||`Sự kiện ${index+1}`;
 
     const convertedTitle=convertEventCode(originalTitle);
@@ -1397,102 +1086,59 @@ function normalizeEvent(item,index){
     return {
         index,
         id:item.id||item.event_id||index,
-        title:translateTitle(convertedTitle),
-        eventCode:codeMatch?codeMatch[0]:"N/A",
-
+        title:convertedTitle,
+        eventCode:codeMatch?codeMatch[0].toUpperCase():"N/A",
         image:safeUrl(firstValue(item,[
-            "image",
-            "img",
-            "banner",
-            "thumbnail",
-            "image_url",
-            "imageUrl",
-            "cover"
+            "image","img","banner","thumbnail","image_url","imageUrl","cover"
         ])),
-
         start:firstValue(item,[
-            "start",
-            "start_date",
-            "startDate",
-            "start_time",
-            "startTime",
-            "begin",
-            "begin_at"
+            "start","start_date","startDate","start_time","startTime","begin","begin_at"
         ]),
-
         end:firstValue(item,[
-            "end",
-            "end_date",
-            "endDate",
-            "end_time",
-            "endTime",
-            "expire",
-            "expire_at"
+            "end","end_date","endDate","end_time","endTime","expire","expire_at"
         ]),
-
         description:firstValue(item,[
-            "description",
-            "desc",
-            "content",
-            "detail",
-            "message",
-            "text"
+            "description","desc","content","detail","message","text"
         ])||"",
-
         link:safeUrl(firstValue(item,[
-            "url",
-            "link",
-            "web_url",
-            "webUrl",
-            "redirect"
+            "url","link","web_url","webUrl","redirect"
         ])),
-
         raw:item
     };
 }
 
-/* =====================================
-   NHẬN DIỆN DANH SÁCH CẬP NHẬT
-===================================== */
+/* =========================================
+   CHUẨN HÓA CẬP NHẬT
+========================================= */
 
 function normalizeUpdate(item,index){
     if(typeof item==="string"){
         return {
             title:`Thông tin cập nhật ${index+1}`,
-            description:item,
-            date:"",
-            author:"",
-            image:"",
-            link:""
+            description:item,date:"",author:"",image:"",link:""
         };
     }
 
     return {
         title:findDeepText(item,[
-            "title","name","heading","subject",
-            "update_title","news_title","announcement_title"
+            "title","name","heading","subject","update_title","news_title","announcement_title"
         ])||`Thông tin cập nhật ${index+1}`,
 
         description:findDeepText(item,[
-            "description","desc","content","detail",
-            "details","message","text","body","note",
-            "summary","paragraph","full_description",
-            "update_content","news_content","announcement",
-            "information","html","post_content"
+            "description","desc","content","detail","details","message","text","body",
+            "note","summary","paragraph","full_description","update_content",
+            "news_content","announcement","information","html","post_content"
         ])||"",
 
         date:findDeepText(item,[
-            "date","time","created_at","createdAt",
-            "updated_at","updatedAt","published_at","timestamp"
+            "date","time","created_at","createdAt","updated_at","updatedAt",
+            "published_at","timestamp"
         ])||"",
 
-        author:findDeepText(item,[
-            "author","by","publisher","source_name"
-        ])||"",
+        author:findDeepText(item,["author","by","publisher","source_name"])||"",
 
         image:safeUrl(findDeepValue(item,[
-            "image","img","banner","thumbnail",
-            "image_url","cover","picture"
+            "image","img","banner","thumbnail","image_url","cover","picture"
         ])),
 
         link:safeUrl(findDeepValue(item,[
@@ -1502,14 +1148,12 @@ function normalizeUpdate(item,index){
 }
 
 function extractUpdateArray(source,depth=0){
-    if(!source||typeof source!=="object"||depth>6){
-        return [];
-    }
+    if(!source||typeof source!=="object"||depth>6) return [];
 
     const keys=[
-        "updates","update","news","changes",
-        "notices","notifications","announcements",
-        "announcement","changelogs","latest_updates"
+        "updates","update","news","changes","notices",
+        "notifications","announcements","announcement",
+        "changelogs","latest_updates"
     ];
 
     for(const key of keys){
@@ -1518,11 +1162,7 @@ function extractUpdateArray(source,depth=0){
         if(Array.isArray(value)) return value;
 
         if(value&&typeof value==="object"){
-            if(
-                value.title||value.name||
-                value.content||value.description||
-                value.text||value.message
-            ){
+            if(value.title||value.name||value.content||value.description||value.text||value.message){
                 return [value];
             }
 
@@ -1541,17 +1181,9 @@ function extractUpdateArray(source,depth=0){
     return [];
 }
 
-/* =====================================
-   ĐỌC JSON API
-===================================== */
-
 function extractPayload(json){
-    const roots=[
-        json,
-        json?.data,
-        json?.result,
-        json?.response
-    ].filter(value=>value&&typeof value==="object");
+    const roots=[json,json?.data,json?.result,json?.response]
+        .filter(value=>value&&typeof value==="object");
 
     const events=[];
     let updates=[];
@@ -1561,23 +1193,19 @@ function extractPayload(json){
             events.push(...root);
         }else{
             for(const key of ["events","event","banners","items"]){
-                if(Array.isArray(root[key])){
-                    events.push(...root[key]);
-                }
+                if(Array.isArray(root[key])) events.push(...root[key]);
             }
         }
 
-        if(!updates.length){
-            updates=extractUpdateArray(root);
-        }
+        if(!updates.length) updates=extractUpdateArray(root);
     }
 
     return {events,updates};
 }
 
-/* =====================================
+/* =========================================
    TẢI SỰ KIỆN
-===================================== */
+========================================= */
 
 async function loadEvents(){
     const grid=$("eventsGrid");
@@ -1586,12 +1214,13 @@ async function loadEvents(){
 
     button.disabled=true;
     button.textContent="Đang tải...";
-
-    grid.innerHTML=
-        '<div class="loading">Đang tải dữ liệu sự kiện...</div>';
+    grid.innerHTML='<div class="loading">Đang tải dữ liệu sự kiện...</div>';
 
     $("serverName").textContent=SERVER_NAMES[server]||server;
     $("serverCode").textContent=server;
+
+    $("translationStatus").textContent="Đang nhận dữ liệu sự kiện...";
+    $("translationInfo").classList.add("translating");
 
     try{
         const response=await fetch(
@@ -1603,12 +1232,9 @@ async function loadEvents(){
             }
         );
 
-        if(!response.ok){
-            throw new Error(`HTTP ${response.status}`);
-        }
+        if(!response.ok) throw new Error(`HTTP ${response.status}`);
 
         const json=await response.json();
-
         console.log("EVENT API RESPONSE:",json);
 
         const payload=extractPayload(json);
@@ -1619,6 +1245,17 @@ async function loadEvents(){
         renderEvents();
         renderUpdates();
 
+        if(!allEvents.length){
+            grid.innerHTML=`
+                <div class="empty">
+                    API chưa trả về danh sách sự kiện.
+                    Hãy kiểm tra cấu trúc JSON của API.
+                </div>
+            `;
+        }
+
+        await translateAllContent();
+
     }catch(error){
         console.error("API ERROR:",error);
 
@@ -1626,15 +1263,18 @@ async function loadEvents(){
         allUpdates=[];
 
         grid.innerHTML=`
-          <div class="empty error">
-            <b>Không thể tải dữ liệu sự kiện.</b><br>
-            ${escapeHTML(error.message)}<br>
-            Kiểm tra API /api/events trên Vercel.
-          </div>
+            <div class="empty error">
+                <b>Không thể tải dữ liệu sự kiện.</b><br>
+                ${escapeHTML(error.message)}<br>
+                Kiểm tra API /api/events trên Vercel.
+            </div>
         `;
 
         updateStats();
         renderUpdates();
+
+        $("translationInfo").classList.remove("translating");
+        $("translationStatus").textContent="Chưa có dữ liệu để dịch.";
 
     }finally{
         button.disabled=false;
@@ -1642,17 +1282,12 @@ async function loadEvents(){
     }
 }
 
-/* =====================================
+/* =========================================
    THỐNG KÊ
-===================================== */
+========================================= */
 
 function updateStats(){
-    const counts={
-        live:0,
-        upcoming:0,
-        ended:0,
-        unknown:0
-    };
+    const counts={live:0,upcoming:0,ended:0,unknown:0};
 
     allEvents.forEach(event=>{
         counts[getStatus(event.start,event.end).key]++;
@@ -1664,9 +1299,9 @@ function updateStats(){
     $("endedCount").textContent=counts.ended;
 }
 
-/* =====================================
+/* =========================================
    HIỂN THỊ SỰ KIỆN
-===================================== */
+========================================= */
 
 function renderEvents(){
     const grid=$("eventsGrid");
@@ -1676,8 +1311,7 @@ function renderEvents(){
     const filtered=allEvents.filter(event=>{
         const status=getStatus(event.start,event.end);
 
-        const matchesStatus=
-            filter==="all"||status.key===filter;
+        const matchesStatus=filter==="all"||status.key===filter;
 
         const matchesSearch=
             !keyword||
@@ -1690,17 +1324,14 @@ function renderEvents(){
     updateStats();
 
     if(!filtered.length){
-        grid.innerHTML=
-            '<div class="empty">Không tìm thấy sự kiện phù hợp.</div>';
+        grid.innerHTML='<div class="empty">Không tìm thấy sự kiện phù hợp.</div>';
         return;
     }
 
     grid.innerHTML=filtered.map(event=>{
         const status=getStatus(event.start,event.end);
         const item=extractMainItem(event);
-
-        const image=event.image||
-            "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
+        const image=event.image||"https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
 
         const itemPreview=item.id?`
             <div class="card-item">
@@ -1708,45 +1339,30 @@ function renderEvents(){
                      alt="Item ${escapeHTML(item.id)}"
                      loading="lazy"
                      onerror="this.parentElement.style.display='none'">
-
                 <div>
-                    <div class="card-item-name">
-                        ${escapeHTML(item.name)}
-                    </div>
-
-                    <div class="card-item-id">
-                        ID: ${escapeHTML(item.id)}
-                    </div>
+                    <div class="card-item-name">${escapeHTML(item.name)}</div>
+                    <div class="card-item-id">ID: ${escapeHTML(item.id)}</div>
                 </div>
             </div>
         `:"";
 
         return `
           <article class="event-card">
-
             <div class="event-image-wrap">
               <img class="event-image"
                    src="${escapeHTML(image)}"
                    alt="${escapeHTML(event.title)}"
                    loading="lazy"
                    onerror="this.onerror=null;this.src='https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg'">
-
-              <span class="status ${status.key}">
-                ${status.label}
-              </span>
+              <span class="status ${status.key}">${status.label}</span>
             </div>
 
             <div class="event-content">
+              <h3 class="event-title">${escapeHTML(event.title)}</h3>
 
-              <h3 class="event-title">
-                ${escapeHTML(event.title)}
-              </h3>
-
-              ${
-                event.description
+              ${event.description
                 ? `<p class="event-desc">${escapeHTML(event.description)}</p>`
-                : ""
-              }
+                : ""}
 
               <div class="event-date">
                 <div>🟢 Bắt đầu: <b>${formatDate(event.start)}</b></div>
@@ -1760,20 +1376,15 @@ function renderEvents(){
                       onclick="openEventDetail(${event.index})">
                 XEM CHI TIẾT SỰ KIỆN ↗
               </button>
-
             </div>
           </article>
         `;
     }).join("");
 }
 
-/* =====================================
-   TRA CỨU FF ITEM
-===================================== */
-
-function openItemLibrary(){
-    window.open(ITEM_LIBRARY_URL,"_blank","noopener");
-}
+/* =========================================
+   TRA CỨU VẬT PHẨM
+========================================= */
 
 async function copyItemId(){
     if(!activeItemId) return;
@@ -1802,25 +1413,20 @@ async function copyItemId(){
     },1800);
 }
 
-/* =====================================
+/* =========================================
    CHI TIẾT SỰ KIỆN
-===================================== */
+========================================= */
 
 function openEventDetail(index){
-    const event=allEvents.find(
-        item=>Number(item.index)===Number(index)
-    );
-
+    const event=allEvents.find(item=>Number(item.index)===Number(index));
     if(!event) return;
 
     const status=getStatus(event.start,event.end);
     const item=extractMainItem(event);
 
     $("detailTitle").textContent=event.title;
-
     $("detailDescription").textContent=
-        event.description||
-        "Sự kiện chưa có mô tả chi tiết từ API.";
+        event.description||"Sự kiện chưa có mô tả chi tiết từ API.";
 
     $("detailStart").textContent=formatDate(event.start);
     $("detailEnd").textContent=formatDate(event.end);
@@ -1828,10 +1434,7 @@ function openEventDetail(index){
     $("detailCode").textContent=event.eventCode||"N/A";
 
     const banner=$("detailBanner");
-
-    banner.src=event.image||
-        "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
-
+    banner.src=event.image||"https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
     banner.onerror=function(){
         this.onerror=null;
         this.src="https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
@@ -1841,7 +1444,6 @@ function openEventDetail(index){
     const itemActions=$("itemActions");
 
     activeItemId=item.id||"";
-
     $("copyItemId").textContent="SAO CHÉP ID";
 
     if(item.id){
@@ -1853,34 +1455,22 @@ function openEventDetail(index){
                      onerror="this.style.display='none'">
 
                 <div>
-                    <div class="main-item-name">
-                        ${escapeHTML(item.name)}
-                    </div>
-
-                    <div class="main-item-id">
-                        ITEM ID: ${escapeHTML(item.id)}
-                    </div>
-
-                    ${
-                        item.description
+                    <div class="main-item-name">${escapeHTML(item.name)}</div>
+                    <div class="main-item-id">ITEM ID: ${escapeHTML(item.id)}</div>
+                    ${item.description
                         ? `<div class="main-item-id">${escapeHTML(item.description)}</div>`
-                        :""
-                    }
+                        : ""}
                 </div>
             </div>
         `;
-
         itemActions.hidden=false;
-
     }else{
         itemContainer.innerHTML=`
             <p class="main-item-empty">
                 Chưa tìm thấy ID vật phẩm chính trong dữ liệu API.
-                Nếu API không cung cấp ID vật phẩm, website không thể
-                xác định chính xác vật phẩm chỉ từ banner sự kiện.
+                API cần cung cấp ID vật phẩm để nhận diện chính xác.
             </p>
         `;
-
         itemActions.hidden=true;
     }
 
@@ -1906,14 +1496,12 @@ function closeEventModal(event){
 }
 
 document.addEventListener("keydown",event=>{
-    if(event.key==="Escape"){
-        closeEventModal();
-    }
+    if(event.key==="Escape") closeEventModal();
 });
 
-/* =====================================
+/* =========================================
    CẬP NHẬT MỚI
-===================================== */
+========================================= */
 
 function renderUpdates(){
     const list=$("updatesList");
@@ -1923,9 +1511,7 @@ function renderUpdates(){
           <div class="update-empty">
             <div style="font-size:28px;margin-bottom:10px">📢</div>
             <b>Chưa có thông tin cập nhật</b>
-            <p style="margin-top:7px">
-              API hiện chưa trả về danh sách cập nhật.
-            </p>
+            <p style="margin-top:7px">API hiện chưa trả về danh sách cập nhật.</p>
           </div>
         `;
         return;
@@ -1938,67 +1524,46 @@ function renderUpdates(){
 
         return `
           <article class="update-card">
-
             <div class="update-icon">📢</div>
 
             <div class="update-main">
-
               <div class="update-topline">
                 <span class="update-tag">CẬP NHẬT MỚI</span>
-
-                <span class="update-date">
-                  ${item.date?escapeHTML(formatDate(item.date)):""}
-                </span>
+                <span class="update-date">${item.date?escapeHTML(formatDate(item.date)):""}</span>
               </div>
 
-              <h3 class="update-title">
-                ${escapeHTML(item.title)}
-              </h3>
+              <h3 class="update-title">${escapeHTML(item.title)}</h3>
 
-              ${
-                item.image
+              ${item.image
                 ? `<img class="update-image"
                         src="${escapeHTML(item.image)}"
                         alt=""
                         loading="lazy"
                         onerror="this.style.display='none'">`
-                :""
-              }
+                : ""}
 
-              <p id="${id}"
-                 class="update-description ${long?"collapsed":""}">
+              <p id="${id}" class="update-description ${long?"collapsed":""}">
                 ${escapeHTML(description||"API chưa cung cấp nội dung chi tiết.")}
               </p>
 
               <div class="update-bottom">
-
                 <span class="update-author">
-                  ${item.author
-                    ?"Nguồn: "+escapeHTML(item.author)
-                    :"SỰ KIỆN FREE FIRE NEW"}
+                  ${item.author?"Nguồn: "+escapeHTML(item.author):"SỰ KIỆN FREE FIRE NEW"}
                 </span>
 
-                ${
-                    long
+                ${long
                     ? `<button class="update-more"
                                type="button"
                                aria-expanded="false"
-                               onclick="toggleUpdate('${id}',this)">
-                          Xem thêm ↓
-                       </button>`
-                    :""
-                }
+                               onclick="toggleUpdate('${id}',this)">Xem thêm ↓</button>`
+                    : ""}
 
-                ${
-                    item.link
+                ${item.link
                     ? `<a class="update-link"
                           href="${escapeHTML(item.link)}"
-                          target="_blank" rel="noopener">
-                          Xem nguồn ↗
-                       </a>`
-                    :""
-                }
-
+                          target="_blank"
+                          rel="noopener">Xem nguồn ↗</a>`
+                    : ""}
               </div>
             </div>
           </article>
@@ -2014,13 +1579,12 @@ function toggleUpdate(id,button){
 
     description.classList.toggle("collapsed",expanded);
     button.setAttribute("aria-expanded",String(!expanded));
-
     button.textContent=expanded?"Xem thêm ↓":"Thu gọn ↑";
 }
 
-/* =====================================
+/* =========================================
    ĐIỀU KHIỂN
-===================================== */
+========================================= */
 
 $("serverSelect").addEventListener("change",loadEvents);
 $("statusFilter").addEventListener("change",renderEvents);
@@ -2028,12 +1592,11 @@ $("searchInput").addEventListener("input",renderEvents);
 $("refreshBtn").addEventListener("click",loadEvents);
 $("copyItemId").addEventListener("click",copyItemId);
 
-/* =====================================
+/* =========================================
    KHỞI ĐỘNG
-===================================== */
+========================================= */
 
 loadEvents();
-
 </script>
 
 </body>
