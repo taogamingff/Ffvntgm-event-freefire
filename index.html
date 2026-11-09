@@ -65,17 +65,9 @@ body{
     background-attachment:fixed;
 }
 
-button,input,select{
-    font:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-a{
-    color:inherit;
-}
+button,input,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
 
 .container{
     width:min(1240px,94%);
@@ -117,10 +109,7 @@ a{
     pointer-events:none;
 }
 
-.header-inner{
-    position:relative;
-    z-index:1;
-}
+.header-inner{position:relative;z-index:1}
 
 .topbar{
     display:flex;
@@ -210,9 +199,7 @@ a{
 
 /* MAIN */
 
-main{
-    padding:28px 0 55px;
-}
+main{padding:28px 0 55px}
 
 .section-heading{
     display:flex;
@@ -232,9 +219,71 @@ main{
     flex-shrink:0;
 }
 
-.section-heading span{
-    color:var(--yellow);
+.section-heading span{color:var(--yellow)}
+
+/* ONLINE */
+
+.online-section{padding:18px 0 0}
+
+.online-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    padding:16px 19px;
+    border:1px solid #21cf8340;
+    border-radius:12px;
+    background:linear-gradient(110deg,#10251f,#15151f 65%);
 }
+
+.online-left{display:flex;align-items:center;gap:12px}
+
+.online-icon{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:10px;
+    color:var(--green);
+    background:#21cf8315;
+    border:1px solid #21cf8340;
+    font-size:20px;
+}
+
+.online-title{font-size:12px}
+
+.online-subtitle{
+    color:#999;
+    font:10px Arial,sans-serif;
+    margin-top:5px;
+}
+
+.online-right{text-align:center}
+
+.online-right strong{
+    display:block;
+    color:var(--green);
+    font-size:20px;
+}
+
+.online-right span{
+    color:var(--green);
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+.online-dot{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    margin-right:5px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 10px var(--green);
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{50%{opacity:.3}}
 
 /* CONTROLS */
 
@@ -262,9 +311,7 @@ main{
     box-shadow:0 0 0 3px #ff790018;
 }
 
-.control option{
-    background:#171720;
-}
+.control option{background:#171720}
 
 .refresh-btn{
     border:0;
@@ -277,15 +324,8 @@ main{
     transition:.2s;
 }
 
-.refresh-btn:hover{
-    filter:brightness(1.12);
-    transform:translateY(-2px);
-}
-
-.refresh-btn:disabled{
-    opacity:.6;
-    cursor:wait;
-}
+.refresh-btn:hover{filter:brightness(1.12);transform:translateY(-2px)}
+.refresh-btn:disabled{opacity:.6;cursor:wait}
 
 .server-info{
     color:var(--muted);
@@ -293,9 +333,7 @@ main{
     margin-bottom:20px;
 }
 
-.server-info b{
-    color:var(--yellow);
-}
+.server-info b{color:var(--yellow)}
 
 /* STATISTICS */
 
@@ -316,28 +354,13 @@ main{
     border-radius:12px;
 }
 
-.stat::after{
-    content:"";
-    position:absolute;
-    width:80px;
-    height:80px;
-    right:-40px;
-    top:-40px;
-    border-radius:50%;
-    background:#ff79001c;
-    filter:blur(15px);
-}
-
 .stat strong{
     display:block;
     color:var(--yellow);
     font-size:27px;
 }
 
-.stat span{
-    color:var(--muted);
-    font-size:10px;
-}
+.stat span{color:var(--muted);font-size:10px}
 
 /* EVENTS */
 
@@ -353,7 +376,7 @@ main{
     background:linear-gradient(145deg,#1b1b27,#111119);
     border:1px solid #ffffff15;
     border-radius:13px;
-    transition:transform .25s,border-color .25s,box-shadow .25s;
+    transition:.25s;
 }
 
 .event-card:hover{
@@ -376,9 +399,7 @@ main{
     transition:transform .4s;
 }
 
-.event-card:hover .event-image{
-    transform:scale(1.04);
-}
+.event-card:hover .event-image{transform:scale(1.04)}
 
 .status{
     position:absolute;
@@ -389,7 +410,6 @@ main{
     color:white;
     font-size:10px;
     background:#444;
-    box-shadow:0 3px 10px #0005;
 }
 
 .status.live{background:#117b4b}
@@ -397,9 +417,7 @@ main{
 .status.ended{background:#8a3030}
 .status.unknown{background:#55556a}
 
-.event-content{
-    padding:15px;
-}
+.event-content{padding:15px}
 
 .event-title{
     font-size:15px;
@@ -411,9 +429,7 @@ main{
 .event-desc{
     margin-top:9px;
     color:#aaaaba;
-    font-family:Arial,sans-serif;
-    font-size:12px;
-    line-height:1.7;
+    font:12px/1.7 Arial,sans-serif;
     overflow-wrap:anywhere;
     white-space:pre-wrap;
 }
@@ -428,12 +444,11 @@ main{
     color:#bcbcca;
 }
 
-.event-date b{
-    color:var(--yellow);
-}
+.event-date b{color:var(--yellow)}
 
-.event-link{
+.event-detail-btn{
     display:block;
+    width:100%;
     text-align:center;
     margin-top:13px;
     padding:11px;
@@ -446,11 +461,38 @@ main{
     transition:.2s;
 }
 
-.event-link:hover{
-    background:#ff8a0030;
+.event-detail-btn:hover{background:#ff8a0030}
+
+/* MAIN ITEM PREVIEW */
+
+.card-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:13px;
+    padding:9px;
+    border-radius:8px;
+    background:#ffffff08;
+    border:1px solid #ffffff13;
 }
 
-/* LOADING */
+.card-item img{
+    width:48px;
+    height:48px;
+    object-fit:contain;
+    flex-shrink:0;
+}
+
+.card-item-name{
+    font-size:10px;
+    color:#ddd;
+}
+
+.card-item-id{
+    color:#888;
+    font:10px Arial,sans-serif;
+    margin-top:5px;
+}
 
 .empty,.loading{
     grid-column:1/-1;
@@ -464,19 +506,12 @@ main{
     line-height:1.8;
 }
 
-.loading{
-    color:var(--yellow);
-}
-
-.error{
-    color:#ff9292;
-}
+.loading{color:var(--yellow)}
+.error{color:#ff9292}
 
 /* UPDATES */
 
-.updates-section{
-    margin-top:42px;
-}
+.updates-section{margin-top:42px}
 
 .updates-header{
     display:flex;
@@ -486,9 +521,7 @@ main{
     margin-bottom:16px;
 }
 
-.updates-header .section-heading{
-    margin:0;
-}
+.updates-header .section-heading{margin:0}
 
 .updates-label{
     display:flex;
@@ -503,14 +536,9 @@ main{
     white-space:nowrap;
 }
 
-.updates-list{
-    display:grid;
-    gap:13px;
-}
+.updates-list{display:grid;gap:13px}
 
 .update-card{
-    position:relative;
-    overflow:hidden;
     display:grid;
     grid-template-columns:52px minmax(0,1fr);
     gap:14px;
@@ -521,11 +549,7 @@ main{
     transition:.25s;
 }
 
-.update-card:hover{
-    border-color:#ff8a0055;
-    transform:translateY(-2px);
-    box-shadow:0 8px 25px #0005;
-}
+.update-card:hover{border-color:#ff8a0055}
 
 .update-icon{
     width:49px;
@@ -536,13 +560,11 @@ main{
     border-radius:12px;
     font-size:22px;
     color:var(--yellow);
-    background:linear-gradient(145deg,#ff8a0025,#ff8a0008);
+    background:#ff8a0018;
     border:1px solid #ff8a0035;
 }
 
-.update-main{
-    min-width:0;
-}
+.update-main{min-width:0}
 
 .update-topline{
     display:flex;
@@ -561,24 +583,13 @@ main{
     font-size:9px;
 }
 
-.update-date{
-    color:#858596;
-    font-family:Arial,sans-serif;
-    font-size:10px;
-}
+.update-date{color:#858596;font:10px Arial,sans-serif}
 
-.update-title{
-    font-size:14px;
-    line-height:1.5;
-    color:#fff;
-    overflow-wrap:anywhere;
-}
+.update-title{font-size:14px;line-height:1.5;overflow-wrap:anywhere}
 
 .update-description{
     color:#b6b6c5;
-    font-family:Arial,sans-serif;
-    font-size:12px;
-    line-height:1.8;
+    font:12px/1.8 Arial,sans-serif;
     margin-top:8px;
     white-space:pre-wrap;
     overflow-wrap:anywhere;
@@ -600,10 +611,7 @@ main{
     margin-top:12px;
 }
 
-.update-author{
-    color:#858596;
-    font-size:10px;
-}
+.update-author{color:#858596;font-size:10px}
 
 .update-more{
     color:var(--yellow);
@@ -611,10 +619,6 @@ main{
     background:transparent;
     font-size:10px;
     padding:5px 0;
-}
-
-.update-more:hover{
-    color:#fff;
 }
 
 .update-image{
@@ -627,11 +631,7 @@ main{
     border:1px solid #ffffff16;
 }
 
-.update-link{
-    color:var(--yellow);
-    font-size:10px;
-    text-decoration:none;
-}
+.update-link{color:var(--yellow);font-size:10px;text-decoration:none}
 
 .update-empty{
     text-align:center;
@@ -642,6 +642,158 @@ main{
     color:#9999aa;
     font-size:12px;
     line-height:1.8;
+}
+
+/* DETAIL MODAL */
+
+.detail-modal{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:16px;
+    background:#000c;
+    backdrop-filter:blur(8px);
+}
+
+.detail-modal.active{display:flex}
+
+.detail-box{
+    position:relative;
+    width:min(650px,100%);
+    max-height:90vh;
+    overflow-y:auto;
+    background:linear-gradient(145deg,#20202d,#101018);
+    border:1px solid #ff790060;
+    border-radius:15px;
+    box-shadow:0 20px 70px #000b;
+    animation:detailOpen .2s ease;
+}
+
+@keyframes detailOpen{
+    from{opacity:0;transform:translateY(15px) scale(.98)}
+    to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+.detail-close{
+    position:absolute;
+    top:12px;
+    right:12px;
+    z-index:2;
+    width:36px;
+    height:36px;
+    border:1px solid #ffffff30;
+    border-radius:9px;
+    color:#fff;
+    background:#000a;
+    font-size:20px;
+}
+
+.detail-banner{
+    width:100%;
+    max-height:240px;
+    object-fit:cover;
+    display:block;
+    background:#222;
+}
+
+.detail-body{padding:20px}
+
+.detail-title{
+    font-size:21px;
+    line-height:1.5;
+    color:var(--yellow);
+}
+
+.detail-original{
+    margin-top:5px;
+    color:#888;
+    font:11px Arial,sans-serif;
+    overflow-wrap:anywhere;
+}
+
+.detail-description{
+    margin-top:15px;
+    color:#c5c5d0;
+    font:13px/1.8 Arial,sans-serif;
+    white-space:pre-wrap;
+    overflow-wrap:anywhere;
+}
+
+.detail-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:18px;
+}
+
+.detail-info-item{
+    padding:12px;
+    border:1px solid #ffffff16;
+    border-radius:9px;
+    background:#ffffff08;
+}
+
+.detail-info-item span{
+    display:block;
+    color:#888;
+    font-size:10px;
+    margin-bottom:7px;
+}
+
+.detail-info-item b{color:var(--yellow);font-size:12px}
+
+.main-item-section{
+    margin-top:20px;
+    padding:15px;
+    border:1px solid #ff9b2445;
+    border-radius:11px;
+    background:linear-gradient(120deg,#ff790016,#ffffff04);
+}
+
+.main-item-heading{
+    color:var(--yellow);
+    font-size:13px;
+    margin-bottom:13px;
+}
+
+.main-item-content{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.main-item-image{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+    padding:7px;
+    flex-shrink:0;
+    background:#ffffff0b;
+    border:1px solid #ffffff20;
+    border-radius:10px;
+}
+
+.main-item-name{font-size:13px;line-height:1.6}
+
+.main-item-id{color:#999;font:11px Arial,sans-serif;margin-top:7px}
+
+.main-item-empty{color:#999;font:12px/1.7 Arial,sans-serif}
+
+.detail-action{
+    display:block;
+    width:100%;
+    margin-top:18px;
+    padding:13px;
+    text-align:center;
+    border:0;
+    border-radius:8px;
+    background:linear-gradient(135deg,#ff9b24,#f05a00);
+    color:white;
+    text-decoration:none;
+    font-size:12px;
 }
 
 /* FOOTER */
@@ -656,160 +808,54 @@ main{
     line-height:1.9;
 }
 
-.footer b{
-    color:var(--yellow);
-}
-
-/* RESPONSIVE */
+.footer b{color:var(--yellow)}
 
 @media(min-width:1500px){
-    .container{
-        width:min(1350px,92%);
-    }
-
-    .events-grid{
-        grid-template-columns:repeat(4,minmax(0,1fr));
-    }
+    .container{width:min(1350px,92%)}
+    .events-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 
 @media(max-width:1000px){
-    .events-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-
-    .toolbar{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .hero{
-        grid-template-columns:1fr 1fr;
-    }
+    .events-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .toolbar{grid-template-columns:1fr 1fr}
+    .hero{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:650px){
-    .container{
-        width:92%;
-    }
-
-    .header{
-        padding:16px 0 24px;
-    }
-
-    .brand-logo{
-        width:43px;
-        height:43px;
-    }
-
-    .brand h1{
-        font-size:15px;
-    }
-
-    .brand p{
-        font-size:8px;
-    }
-
-    .tiktok{
-        padding:8px 9px;
-        font-size:9px;
-    }
-
-    .hero{
-        grid-template-columns:1fr;
-        gap:17px;
-        margin-top:25px;
-    }
-
-    .hero h2{
-        font-size:31px;
-    }
-
-    .hero-image{
-        max-height:145px;
-    }
-
-    .toolbar{
-        grid-template-columns:1fr 1fr;
-        gap:8px;
-    }
-
-    .control{
-        padding:11px 9px;
-        font-size:11px;
-    }
-
-    .refresh-btn{
-        padding:11px 9px;
-        font-size:11px;
-    }
-
-    .stats{
-        gap:8px;
-    }
-
-    .stat{
-        padding:13px 7px;
-    }
-
-    .stat strong{
-        font-size:23px;
-    }
-
-    .events-grid{
-        grid-template-columns:1fr;
-        gap:13px;
-    }
-
-    .event-image-wrap{
-        height:190px;
-    }
-
-    .section-heading{
-        font-size:16px;
-    }
-
-    .update-card{
-        grid-template-columns:40px minmax(0,1fr);
-        gap:10px;
-        padding:13px;
-    }
-
-    .update-icon{
-        width:39px;
-        height:39px;
-        font-size:18px;
-    }
-
-    .update-title{
-        font-size:13px;
-    }
+    .container{width:92%}
+    .header{padding:16px 0 24px}
+    .brand-logo{width:43px;height:43px}
+    .brand h1{font-size:15px}
+    .brand p{font-size:8px}
+    .tiktok{padding:8px 9px;font-size:9px}
+    .hero{grid-template-columns:1fr;gap:17px;margin-top:25px}
+    .hero h2{font-size:31px}
+    .hero-image{max-height:145px}
+    .toolbar{grid-template-columns:1fr 1fr;gap:8px}
+    .control{padding:11px 9px;font-size:11px}
+    .refresh-btn{padding:11px 9px;font-size:11px}
+    .stats{gap:8px}
+    .stat{padding:13px 7px}
+    .stat strong{font-size:23px}
+    .events-grid{grid-template-columns:1fr;gap:13px}
+    .event-image-wrap{height:190px}
+    .section-heading{font-size:16px}
+    .update-card{grid-template-columns:40px minmax(0,1fr);gap:10px;padding:13px}
+    .update-icon{width:39px;height:39px;font-size:18px}
+    .update-title{font-size:13px}
+    .detail-body{padding:15px}
+    .detail-title{font-size:17px}
+    .detail-banner{max-height:180px}
+    .main-item-image{width:75px;height:75px}
 }
 
 @media(max-width:360px){
-    .brand h1{
-        font-size:12px;
-    }
-
-    .brand p{
-        font-size:7px;
-    }
-
-    .tiktok{
-        font-size:8px;
-        padding:7px;
-    }
-
-    .toolbar{
-        grid-template-columns:1fr;
-    }
-
-    .hero h2{
-        font-size:26px;
-    }
-
-    .updates-label{
-        font-size:8px;
-        padding:6px;
-    }
+    .brand h1{font-size:12px}
+    .brand p{font-size:7px}
+    .tiktok{font-size:8px;padding:7px}
+    .toolbar{grid-template-columns:1fr}
+    .hero h2{font-size:26px}
+    .updates-label{font-size:8px;padding:6px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -841,8 +887,7 @@ main{
 
         <a class="tiktok"
            href="https://www.tiktok.com/@taogamingffvn"
-           target="_blank"
-           rel="noopener">
+           target="_blank" rel="noopener">
            TikTok @taogamingffvn
         </a>
     </div>
@@ -865,13 +910,36 @@ main{
 </div>
 </header>
 
+<section class="online-section">
+<div class="container">
+    <div class="online-card">
+        <div class="online-left">
+            <div class="online-icon">
+                <span class="online-dot"></span>◉
+            </div>
+            <div>
+                <div class="online-title">HỆ THỐNG ONLINE</div>
+                <div class="online-subtitle">
+                    Số phiên truy cập website hiện tại
+                </div>
+            </div>
+        </div>
+
+        <div class="online-right">
+            <strong id="onlineText">N/A ONLINE</strong>
+            <span>ONLINE</span>
+        </div>
+    </div>
+</div>
+</section>
+
 <main class="container">
 
     <h2 class="section-heading">CHỌN <span>SERVER</span></h2>
 
     <div class="toolbar">
 
-        <select id="serverSelect" class="control" aria-label="Chọn server">
+        <select id="serverSelect" class="control">
             <option value="VN">🇻🇳 Việt Nam (VN)</option>
             <option value="ID">🇮🇩 Indonesia (ID)</option>
             <option value="TH">🇹🇭 Thái Lan (TH)</option>
@@ -890,7 +958,7 @@ main{
             <option value="SAC">🌎 Nam Mỹ (SAC)</option>
         </select>
 
-        <select id="statusFilter" class="control" aria-label="Lọc trạng thái">
+        <select id="statusFilter" class="control">
             <option value="all">Tất cả sự kiện</option>
             <option value="live">Đang diễn ra</option>
             <option value="upcoming">Sắp diễn ra</option>
@@ -898,16 +966,12 @@ main{
             <option value="unknown">Chưa xác định</option>
         </select>
 
-        <input id="searchInput"
-               class="control"
-               type="search"
-               placeholder="Tìm kiếm sự kiện..."
-               aria-label="Tìm kiếm sự kiện">
+        <input id="searchInput" class="control"
+               type="search" placeholder="Tìm kiếm sự kiện...">
 
         <button id="refreshBtn" class="refresh-btn" type="button">
             ↻ Tải lại
         </button>
-
     </div>
 
     <p class="server-info">
@@ -916,25 +980,10 @@ main{
     </p>
 
     <div class="stats">
-        <div class="stat">
-            <strong id="totalCount">0</strong>
-            <span>Tổng sự kiện</span>
-        </div>
-
-        <div class="stat">
-            <strong id="liveCount">0</strong>
-            <span>Đang diễn ra</span>
-        </div>
-
-        <div class="stat">
-            <strong id="upcomingCount">0</strong>
-            <span>Sắp diễn ra</span>
-        </div>
-
-        <div class="stat">
-            <strong id="endedCount">0</strong>
-            <span>Đã kết thúc</span>
-        </div>
+        <div class="stat"><strong id="totalCount">0</strong><span>Tổng sự kiện</span></div>
+        <div class="stat"><strong id="liveCount">0</strong><span>Đang diễn ra</span></div>
+        <div class="stat"><strong id="upcomingCount">0</strong><span>Sắp diễn ra</span></div>
+        <div class="stat"><strong id="endedCount">0</strong><span>Đã kết thúc</span></div>
     </div>
 
     <h2 class="section-heading">DANH SÁCH <span>SỰ KIỆN</span></h2>
@@ -944,23 +993,14 @@ main{
     </div>
 
     <section class="updates-section">
-
         <div class="updates-header">
-            <h2 class="section-heading">
-                <span>🆕 CẬP NHẬT MỚI</span>
-            </h2>
-
-            <div class="updates-label">
-                ● THÔNG TIN MỚI
-            </div>
+            <h2 class="section-heading"><span>🆕 CẬP NHẬT MỚI</span></h2>
+            <div class="updates-label">● THÔNG TIN MỚI</div>
         </div>
 
         <div id="updatesList" class="updates-list">
-            <div class="update-empty">
-                Đang kiểm tra thông tin cập nhật...
-            </div>
+            <div class="update-empty">Đang kiểm tra thông tin cập nhật...</div>
         </div>
-
     </section>
 
 </main>
@@ -973,35 +1013,194 @@ main{
     </div>
 </footer>
 
+<!-- MODAL CHI TIẾT SỰ KIỆN -->
+
+<div class="detail-modal" id="eventModal"
+     role="dialog" aria-modal="true"
+     aria-labelledby="detailTitle"
+     onclick="closeEventModal(event)">
+
+    <div class="detail-box" onclick="event.stopPropagation()">
+
+        <button class="detail-close"
+                type="button"
+                onclick="closeEventModal()"
+                aria-label="Đóng">×</button>
+
+        <img id="detailBanner" class="detail-banner"
+             src="" alt="Banner sự kiện">
+
+        <div class="detail-body">
+
+            <h2 id="detailTitle" class="detail-title">Chi tiết sự kiện</h2>
+            <p id="detailOriginal" class="detail-original"></p>
+
+            <p id="detailDescription" class="detail-description"></p>
+
+            <div class="detail-info">
+                <div class="detail-info-item">
+                    <span>THỜI GIAN BẮT ĐẦU</span>
+                    <b id="detailStart">Chưa cập nhật</b>
+                </div>
+
+                <div class="detail-info-item">
+                    <span>THỜI GIAN KẾT THÚC</span>
+                    <b id="detailEnd">Chưa cập nhật</b>
+                </div>
+
+                <div class="detail-info-item">
+                    <span>TRẠNG THÁI</span>
+                    <b id="detailStatus">Chưa xác định</b>
+                </div>
+
+                <div class="detail-info-item">
+                    <span>MÃ SỰ KIỆN</span>
+                    <b id="detailCode">N/A</b>
+                </div>
+            </div>
+
+            <div class="main-item-section">
+                <h3 class="main-item-heading">
+                    🎁 VẬT PHẨM CHÍNH TRONG SỰ KIỆN
+                </h3>
+
+                <div id="mainItemContent">
+                    <p class="main-item-empty">
+                        Chưa nhận diện được vật phẩm chính.
+                    </p>
+                </div>
+            </div>
+
+            <a id="detailLink" class="detail-action"
+               href="#" target="_blank" rel="noopener" hidden>
+                XEM SỰ KIỆN ↗
+            </a>
+
+        </div>
+    </div>
+</div>
+
 <script>
 "use strict";
 
 /* =====================================
-   CẤU HÌNH
+   CẤU HÌNH FIREBASE ONLINE
+===================================== */
+
+const FIREBASE_CONFIG = {
+    apiKey:"AIzaSyBbDjvJ22cTcDT0UhHprTUV9Hbfe2aCW0",
+    authDomain:"online-54304.firebaseapp.com",
+    databaseURL:"https://online-54304-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId:"online-54304",
+    storageBucket:"online-54304.firebasestorage.app",
+    messagingSenderId:"480852659082",
+    appId:"1:480852659082:web:7c76718c1d143aefe95673",
+    measurementId:"G-9HL1926D4V"
+};
+
+function setOnlineText(value){
+    $("onlineText").textContent=value;
+}
+
+function initOnlineCounter(){
+    if(typeof firebase==="undefined"){
+        setOnlineText("N/A ONLINE");
+        return;
+    }
+
+    try{
+        if(!firebase.apps.length){
+            firebase.initializeApp(FIREBASE_CONFIG);
+        }
+
+        const db=firebase.database();
+        const sessions=db.ref("sitePresence/sessions");
+        const connected=db.ref(".info/connected");
+
+        const sessionId=window.crypto?.randomUUID
+            ? crypto.randomUUID()
+            : "session_"+Date.now()+"_"+Math.random().toString(36).slice(2);
+
+        const mine=sessions.child(sessionId);
+
+        connected.on("value",snap=>{
+            if(snap.val()!==true){
+                setOnlineText("N/A ONLINE");
+                return;
+            }
+
+            mine.onDisconnect().remove()
+                .then(()=>{
+                    return mine.set({
+                        connectedAt:firebase.database.ServerValue.TIMESTAMP,
+                        deviceType:/Mobi|Android|iPhone/i.test(navigator.userAgent)
+                            ?"Mobile":"Desktop"
+                    });
+                })
+                .catch(error=>{
+                    console.error("Presence error:",error);
+                    setOnlineText("N/A ONLINE");
+                });
+        });
+
+        sessions.on("value",snap=>{
+            setOnlineText(
+                "("+snap.numChildren().toLocaleString("vi-VN")+" ONLINE)"
+            );
+        },error=>{
+            console.error("Firebase read error:",error);
+            setOnlineText("N/A ONLINE");
+        });
+
+    }catch(error){
+        console.error("Firebase error:",error);
+        setOnlineText("N/A ONLINE");
+    }
+}
+
+/* =====================================
+   API VÀ SERVER
 ===================================== */
 
 const API_URL="/api/events";
 
 const SERVER_NAMES={
-    VN:"Việt Nam",
-    ID:"Indonesia",
-    TH:"Thái Lan",
-    SG:"Singapore",
-    BR:"Brazil",
-    US:"Hoa Kỳ",
-    TW:"Đài Loan",
-    IN:"Ấn Độ",
-    PK:"Pakistan",
-    BD:"Bangladesh",
-    EU:"Châu Âu",
-    ME:"Trung Đông",
-    RU:"Nga",
-    CIS:"CIS",
-    NA:"Bắc Mỹ",
-    SAC:"Nam Mỹ"
+    VN:"Việt Nam",ID:"Indonesia",TH:"Thái Lan",
+    SG:"Singapore",BR:"Brazil",US:"Hoa Kỳ",
+    TW:"Đài Loan",IN:"Ấn Độ",PK:"Pakistan",
+    BD:"Bangladesh",EU:"Châu Âu",ME:"Trung Đông",
+    RU:"Nga",CIS:"CIS",NA:"Bắc Mỹ",SAC:"Nam Mỹ"
 };
 
+const ITEM_ICON_BASE=
+    "https://kingofgames02.github.io/Free-Fire-Items-Library/ff-icons/";
+
+const $=id=>document.getElementById(id);
+
+let allEvents=[];
+let allUpdates=[];
+
+/* =====================================
+   TỪ ĐIỂN MÃ SỰ KIỆN
+===================================== */
+
+const EVENT_CODE_MAP={
+    TW1:"VQTO1",
+    DW1:"VQKB1",
+    TG1:"VQMM1",
+    LW1:"BXNP1",
+    MS1:"SHB1",
+    FW1:"VQBM1",
+    TT1:"VQ5BI1"
+};
+
+/* =====================================
+   TỪ ĐIỂN TIẾNG VIỆT
+===================================== */
+
 const EVENT_TITLE_VI={
+    "STORM ARENA":"GÓI TRANG PHỤC BÁ KHÍ",
+    "HOM XAC - DAU TRUONG BAO TO":"Hòm Xác - Đấu Trường Bão Tố",
     "BOOYAH PASS":"Thẻ Booyah",
     "BOOYAH PASS PREMIUM":"Thẻ Booyah Cao Cấp",
     "LUCKY ROYALE":"Vòng Quay May Mắn",
@@ -1024,34 +1223,54 @@ const EVENT_TITLE_VI={
     "SPECIAL EVENT":"Sự Kiện Đặc Biệt"
 };
 
+function convertEventCode(text){
+    if(!text) return "";
+
+    return String(text).replace(
+        /\b(TW1|DW1|TG1|LW1|MS1|FW1|TT1)(?=\s*[-:])/gi,
+        code=>EVENT_CODE_MAP[code.toUpperCase()]||code
+    );
+}
+
+function normalizeForDictionary(text){
+    return String(text||"")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/đ/g,"d")
+        .replace(/Đ/g,"D")
+        .replace(/\s+/g," ")
+        .trim()
+        .toUpperCase();
+}
+
 function translateTitle(title){
     if(!title) return "Sự kiện Free Fire";
 
-    const original=String(title).trim();
-    const upper=original.toUpperCase();
+    let original=convertEventCode(String(title).trim());
+    const normalized=normalizeForDictionary(original);
 
-    if(EVENT_TITLE_VI[upper]){
-        return EVENT_TITLE_VI[upper];
+    if(EVENT_TITLE_VI[normalized]){
+        return EVENT_TITLE_VI[normalized];
     }
 
     const translations=[
         [/\bLOGIN\b/gi,"Đăng Nhập"],
-        [/\bREWARD(S)?\b/gi,"Phần Thưởng"],
-        [/\bMISSION(S)?\b/gi,"Nhiệm Vụ"],
+        [/\bREWARDS?\b/gi,"Phần Thưởng"],
+        [/\bMISSIONS?\b/gi,"Nhiệm Vụ"],
         [/\bCOLLECTION\b/gi,"Bộ Sưu Tập"],
-        [/\bBUNDLE(S)?\b/gi,"Gói Trang Phục"],
-        [/\bEMOTE(S)?\b/gi,"Điệu Nhảy"],
-        [/\bWEAPON(S)?\b/gi,"Vũ Khí"],
-        [/\bSKIN(S)?\b/gi,"Trang Phục"],
+        [/\bBUNDLES?\b/gi,"Gói Trang Phục"],
+        [/\bEMOTES?\b/gi,"Điệu Nhảy"],
+        [/\bWEAPONS?\b/gi,"Vũ Khí"],
+        [/\bSKINS?\b/gi,"Trang Phục"],
         [/\bDAILY\b/gi,"Hằng Ngày"],
         [/\bWEEKLY\b/gi,"Hằng Tuần"],
         [/\bSPECIAL\b/gi,"Đặc Biệt"],
         [/\bFREE\b/gi,"Miễn Phí"],
-        [/\bEVENT(S)?\b/gi,"Sự Kiện"],
+        [/\bEVENTS?\b/gi,"Sự Kiện"],
         [/\bSPIN\b/gi,"Vòng Quay"],
         [/\bNEW\b/gi,"Mới"],
         [/\bSHOP\b/gi,"Cửa Hàng"],
-        [/\bGIFT(S)?\b/gi,"Quà Tặng"],
+        [/\bGIFTS?\b/gi,"Quà Tặng"],
         [/\bEXCHANGE\b/gi,"Đổi Quà"]
     ];
 
@@ -1068,11 +1287,6 @@ function translateTitle(title){
    TIỆN ÍCH
 ===================================== */
 
-const $=id=>document.getElementById(id);
-
-let allEvents=[];
-let allUpdates=[];
-
 function escapeHTML(value){
     return String(value??"").replace(/[&<>"']/g,char=>({
         "&":"&amp;",
@@ -1084,12 +1298,12 @@ function escapeHTML(value){
 }
 
 function firstValue(obj,keys){
-    if(!obj || typeof obj!=="object") return "";
+    if(!obj||typeof obj!=="object") return "";
 
     for(const key of keys){
         const value=obj[key];
 
-        if(value!==undefined && value!==null && value!==""){
+        if(value!==undefined&&value!==null&&value!==""){
             return value;
         }
     }
@@ -1098,9 +1312,7 @@ function firstValue(obj,keys){
 }
 
 function parseDate(value){
-    if(value===null || value===undefined || value===""){
-        return null;
-    }
+    if(value===null||value===undefined||value==="") return null;
 
     if(typeof value==="number"){
         const date=new Date(value<1000000000000?value*1000:value);
@@ -1122,9 +1334,7 @@ function formatDate(value){
     if(!date) return "Chưa cập nhật";
 
     return new Intl.DateTimeFormat("vi-VN",{
-        day:"2-digit",
-        month:"2-digit",
-        year:"numeric"
+        day:"2-digit",month:"2-digit",year:"numeric"
     }).format(date);
 }
 
@@ -1133,17 +1343,17 @@ function getStatus(start,end){
     const s=parseDate(start);
     const e=parseDate(end);
 
-    if(s && now<s.getTime()){
+    if(s&&now<s.getTime()){
         return {key:"upcoming",label:"Sắp diễn ra"};
     }
 
-    if(e && now>e.getTime()){
+    if(e&&now>e.getTime()){
         return {key:"ended",label:"Đã kết thúc"};
     }
 
     if(
-        (s && now>=s.getTime() && (!e || now<=e.getTime())) ||
-        (!s && e && now<=e.getTime())
+        (s&&now>=s.getTime()&&(!e||now<=e.getTime()))||
+        (!s&&e&&now<=e.getTime())
     ){
         return {key:"live",label:"Đang diễn ra"};
     }
@@ -1157,126 +1367,194 @@ function safeUrl(value){
     try{
         const url=new URL(String(value),location.origin);
 
-        if(url.protocol==="http:" || url.protocol==="https:"){
+        if(url.protocol==="http:"||url.protocol==="https:"){
             return url.href;
         }
-    }catch(e){}
+    }catch(error){}
 
     return "";
 }
 
-function getArray(source,keys){
-    for(const key of keys){
-        if(Array.isArray(source?.[key])){
-            return source[key];
-        }
-    }
-
-    return [];
-}
-
-/* =====================================
-   NHẬN DIỆN SỰ KIỆN
-===================================== */
-
-function normalizeEvent(item,index){
-    const title=firstValue(item,[
-        "title","name","event_name","eventName",
-        "event_title","eventTitle","heading"
-    ]);
-
-    return {
-        id:item.id||item.event_id||index,
-        title:translateTitle(title||`Sự kiện ${index+1}`),
-        originalTitle:title||"",
-        image:safeUrl(firstValue(item,[
-            "image","img","banner","thumbnail",
-            "image_url","imageUrl","cover"
-        ])),
-        start:firstValue(item,[
-            "start","start_date","startDate",
-            "start_time","startTime","begin","begin_at"
-        ]),
-        end:firstValue(item,[
-            "end","end_date","endDate",
-            "end_time","endTime","expire","expire_at"
-        ]),
-        description:firstValue(item,[
-            "description","desc","content",
-            "detail","message","text"
-        ])||"",
-        link:safeUrl(firstValue(item,[
-            "url","link","web_url","webUrl","redirect"
-        ]))
-    };
-}
-
-/* =====================================
-   NHẬN DIỆN CẬP NHẬT MỚI
-===================================== */
-
 function cleanText(value,depth=0){
-    if(value===null || value===undefined || depth>6){
-        return "";
-    }
+    if(value===null||value===undefined||depth>6) return "";
 
-    if(typeof value==="string" || typeof value==="number"){
+    if(typeof value==="string"||typeof value==="number"){
         return String(value).trim();
     }
 
     if(Array.isArray(value)){
-        return value
-            .map(item=>cleanText(item,depth+1))
-            .filter(Boolean)
-            .join("\n");
+        return value.map(item=>cleanText(item,depth+1))
+            .filter(Boolean).join("\n");
     }
 
     if(typeof value==="object"){
-        const preferred=[
+        for(const key of [
             "text","content","description","detail",
             "message","value","body","html"
-        ];
-
-        for(const key of preferred){
+        ]){
             if(value[key]!==undefined){
                 const result=cleanText(value[key],depth+1);
                 if(result) return result;
             }
         }
-
-        return "";
     }
 
     return "";
 }
 
 function findFieldDeep(obj,keys,depth=0){
-    if(!obj || typeof obj!=="object" || depth>5){
-        return "";
-    }
+    if(!obj||typeof obj!=="object"||depth>7) return null;
 
     for(const key of keys){
         if(
-            Object.prototype.hasOwnProperty.call(obj,key) &&
-            obj[key]!==null &&
-            obj[key]!==undefined &&
-            obj[key]!==""
+            Object.prototype.hasOwnProperty.call(obj,key)&&
+            obj[key]!==null&&obj[key]!==undefined&&obj[key]!==""
         ){
-            const result=cleanText(obj[key]);
-
-            if(result) return result;
+            const value=cleanText(obj[key]);
+            if(value) return value;
         }
     }
 
     for(const value of Object.values(obj)){
-        if(value && typeof value==="object"){
+        if(value&&typeof value==="object"){
             const result=findFieldDeep(value,keys,depth+1);
-            if(result) return result;
+            if(result!==null) return result;
         }
     }
 
+    return null;
+}
+
+/* =====================================
+   NHẬN DIỆN ITEM ID
+===================================== */
+
+function normalizeItemId(value){
+    if(value===null||value===undefined) return "";
+
+    const text=String(value).trim();
+
+    const match=text.match(
+        /(?:^|\/)(\d{6,12})(?:\.png)?(?:\?.*)?$/i
+    );
+
+    if(match) return match[1];
+
+    if(/^\d{6,12}$/.test(text)) return text;
+
     return "";
 }
+
+function extractMainItem(event){
+    const raw=event.raw||event;
+
+    const directKeys=[
+        "main_item_id",
+        "mainItemId",
+        "featured_item_id",
+        "featuredItemId",
+        "primary_item_id",
+        "primaryItemId",
+        "main_reward_id",
+        "mainRewardId",
+        "reward_item_id",
+        "rewardItemId",
+        "item_id",
+        "itemId",
+        "icon_id",
+        "iconId",
+        "itemID",
+        "rewardID"
+    ];
+
+    let id=normalizeItemId(
+        findFieldDeep(raw,directKeys)
+    );
+
+    if(!id){
+        const imageValue=findFieldDeep(raw,[
+            "item_icon","itemIcon",
+            "reward_icon","rewardIcon",
+            "item_image","itemImage",
+            "icon_url","iconUrl"
+        ]);
+
+        id=normalizeItemId(imageValue);
+    }
+
+    const name=findFieldDeep(raw,[
+        "main_item_name",
+        "mainItemName",
+        "featured_item_name",
+        "featuredItemName",
+        "item_name",
+        "itemName",
+        "reward_name",
+        "rewardName"
+    ]);
+
+    return {
+        id,
+        name:name?String(name):"",
+        image:id
+            ? ITEM_ICON_BASE+encodeURIComponent(id)+".png"
+            : ""
+    };
+}
+
+/* =====================================
+   CHUẨN HÓA SỰ KIỆN
+===================================== */
+
+function normalizeEvent(item,index){
+    const originalTitle=firstValue(item,[
+        "title","name","event_name","eventName",
+        "event_title","eventTitle","heading"
+    ])||`Sự kiện ${index+1}`;
+
+    const convertedTitle=convertEventCode(originalTitle);
+
+    const codeMatch=convertedTitle.match(
+        /\b(VQTO1|VQKB1|VQMM1|BXNP1|SHB1|VQBM1|VQ5BI1)\b/i
+    );
+
+    return {
+        id:item.id||item.event_id||index,
+        title:translateTitle(convertedTitle),
+        originalTitle:String(originalTitle),
+        eventCode:codeMatch?codeMatch[0]:"N/A",
+
+        image:safeUrl(firstValue(item,[
+            "image","img","banner","thumbnail",
+            "image_url","imageUrl","cover"
+        ])),
+
+        start:firstValue(item,[
+            "start","start_date","startDate",
+            "start_time","startTime","begin","begin_at"
+        ]),
+
+        end:firstValue(item,[
+            "end","end_date","endDate",
+            "end_time","endTime","expire","expire_at"
+        ]),
+
+        description:firstValue(item,[
+            "description","desc","content",
+            "detail","message","text"
+        ])||"",
+
+        link:safeUrl(firstValue(item,[
+            "url","link","web_url","webUrl","redirect"
+        ])),
+
+        raw:item
+    };
+}
+
+/* =====================================
+   NHẬN DIỆN UPDATES
+===================================== */
 
 function normalizeUpdate(item,index){
     if(typeof item==="string"){
@@ -1290,49 +1568,42 @@ function normalizeUpdate(item,index){
         };
     }
 
-    const title=findFieldDeep(item,[
-        "title","name","heading","subject",
-        "update_title","news_title","announcement_title"
-    ]);
-
-    const description=findFieldDeep(item,[
-        "description","desc","content","detail",
-        "details","message","text","body","note",
-        "summary","paragraph","long_description",
-        "full_description","update_content",
-        "news_content","announcement",
-        "information","html","post_content"
-    ]);
-
     return {
-        title:title||`Thông tin cập nhật ${index+1}`,
-        description:description||"",
+        title:findFieldDeep(item,[
+            "title","name","heading","subject",
+            "update_title","news_title","announcement_title"
+        ])||`Thông tin cập nhật ${index+1}`,
+
+        description:findFieldDeep(item,[
+            "description","desc","content","detail",
+            "details","message","text","body","note",
+            "summary","paragraph","full_description",
+            "update_content","news_content","announcement",
+            "information","html","post_content"
+        ])||"",
+
         date:findFieldDeep(item,[
             "date","time","created_at","createdAt",
             "updated_at","updatedAt","published_at","timestamp"
-        ]),
+        ])||"",
+
         author:findFieldDeep(item,[
             "author","by","publisher","source_name"
-        ]),
+        ])||"",
+
         image:safeUrl(findFieldDeep(item,[
             "image","img","banner","thumbnail",
             "image_url","cover","picture"
         ])),
+
         link:safeUrl(findFieldDeep(item,[
             "url","link","web_url","webUrl","source_url"
         ]))
     };
 }
 
-/*
-  Tìm các danh sách cập nhật trong JSON.
-  Hỗ trợ nhiều cấu trúc lồng nhau.
-*/
-
 function extractUpdateArray(source,depth=0){
-    if(!source || typeof source!=="object" || depth>5){
-        return [];
-    }
+    if(!source||typeof source!=="object"||depth>6) return [];
 
     const keys=[
         "updates","update","news","changes",
@@ -1343,99 +1614,60 @@ function extractUpdateArray(source,depth=0){
     for(const key of keys){
         const value=source[key];
 
-        if(Array.isArray(value)){
-            return value;
-        }
+        if(Array.isArray(value)) return value;
 
-        if(value && typeof value==="object"){
+        if(value&&typeof value==="object"){
             if(
-                value.title || value.name ||
-                value.content || value.description ||
-                value.text || value.message
+                value.title||value.name||
+                value.content||value.description||
+                value.text||value.message
             ){
                 return [value];
             }
 
             const nested=extractUpdateArray(value,depth+1);
-
             if(nested.length) return nested;
         }
     }
 
     for(const value of Object.values(source)){
-        if(value && typeof value==="object"){
+        if(value&&typeof value==="object"){
             const nested=extractUpdateArray(value,depth+1);
             if(nested.length) return nested;
         }
-    }
-
-    return [];
-}
-
-/*
-  Một số API trả một object cập nhật trực tiếp
-  thay vì bọc trong mảng updates/news.
-*/
-
-function findStandaloneUpdate(source){
-    if(!source || typeof source!=="object") return [];
-
-    const hasTitle=!!findFieldDeep(source,[
-        "update_title","news_title","announcement_title"
-    ]);
-
-    const hasContent=!!findFieldDeep(source,[
-        "update_content","news_content","post_content"
-    ]);
-
-    if(hasTitle || hasContent){
-        return [source];
     }
 
     return [];
 }
 
 function extractPayload(json){
-    const roots=[];
-
-    function addRoot(value){
-        if(value && typeof value==="object" && !roots.includes(value)){
-            roots.push(value);
-        }
-    }
-
-    addRoot(json);
-    addRoot(json?.data);
-    addRoot(json?.result);
-    addRoot(json?.response);
+    const roots=[
+        json,
+        json?.data,
+        json?.result,
+        json?.response
+    ].filter(value=>value&&typeof value==="object");
 
     const events=[];
     let updates=[];
 
     for(const root of roots){
-        events.push(
-            ...getArray(root,[
-                "events","event","banners","items"
-            ])
-        );
+        if(Array.isArray(root)){
+            events.push(...root);
+        }else{
+            for(const key of ["events","event","banners","items"]){
+                if(Array.isArray(root[key])){
+                    events.push(...root[key]);
+                }
+            }
+        }
 
         if(!updates.length){
             updates=extractUpdateArray(root);
         }
     }
 
-    if(!updates.length){
-        updates=findStandaloneUpdate(json);
-    }
-
-    if(!events.length && Array.isArray(json)){
-        events.push(...json);
-    }
-
-    return {
-        events,
-        updates
-    };
+    return {events,updates};
 }
 
 /* =====================================
@@ -1461,9 +1693,7 @@ async function loadEvents(){
             {
                 method:"GET",
                 cache:"no-store",
-                headers:{
-                    "Accept":"application/json"
-                }
+                headers:{"Accept":"application/json"}
             }
         );
 
@@ -1486,6 +1716,9 @@ async function loadEvents(){
     }catch(error){
         console.error("API ERROR:",error);
 
+        allEvents=[];
+        allUpdates=[];
+
         grid.innerHTML=`
           <div class="empty error">
             <b>Không thể tải dữ liệu sự kiện.</b><br>
@@ -1493,9 +1726,6 @@ async function loadEvents(){
             Kiểm tra API /api/events trên Vercel.
           </div>
         `;
-
-        allEvents=[];
-        allUpdates=[];
 
         updateStats();
         renderUpdates();
@@ -1507,7 +1737,7 @@ async function loadEvents(){
 }
 
 /* =====================================
-   HIỂN THỊ SỰ KIỆN
+   THỐNG KÊ
 ===================================== */
 
 function updateStats(){
@@ -1528,6 +1758,10 @@ function updateStats(){
     $("endedCount").textContent=counts.ended;
 }
 
+/* =====================================
+   HIỂN THỊ DANH SÁCH SỰ KIỆN
+===================================== */
+
 function renderEvents(){
     const grid=$("eventsGrid");
     const keyword=$("searchInput").value.trim().toLowerCase();
@@ -1537,42 +1771,47 @@ function renderEvents(){
         const status=getStatus(event.start,event.end);
 
         const matchesStatus=
-            filter==="all" || status.key===filter;
+            filter==="all"||status.key===filter;
 
         const matchesSearch=
-            !keyword ||
-            event.title.toLowerCase().includes(keyword) ||
-            event.description.toLowerCase().includes(keyword) ||
+            !keyword||
+            event.title.toLowerCase().includes(keyword)||
+            event.description.toLowerCase().includes(keyword)||
             event.originalTitle.toLowerCase().includes(keyword);
 
-        return matchesStatus && matchesSearch;
+        return matchesStatus&&matchesSearch;
     });
 
     updateStats();
 
     if(!filtered.length){
-        grid.innerHTML=`
-          <div class="empty">
-            Không tìm thấy sự kiện phù hợp.
-          </div>
-        `;
+        grid.innerHTML='<div class="empty">Không tìm thấy sự kiện phù hợp.</div>';
         return;
     }
 
     grid.innerHTML=filtered.map(event=>{
         const status=getStatus(event.start,event.end);
+        const item=extractMainItem(event);
 
-        const image=event.image ||
-          "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
+        const image=event.image||
+            "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
 
-        const link=event.link
-          ? `<a class="event-link"
-                 href="${escapeHTML(event.link)}"
-                 target="_blank"
-                 rel="noopener">
-                 XEM CHI TIẾT SỰ KIỆN ↗
-             </a>`
-          : "";
+        const itemPreview=item.id?`
+            <div class="card-item">
+                <img src="${escapeHTML(item.image)}"
+                     alt="Item ${escapeHTML(item.id)}"
+                     loading="lazy"
+                     onerror="this.parentElement.style.display='none'">
+                <div>
+                    <div class="card-item-name">
+                        ${escapeHTML(item.name||"Vật phẩm chính")}
+                    </div>
+                    <div class="card-item-id">
+                        ID: ${escapeHTML(item.id)}
+                    </div>
+                </div>
+            </div>
+        `:"";
 
         return `
           <article class="event-card">
@@ -1590,6 +1829,7 @@ function renderEvents(){
             </div>
 
             <div class="event-content">
+
               <h3 class="event-title">
                 ${escapeHTML(event.title)}
               </h3>
@@ -1601,27 +1841,125 @@ function renderEvents(){
               }
 
               <div class="event-date">
-                <div>
-                  🟢 Thời gian bắt đầu:
-                  <b>${formatDate(event.start)}</b>
-                </div>
-
-                <div>
-                  🔴 Thời gian kết thúc:
-                  <b>${formatDate(event.end)}</b>
-                </div>
+                <div>🟢 Bắt đầu: <b>${formatDate(event.start)}</b></div>
+                <div>🔴 Kết thúc: <b>${formatDate(event.end)}</b></div>
               </div>
 
-              ${link}
-            </div>
+              ${itemPreview}
 
+              <button class="event-detail-btn"
+                      type="button"
+                      data-event-id="${escapeHTML(String(event.id))}"
+                      onclick="openEventDetail(this.dataset.eventId)">
+                XEM CHI TIẾT SỰ KIỆN ↗
+              </button>
+
+            </div>
           </article>
         `;
     }).join("");
 }
 
 /* =====================================
-   HIỂN THỊ CẬP NHẬT MỚI
+   CHI TIẾT SỰ KIỆN
+===================================== */
+
+function openEventDetail(id){
+    const event=allEvents.find(
+        item=>String(item.id)===String(id)
+    );
+
+    if(!event) return;
+
+    const status=getStatus(event.start,event.end);
+    const item=extractMainItem(event);
+
+    $("detailTitle").textContent=event.title;
+
+    $("detailOriginal").textContent=
+        event.originalTitle!==event.title
+        ?"Tên gốc: "+event.originalTitle
+        :"";
+
+    $("detailDescription").textContent=
+        event.description||
+        "Sự kiện chưa có mô tả chi tiết từ API.";
+
+    $("detailStart").textContent=formatDate(event.start);
+    $("detailEnd").textContent=formatDate(event.end);
+    $("detailStatus").textContent=status.label;
+    $("detailCode").textContent=event.eventCode||"N/A";
+
+    const banner=$("detailBanner");
+
+    banner.src=event.image||
+        "https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
+
+    banner.onerror=function(){
+        this.onerror=null;
+        this.src="https://azerst-image-vn.vercel.app/images/Taogamingvn.jpg";
+    };
+
+    const itemContainer=$("mainItemContent");
+
+    if(item.id){
+        itemContainer.innerHTML=`
+            <div class="main-item-content">
+                <img class="main-item-image"
+                     src="${escapeHTML(item.image)}"
+                     alt="Vật phẩm ${escapeHTML(item.id)}"
+                     onerror="this.style.display='none'">
+
+                <div>
+                    <div class="main-item-name">
+                        ${escapeHTML(item.name||"Vật phẩm sự kiện")}
+                    </div>
+
+                    <div class="main-item-id">
+                        ITEM ID: ${escapeHTML(item.id)}
+                    </div>
+                </div>
+            </div>
+        `;
+    }else{
+        itemContainer.innerHTML=`
+            <p class="main-item-empty">
+                Chưa tìm thấy ID vật phẩm chính trong dữ liệu API.
+                Cần API cung cấp trường item_id hoặc reward_item_id
+                để hiển thị chính xác.
+            </p>
+        `;
+    }
+
+    const detailLink=$("detailLink");
+
+    if(event.link){
+        detailLink.href=event.link;
+        detailLink.hidden=false;
+    }else{
+        detailLink.hidden=true;
+        detailLink.removeAttribute("href");
+    }
+
+    $("eventModal").classList.add("active");
+    document.body.style.overflow="hidden";
+}
+
+function closeEventModal(event){
+    if(event&&event.target!==$("eventModal")) return;
+
+    $("eventModal").classList.remove("active");
+    document.body.style.overflow="";
+}
+
+document.addEventListener("keydown",event=>{
+    if(event.key==="Escape"){
+        closeEventModal();
+    }
+});
+
+/* =====================================
+   CẬP NHẬT MỚI
 ===================================== */
 
 function renderUpdates(){
@@ -1641,52 +1979,20 @@ function renderUpdates(){
     }
 
     list.innerHTML=allUpdates.map((item,index)=>{
-        const id=`update-detail-${index}`;
+        const id="update-detail-"+index;
         const description=item.description||"";
         const long=description.length>220;
 
-        const image=item.image
-            ? `<img class="update-image"
-                    src="${escapeHTML(item.image)}"
-                    alt=""
-                    loading="lazy"
-                    onerror="this.style.display='none'">`
-            : "";
-
-        const descriptionHTML=description
-            ? `<p id="${id}" class="update-description ${long?"collapsed":""}">${escapeHTML(description)}</p>`
-            : `<p class="update-description">CHƯA CÓ THÔNG TIN NÀO ĐƯỢC GƯI BỜI TÁO GAMING VN 🔥</p>`;
-
-        const moreButton=long
-            ? `<button class="update-more"
-                       type="button"
-                       aria-expanded="false"
-                       onclick="toggleUpdate('${id}',this)">
-                    Xem thêm ↓
-               </button>`
-            : "";
-
-        const sourceLink=item.link
-            ? `<a class="update-link"
-                  href="${escapeHTML(item.link)}"
-                  target="_blank"
-                  rel="noopener">Xem nguồn ↗</a>`
-            : "";
-
         return `
           <article class="update-card">
-
             <div class="update-icon">📢</div>
 
             <div class="update-main">
 
               <div class="update-topline">
                 <span class="update-tag">CẬP NHẬT MỚI</span>
-
                 <span class="update-date">
-                  ${item.date
-                    ? "📅 "+escapeHTML(formatDate(item.date))
-                    : ""}
+                  ${item.date?escapeHTML(formatDate(item.date)):""}
                 </span>
               </div>
 
@@ -1694,21 +2000,48 @@ function renderUpdates(){
                 ${escapeHTML(item.title)}
               </h3>
 
-              ${image}
+              ${
+                item.image
+                ? `<img class="update-image"
+                        src="${escapeHTML(item.image)}"
+                        alt=""
+                        loading="lazy"
+                        onerror="this.style.display='none'">`
+                :""
+              }
 
-              ${descriptionHTML}
+              <p id="${id}"
+                 class="update-description ${long?"collapsed":""}">
+                ${escapeHTML(description||"API chưa cung cấp nội dung chi tiết.")}
+              </p>
 
               <div class="update-bottom">
-
                 <span class="update-author">
                   ${item.author
-                    ? "Nguồn: "+escapeHTML(item.author)
-                    : "SỰ KIỆN FREE FIRE NEW"}
+                    ?"Nguồn: "+escapeHTML(item.author)
+                    :"SỰ KIỆN FREE FIRE NEW"}
                 </span>
 
-                ${moreButton}
-                ${sourceLink}
+                ${
+                    long
+                    ? `<button class="update-more"
+                               type="button"
+                               aria-expanded="false"
+                               onclick="toggleUpdate('${id}',this)">
+                          Xem thêm ↓
+                       </button>`
+                    :""
+                }
 
+                ${
+                    item.link
+                    ? `<a class="update-link"
+                          href="${escapeHTML(item.link)}"
+                          target="_blank" rel="noopener">
+                          Xem nguồn ↗
+                       </a>`
+                    :""
+                }
               </div>
 
             </div>
@@ -1719,33 +2052,23 @@ function renderUpdates(){
 
 function toggleUpdate(id,button){
     const description=$(id);
-
     if(!description) return;
 
     const expanded=button.getAttribute("aria-expanded")==="true";
 
     description.classList.toggle("collapsed",expanded);
+    button.setAttribute("aria-expanded",String(!expanded));
 
-    button.setAttribute(
-        "aria-expanded",
-        String(!expanded)
-    );
-
-    button.textContent=expanded
-        ? "Xem thêm ↓"
-        : "Thu gọn ↑";
+    button.textContent=expanded?"Xem thêm ↓":"Thu gọn ↑";
 }
 
 /* =====================================
-   ĐIỀU KHIỂN
+   SỰ KIỆN ĐIỀU KHIỂN
 ===================================== */
 
 $("serverSelect").addEventListener("change",loadEvents);
-
 $("statusFilter").addEventListener("change",renderEvents);
-
 $("searchInput").addEventListener("input",renderEvents);
-
 $("refreshBtn").addEventListener("click",loadEvents);
 
 /* =====================================
@@ -1753,6 +2076,7 @@ $("refreshBtn").addEventListener("click",loadEvents);
 ===================================== */
 
 loadEvents();
+initOnlineCounter();
 
 setInterval(()=>{
     renderEvents();
