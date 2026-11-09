@@ -1,7 +1,8 @@
-const ALLOWED_REGIONS = [
+
+const ALLOWED_REGIONS = new Set([
   "VN", "SG", "ID", "TH", "TW", "BR", "US", "SAC",
   "NA", "EU", "ME", "IND", "PK", "BD", "RU", "CIS"
-];
+]);
 
 module.exports = async (req, res) => {
   res.setHeader("Cache-Control", "no-store");
@@ -11,78 +12,75 @@ module.exports = async (req, res) => {
     res.setHeader("Allow", "GET");
     return res.status(405).json({
       success: false,
-      error: "Method Not Allowed"
+      error: "Chỉ hỗ trợ phương thức GET."
     });
   }
 
-  const region = String(req.query.region || "VN")
-    .trim()
-    .toUpperCase();
+  const rawRegion = (req.query && req.query.region) || "VN";
+  const region = String(rawRegion).trim().toUpperCase();
 
-  if (!ALLOWED_REGIONS.includes(region)) {
+  if (!ALLOWED_REGIONS.has(region)) {
     return res.status(400).json({
       success: false,
-      error: "Khu vực không hợp lệ."
+      error: "Mã khu vực không hợp lệ.",
+      allowedRegions: Array.from(ALLOWED_REGIONS)
     });
   }
 
-  const apiKey =
-    process.env.DANGER_EVENT_KEY || "DANGERxEVENT";
+  const apiKey = process.env.DANGER_EVENT_KEY || "DANGERxEVENT";
 
-  const apiUrl = new URL(
+  const upstream = new URL(
     "https://danger-event-info.vercel.app/event"
   );
 
-  apiUrl.searchParams.set("region", region);
-  apiUrl.searchParams.set("key", apiKey);
+  upstream.searchParams.set("region", region);
+  upstream.searchParams.set("key", apiKey);
 
   const controller = new AbortController();
-  const timeout = setTimeout(
-    () => controller.abort(),
-    15000
-  );
+  const timeout = setTimeout(() => controller.abort(), 15000);
 
   try {
-    const response = await fetch(apiUrl.toString(), {
+    const response = await fetch(upstream.toString(), {
       method: "GET",
-      headers: {
-        Accept: "application/json"
-      },
+      headers: {Accept: "application/json"},
       signal: controller.signal
     });
 
-    const text = await response.text();
-
-    let data;
+    const bodyText = await response.text();
+    let payload;
 
     try {
-      data = JSON.parse(text);
+      payload = JSON.parse(bodyText);
     } catch {
       return res.status(502).json({
         success: false,
-        error: "API nguồn không trả về JSON hợp lệ."
+        error: "API sự kiện trả về dữ liệu không phải JSON.",
+        upstreamStatus: response.status
       });
     }
 
     if (!response.ok) {
       return res.status(response.status).json({
         success: false,
-        error: "API nguồn phản hồi lỗi.",
+        error: "Máy chủ dữ liệu sự kiện phản hồi lỗi.",
         upstreamStatus: response.status,
-        details: data
+        details: payload
       });
     }
 
-    return res.status(200).json(data);
+    return res.status(200).json(payload);
 
   } catch (error) {
-    return res.status(
-      error.name === "AbortError" ? 504 : 502
-    ).json({
+    const timedOut = error && error.name === "AbortError";
+
+    return res.status(timedOut ? 504 : 502).json({
       success: false,
-      error: error.name === "AbortError"
-        ? "API phản hồi quá thời gian chờ."
-        : "Không thể kết nối API nguồn."
+      error: timedOut
+        ? "Máy chủ dữ liệu phản hồi quá thời gian chờ."
+        : "Không thể kết nối máy chủ dữ liệu sự kiện.",
+      details: error && error.message
+        ? error.message
+        : "Unknown error"
     });
 
   } finally {
