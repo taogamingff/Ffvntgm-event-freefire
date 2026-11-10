@@ -1209,44 +1209,20 @@ async function translateTitleToEnglish(text){
 }
 
 /* =========================================
-   CHỈ XỬ LÝ TITLE
-   EVENT NAME, DESCRIPTION VÀ UPDATES GIỮ NGUYÊN
+   CHỈ CHUYỂN ĐỔI MÃ EVENT NAME
+   Không dịch tên sự kiện, mô tả hoặc cập nhật.
 ========================================= */
 
 async function translateAllContent(){
-    const info=$("translationInfo");
-    const status=$("translationStatus");
+    allEvents=allEvents.map(event=>({
+        ...event,
+        title:convertEventCode(event.title),
+        eventName:event.eventName?convertEventCode(event.eventName):""
+    }));
 
-    info.classList.add("translating");
-    status.textContent="Đang dịch trường Title sang tiếng Anh...";
-
-    try{
-        const tasks=allEvents
-            .filter(event=>event.titleIsTranslatable)
-            .map(event=>async()=>{
-                event.title=await translateTitleToEnglish(event.title);
-                event.title=convertEventCode(event.title);
-            });
-
-        const concurrency=3;
-
-        for(let i=0;i<tasks.length;i+=concurrency){
-            await Promise.all(tasks.slice(i,i+concurrency).map(task=>task()));
-            renderEvents();
-        }
-
-        status.textContent=
-            "Đã xử lý Title sang tiếng Anh. Event Name và nội dung khác được giữ nguyên.";
-
-    }catch(error){
-        console.error("TITLE TRANSLATION ERROR:",error);
-        status.textContent=
-            "Không thể dịch một số Title. Dữ liệu gốc vẫn được giữ nguyên.";
-    }finally{
-        info.classList.remove("translating");
-        renderEvents();
-        renderUpdates();
-    }
+    renderEvents();
+    $("translationStatus").textContent=
+        "Đã chuyển đổi mã Event Name theo danh sách quy định. Tên và nội dung API được giữ nguyên.";
 }
 
 /* =========================================
@@ -1477,8 +1453,8 @@ function normalizeEvent(item,index){
         "event_name","eventName","name"
     ]);
 
-    const originalTitle=titleValue||
-        eventNameValue||
+    const originalTitle=eventNameValue||
+        titleValue||
         `Sự kiện ${index+1}`;
 
     const rawCode=firstValue(item,[
@@ -1495,12 +1471,8 @@ function normalizeEvent(item,index){
 
         title:convertEventCode(originalTitle),
 
-        /* Chỉ true khi API có trường Title riêng.
-           Nếu chỉ có Event Name/Name thì tuyệt đối không dịch. */
-        titleIsTranslatable:!!titleValue,
-
-        /* Giữ nguyên Event Name từ API, không dịch. */
-        eventName:eventNameValue?String(eventNameValue):"",
+        /* Event Name là dữ liệu gốc của API; chỉ chuyển đổi mã sự kiện. */
+        eventName:eventNameValue?convertEventCode(String(eventNameValue)):"",
 
         eventCode,
 
@@ -1519,10 +1491,10 @@ function normalizeEvent(item,index){
             "end_time","endTime","expire","expire_at"
         ]),
 
-        description:convertEventCode(firstValue(item,[
+        description:firstValue(item,[
             "description","desc","content",
             "detail","message","text"
-        ])||""),
+        ])||"",
 
         link:safeUrl(firstValue(item,[
             "url","link","web_url","webUrl","redirect"
@@ -1540,7 +1512,7 @@ function normalizeUpdate(item,index){
     if(typeof item==="string"){
         return {
             title:`Thông tin cập nhật ${index+1}`,
-            description:convertEventCode(item),
+            description:item,
             date:"",
             author:"",
             image:"",
@@ -1549,15 +1521,15 @@ function normalizeUpdate(item,index){
     }
 
     return {
-        title:convertEventCode(findDeepText(item,[
+        title:findDeepText(item,[
             "title","name","heading","subject","update_title","news_title","announcement_title"
-        ])||`Thông tin cập nhật ${index+1}`),
+        ])||`Thông tin cập nhật ${index+1}`,
 
-        description:convertEventCode(findDeepText(item,[
+        description:findDeepText(item,[
             "description","desc","content","detail","details","message","text","body",
             "note","summary","paragraph","full_description","update_content",
             "news_content","announcement","information","html","post_content"
-        ])||""),
+        ])||"",
 
         date:findDeepText(item,[
             "date","time","created_at","createdAt","updated_at","updatedAt",
@@ -1653,7 +1625,7 @@ async function loadEvents(){
     $("serverName").textContent=SERVER_NAMES[server]||server;
     $("serverCode").textContent=server;
 
-    $("translationStatus").textContent="Đang nhận dữ liệu sự kiện...";
+    $("translationStatus").textContent="Đang tải Event Name và chuyển đổi mã sự kiện...";
     $("translationInfo").classList.add("translating");
 
     try{
@@ -1710,7 +1682,7 @@ async function loadEvents(){
         renderUpdates();
 
         $("translationInfo").classList.remove("translating");
-        $("translationStatus").textContent="Chưa có dữ liệu để dịch.";
+        $("translationStatus").textContent="Chưa có dữ liệu sự kiện để chuyển đổi mã.";
 
     }finally{
         button.disabled=false;
