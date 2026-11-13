@@ -50,12 +50,7 @@ button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 a{color:inherit}
 [hidden]{display:none!important}
-
-input,textarea,select{
-    -webkit-user-select:text;
-    user-select:text;
-}
-
+input,textarea,select{-webkit-user-select:text;user-select:text}
 .container{width:min(1240px,94%);margin:auto}
 
 .header{
@@ -65,7 +60,6 @@ input,textarea,select{
     background:linear-gradient(115deg,#17131b,#21150e,#101018);
     border-bottom:1px solid #ff8a0030;
 }
-
 .header:after{
     content:"";
     position:absolute;
@@ -75,269 +69,147 @@ input,textarea,select{
     background:#ff79002b;
     filter:blur(80px);
 }
-
 .header-inner{position:relative;z-index:1}
-
 .topbar,.brand,.hero,.updates-header,.update-topline,.update-bottom{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
+    display:flex;align-items:center;justify-content:space-between;gap:15px;
 }
-
 .brand{justify-content:flex-start;min-width:0}
 .brand-logo{width:54px;height:54px;object-fit:contain;border-radius:13px}
 .brand h1{font-size:clamp(15px,2.5vw,23px);color:var(--yellow)}
 .brand p{color:#aaa;font-size:10px;margin-top:5px}
-
 .tiktok{
-    flex-shrink:0;
-    text-decoration:none;
-    padding:10px 14px;
-    border:1px solid #ffffff20;
-    background:#ffffff0c;
-    border-radius:9px;
-    font-size:11px;
+    flex-shrink:0;text-decoration:none;padding:10px 14px;
+    border:1px solid #ffffff20;background:#ffffff0c;
+    border-radius:9px;font-size:11px;
 }
 .tiktok:hover{border-color:var(--orange)}
 
 .hero{
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    align-items:center;
-    margin-top:32px;
+    display:grid;grid-template-columns:1.2fr .8fr;
+    align-items:center;margin-top:32px;
 }
 .hero h2{font-size:clamp(28px,5vw,48px);line-height:1.15}
 .hero h2 span{color:var(--orange);text-shadow:0 0 25px #ff79004a}
 .hero p{
-    color:#b9b9c7;
-    font:13px/1.8 Arial,sans-serif;
-    margin-top:13px;
-    max-width:570px;
+    color:#b9b9c7;font:13px/1.8 Arial,sans-serif;
+    margin-top:13px;max-width:570px;
 }
 .hero-image{
-    width:100%;
-    max-height:190px;
-    object-fit:cover;
-    border-radius:14px;
-    border:1px solid #ffffff20;
+    width:100%;max-height:190px;object-fit:cover;
+    border-radius:14px;border:1px solid #ffffff20;
 }
 
 main{padding:30px 0 55px}
-
 .section-heading{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:19px;
-    margin-bottom:16px;
+    display:flex;align-items:center;gap:10px;
+    font-size:19px;margin-bottom:16px;
 }
 .section-heading:before{
-    content:"";
-    width:4px;
-    height:22px;
-    border-radius:5px;
-    background:var(--orange);
-    box-shadow:0 0 12px #ff790080;
+    content:"";width:4px;height:22px;border-radius:5px;
+    background:var(--orange);box-shadow:0 0 12px #ff790080;
 }
 .section-heading span{color:var(--yellow)}
 
 .toolbar{
-    display:grid;
-    grid-template-columns:1.1fr 1fr 1.3fr auto;
-    gap:10px;
-    margin-bottom:15px;
+    display:grid;grid-template-columns:1.1fr 1fr 1.3fr auto;
+    gap:10px;margin-bottom:15px;
 }
 .control{
-    width:100%;
-    min-width:0;
-    padding:12px 13px;
-    color:white;
-    background:#171720;
-    border:1px solid #ffffff19;
-    border-radius:9px;
-    outline:none;
-    font-size:12px;
+    width:100%;min-width:0;padding:12px 13px;color:white;
+    background:#171720;border:1px solid #ffffff19;
+    border-radius:9px;outline:none;font-size:12px;
 }
-.control:focus{
-    border-color:var(--orange);
-    box-shadow:0 0 0 3px #ff790018;
-}
+.control:focus{border-color:var(--orange);box-shadow:0 0 0 3px #ff790018}
 .control option{background:#171720}
-
 .refresh-btn{
-    border:0;
-    padding:12px 17px;
-    color:#fff;
-    border-radius:9px;
-    background:linear-gradient(135deg,#ff9b24,#f05a00);
-    font-size:12px;
+    border:0;padding:12px 17px;color:#fff;border-radius:9px;
+    background:linear-gradient(135deg,#ff9b24,#f05a00);font-size:12px;
 }
 .refresh-btn:disabled{opacity:.6;cursor:wait}
-
 .server-info{color:var(--muted);font-size:11px;margin-bottom:20px}
 .server-info b{color:var(--yellow)}
 
 .translation-info{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:10px 12px;
-    margin-bottom:20px;
-    color:#c6c6d0;
-    background:#171720;
-    border:1px solid #ffffff15;
-    border-radius:8px;
-    font:11px/1.6 Arial,sans-serif;
+    display:flex;align-items:center;gap:8px;padding:10px 12px;
+    margin-bottom:20px;color:#c6c6d0;background:#171720;
+    border:1px solid #ffffff15;border-radius:8px;font:11px/1.6 Arial,sans-serif;
 }
-.translation-dot{
-    width:8px;
-    height:8px;
-    border-radius:50%;
-    background:#21cf83;
-    flex-shrink:0;
-}
+.translation-dot{width:8px;height:8px;border-radius:50%;background:#21cf83;flex-shrink:0}
 .translation-info.translating .translation-dot{
-    background:var(--yellow);
-    animation:pulse 1s infinite;
+    background:var(--yellow);animation:pulse 1s infinite;
 }
 @keyframes pulse{50%{opacity:.3}}
 
 .stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-bottom:30px;
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:12px;margin-bottom:30px;
 }
 .stat{
-    padding:17px 12px;
-    text-align:center;
+    padding:17px 12px;text-align:center;
     background:linear-gradient(145deg,#1d1d29,#12121a);
-    border:1px solid var(--line);
-    border-radius:12px;
+    border:1px solid var(--line);border-radius:12px;
 }
 .stat strong{display:block;color:var(--yellow);font-size:27px}
 .stat span{color:var(--muted);font-size:10px}
 
 .events-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:17px;
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;
 }
 .event-card{
-    min-width:0;
-    overflow:hidden;
+    min-width:0;overflow:hidden;
     background:linear-gradient(145deg,#1b1b27,#111119);
-    border:1px solid #ffffff15;
-    border-radius:13px;
-    transition:.25s;
+    border:1px solid #ffffff15;border-radius:13px;transition:.25s;
+    scroll-margin-top:25px;
 }
 .event-card:hover{
-    transform:translateY(-4px);
-    border-color:#ff8a0066;
+    transform:translateY(-4px);border-color:#ff8a0066;
     box-shadow:0 12px 30px #0007;
 }
-.event-image-wrap{
-    height:180px;
-    position:relative;
-    overflow:hidden;
-    background:#252532;
+.event-card.event-highlight{
+    border:2px solid var(--orange);
+    box-shadow:0 0 0 4px #ff790025,0 0 25px #ff790055;
+    animation:eventHighlight 1.2s ease-in-out 2;
 }
-.event-image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:transform .4s;
+@keyframes eventHighlight{
+    50%{box-shadow:0 0 0 7px #ff790020,0 0 35px #ff790077}
 }
+.event-image-wrap{height:180px;position:relative;overflow:hidden;background:#252532}
+.event-image{width:100%;height:100%;object-fit:cover;transition:transform .4s}
 .event-card:hover .event-image{transform:scale(1.04)}
-
 .status{
-    position:absolute;
-    top:11px;
-    left:11px;
-    padding:7px 10px;
-    border-radius:6px;
-    color:white;
-    font-size:10px;
-    background:#555;
+    position:absolute;top:11px;left:11px;padding:7px 10px;
+    border-radius:6px;color:white;font-size:10px;background:#555;
 }
 .status.live{background:#117b4b}
 .status.upcoming{background:#a35a0b}
 .status.ended{background:#8a3030}
 .status.unknown{background:#55556a}
-
 .event-content{padding:15px}
-.event-title{
-    font-size:15px;
-    line-height:1.5;
-    min-height:43px;
-    overflow-wrap:anywhere;
-}
-.event-code-label{
-    margin-top:7px;
-    color:var(--yellow);
-    font:11px/1.6 Arial,sans-serif;
-    overflow-wrap:anywhere;
-}
-.event-desc{
-    margin-top:9px;
-    color:#aaaaba;
-    font:12px/1.7 Arial,sans-serif;
-    overflow-wrap:anywhere;
-}
+.event-title{font-size:15px;line-height:1.5;min-height:43px;overflow-wrap:anywhere}
+.event-code-label{margin-top:7px;color:var(--yellow);font:11px/1.6 Arial,sans-serif;overflow-wrap:anywhere}
+.event-desc{margin-top:9px;color:#aaaaba;font:12px/1.7 Arial,sans-serif;overflow-wrap:anywhere}
 .event-date{
-    display:grid;
-    gap:9px;
-    padding-top:13px;
-    margin-top:12px;
-    border-top:1px solid #ffffff12;
-    font-size:10px;
-    color:#bcbcca;
+    display:grid;gap:9px;padding-top:13px;margin-top:12px;
+    border-top:1px solid #ffffff12;font-size:10px;color:#bcbcca;
 }
 .event-date b{color:var(--yellow)}
-
 .event-detail-btn{
-    display:block;
-    width:100%;
-    margin-top:13px;
-    padding:11px;
-    border-radius:7px;
-    font-size:11px;
-    color:var(--yellow);
-    border:1px solid #ff8a0045;
-    background:#ff8a0013;
+    display:block;width:100%;margin-top:13px;padding:11px;
+    border-radius:7px;font-size:11px;color:var(--yellow);
+    border:1px solid #ff8a0045;background:#ff8a0013;
 }
 .event-detail-btn:hover{background:#ff8a0030}
-
 .card-item{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-top:13px;
-    padding:9px;
-    border-radius:8px;
-    background:#ffffff08;
-    border:1px solid #ffffff13;
+    display:flex;align-items:center;gap:10px;margin-top:13px;
+    padding:9px;border-radius:8px;background:#ffffff08;border:1px solid #ffffff13;
 }
-.card-item img{
-    width:48px;
-    height:48px;
-    object-fit:contain;
-    flex-shrink:0;
-}
+.card-item img{width:48px;height:48px;object-fit:contain;flex-shrink:0}
 .card-item-name{font-size:10px;color:#ddd}
 .card-item-id{color:#888;font:10px Arial,sans-serif;margin-top:5px}
-
 .empty,.loading{
-    grid-column:1/-1;
-    text-align:center;
-    padding:40px 15px;
-    background:#15151e;
-    border:1px dashed #ffffff25;
-    border-radius:12px;
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.8;
+    grid-column:1/-1;text-align:center;padding:40px 15px;
+    background:#15151e;border:1px dashed #ffffff25;
+    border-radius:12px;color:var(--muted);font-size:13px;line-height:1.8;
 }
 .loading{color:var(--yellow)}
 .error{color:#ff9292}
@@ -346,235 +218,152 @@ main{padding:30px 0 55px}
 .updates-header{margin-bottom:16px}
 .updates-header .section-heading{margin:0}
 .updates-label{
-    padding:7px 10px;
-    border:1px solid #ff8a0035;
-    border-radius:20px;
-    color:var(--yellow);
-    background:#ff8a0010;
-    font-size:9px;
+    padding:7px 10px;border:1px solid #ff8a0035;border-radius:20px;
+    color:var(--yellow);background:#ff8a0010;font-size:9px;
 }
 .updates-list{display:grid;gap:13px}
-
 .update-card{
-    display:grid;
-    grid-template-columns:52px minmax(0,1fr);
-    gap:14px;
-    padding:17px;
-    border:1px solid #ffffff14;
-    border-radius:12px;
+    display:grid;grid-template-columns:52px minmax(0,1fr);
+    gap:14px;padding:17px;border:1px solid #ffffff14;border-radius:12px;
     background:linear-gradient(110deg,#1c1c28,#13131c);
 }
 .update-icon{
-    width:49px;
-    height:49px;
-    display:grid;
-    place-items:center;
-    border-radius:12px;
-    font-size:22px;
-    color:var(--yellow);
-    background:#ff8a0018;
-    border:1px solid #ff8a0035;
+    width:49px;height:49px;display:grid;place-items:center;
+    border-radius:12px;font-size:22px;color:var(--yellow);
+    background:#ff8a0018;border:1px solid #ff8a0035;
 }
 .update-main{min-width:0}
-.update-topline{
-    justify-content:flex-start;
-    flex-wrap:wrap;
-    margin-bottom:8px;
-}
+.update-topline{justify-content:flex-start;flex-wrap:wrap;margin-bottom:8px}
 .update-tag{
-    color:var(--yellow);
-    background:#ff8a0018;
-    border:1px solid #ff8a0030;
-    border-radius:4px;
-    padding:4px 7px;
-    font-size:9px;
+    color:var(--yellow);background:#ff8a0018;border:1px solid #ff8a0030;
+    border-radius:4px;padding:4px 7px;font-size:9px;
 }
 .update-date{color:#858596;font:10px Arial,sans-serif}
 .update-title{font-size:14px;line-height:1.5;overflow-wrap:anywhere}
 .update-description{
-    color:#b6b6c5;
-    font:12px/1.8 Arial,sans-serif;
-    margin-top:8px;
-    white-space:pre-wrap;
-    overflow-wrap:anywhere;
+    color:#b6b6c5;font:12px/1.8 Arial,sans-serif;
+    margin-top:8px;white-space:pre-wrap;overflow-wrap:anywhere;
 }
 .update-description.collapsed{
-    display:-webkit-box;
-    -webkit-line-clamp:3;
-    -webkit-box-orient:vertical;
-    overflow:hidden;
+    display:-webkit-box;-webkit-line-clamp:3;
+    -webkit-box-orient:vertical;overflow:hidden;
 }
 .update-bottom{
-    justify-content:space-between;
-    flex-wrap:wrap;
-    margin-top:12px;
+    justify-content:space-between;flex-wrap:wrap;margin-top:12px;
 }
 .update-author{color:#858596;font-size:10px}
 .update-more,.update-link{
-    color:var(--yellow);
-    border:0;
-    background:transparent;
-    font-size:10px;
-    text-decoration:none;
+    color:var(--yellow);border:0;background:transparent;
+    font-size:10px;text-decoration:none;
 }
 .update-image{
-    display:block;
-    width:100%;
-    max-height:260px;
-    object-fit:cover;
-    border-radius:9px;
-    margin-top:12px;
+    display:block;width:100%;max-height:260px;
+    object-fit:cover;border-radius:9px;margin-top:12px;
+}
+
+/* NÚT XEM SỰ KIỆN TRONG CẬP NHẬT MỚI */
+.update-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:14px;
+}
+.update-event-btn{
+    flex:1;
+    min-width:145px;
+    padding:11px 12px;
+    border:1px solid #ff8a0050;
+    border-radius:7px;
+    color:var(--yellow);
+    background:#ff8a0012;
+    font-size:10px;
+    transition:.2s;
+}
+.update-event-btn:hover{
+    background:#ff8a0030;
+    border-color:var(--orange);
+    transform:translateY(-2px);
+}
+.update-event-btn.primary{
+    color:white;
+    border:0;
+    background:linear-gradient(135deg,#ff9b24,#f05a00);
+}
+.update-event-btn.primary:hover{
+    box-shadow:0 5px 18px #ff790044;
+}
+.update-event-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+    transform:none;
 }
 .update-empty{
-    text-align:center;
-    padding:30px 15px;
-    background:#15151e;
-    border:1px dashed #ffffff20;
-    border-radius:12px;
-    color:#9999aa;
-    font-size:12px;
-    line-height:1.8;
+    text-align:center;padding:30px 15px;background:#15151e;
+    border:1px dashed #ffffff20;border-radius:12px;
+    color:#9999aa;font-size:12px;line-height:1.8;
 }
 
 .detail-modal{
-    position:fixed;
-    inset:0;
-    z-index:9999;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:16px;
-    background:#000c;
-    backdrop-filter:blur(8px);
+    position:fixed;inset:0;z-index:9999;display:none;
+    align-items:center;justify-content:center;padding:16px;
+    background:#000c;backdrop-filter:blur(8px);
 }
 .detail-modal.active{display:flex}
 .detail-box{
-    position:relative;
-    width:min(650px,100%);
-    max-height:90vh;
-    overflow-y:auto;
+    position:relative;width:min(650px,100%);max-height:90vh;overflow-y:auto;
     background:linear-gradient(145deg,#20202d,#101018);
-    border:1px solid #ff790060;
-    border-radius:15px;
-    box-shadow:0 20px 70px #000b;
+    border:1px solid #ff790060;border-radius:15px;box-shadow:0 20px 70px #000b;
 }
 .detail-close{
-    position:absolute;
-    top:12px;
-    right:12px;
-    z-index:2;
-    width:36px;
-    height:36px;
-    border:1px solid #ffffff30;
-    border-radius:9px;
-    color:#fff;
-    background:#000a;
-    font-size:20px;
+    position:absolute;top:12px;right:12px;z-index:2;
+    width:36px;height:36px;border:1px solid #ffffff30;
+    border-radius:9px;color:#fff;background:#000a;font-size:20px;
 }
-.detail-banner{
-    width:100%;
-    max-height:240px;
-    object-fit:cover;
-    display:block;
-    background:#222;
-}
+.detail-banner{width:100%;max-height:240px;object-fit:cover;display:block;background:#222}
 .detail-body{padding:20px}
 .detail-title{font-size:21px;line-height:1.5;color:var(--yellow)}
 .detail-description{
-    margin-top:15px;
-    color:#c5c5d0;
-    font:13px/1.8 Arial,sans-serif;
-    white-space:pre-wrap;
-    overflow-wrap:anywhere;
+    margin-top:15px;color:#c5c5d0;font:13px/1.8 Arial,sans-serif;
+    white-space:pre-wrap;overflow-wrap:anywhere;
 }
-.detail-info{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:18px;
-}
+.detail-info{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
 .detail-info-item{
-    padding:12px;
-    border:1px solid #ffffff16;
-    border-radius:9px;
-    background:#ffffff08;
+    padding:12px;border:1px solid #ffffff16;border-radius:9px;background:#ffffff08;
 }
-.detail-info-item span{
-    display:block;
-    color:#888;
-    font-size:10px;
-    margin-bottom:7px;
-}
+.detail-info-item span{display:block;color:#888;font-size:10px;margin-bottom:7px}
 .detail-info-item b{color:var(--yellow);font-size:12px}
-
 .main-item-section{
-    margin-top:20px;
-    padding:15px;
-    border:1px solid #ff9b2445;
-    border-radius:11px;
-    background:linear-gradient(120deg,#ff790016,#ffffff04);
+    margin-top:20px;padding:15px;border:1px solid #ff9b2445;
+    border-radius:11px;background:linear-gradient(120deg,#ff790016,#ffffff04);
 }
 .main-item-heading{color:var(--yellow);font-size:13px;margin-bottom:13px}
 .main-item-content{display:flex;align-items:center;gap:14px}
 .main-item-image{
-    width:90px;
-    height:90px;
-    object-fit:contain;
-    padding:7px;
-    flex-shrink:0;
-    background:#ffffff0b;
-    border:1px solid #ffffff20;
-    border-radius:10px;
+    width:90px;height:90px;object-fit:contain;padding:7px;flex-shrink:0;
+    background:#ffffff0b;border:1px solid #ffffff20;border-radius:10px;
 }
 .main-item-name{font-size:13px;line-height:1.6}
 .main-item-id{color:#999;font:11px Arial,sans-serif;margin-top:7px}
 .main-item-empty{color:#999;font:12px/1.7 Arial,sans-serif}
-
-.item-actions{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:9px;
-    margin-top:14px;
-}
+.item-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
 .item-action{
-    display:block;
-    width:100%;
-    padding:12px 9px;
-    text-align:center;
-    border:1px solid #ff9b2450;
-    border-radius:8px;
+    display:block;width:100%;padding:12px 9px;text-align:center;
+    border:1px solid #ff9b2450;border-radius:8px;
     background:linear-gradient(135deg,#34344b,#202033);
-    color:var(--yellow);
-    font-size:10px;
-    text-decoration:none;
+    color:var(--yellow);font-size:10px;text-decoration:none;
 }
 .item-action.primary{
     background:linear-gradient(135deg,#ff9b24,#f05a00);
-    border:0;
-    color:white;
+    border:0;color:white;
 }
 .detail-action{
-    display:block;
-    width:100%;
-    margin-top:18px;
-    padding:13px;
-    text-align:center;
-    border:0;
-    border-radius:8px;
-    background:linear-gradient(135deg,#ff9b24,#f05a00);
-    color:white;
-    text-decoration:none;
-    font-size:12px;
+    display:block;width:100%;margin-top:18px;padding:13px;text-align:center;
+    border:0;border-radius:8px;background:linear-gradient(135deg,#ff9b24,#f05a00);
+    color:white;text-decoration:none;font-size:12px;
 }
-
 .footer{
-    padding:25px 0;
-    border-top:1px solid #ffffff15;
-    background:#09090e;
-    text-align:center;
-    color:#858595;
-    font-size:10px;
-    line-height:1.9;
+    padding:25px 0;border-top:1px solid #ffffff15;
+    background:#09090e;text-align:center;color:#858595;font-size:10px;line-height:1.9;
 }
 .footer b{color:var(--yellow)}
 
@@ -611,6 +400,7 @@ main{padding:30px 0 55px}
     .detail-title{font-size:17px}
     .detail-banner{max-height:180px}
     .main-item-image{width:75px;height:75px}
+    .update-event-btn{min-width:100%;width:100%}
 }
 @media(max-width:360px){
     .brand h1{font-size:12px}
@@ -765,10 +555,6 @@ main{padding:30px 0 55px}
 <script>
 "use strict";
 
-/* =========================================
-   CẤU HÌNH
-========================================= */
-
 const API_URL="/api/events";
 const ITEM_ICON_BASE="https://kingofgames02.github.io/Free-Fire-Items-Library/ff-icons/";
 const ITEM_LIBRARY_URL="https://ff-item.netlify.app/";
@@ -782,18 +568,11 @@ const SERVER_NAMES={
     RU:"Nga",CIS:"CIS",NA:"Bắc Mỹ",SAC:"Nam Mỹ"
 };
 
-/* =========================================
-   CHUYỂN ĐỔI MÃ SỰ KIỆN
-========================================= */
+/* CHUYỂN ĐỔI MÃ SỰ KIỆN */
 
 const EVENT_CODE_PREFIX={
-    TW:"VQTO",
-    DW:"VQKB",
-    TG:"VQMM",
-    LW:"BXNP",
-    MS:"SHB",
-    FW:"VQBM",
-    TT:"VQ5BI"
+    TW:"VQTO",DW:"VQKB",TG:"VQMM",LW:"BXNP",
+    MS:"SHB",FW:"VQBM",TT:"VQ5BI"
 };
 
 const CONVERTED_EVENT_PREFIXES=[
@@ -828,10 +607,7 @@ function extractEventCode(text){
     if(converted){
         const prefix=converted[1].toUpperCase();
         const number=Number(converted[2]);
-
-        if(number>=1&&number<=100){
-            return prefix+number;
-        }
+        if(number>=1&&number<=100) return prefix+number;
     }
 
     const original=value.match(
@@ -841,18 +617,13 @@ function extractEventCode(text){
     if(original){
         const prefix=original[1].toUpperCase();
         const number=Number(original[2]);
-
-        if(number>=1&&number<=100){
-            return EVENT_CODE_PREFIX[prefix]+number;
-        }
+        if(number>=1&&number<=100) return EVENT_CODE_PREFIX[prefix]+number;
     }
 
     return "N/A";
 }
 
-/* =========================================
-   TỪ ĐIỂN FREE FIRE VIỆT NAM
-========================================= */
+/* TỪ ĐIỂN FREE FIRE */
 
 function normalizeForDictionary(text){
     return String(text||"")
@@ -1002,22 +773,15 @@ let activeItemId="";
 const translationCache=new Map();
 const englishTitleCache=new Map();
 
-/* =========================================
-   DỊCH BẰNG TỪ ĐIỂN (GIỮ NGUYÊN)
-========================================= */
-
 function dictionaryTranslate(text){
     if(!text) return "";
 
     let result=String(text).trim();
     const normalized=normalizeForDictionary(result);
 
-    if(FF_DICTIONARY[normalized]){
-        return FF_DICTIONARY[normalized];
-    }
+    if(FF_DICTIONARY[normalized]) return FF_DICTIONARY[normalized];
 
-    const entries=Object.entries(FF_DICTIONARY)
-        .sort((a,b)=>b[0].length-a[0].length);
+    const entries=Object.entries(FF_DICTIONARY).sort((a,b)=>b[0].length-a[0].length);
 
     for(const [english,vietnamese] of entries){
         const escaped=english.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
@@ -1027,10 +791,6 @@ function dictionaryTranslate(text){
 
     return result;
 }
-
-/* =========================================
-   BẢO VỆ MÃ SỰ KIỆN KHI DỊCH
-========================================= */
 
 function protectEventCodes(text){
     const codes=[];
@@ -1044,16 +804,12 @@ function protectEventCodes(text){
 
             if(EVENT_CODE_PREFIX[prefix]&&number>=1&&number<=100){
                 converted=EVENT_CODE_PREFIX[prefix]+number;
-            }else if(
-                CONVERTED_EVENT_PREFIXES.includes(prefix)&&
-                number>=1&&number<=100
-            ){
+            }else if(CONVERTED_EVENT_PREFIXES.includes(prefix)&&number>=1&&number<=100){
                 converted=prefix+number;
             }
 
             const token="FFCODETOKEN"+codes.length+"END";
             codes.push({token,code:converted});
-
             return token;
         }
     );
@@ -1063,26 +819,17 @@ function protectEventCodes(text){
 
 function restoreEventCodes(text,codes){
     let result=String(text||"");
-
-    codes.forEach(item=>{
-        result=result.replaceAll(item.token,item.code);
-    });
-
+    codes.forEach(item=>result=result.replaceAll(item.token,item.code));
     return result;
 }
 
-/* =========================================
-   DỊCH TỰ ĐỘNG SANG TIẾNG VIỆT (GIỮ NGUYÊN)
-   Hàm này được giữ lại, không dùng để dịch Title.
-========================================= */
+/* Hàm dịch cũ được giữ lại, không dùng để dịch Event Name. */
 
 async function googleTranslate(text){
     const source=String(text||"").trim();
     if(!source) return "";
 
-    if(translationCache.has(source)){
-        return translationCache.get(source);
-    }
+    if(translationCache.has(source)) return translationCache.get(source);
 
     const protectedData=protectEventCodes(source);
     const dictionaryResult=dictionaryTranslate(protectedData.text);
@@ -1094,22 +841,16 @@ async function googleTranslate(text){
             headers:{"Accept":"application/json"}
         });
 
-        if(!response.ok){
-            throw new Error("Translation HTTP "+response.status);
-        }
+        if(!response.ok) throw new Error("Translation HTTP "+response.status);
 
         const data=await response.json();
         let translated="";
 
         if(Array.isArray(data)&&Array.isArray(data[0])){
-            translated=data[0]
-                .map(part=>Array.isArray(part)?part[0]||"":"")
-                .join("");
+            translated=data[0].map(part=>Array.isArray(part)?part[0]||"":"").join("");
         }
 
-        if(!translated.trim()){
-            throw new Error("Không nhận được nội dung dịch");
-        }
+        if(!translated.trim()) throw new Error("Không nhận được nội dung dịch");
 
         translated=restoreEventCodes(translated,protectedData.codes);
         translated=convertEventCode(translated);
@@ -1121,21 +862,12 @@ async function googleTranslate(text){
     }catch(error){
         console.warn("Không gọi được dịch vụ dịch:",error);
 
-        const fallback=restoreEventCodes(
-            dictionaryResult,
-            protectedData.codes
-        );
-
+        const fallback=restoreEventCodes(dictionaryResult,protectedData.codes);
         const result=convertEventCode(fallback);
         translationCache.set(source,result);
         return result;
     }
 }
-
-/* =========================================
-   CHỈ DỊCH TRƯỜNG TITLE SANG TIẾNG ANH
-   KHÔNG DỊCH event_name / eventName / name
-========================================= */
 
 const TITLE_DICTIONARY_EN={
     "GOI DAU TRUONG BAO TO":"Storm Arena bundles"
@@ -1149,69 +881,40 @@ async function translateTitleToEnglish(text){
     const normalized=normalizeForDictionary(protectedData.text);
 
     if(TITLE_DICTIONARY_EN[normalized]){
-        return convertEventCode(
-            restoreEventCodes(
-                TITLE_DICTIONARY_EN[normalized],
-                protectedData.codes
-            )
-        );
+        return convertEventCode(restoreEventCodes(TITLE_DICTIONARY_EN[normalized],protectedData.codes));
     }
 
-    if(englishTitleCache.has(source)){
-        return englishTitleCache.get(source);
-    }
+    if(englishTitleCache.has(source)) return englishTitleCache.get(source);
 
     try{
         const response=await fetch(
             TRANSLATE_API_EN+encodeURIComponent(protectedData.text),
-            {
-                method:"GET",
-                headers:{"Accept":"application/json"}
-            }
+            {method:"GET",headers:{"Accept":"application/json"}}
         );
 
-        if(!response.ok){
-            throw new Error("Translation HTTP "+response.status);
-        }
+        if(!response.ok) throw new Error("Translation HTTP "+response.status);
 
         const data=await response.json();
         let translated="";
 
         if(Array.isArray(data)&&Array.isArray(data[0])){
-            translated=data[0]
-                .map(part=>Array.isArray(part)?part[0]||"":"")
-                .join("");
+            translated=data[0].map(part=>Array.isArray(part)?part[0]||"":"").join("");
         }
 
-        if(!translated.trim()){
-            throw new Error("Không nhận được bản dịch Title");
-        }
+        if(!translated.trim()) throw new Error("Không nhận được bản dịch Title");
 
-        translated=restoreEventCodes(
-            translated,
-            protectedData.codes
-        );
-
+        translated=restoreEventCodes(translated,protectedData.codes);
         translated=convertEventCode(translated);
         englishTitleCache.set(source,translated);
-
         return translated;
 
     }catch(error){
         console.warn("Không thể dịch Title sang tiếng Anh:",error);
-
-        const fallback=convertEventCode(
-            restoreEventCodes(source,protectedData.codes)
-        );
-
-        return fallback;
+        return convertEventCode(restoreEventCodes(source,protectedData.codes));
     }
 }
 
-/* =========================================
-   CHỈ CHUYỂN ĐỔI MÃ EVENT NAME
-   Không dịch tên sự kiện, mô tả hoặc cập nhật.
-========================================= */
+/* CHỈ CHUYỂN ĐỔI MÃ, KHÔNG DỊCH EVENT NAME */
 
 async function translateAllContent(){
     allEvents=allEvents.map(event=>({
@@ -1225,9 +928,7 @@ async function translateAllContent(){
         "Đã chuyển đổi mã Event Name theo danh sách quy định. Tên và nội dung API được giữ nguyên.";
 }
 
-/* =========================================
-   TIỆN ÍCH
-========================================= */
+/* TIỆN ÍCH */
 
 function escapeHTML(value){
     return String(value??"").replace(/[&<>"']/g,char=>({
@@ -1240,12 +941,8 @@ function firstValue(obj,keys){
 
     for(const key of keys){
         const value=obj[key];
-
-        if(value!==undefined&&value!==null&&value!==""){
-            return value;
-        }
+        if(value!==undefined&&value!==null&&value!=="") return value;
     }
-
     return "";
 }
 
@@ -1258,10 +955,7 @@ function parseDate(value){
     }
 
     const text=String(value).trim();
-
-    if(/^\d{10,13}$/.test(text)){
-        return parseDate(Number(text));
-    }
+    if(/^\d{10,13}$/.test(text)) return parseDate(Number(text));
 
     const date=new Date(text);
     return isNaN(date.getTime())?null:date;
@@ -1272,9 +966,7 @@ function formatDate(value){
     if(!date) return "Chưa cập nhật";
 
     return new Intl.DateTimeFormat("vi-VN",{
-        day:"2-digit",
-        month:"2-digit",
-        year:"numeric"
+        day:"2-digit",month:"2-digit",year:"numeric"
     }).format(date);
 }
 
@@ -1301,18 +993,11 @@ function safeUrl(value){
 
     try{
         const url=new URL(String(value),location.origin);
-
-        if(url.protocol==="http:"||url.protocol==="https:"){
-            return url.href;
-        }
+        if(url.protocol==="http:"||url.protocol==="https:") return url.href;
     }catch(error){}
 
     return "";
 }
-
-/* =========================================
-   TÌM DỮ LIỆU LỒNG NHAU
-========================================= */
 
 function findDeepValue(obj,keys,depth=0){
     if(!obj||typeof obj!=="object"||depth>8) return null;
@@ -1322,16 +1007,10 @@ function findDeepValue(obj,keys,depth=0){
             const value=obj[key];
 
             if(value!==null&&value!==undefined&&value!==""){
-                if(typeof value==="string"||typeof value==="number"){
-                    return String(value).trim();
-                }
+                if(typeof value==="string"||typeof value==="number") return String(value).trim();
 
                 if(typeof value==="object"){
-                    const nested=findDeepValue(
-                        value,
-                        ["id","item_id","itemId","value","url"],
-                        depth+1
-                    );
+                    const nested=findDeepValue(value,["id","item_id","itemId","value","url"],depth+1);
                     if(nested) return nested;
                 }
             }
@@ -1359,11 +1038,7 @@ function findDeepText(obj,keys,depth=0){
         }
 
         if(value&&typeof value==="object"&&!Array.isArray(value)){
-            const nested=findDeepText(
-                value,
-                ["text","name","title","value","description"],
-                depth+1
-            );
+            const nested=findDeepText(value,["text","name","title","value","description"],depth+1);
             if(nested) return nested;
         }
     }
@@ -1378,9 +1053,7 @@ function findDeepText(obj,keys,depth=0){
     return "";
 }
 
-/* =========================================
-   NHẬN DIỆN VẬT PHẨM
-========================================= */
+/* NHẬN DIỆN VẬT PHẨM */
 
 function normalizeItemId(value){
     if(value===null||value===undefined) return "";
@@ -1390,7 +1063,6 @@ function normalizeItemId(value){
 
     if(match) return match[1];
     if(/^\d{6,12}$/.test(text)) return text;
-
     return "";
 }
 
@@ -1398,21 +1070,15 @@ function extractMainItem(event){
     const raw=event.raw||event;
 
     const priorityKeys=[
-        "main_item_id","mainItemId","featured_item_id",
-        "featuredItemId","primary_item_id","primaryItemId",
-        "main_reward_id","mainRewardId","featured_reward_id",
-        "featuredRewardId","reward_item_id","rewardItemId"
+        "main_item_id","mainItemId","featured_item_id","featuredItemId",
+        "primary_item_id","primaryItemId","main_reward_id","mainRewardId",
+        "featured_reward_id","featuredRewardId","reward_item_id","rewardItemId"
     ];
 
-    const fallbackKeys=[
-        "item_id","itemId","icon_id","iconId","itemID","rewardID"
-    ];
+    const fallbackKeys=["item_id","itemId","icon_id","iconId","itemID","rewardID"];
 
     let id=normalizeItemId(findDeepValue(raw,priorityKeys));
-
-    if(!id){
-        id=normalizeItemId(findDeepValue(raw,fallbackKeys));
-    }
+    if(!id) id=normalizeItemId(findDeepValue(raw,fallbackKeys));
 
     if(!id){
         const imageValue=findDeepValue(raw,[
@@ -1423,13 +1089,12 @@ function extractMainItem(event){
     }
 
     const name=findDeepText(raw,[
-        "main_item_name","mainItemName","featured_item_name",
-        "featuredItemName","item_name","itemName","reward_name","rewardName"
+        "main_item_name","mainItemName","featured_item_name","featuredItemName",
+        "item_name","itemName","reward_name","rewardName"
     ]);
 
     const description=findDeepText(raw,[
-        "item_description","itemDescription",
-        "reward_description","rewardDescription"
+        "item_description","itemDescription","reward_description","rewardDescription"
     ]);
 
     return {
@@ -1440,87 +1105,62 @@ function extractMainItem(event){
     };
 }
 
-/* =========================================
-   CHUẨN HÓA SỰ KIỆN
-========================================= */
+/* CHUẨN HÓA SỰ KIỆN */
 
 function normalizeEvent(item,index){
-    const titleValue=firstValue(item,[
-        "title","event_title","eventTitle","heading"
-    ]);
+    const titleValue=firstValue(item,["title","event_title","eventTitle","heading"]);
+    const eventNameValue=firstValue(item,["event_name","eventName","name"]);
+    const originalTitle=eventNameValue||titleValue||`Sự kiện ${index+1}`;
 
-    const eventNameValue=firstValue(item,[
-        "event_name","eventName","name"
-    ]);
-
-    const originalTitle=eventNameValue||
-        titleValue||
-        `Sự kiện ${index+1}`;
-
-    const rawCode=firstValue(item,[
-        "event_code","eventCode",
-        "code","event_key","eventKey"
-    ]);
-
+    const rawCode=firstValue(item,["event_code","eventCode","code","event_key","eventKey"]);
     const codeSource=rawCode||originalTitle;
     const eventCode=extractEventCode(codeSource);
 
     return {
         index,
         id:item.id||item.event_id||item.eventId||index,
-
         title:convertEventCode(originalTitle),
-
-        /* Event Name là dữ liệu gốc của API; chỉ chuyển đổi mã sự kiện. */
         eventName:eventNameValue?convertEventCode(String(eventNameValue)):"",
-
         eventCode,
-
         image:safeUrl(firstValue(item,[
-            "image","img","banner","thumbnail",
-            "image_url","imageUrl","cover"
+            "image","img","banner","thumbnail","image_url","imageUrl","cover"
         ])),
-
         start:firstValue(item,[
-            "start","start_date","startDate",
-            "start_time","startTime","begin","begin_at"
+            "start","start_date","startDate","start_time","startTime","begin","begin_at"
         ]),
-
         end:firstValue(item,[
-            "end","end_date","endDate",
-            "end_time","endTime","expire","expire_at"
+            "end","end_date","endDate","end_time","endTime","expire","expire_at"
         ]),
-
         description:firstValue(item,[
-            "description","desc","content",
-            "detail","message","text"
+            "description","desc","content","detail","message","text"
         ])||"",
-
-        link:safeUrl(firstValue(item,[
-            "url","link","web_url","webUrl","redirect"
-        ])),
-
+        link:safeUrl(firstValue(item,["url","link","web_url","webUrl","redirect"])),
         raw:item
     };
 }
 
-/* =========================================
-   CHUẨN HÓA CẬP NHẬT
-========================================= */
+/* CHUẨN HÓA CẬP NHẬT */
 
 function normalizeUpdate(item,index){
     if(typeof item==="string"){
         return {
+            index,
             title:`Thông tin cập nhật ${index+1}`,
             description:item,
             date:"",
             author:"",
             image:"",
-            link:""
+            link:"",
+            eventId:"",
+            eventCode:"",
+            eventName:"",
+            raw:{}
         };
     }
 
     return {
+        index,
+
         title:findDeepText(item,[
             "title","name","heading","subject","update_title","news_title","announcement_title"
         ])||`Thông tin cập nhật ${index+1}`,
@@ -1542,9 +1182,21 @@ function normalizeUpdate(item,index){
             "image","img","banner","thumbnail","image_url","cover","picture"
         ])),
 
-        link:safeUrl(findDeepValue(item,[
-            "url","link","web_url","webUrl","source_url"
-        ]))
+        link:safeUrl(findDeepValue(item,["url","link","web_url","webUrl","source_url"])),
+
+        eventId:findDeepValue(item,[
+            "event_id","eventId","related_event_id","relatedEventId"
+        ])||"",
+
+        eventCode:findDeepText(item,[
+            "event_code","eventCode","related_event_code","relatedEventCode","code"
+        ])||"",
+
+        eventName:findDeepText(item,[
+            "event_name","eventName","related_event_name","relatedEventName"
+        ])||"",
+
+        raw:item
     };
 }
 
@@ -1563,10 +1215,7 @@ function extractUpdateArray(source,depth=0){
         if(Array.isArray(value)) return value;
 
         if(value&&typeof value==="object"){
-            if(
-                value.title||value.name||value.content||
-                value.description||value.text||value.message
-            ){
+            if(value.title||value.name||value.content||value.description||value.text||value.message){
                 return [value];
             }
 
@@ -1601,17 +1250,13 @@ function extractPayload(json){
             }
         }
 
-        if(!updates.length){
-            updates=extractUpdateArray(root);
-        }
+        if(!updates.length) updates=extractUpdateArray(root);
     }
 
     return {events,updates};
 }
 
-/* =========================================
-   TẢI SỰ KIỆN
-========================================= */
+/* TẢI SỰ KIỆN */
 
 async function loadEvents(){
     const grid=$("eventsGrid");
@@ -1624,7 +1269,6 @@ async function loadEvents(){
 
     $("serverName").textContent=SERVER_NAMES[server]||server;
     $("serverCode").textContent=server;
-
     $("translationStatus").textContent="Đang tải Event Name và chuyển đổi mã sự kiện...";
     $("translationInfo").classList.add("translating");
 
@@ -1638,9 +1282,7 @@ async function loadEvents(){
             }
         );
 
-        if(!response.ok){
-            throw new Error(`HTTP ${response.status}`);
-        }
+        if(!response.ok) throw new Error(`HTTP ${response.status}`);
 
         const json=await response.json();
         console.log("EVENT API RESPONSE:",json);
@@ -1690,9 +1332,7 @@ async function loadEvents(){
     }
 }
 
-/* =========================================
-   THỐNG KÊ
-========================================= */
+/* THỐNG KÊ */
 
 function updateStats(){
     const counts={live:0,upcoming:0,ended:0,unknown:0};
@@ -1707,9 +1347,7 @@ function updateStats(){
     $("endedCount").textContent=counts.ended;
 }
 
-/* =========================================
-   HIỂN THỊ SỰ KIỆN
-========================================= */
+/* HIỂN THỊ SỰ KIỆN */
 
 function renderEvents(){
     const grid=$("eventsGrid");
@@ -1756,7 +1394,7 @@ function renderEvents(){
         `:"";
 
         return `
-          <article class="event-card">
+          <article class="event-card" id="event-card-${event.index}">
             <div class="event-image-wrap">
               <img class="event-image"
                    src="${escapeHTML(image)}"
@@ -1795,9 +1433,7 @@ function renderEvents(){
     }).join("");
 }
 
-/* =========================================
-   TRA CỨU VẬT PHẨM
-========================================= */
+/* SAO CHÉP ID VẬT PHẨM */
 
 async function copyItemId(){
     if(!activeItemId) return;
@@ -1827,9 +1463,7 @@ async function copyItemId(){
     },1800);
 }
 
-/* =========================================
-   CHI TIẾT SỰ KIỆN
-========================================= */
+/* CHI TIẾT SỰ KIỆN */
 
 function openEventDetail(index){
     const event=allEvents.find(item=>Number(item.index)===Number(index));
@@ -1914,8 +1548,224 @@ document.addEventListener("keydown",event=>{
 });
 
 /* =========================================
-   CẬP NHẬT MỚI
+   CẬP NHẬT MỚI - TÌM SỰ KIỆN LIÊN QUAN
 ========================================= */
+
+function normalizeMatchText(value){
+    return String(value||"")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .replace(/đ/g,"d")
+        .replace(/[^a-z0-9]/g,"");
+}
+
+function findUpdateEvent(update){
+    if(!update) return null;
+
+    const raw=update.raw||{};
+
+    /* ƯU TIÊN 1: SO KHỚP ID SỰ KIỆN */
+
+    const explicitId=String(
+        update.eventId||
+        findDeepValue(raw,[
+            "event_id","eventId","related_event_id","relatedEventId"
+        ])||""
+    ).trim();
+
+    if(explicitId){
+        const byId=allEvents.find(event=>
+            String(event.id)===explicitId
+        );
+
+        if(byId) return byId;
+    }
+
+    /* ƯU TIÊN 2: SO KHỚP MÃ SỰ KIỆN */
+
+    const explicitCode=String(
+        update.eventCode||
+        findDeepText(raw,[
+            "event_code","eventCode","related_event_code","relatedEventCode"
+        ])||""
+    ).trim();
+
+    if(explicitCode){
+        const code=extractEventCode(convertEventCode(explicitCode));
+
+        if(code!=="N/A"){
+            const byCode=allEvents.find(event=>
+                event.eventCode===code
+            );
+
+            if(byCode) return byCode;
+        }
+    }
+
+    /* ƯU TIÊN 3: SO KHỚP EVENT NAME */
+
+    const explicitName=String(
+        update.eventName||
+        findDeepText(raw,[
+            "event_name","eventName","related_event_name","relatedEventName"
+        ])||""
+    ).trim();
+
+    if(explicitName){
+        const wanted=normalizeMatchText(explicitName);
+
+        const byName=allEvents.find(event=>{
+            const names=[event.eventName,event.title];
+
+            return names.some(name=>{
+                const candidate=normalizeMatchText(name);
+
+                return candidate&&(
+                    candidate===wanted||
+                    candidate.includes(wanted)||
+                    wanted.includes(candidate)
+                );
+            });
+        });
+
+        if(byName) return byName;
+    }
+
+    /*
+       ƯU TIÊN 4:
+       Tìm mã sự kiện xuất hiện trong tiêu đề hoặc mô tả cập nhật.
+    */
+
+    const updateText=
+        String(update.title||"")+" "+
+        String(update.description||"");
+
+    const updateCode=extractEventCode(updateText);
+
+    if(updateCode!=="N/A"){
+        const byCode=allEvents.find(event=>
+            event.eventCode===updateCode
+        );
+
+        if(byCode) return byCode;
+    }
+
+    /*
+       ƯU TIÊN 5:
+       So khớp tên sự kiện trong tiêu đề và nội dung cập nhật.
+    */
+
+    const normalizedUpdate=normalizeMatchText(updateText);
+
+    if(normalizedUpdate.length>=5){
+        let bestEvent=null;
+        let bestLength=0;
+
+        for(const event of allEvents){
+            const candidates=[
+                event.eventName,
+                event.title
+            ]
+            .map(normalizeMatchText)
+            .filter(value=>value.length>=5);
+
+            for(const candidate of candidates){
+                if(
+                    normalizedUpdate.includes(candidate)&&
+                    candidate.length>bestLength
+                ){
+                    bestEvent=event;
+                    bestLength=candidate.length;
+                }
+            }
+        }
+
+        if(bestEvent) return bestEvent;
+    }
+
+    return null;
+}
+
+/* NÚT XEM SỰ KIỆN */
+
+function viewUpdateEvent(index){
+    const update=allUpdates[index];
+
+    if(!update) return;
+
+    const relatedEvent=findUpdateEvent(update);
+
+    if(!relatedEvent){
+        $("translationStatus").textContent=
+            "Không tìm thấy sự kiện liên quan trong danh sách API.";
+        $("translationInfo").classList.remove("translating");
+
+        $("eventsGrid").scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+        return;
+    }
+
+    const target=$("event-card-"+relatedEvent.index);
+
+    if(!target){
+        /*
+          Nếu sự kiện đang bị ẩn do bộ lọc hoặc tìm kiếm,
+          tự động bỏ bộ lọc để hiển thị sự kiện.
+        */
+        $("statusFilter").value="all";
+        $("searchInput").value="";
+        renderEvents();
+    }
+
+    const eventCard=$("event-card-"+relatedEvent.index);
+
+    if(!eventCard) return;
+
+    document.querySelectorAll(".event-card.event-highlight")
+        .forEach(card=>card.classList.remove("event-highlight"));
+
+    eventCard.classList.add("event-highlight");
+
+    eventCard.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+    setTimeout(()=>{
+        eventCard.classList.remove("event-highlight");
+    },5000);
+}
+
+/* NÚT XEM CHI TIẾT SỰ KIỆN */
+
+function openUpdateEventDetail(index){
+    const update=allUpdates[index];
+
+    if(!update) return;
+
+    const relatedEvent=findUpdateEvent(update);
+
+    if(!relatedEvent){
+        $("translationStatus").textContent=
+            "Chưa tìm thấy sự kiện liên quan để mở chi tiết.";
+        $("translationInfo").classList.remove("translating");
+
+        $("eventsGrid").scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+        return;
+    }
+
+    openEventDetail(relatedEvent.index);
+}
+
+/* HIỂN THỊ CẬP NHẬT MỚI */
 
 function renderUpdates(){
     const list=$("updatesList");
@@ -1935,6 +1785,8 @@ function renderUpdates(){
         const id="update-detail-"+index;
         const description=item.description||"";
         const long=description.length>220;
+        const relatedEvent=findUpdateEvent(item);
+        const hasRelatedEvent=!!relatedEvent;
 
         return `
           <article class="update-card">
@@ -1979,6 +1831,30 @@ function renderUpdates(){
                           rel="noopener">Xem nguồn ↗</a>`
                     : ""}
               </div>
+
+              <div class="update-actions">
+                <button
+                    class="update-event-btn primary"
+                    type="button"
+                    ${hasRelatedEvent?"":"disabled"}
+                    onclick="openUpdateEventDetail(${index})">
+                    XEM CHI TIẾT SỰ KIỆN ↗
+                </button>
+
+                <button
+                    class="update-event-btn"
+                    type="button"
+                    ${hasRelatedEvent?"":"disabled"}
+                    onclick="viewUpdateEvent(${index})">
+                    XEM SỰ KIỆN ↓
+                </button>
+              </div>
+
+              ${!hasRelatedEvent
+                ? `<p style="margin-top:8px;color:#858596;font:10px/1.6 Arial,sans-serif">
+                    Chưa xác định được sự kiện liên quan từ dữ liệu API.
+                   </p>`
+                : ""}
             </div>
           </article>
         `;
@@ -1996,9 +1872,7 @@ function toggleUpdate(id,button){
     button.textContent=expanded?"Xem thêm ↓":"Thu gọn ↑";
 }
 
-/* =========================================
-   HẠN CHẾ SAO CHÉP VÀ XEM MÃ NGUỒN
-========================================= */
+/* HẠN CHẾ SAO CHÉP VÀ XEM MÃ NGUỒN */
 
 function isEditableElement(target){
     return !!target.closest(
@@ -2007,27 +1881,19 @@ function isEditableElement(target){
 }
 
 document.addEventListener("contextmenu",function(event){
-    if(!isEditableElement(event.target)){
-        event.preventDefault();
-    }
+    if(!isEditableElement(event.target)) event.preventDefault();
 });
 
 document.addEventListener("selectstart",function(event){
-    if(!isEditableElement(event.target)){
-        event.preventDefault();
-    }
+    if(!isEditableElement(event.target)) event.preventDefault();
 });
 
 document.addEventListener("copy",function(event){
-    if(!isEditableElement(event.target)){
-        event.preventDefault();
-    }
+    if(!isEditableElement(event.target)) event.preventDefault();
 });
 
 document.addEventListener("cut",function(event){
-    if(!isEditableElement(event.target)){
-        event.preventDefault();
-    }
+    if(!isEditableElement(event.target)) event.preventDefault();
 });
 
 document.addEventListener("dragstart",function(event){
@@ -2053,9 +1919,7 @@ document.addEventListener("keydown",function(event){
     }
 },true);
 
-/* =========================================
-   ĐIỀU KHIỂN
-========================================= */
+/* ĐIỀU KHIỂN */
 
 $("serverSelect").addEventListener("change",loadEvents);
 $("statusFilter").addEventListener("change",renderEvents);
@@ -2063,12 +1927,10 @@ $("searchInput").addEventListener("input",renderEvents);
 $("refreshBtn").addEventListener("click",loadEvents);
 $("copyItemId").addEventListener("click",copyItemId);
 
-/* =========================================
-   KHỞI ĐỘNG
-========================================= */
+/* KHỞI ĐỘNG */
 
 loadEvents();
 </script>
 
 </body>
-</html>
+    </html>
