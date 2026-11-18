@@ -132,13 +132,13 @@
   <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
 
-  <!-- API LINK: phần bổ sung, không thay đổi giao diện hoặc các phần code phía trên -->
+  <!-- API LINK: bổ sung kết nối dữ liệu, giữ nguyên HTML/CSS gốc -->
   <script>
   (() => {
     'use strict';
     const API_EVENTS = '/api/events';
     const API_REGIONS = '/api/regions';
-    const $ = (id) => document.getElementById(id);
+    const $ = id => document.getElementById(id);
     const wrap = $('eventsWrap');
     const stat = $('statLine');
     const refresh = $('btnRefresh');
@@ -150,30 +150,37 @@
     let currentRegion = 'VN';
     let currentEvents = [];
     let selectedEvent = null;
-    let toastTimer;
+    let toastTimer = null;
 
-    const esc = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const first = (...values) => values.find(v => v !== undefined && v !== null && String(v).trim() !== '');
+    const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     function eventArray(data) {
       if (Array.isArray(data)) return data;
-      for (const key of ['events','data','event','result','items','list']) {
-        const value = data && data[key];
-        if (Array.isArray(value)) return value;
-        if (value && typeof value === 'object') {
-          for (const nested of ['events','items','list']) if (Array.isArray(value[nested])) return value[nested];
+      const roots = [data, data && data.data, data && data.result, data && data.response];
+      for (const root of roots) {
+        if (Array.isArray(root)) return root;
+        if (!root || typeof root !== 'object') continue;
+        for (const key of ['events','event','items','list','records','data']) {
+          const value = root[key];
+          if (Array.isArray(value)) return value;
+          if (value && typeof value === 'object') {
+            for (const nested of ['events','items','list','records']) if (Array.isArray(value[nested])) return value[nested];
+          }
         }
       }
       return [];
     }
     function normalize(item, index) {
+      item = item && typeof item === 'object' ? item : {};
+      const image = first(item.image, item.img, item.banner, item.thumbnail, item.icon, item.image_url, item.imageUrl, item.cover, item.poster, item.banner_url, '');
       return {
-        id: first(item.id, item.event_id, item.key, index),
-        title: first(item.title, item.name, item.event_name, item.nama, 'Sự kiện Free Fire'),
-        description: first(item.description, item.desc, item.content, item.detail, ''),
-        image: first(item.image, item.img, item.banner, item.thumbnail, item.icon, item.image_url, item.cover, ''),
-        start: first(item.start, item.start_time, item.startTime, item.begin, item.from, item.date_start, ''),
-        end: first(item.end, item.end_time, item.endTime, item.finish, item.to, item.date_end, ''),
-        url: first(item.url, item.link, item.download, item.image_url, item.image, item.img, '')
+        id: first(item.id, item.event_id, item.eventId, item.key, index),
+        title: first(item.title, item.name, item.event_name, item.eventName, item.nama, item.topic, 'Sự kiện Free Fire'),
+        description: first(item.description, item.desc, item.content, item.detail, item.subtitle, ''),
+        image,
+        start: first(item.start, item.start_time, item.startTime, item.begin, item.from, item.date_start, item.startDate, ''),
+        end: first(item.end, item.end_time, item.endTime, item.finish, item.to, item.date_end, item.endDate, ''),
+        url: first(item.download, item.download_url, item.url, item.link, image, '')
       };
     }
     function dateText(value) {
@@ -181,157 +188,120 @@
       const date = new Date(value);
       return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString('vi-VN');
     }
+    function statusOf(event) {
+      const now = Date.now();
+      const start = event.start ? new Date(event.start).getTime() : NaN;
+      const end = event.end ? new Date(event.end).getTime() : NaN;
+      if (Number.isFinite(end) && end < now) return ['ended','Đã kết thúc'];
+      if (Number.isFinite(start) && start > now) return ['upcoming','Sắp diễn ra'];
+      if ((Number.isFinite(start) && start <= now) || (Number.isFinite(end) && end >= now)) return ['active','Đang diễn ra'];
+      return ['', 'Sự kiện'];
+    }
     function notify(message) {
-      const el = $('toast');
-      if (!el) return;
-      el.textContent = message;
-      el.classList.add('show');
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => el.classList.remove('show'), 2800);
+      const toast = $('toast'); if (!toast) return;
+      toast.textContent = message; toast.classList.add('show');
+      clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
     }
     function loading() {
-      wrap.setAttribute('aria-busy', 'true');
+      wrap.setAttribute('aria-busy','true');
       wrap.innerHTML = '<div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>';
       stat.textContent = 'Đang tải dữ liệu sự kiện…';
     }
     function render(events) {
       currentEvents = events.map(normalize);
-      wrap.setAttribute('aria-busy', 'false');
+      wrap.setAttribute('aria-busy','false');
       if (!currentEvents.length) {
-        wrap.innerHTML = '<div class="api-empty"><p>Hiện chưa có dữ liệu sự kiện cho server này.</p></div>';
-        stat.textContent = '0 sự kiện';
-        return;
+        wrap.innerHTML = '<div class="empty">Hiện chưa có sự kiện cho server này.</div>';
+        stat.textContent = `0 sự kiện · Server ${currentRegion}`; return;
       }
       stat.textContent = `${currentEvents.length} sự kiện · Server ${currentRegion}`;
-      wrap.innerHTML = `<div class="api-event-grid">${currentEvents.map((event, i) => `
-        <article class="api-event-card" data-event-index="${i}" tabindex="0" role="button" aria-label="Xem ${esc(event.title)}">
-          ${event.image ? `<div class="api-event-image"><img src="${esc(event.image)}" alt="${esc(event.title)}" loading="lazy" onerror="this.style.display='none'"></div>` : ''}
-          <div class="api-event-info"><h3>${esc(event.title)}</h3>
+      wrap.innerHTML = currentEvents.map((event, i) => {
+        const [state, label] = statusOf(event);
+        return `<article class="event-card" data-event-index="${i}" tabindex="0" role="button" aria-label="Xem ${esc(event.title)}">
+          <div class="event-thumb">${event.image ? `<img src="${esc(event.image)}" alt="${esc(event.title)}" loading="lazy" onerror="this.style.display='none'">` : ''}
+            <span class="event-tag">FREE FIRE</span><span class="event-status ${state}">${label}</span>
+          </div><div class="event-body"><h3 class="event-title">${esc(event.title)}</h3>
           ${event.description ? `<p>${esc(event.description)}</p>` : ''}
-          <div class="api-event-dates">${event.start ? `<span>Bắt đầu: ${esc(dateText(event.start))}</span>` : ''}${event.end ? `<span>Kết thúc: ${esc(dateText(event.end))}</span>` : ''}</div>
-          </div><span class="api-event-more">Chi tiết</span>
-        </article>`).join('')}</div>`;
+          <div class="event-time"><span>${event.start ? `Bắt đầu: ${esc(dateText(event.start))}` : 'Thời gian'}</span><span>${event.end ? esc(dateText(event.end)) : '—'}</span></div></div>
+        </article>`;
+      }).join('');
     }
     async function loadEvents() {
-      loading();
-      if (refresh) refresh.disabled = true;
+      loading(); if (refresh) refresh.disabled = true;
       try {
-        const response = await fetch(`${API_EVENTS}?region=${encodeURIComponent(currentRegion)}&_=${Date.now()}`, {headers:{'Accept':'application/json'}, cache:'no-store'});
-        const data = await response.json();
-        if (!response.ok || data.success === false) throw new Error(data.error || `API lỗi HTTP ${response.status}`);
-        const events = eventArray(data);
-        render(events);
+        const response = await fetch(`${API_EVENTS}?region=${encodeURIComponent(currentRegion)}&_=${Date.now()}`, {headers:{Accept:'application/json'},cache:'no-store'});
+        const raw = await response.text(); let data;
+        try { data = JSON.parse(raw); } catch { throw new Error('API không trả về JSON hợp lệ.'); }
+        if (!response.ok || data.success === false || data.error) throw new Error(data.error || `API lỗi HTTP ${response.status}`);
+        render(eventArray(data));
       } catch (error) {
-        wrap.setAttribute('aria-busy', 'false');
-        wrap.innerHTML = `<div class="api-error"><p>Không thể tải thông tin sự kiện.</p><small>${esc(error.message || 'Vui lòng thử lại.')}</small><button type="button" class="api-retry">Thử lại</button></div>`;
+        wrap.setAttribute('aria-busy','false');
+        wrap.innerHTML = `<div class="error-box">Không thể tải thông tin sự kiện.<br><small>${esc(error.message || 'Vui lòng thử lại.')}</small><br><button class="btn-refresh api-retry" type="button">Thử lại</button></div>`;
         stat.textContent = `Lỗi tải dữ liệu · Server ${currentRegion}`;
-      } finally {
-        if (refresh) refresh.disabled = false;
-      }
+      } finally { if (refresh) refresh.disabled = false; }
     }
     async function loadRegions() {
       try {
-        const response = await fetch(API_REGIONS, {headers:{'Accept':'application/json'}});
+        const response = await fetch(API_REGIONS,{headers:{Accept:'application/json'}});
         const data = await response.json();
         if (!response.ok || !Array.isArray(data.regions)) return;
-        // Đồng bộ tên hiển thị theo API, không thay đổi danh sách option gốc.
-        for (const region of data.regions) {
-          const option = regionList.querySelector(`[data-value="${CSS.escape(region.code)}"]`);
+        data.regions.forEach(region => {
+          const option = [...regionList.querySelectorAll('.region-item')].find(el => el.dataset.value === region.code);
           if (option && region.name) option.dataset.apiName = region.name;
-        }
-      } catch (_) { /* API regions chỉ bổ trợ; API events vẫn hoạt động độc lập. */ }
+        });
+      } catch (_) { /* API regions phụ trợ; danh sách HTML vẫn dùng được. */ }
     }
     function chooseRegion(code, label) {
-      currentRegion = code;
-      regionCurrent.textContent = label;
+      currentRegion = code; regionCurrent.textContent = label;
       regionList.querySelectorAll('.region-item').forEach(item => {
         const active = item.dataset.value === code;
-        item.classList.toggle('selected', active);
-        item.setAttribute('aria-selected', String(active));
+        item.classList.toggle('selected',active); item.setAttribute('aria-selected',String(active));
       });
-      regionBtn.setAttribute('aria-expanded', 'false');
-      dropdown.classList.remove('open');
-      loadEvents();
+      regionBtn.setAttribute('aria-expanded','false'); dropdown.classList.remove('open'); loadEvents();
     }
     function openModal(index) {
-      const event = currentEvents[index];
-      if (!event) return;
+      const event = currentEvents[index]; if (!event) return;
       selectedEvent = event;
       $('modalImage').src = event.image || 'img/placeholder.svg';
       $('modalTitle').textContent = event.title;
       $('modalTag').textContent = `FREE FIRE · ${currentRegion}`;
       $('modalStart').textContent = dateText(event.start);
       $('modalEnd').textContent = dateText(event.end);
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('modal-open');
+      modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); document.body.classList.add('modal-open');
     }
     function closeModal() {
-      modal.classList.remove('active');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('modal-open');
+      modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.classList.remove('modal-open');
     }
-
-    refresh?.addEventListener('click', loadEvents);
-    regionBtn?.addEventListener('click', () => {
-      const open = !dropdown.classList.contains('open');
-      dropdown.classList.toggle('open', open);
-      regionBtn.setAttribute('aria-expanded', String(open));
+    refresh.addEventListener('click',loadEvents);
+    regionBtn.addEventListener('click',() => {
+      const open = !dropdown.classList.contains('open'); dropdown.classList.toggle('open',open); regionBtn.setAttribute('aria-expanded',String(open));
     });
-    regionList?.addEventListener('click', event => {
-      const item = event.target.closest('.region-item');
-      if (!item) return;
-      const code = item.dataset.value;
-      const label = item.textContent.trim();
-      chooseRegion(code, label);
+    regionList.addEventListener('click',event => {
+      const item = event.target.closest('.region-item'); if (!item) return;
+      chooseRegion(item.dataset.value, item.textContent.trim());
     });
-    document.addEventListener('click', event => {
-      if (dropdown && !dropdown.contains(event.target)) {
-        dropdown.classList.remove('open');
-        regionBtn.setAttribute('aria-expanded', 'false');
-      }
+    document.addEventListener('click',event => {
+      if (!dropdown.contains(event.target)) { dropdown.classList.remove('open'); regionBtn.setAttribute('aria-expanded','false'); }
     });
-    wrap?.addEventListener('click', event => {
+    wrap.addEventListener('click',event => {
       if (event.target.closest('.api-retry')) return loadEvents();
-      const card = event.target.closest('[data-event-index]');
-      if (card) openModal(Number(card.dataset.eventIndex));
+      const card = event.target.closest('[data-event-index]'); if (card) openModal(Number(card.dataset.eventIndex));
     });
-    wrap?.addEventListener('keydown', event => {
-      if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-event-index]')) {
-        event.preventDefault(); openModal(Number(event.target.dataset.eventIndex));
-      }
+    wrap.addEventListener('keydown',event => {
+      if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-event-index]')) { event.preventDefault(); openModal(Number(event.target.dataset.eventIndex)); }
     });
-    $('modalClose')?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', event => { if (event.target === modal) closeModal(); });
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeModal(); });
-    $('btnDownload')?.addEventListener('click', () => {
+    $('modalClose').addEventListener('click',closeModal);
+    modal.addEventListener('click',event => { if (event.target === modal) closeModal(); });
+    document.addEventListener('keydown',event => { if (event.key === 'Escape') closeModal(); });
+    $('btnDownload').addEventListener('click',() => {
       if (!selectedEvent) return;
       const url = selectedEvent.image || selectedEvent.url;
-      if (!url) return notify('Sự kiện này chưa có liên kết tải xuống.');
-      const link = document.createElement('a');
-      link.href = url; link.target = '_blank'; link.rel = 'noopener';
-      link.download = `${String(selectedEvent.title).replace(/[^\p{L}\p{N}-]+/gu, '-')}.jpg`;
+      if (!url) return notify('Sự kiện này chưa có tệp tải xuống.');
+      const link = document.createElement('a'); link.href = url; link.target = '_blank'; link.rel = 'noopener';
+      link.download = `${String(selectedEvent.title).replace(/[^\p{L}\p{N}-]+/gu,'-')}.jpg`;
       document.body.appendChild(link); link.click(); link.remove();
     });
-
-    // Chỉ thêm style cho các thẻ dữ liệu mới; không ghi đè nền, font hoặc giao diện có sẵn.
-    const style = document.createElement('style');
-    style.textContent = `
-      .api-event-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px;margin:18px 0}
-      .api-event-card{min-width:0;overflow:hidden;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(20,20,20,.48);cursor:pointer;transition:transform .18s ease,border-color .18s ease}
-      .api-event-card:hover{transform:translateY(-3px);border-color:rgba(217,56,40,.7)}
-      .api-event-image{width:100%;aspect-ratio:16/9;overflow:hidden;background:rgba(0,0,0,.12)}
-      .api-event-image img{width:100%;height:100%;object-fit:cover;display:block}
-      .api-event-info{padding:14px}.api-event-info h3{margin:0 0 8px;font:inherit;font-weight:700}.api-event-info p{margin:0 0 10px;line-height:1.5}
-      .api-event-dates{display:grid;gap:4px;font-size:.86em;opacity:.8}.api-event-more{display:block;padding:0 14px 14px;font-size:.88em;font-weight:700}
-      .api-empty,.api-error{padding:24px 16px;text-align:center}.api-error small{display:block;margin:8px 0 14px}.api-retry{padding:9px 16px;border:0;border-radius:8px;cursor:pointer}
-      .region-dropdown.open .region-list{display:block}.modal-overlay.active{display:flex}.modal-open{overflow:hidden}
-      .toast.show{opacity:1;visibility:visible}
-      @media(max-width:520px){.api-event-grid{grid-template-columns:1fr}}
-    `;
-    document.head.appendChild(style);
-    loadRegions();
-    loadEvents();
+    loadRegions(); loadEvents();
   })();
   </script>
 </body>
