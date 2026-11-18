@@ -12,21 +12,6 @@
 
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/loader.css" />
-
-  <!-- Chỉ cải thiện phần hiển thị thời gian sự kiện -->
-  <style>
-    .event-dates { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:8px; padding-top:10px; border-top:1px dashed rgba(15,23,42,.12); }
-    .event-date-box { min-width:0; padding:9px 10px; background:rgba(15,23,42,.035); border-left:3px solid #16a34a; display:flex; flex-direction:column; gap:5px; }
-    .event-date-box.end { border-left-color:#d93828; }
-    .event-date-label { font-family:var(--font-heading); font-size:9px; line-height:1.2; font-weight:800; letter-spacing:.8px; color:var(--ink-3); text-transform:uppercase; }
-    .event-date-value { font-family:var(--font-heading); font-size:11px; line-height:1.45; font-weight:800; color:var(--ink); overflow-wrap:anywhere; }
-    .event-date-box.end .event-date-value { color:var(--red); }
-    .modal-time .time-item:first-child { border-bottom:3px solid #16a34a; }
-    .modal-time .time-item:last-child { border-bottom:3px solid #d93828; }
-    .modal-time .time-label { font-size:10px; }
-    .modal-time .time-value { line-height:1.5; overflow-wrap:anywhere; }
-    @media (max-width:360px) { .event-dates { gap:6px; } .event-date-box { padding:8px 7px; } .event-date-value { font-size:10px; } }
-  </style>
 </head>
 <body>
 
@@ -75,22 +60,22 @@
           </button>
 
           <ul class="region-list" id="regionList" role="listbox" aria-label="Chọn server">
-            <li class="region-item selected" data-value="VN"  role="option" aria-selected="true">VN - Việt Nam</li>
-            <li class="region-item"          data-value="ID"  role="option" aria-selected="false">ID - Indonesia</li>
-            <li class="region-item"          data-value="TH"  role="option" aria-selected="false">TH - Thái Lan</li>
-            <li class="region-item"          data-value="SG"  role="option" aria-selected="false">SG - Singapore</li>
-            <li class="region-item"          data-value="BR"  role="option" aria-selected="false">BR - Brazil</li>
-            <li class="region-item"          data-value="US"  role="option" aria-selected="false">US - Hoa Kỳ</li>
-            <li class="region-item"          data-value="TW"  role="option" aria-selected="false">TW - Đài Loan</li>
-            <li class="region-item"          data-value="IND" role="option" aria-selected="false">IND - Ấn Độ</li>
-            <li class="region-item"          data-value="PK"  role="option" aria-selected="false">PK - Pakistan</li>
-            <li class="region-item"          data-value="BD"  role="option" aria-selected="false">BD - Bangladesh</li>
-            <li class="region-item"          data-value="EU"  role="option" aria-selected="false">EU - Châu Âu</li>
-            <li class="region-item"          data-value="ME"  role="option" aria-selected="false">ME - Trung Đông</li>
-            <li class="region-item"          data-value="RU"  role="option" aria-selected="false">RU - Nga</li>
-            <li class="region-item"          data-value="CIS" role="option" aria-selected="false">CIS - SNG</li>
-            <li class="region-item"          data-value="NA"  role="option" aria-selected="false">NA - Bắc Mỹ</li>
-            <li class="region-item"          data-value="SAC" role="option" aria-selected="false">SAC - Nam Mỹ</li>
+            <li class="region-item selected" data-value="VN" role="option" aria-selected="true">VN - Việt Nam</li>
+            <li class="region-item" data-value="ID" role="option" aria-selected="false">ID - Indonesia</li>
+            <li class="region-item" data-value="TH" role="option" aria-selected="false">TH - Thái Lan</li>
+            <li class="region-item" data-value="SG" role="option" aria-selected="false">SG - Singapore</li>
+            <li class="region-item" data-value="BR" role="option" aria-selected="false">BR - Brazil</li>
+            <li class="region-item" data-value="US" role="option" aria-selected="false">US - Hoa Kỳ</li>
+            <li class="region-item" data-value="TW" role="option" aria-selected="false">TW - Đài Loan</li>
+            <li class="region-item" data-value="IND" role="option" aria-selected="false">IND - Ấn Độ</li>
+            <li class="region-item" data-value="PK" role="option" aria-selected="false">PK - Pakistan</li>
+            <li class="region-item" data-value="BD" role="option" aria-selected="false">BD - Bangladesh</li>
+            <li class="region-item" data-value="EU" role="option" aria-selected="false">EU - Châu Âu</li>
+            <li class="region-item" data-value="ME" role="option" aria-selected="false">ME - Trung Đông</li>
+            <li class="region-item" data-value="RU" role="option" aria-selected="false">RU - Nga</li>
+            <li class="region-item" data-value="CIS" role="option" aria-selected="false">CIS - SNG</li>
+            <li class="region-item" data-value="NA" role="option" aria-selected="false">NA - Bắc Mỹ</li>
+            <li class="region-item" data-value="SAC" role="option" aria-selected="false">SAC - Nam Mỹ</li>
           </ul>
         </div>
       </div>
@@ -113,9 +98,8 @@
 
   <!-- EVENT DETAIL MODAL -->
   <div class="modal-overlay" id="eventModal" aria-hidden="true">
-    <!-- Nút X nằm ngoài content, góc trên phải màn hình -->
     <button class="modal-close" id="modalClose" type="button" aria-label="Đóng">×</button>
-    
+
     <div class="modal-content">
       <div class="modal-thumb">
         <img id="modalImage" src="" alt="Event"
@@ -126,11 +110,11 @@
         <h2 class="modal-title" id="modalTitle"></h2>
         <div class="modal-time">
           <div class="time-item">
-            <span class="time-label">Bắt đầu</span>
+            <span class="time-label">BẮT ĐẦU</span>
             <span class="time-value" id="modalStart">—</span>
           </div>
           <div class="time-item">
-            <span class="time-label">Kết thúc</span>
+            <span class="time-label">KẾT THÚC</span>
             <span class="time-value" id="modalEnd">—</span>
           </div>
         </div>
@@ -147,13 +131,16 @@
   <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
 
-  <!-- API LINK: bổ sung kết nối dữ liệu, giữ nguyên HTML/CSS gốc -->
+  <!-- API LINK -->
   <script>
   (() => {
     'use strict';
+
     const API_EVENTS = '/api/events';
     const API_REGIONS = '/api/regions';
+
     const $ = id => document.getElementById(id);
+
     const wrap = $('eventsWrap');
     const stat = $('statLine');
     const refresh = $('btnRefresh');
@@ -162,171 +149,504 @@
     const regionList = $('regionList');
     const regionCurrent = $('regionCurrent');
     const modal = $('eventModal');
+
     let currentRegion = 'VN';
     let currentEvents = [];
     let selectedEvent = null;
     let toastTimer = null;
 
-    const first = (...values) => values.find(v => v !== undefined && v !== null && String(v).trim() !== '');
-    const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const first = (...values) =>
+      values.find(v => v !== undefined && v !== null && String(v).trim() !== '');
+
+    const esc = value =>
+      String(value ?? '').replace(/[&<>"']/g, c => ({
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#39;'
+      }[c]));
+
     function eventArray(data) {
       if (Array.isArray(data)) return data;
-      const roots = [data, data && data.data, data && data.result, data && data.response];
+
+      const roots = [
+        data,
+        data && data.data,
+        data && data.result,
+        data && data.response
+      ];
+
       for (const root of roots) {
         if (Array.isArray(root)) return root;
         if (!root || typeof root !== 'object') continue;
-        for (const key of ['events','event','items','list','records','data']) {
+
+        for (const key of ['events', 'event', 'items', 'list', 'records', 'data']) {
           const value = root[key];
+
           if (Array.isArray(value)) return value;
+
           if (value && typeof value === 'object') {
-            for (const nested of ['events','items','list','records']) if (Array.isArray(value[nested])) return value[nested];
+            for (const nested of ['events', 'items', 'list', 'records']) {
+              if (Array.isArray(value[nested])) return value[nested];
+            }
           }
         }
       }
+
       return [];
     }
+
     function normalize(item, index) {
       item = item && typeof item === 'object' ? item : {};
-      const image = first(item.image, item.img, item.banner, item.thumbnail, item.icon, item.image_url, item.imageUrl, item.cover, item.poster, item.banner_url, '');
+
+      const image = first(
+        item.image,
+        item.img,
+        item.banner,
+        item.thumbnail,
+        item.icon,
+        item.image_url,
+        item.imageUrl,
+        item.cover,
+        item.poster,
+        item.banner_url,
+        ''
+      );
+
       return {
         id: first(item.id, item.event_id, item.eventId, item.key, index),
-        title: first(item.title, item.name, item.event_name, item.eventName, item.nama, item.topic, 'Sự kiện Free Fire'),
-        description: first(item.description, item.desc, item.content, item.detail, item.subtitle, ''),
+
+        title: first(
+          item.title,
+          item.name,
+          item.event_name,
+          item.eventName,
+          item.nama,
+          item.topic,
+          'Sự kiện Free Fire'
+        ),
+
+        description: first(
+          item.description,
+          item.desc,
+          item.content,
+          item.detail,
+          item.subtitle,
+          ''
+        ),
+
         image,
-        start: first(item.start, item.start_time, item.startTime, item.begin, item.from, item.date_start, item.startDate, ''),
-        end: first(item.end, item.end_time, item.endTime, item.finish, item.to, item.date_end, item.endDate, ''),
-        url: first(item.download, item.download_url, item.url, item.link, image, '')
+
+        start: first(
+          item.start,
+          item.start_time,
+          item.startTime,
+          item.begin,
+          item.from,
+          item.date_start,
+          item.startDate,
+          ''
+        ),
+
+        end: first(
+          item.end,
+          item.end_time,
+          item.endTime,
+          item.finish,
+          item.to,
+          item.date_end,
+          item.endDate,
+          ''
+        ),
+
+        url: first(
+          item.download,
+          item.download_url,
+          item.url,
+          item.link,
+          image,
+          ''
+        )
       };
     }
+
+    // Chuyển ngày thành DD/MM/YYYY
     function dateText(value) {
-      if (!value) return '—';
-      const date = new Date(value);
-      return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString('vi-VN', {day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit', hour12:false});
+      if (value === null || value === undefined || value === '') {
+        return '—';
+      }
+
+      let date;
+
+      // Xử lý timestamp dạng giây hoặc mili giây
+      if (
+        typeof value === 'number' ||
+        (typeof value === 'string' && /^\d{10,13}$/.test(value.trim()))
+      ) {
+        let timestamp = Number(value);
+
+        if (timestamp < 100000000000) {
+          timestamp *= 1000;
+        }
+
+        date = new Date(timestamp);
+      } else {
+        const text = String(value).trim();
+
+        // Giữ nguyên ngày dạng YYYY-MM-DD, tránh lệch ngày do múi giờ
+        const dateOnly = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+        if (dateOnly) {
+          return `${dateOnly[3]}/${dateOnly[2]}/${dateOnly[1]}`;
+        }
+
+        // Hỗ trợ ngày dạng DD/MM/YYYY
+        const vietnamDate = text.match(/^(\d{2})\/(\d{2})\/(\d{4})/);
+
+        if (vietnamDate) {
+          return `${vietnamDate[1]}/${vietnamDate[2]}/${vietnamDate[3]}`;
+        }
+
+        date = new Date(text);
+      }
+
+      if (Number.isNaN(date.getTime())) {
+        return String(value);
+      }
+
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+
+      return `${day}/${month}/${year}`;
     }
+
     function statusOf(event) {
       const now = Date.now();
+
       const start = event.start ? new Date(event.start).getTime() : NaN;
       const end = event.end ? new Date(event.end).getTime() : NaN;
-      if (Number.isFinite(end) && end < now) return ['ended','Đã kết thúc'];
-      if (Number.isFinite(start) && start > now) return ['upcoming','Sắp diễn ra'];
-      if ((Number.isFinite(start) && start <= now) || (Number.isFinite(end) && end >= now)) return ['active','Đang diễn ra'];
+
+      if (Number.isFinite(end) && end < now) {
+        return ['ended', 'Đã kết thúc'];
+      }
+
+      if (Number.isFinite(start) && start > now) {
+        return ['upcoming', 'Sắp diễn ra'];
+      }
+
+      if (
+        (Number.isFinite(start) && start <= now) ||
+        (Number.isFinite(end) && end >= now)
+      ) {
+        return ['active', 'Đang diễn ra'];
+      }
+
       return ['', 'Sự kiện'];
     }
+
     function notify(message) {
-      const toast = $('toast'); if (!toast) return;
-      toast.textContent = message; toast.classList.add('show');
-      clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+      const toast = $('toast');
+
+      if (!toast) return;
+
+      toast.textContent = message;
+      toast.classList.add('show');
+
+      clearTimeout(toastTimer);
+
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2600);
     }
+
     function loading() {
-      wrap.setAttribute('aria-busy','true');
-      wrap.innerHTML = '<div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>';
+      wrap.setAttribute('aria-busy', 'true');
+
+      wrap.innerHTML = `
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+        <div class="skeleton"></div>
+      `;
+
       stat.textContent = 'Đang tải dữ liệu sự kiện…';
     }
+
     function render(events) {
       currentEvents = events.map(normalize);
-      wrap.setAttribute('aria-busy','false');
+
+      wrap.setAttribute('aria-busy', 'false');
+
       if (!currentEvents.length) {
         wrap.innerHTML = '<div class="empty">Hiện chưa có sự kiện cho server này.</div>';
-        stat.textContent = `0 sự kiện · Server ${currentRegion}`; return;
+        stat.textContent = `0 sự kiện · Server ${currentRegion}`;
+        return;
       }
+
       stat.textContent = `${currentEvents.length} sự kiện · Server ${currentRegion}`;
+
       wrap.innerHTML = currentEvents.map((event, i) => {
         const [state, label] = statusOf(event);
-        return `<article class="event-card" data-event-index="${i}" tabindex="0" role="button" aria-label="Xem ${esc(event.title)}">
-          <div class="event-thumb">${event.image ? `<img src="${esc(event.image)}" alt="${esc(event.title)}" loading="lazy" onerror="this.style.display='none'">` : ''}
-            <span class="event-tag">FREE FIRE</span><span class="event-status ${state}">${label}</span>
-          </div><div class="event-body"><h3 class="event-title">${esc(event.title)}</h3>
-          ${event.description ? `<p>${esc(event.description)}</p>` : ''}
-          <div class="event-dates">
-            <div class="event-date-box">
-              <span class="event-date-label">▶ Bắt đầu</span>
-              <span class="event-date-value">${event.start ? esc(dateText(event.start)) : 'Chưa cập nhật'}</span>
+
+        return `
+          <article class="event-card"
+                   data-event-index="${i}"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Xem ${esc(event.title)}">
+
+            <div class="event-thumb">
+              ${event.image ? `
+                <img src="${esc(event.image)}"
+                     alt="${esc(event.title)}"
+                     loading="lazy"
+                     onerror="this.style.display='none'">
+              ` : ''}
+
+              <span class="event-tag">FREE FIRE</span>
+              <span class="event-status ${state}">${label}</span>
             </div>
-            <div class="event-date-box end">
-              <span class="event-date-label">■ Kết thúc</span>
-              <span class="event-date-value">${event.end ? esc(dateText(event.end)) : 'Chưa cập nhật'}</span>
+
+            <div class="event-body">
+              <h3 class="event-title">${esc(event.title)}</h3>
+
+              ${event.description ? `
+                <p>${esc(event.description)}</p>
+              ` : ''}
+
+              <div class="event-time">
+                <span>BẮT ĐẦU: ${esc(dateText(event.start))}</span>
+                <span>KẾT THÚC: ${esc(dateText(event.end))}</span>
+              </div>
             </div>
-          </div></div>
-        </article>`;
+
+          </article>
+        `;
       }).join('');
     }
+
     async function loadEvents() {
-      loading(); if (refresh) refresh.disabled = true;
+      loading();
+
+      if (refresh) refresh.disabled = true;
+
       try {
-        const response = await fetch(`${API_EVENTS}?region=${encodeURIComponent(currentRegion)}&_=${Date.now()}`, {headers:{Accept:'application/json'},cache:'no-store'});
-        const raw = await response.text(); let data;
-        try { data = JSON.parse(raw); } catch { throw new Error('API không trả về JSON hợp lệ.'); }
-        if (!response.ok || data.success === false || data.error) throw new Error(data.error || `API lỗi HTTP ${response.status}`);
+        const response = await fetch(
+          `${API_EVENTS}?region=${encodeURIComponent(currentRegion)}&_=${Date.now()}`,
+          {
+            headers: { Accept: 'application/json' },
+            cache: 'no-store'
+          }
+        );
+
+        const raw = await response.text();
+
+        let data;
+
+        try {
+          data = JSON.parse(raw);
+        } catch {
+          throw new Error('API không trả về JSON hợp lệ.');
+        }
+
+        if (!response.ok || data.success === false || data.error) {
+          throw new Error(data.error || `API lỗi HTTP ${response.status}`);
+        }
+
         render(eventArray(data));
+
       } catch (error) {
-        wrap.setAttribute('aria-busy','false');
-        wrap.innerHTML = `<div class="error-box">Không thể tải thông tin sự kiện.<br><small>${esc(error.message || 'Vui lòng thử lại.')}</small><br><button class="btn-refresh api-retry" type="button">Thử lại</button></div>`;
+        wrap.setAttribute('aria-busy', 'false');
+
+        wrap.innerHTML = `
+          <div class="error-box">
+            Không thể tải thông tin sự kiện.
+            <br>
+            <small>${esc(error.message || 'Vui lòng thử lại.')}</small>
+            <br>
+            <button class="btn-refresh api-retry" type="button">
+              Thử lại
+            </button>
+          </div>
+        `;
+
         stat.textContent = `Lỗi tải dữ liệu · Server ${currentRegion}`;
-      } finally { if (refresh) refresh.disabled = false; }
+
+      } finally {
+        if (refresh) refresh.disabled = false;
+      }
     }
+
     async function loadRegions() {
       try {
-        const response = await fetch(API_REGIONS,{headers:{Accept:'application/json'}});
-        const data = await response.json();
-        if (!response.ok || !Array.isArray(data.regions)) return;
-        data.regions.forEach(region => {
-          const option = [...regionList.querySelectorAll('.region-item')].find(el => el.dataset.value === region.code);
-          if (option && region.name) option.dataset.apiName = region.name;
+        const response = await fetch(API_REGIONS, {
+          headers: { Accept: 'application/json' }
         });
-      } catch (_) { /* API regions phụ trợ; danh sách HTML vẫn dùng được. */ }
+
+        const data = await response.json();
+
+        if (!response.ok || !Array.isArray(data.regions)) return;
+
+        data.regions.forEach(region => {
+          const option = [
+            ...regionList.querySelectorAll('.region-item')
+          ].find(el => el.dataset.value === region.code);
+
+          if (option && region.name) {
+            option.dataset.apiName = region.name;
+          }
+        });
+
+      } catch (_) {
+        // Danh sách HTML vẫn hoạt động nếu API regions lỗi.
+      }
     }
+
     function chooseRegion(code, label) {
-      currentRegion = code; regionCurrent.textContent = label;
+      currentRegion = code;
+      regionCurrent.textContent = label;
+
       regionList.querySelectorAll('.region-item').forEach(item => {
         const active = item.dataset.value === code;
-        item.classList.toggle('selected',active); item.setAttribute('aria-selected',String(active));
+
+        item.classList.toggle('selected', active);
+        item.setAttribute('aria-selected', String(active));
       });
-      regionBtn.setAttribute('aria-expanded','false'); dropdown.classList.remove('open'); loadEvents();
+
+      regionBtn.setAttribute('aria-expanded', 'false');
+      dropdown.classList.remove('open');
+
+      loadEvents();
     }
+
     function openModal(index) {
-      const event = currentEvents[index]; if (!event) return;
+      const event = currentEvents[index];
+
+      if (!event) return;
+
       selectedEvent = event;
+
       $('modalImage').src = event.image || 'img/placeholder.svg';
       $('modalTitle').textContent = event.title;
       $('modalTag').textContent = `FREE FIRE · ${currentRegion}`;
+
+      // Ngày bắt đầu và kết thúc: DD/MM/YYYY
       $('modalStart').textContent = dateText(event.start);
       $('modalEnd').textContent = dateText(event.end);
-      modal.classList.add('show'); modal.setAttribute('aria-hidden','false'); document.body.classList.add('modal-open');
+
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+
+      document.body.classList.add('modal-open');
     }
+
     function closeModal() {
-      modal.classList.remove('show'); modal.setAttribute('aria-hidden','true'); document.body.classList.remove('modal-open');
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+
+      document.body.classList.remove('modal-open');
     }
-    refresh.addEventListener('click',loadEvents);
-    regionBtn.addEventListener('click',() => {
-      const open = !dropdown.classList.contains('open'); dropdown.classList.toggle('open',open); regionBtn.setAttribute('aria-expanded',String(open));
+
+    // Tải lại dữ liệu
+    refresh.addEventListener('click', loadEvents);
+
+    // Mở dropdown server
+    regionBtn.addEventListener('click', () => {
+      const open = !dropdown.classList.contains('open');
+
+      dropdown.classList.toggle('open', open);
+
+      regionBtn.setAttribute('aria-expanded', String(open));
     });
-    regionList.addEventListener('click',event => {
-      const item = event.target.closest('.region-item'); if (!item) return;
+
+    // Chọn server
+    regionList.addEventListener('click', event => {
+      const item = event.target.closest('.region-item');
+
+      if (!item) return;
+
       chooseRegion(item.dataset.value, item.textContent.trim());
     });
-    document.addEventListener('click',event => {
-      if (!dropdown.contains(event.target)) { dropdown.classList.remove('open'); regionBtn.setAttribute('aria-expanded','false'); }
+
+    // Đóng dropdown khi bấm bên ngoài
+    document.addEventListener('click', event => {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('open');
+        regionBtn.setAttribute('aria-expanded', 'false');
+      }
     });
-    wrap.addEventListener('click',event => {
-      if (event.target.closest('.api-retry')) return loadEvents();
-      const card = event.target.closest('[data-event-index]'); if (card) openModal(Number(card.dataset.eventIndex));
+
+    // Mở chi tiết sự kiện
+    wrap.addEventListener('click', event => {
+      if (event.target.closest('.api-retry')) {
+        return loadEvents();
+      }
+
+      const card = event.target.closest('[data-event-index]');
+
+      if (card) {
+        openModal(Number(card.dataset.eventIndex));
+      }
     });
-    wrap.addEventListener('keydown',event => {
-      if ((event.key === 'Enter' || event.key === ' ') && event.target.matches('[data-event-index]')) { event.preventDefault(); openModal(Number(event.target.dataset.eventIndex)); }
+
+    // Hỗ trợ bàn phím
+    wrap.addEventListener('keydown', event => {
+      if (
+        (event.key === 'Enter' || event.key === ' ') &&
+        event.target.matches('[data-event-index]')
+      ) {
+        event.preventDefault();
+
+        openModal(Number(event.target.dataset.eventIndex));
+      }
     });
-    $('modalClose').addEventListener('click',closeModal);
-    modal.addEventListener('click',event => { if (event.target === modal) closeModal(); });
-    document.addEventListener('keydown',event => { if (event.key === 'Escape') closeModal(); });
-    $('btnDownload').addEventListener('click',() => {
+
+    // Đóng modal
+    $('modalClose').addEventListener('click', closeModal);
+
+    modal.addEventListener('click', event => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Tải ảnh sự kiện
+    $('btnDownload').addEventListener('click', () => {
       if (!selectedEvent) return;
+
       const url = selectedEvent.image || selectedEvent.url;
-      if (!url) return notify('Sự kiện này chưa có tệp tải xuống.');
-      const link = document.createElement('a'); link.href = url; link.target = '_blank'; link.rel = 'noopener';
-      link.download = `${String(selectedEvent.title).replace(/[^\p{L}\p{N}-]+/gu,'-')}.jpg`;
-      document.body.appendChild(link); link.click(); link.remove();
+
+      if (!url) {
+        return notify('Sự kiện này chưa có tệp tải xuống.');
+      }
+
+      const link = document.createElement('a');
+
+      link.href = url;
+      link.target = '_blank';
+      link.rel = 'noopener';
+
+      link.download = `${String(selectedEvent.title)
+        .replace(/[^\p{L}\p{N}-]+/gu, '-')}.jpg`;
+
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
     });
-    loadRegions(); loadEvents();
+
+    // Khởi chạy
+    loadRegions();
+    loadEvents();
+
   })();
   </script>
+
 </body>
 </html>
