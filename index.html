@@ -12,6 +12,21 @@
 
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/loader.css" />
+
+  <!-- Chỉ cải thiện phần hiển thị thời gian sự kiện -->
+  <style>
+    .event-dates { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; margin-top:8px; padding-top:10px; border-top:1px dashed rgba(15,23,42,.12); }
+    .event-date-box { min-width:0; padding:9px 10px; background:rgba(15,23,42,.035); border-left:3px solid #16a34a; display:flex; flex-direction:column; gap:5px; }
+    .event-date-box.end { border-left-color:#d93828; }
+    .event-date-label { font-family:var(--font-heading); font-size:9px; line-height:1.2; font-weight:800; letter-spacing:.8px; color:var(--ink-3); text-transform:uppercase; }
+    .event-date-value { font-family:var(--font-heading); font-size:11px; line-height:1.45; font-weight:800; color:var(--ink); overflow-wrap:anywhere; }
+    .event-date-box.end .event-date-value { color:var(--red); }
+    .modal-time .time-item:first-child { border-bottom:3px solid #16a34a; }
+    .modal-time .time-item:last-child { border-bottom:3px solid #d93828; }
+    .modal-time .time-label { font-size:10px; }
+    .modal-time .time-value { line-height:1.5; overflow-wrap:anywhere; }
+    @media (max-width:360px) { .event-dates { gap:6px; } .event-date-box { padding:8px 7px; } .event-date-value { font-size:10px; } }
+  </style>
 </head>
 <body>
 
@@ -186,7 +201,7 @@
     function dateText(value) {
       if (!value) return '—';
       const date = new Date(value);
-      return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString('vi-VN');
+      return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString('vi-VN', {day:'2-digit', month:'2-digit', year:'numeric', hour:'2-digit', minute:'2-digit', hour12:false});
     }
     function statusOf(event) {
       const now = Date.now();
@@ -222,7 +237,16 @@
             <span class="event-tag">FREE FIRE</span><span class="event-status ${state}">${label}</span>
           </div><div class="event-body"><h3 class="event-title">${esc(event.title)}</h3>
           ${event.description ? `<p>${esc(event.description)}</p>` : ''}
-          <div class="event-time"><span>${event.start ? `Bắt đầu: ${esc(dateText(event.start))}` : 'Thời gian'}</span><span>${event.end ? esc(dateText(event.end)) : '—'}</span></div></div>
+          <div class="event-dates">
+            <div class="event-date-box">
+              <span class="event-date-label">▶ Bắt đầu</span>
+              <span class="event-date-value">${event.start ? esc(dateText(event.start)) : 'Chưa cập nhật'}</span>
+            </div>
+            <div class="event-date-box end">
+              <span class="event-date-label">■ Kết thúc</span>
+              <span class="event-date-value">${event.end ? esc(dateText(event.end)) : 'Chưa cập nhật'}</span>
+            </div>
+          </div></div>
         </article>`;
       }).join('');
     }
