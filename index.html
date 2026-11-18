@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -12,7 +13,99 @@
 
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/loader.css" />
+
+  <!-- CẬP NHẬT HIỆU ỨNG VÀ ẢNH MODAL -->
+  <style>
+    /* Xóa khoảng trắng hai bên ảnh banner */
+    .modal-thumb {
+      padding: 0 !important;
+      overflow: hidden !important;
+      width: 100%;
+      background: transparent !important;
+    }
+
+    .modal-thumb img {
+      display: block !important;
+      width: 100% !important;
+      max-width: none !important;
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      object-fit: cover !important;
+      object-position: center !important;
+    }
+
+    /* Hiệu ứng trạng thái sự kiện */
+    .event-status {
+      position: relative;
+      animation: azStatusIn .45s ease both;
+      transition: transform .25s ease, filter .25s ease;
+      will-change: transform;
+    }
+
+    .event-status.active {
+      animation: azActiveGlow 2s ease-in-out infinite;
+    }
+
+    .event-status.upcoming {
+      animation: azUpcomingGlow 2.4s ease-in-out infinite;
+    }
+
+    .event-status.ended {
+      animation: azEndedGlow 2.8s ease-in-out infinite;
+    }
+
+    .event-card:hover .event-status {
+      transform: translateY(-2px);
+    }
+
+    @keyframes azStatusIn {
+      from {
+        opacity: 0;
+        transform: translateY(7px) scale(.94);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes azActiveGlow {
+      0%, 100% {
+        filter: brightness(1);
+      }
+      50% {
+        filter: brightness(1.22) drop-shadow(0 0 5px rgba(30, 210, 115, .55));
+      }
+    }
+
+    @keyframes azUpcomingGlow {
+      0%, 100% {
+        filter: brightness(1);
+      }
+      50% {
+        filter: brightness(1.2) drop-shadow(0 0 5px rgba(55, 145, 255, .55));
+      }
+    }
+
+    @keyframes azEndedGlow {
+      0%, 100% {
+        filter: brightness(1);
+      }
+      50% {
+        filter: brightness(1.12);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .event-status {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- LOADER -->
@@ -105,21 +198,27 @@
         <img id="modalImage" src="" alt="Event"
              onerror="this.onerror=null; this.src='img/placeholder.svg'; this.style.objectFit='contain';" />
       </div>
+
       <div class="modal-body">
         <div class="modal-tag" id="modalTag"></div>
         <h2 class="modal-title" id="modalTitle"></h2>
+
         <div class="modal-time">
           <div class="time-item">
             <span class="time-label">BẮT ĐẦU</span>
             <span class="time-value" id="modalStart">—</span>
           </div>
+
           <div class="time-item">
             <span class="time-label">KẾT THÚC</span>
             <span class="time-value" id="modalEnd">—</span>
           </div>
         </div>
+
         <div class="modal-actions">
-          <button class="btn-download" id="btnDownload" type="button">Tải xuống</button>
+          <button class="btn-download" id="btnDownload" type="button">
+            Tải xuống
+          </button>
         </div>
       </div>
     </div>
@@ -131,7 +230,7 @@
   <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
 
-  <!-- API LINK -->
+  <!-- AZERST EVENT API -->
   <script>
   (() => {
     'use strict';
@@ -149,6 +248,7 @@
     const regionList = $('regionList');
     const regionCurrent = $('regionCurrent');
     const modal = $('eventModal');
+    const downloadBtn = $('btnDownload');
 
     let currentRegion = 'VN';
     let currentEvents = [];
@@ -156,39 +256,88 @@
     let toastTimer = null;
 
     const first = (...values) =>
-      values.find(v => v !== undefined && v !== null && String(v).trim() !== '');
+      values.find(v =>
+        v !== undefined &&
+        v !== null &&
+        String(v).trim() !== ''
+      );
 
+    // Chống lỗi HTML
     const esc = value =>
       String(value ?? '').replace(/[&<>"']/g, c => ({
-        '&':'&amp;',
-        '<':'&lt;',
-        '>':'&gt;',
-        '"':'&quot;',
-        "'":'&#39;'
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
       }[c]));
 
+    // Chuyển lỗi thành thông báo dễ đọc
+    function errorText(error) {
+      if (!error) return 'Không rõ nguyên nhân.';
+
+      if (typeof error === 'string') return error;
+
+      if (typeof error === 'object') {
+        const message = first(
+          error.message,
+          error.error,
+          error.msg,
+          error.description,
+          error.details,
+          error.statusText
+        );
+
+        if (message) return errorText(message);
+
+        try {
+          return JSON.stringify(error);
+        } catch (_) {
+          return 'Đã xảy ra lỗi không xác định.';
+        }
+      }
+
+      return String(error);
+    }
+
+    // Đọc danh sách sự kiện
     function eventArray(data) {
       if (Array.isArray(data)) return data;
 
       const roots = [
         data,
-        data && data.data,
-        data && data.result,
-        data && data.response
+        data?.data,
+        data?.result,
+        data?.response
       ];
 
       for (const root of roots) {
         if (Array.isArray(root)) return root;
+
         if (!root || typeof root !== 'object') continue;
 
-        for (const key of ['events', 'event', 'items', 'list', 'records', 'data']) {
+        for (const key of [
+          'events',
+          'event',
+          'items',
+          'list',
+          'records',
+          'data'
+        ]) {
           const value = root[key];
 
           if (Array.isArray(value)) return value;
 
           if (value && typeof value === 'object') {
-            for (const nested of ['events', 'items', 'list', 'records']) {
-              if (Array.isArray(value[nested])) return value[nested];
+            for (const nested of [
+              'events',
+              'items',
+              'list',
+              'records'
+            ]) {
+              if (Array.isArray(value[nested])) {
+                return value[nested];
+              }
             }
           }
         }
@@ -197,6 +346,7 @@
       return [];
     }
 
+    // Chuẩn hóa sự kiện
     function normalize(item, index) {
       item = item && typeof item === 'object' ? item : {};
 
@@ -271,49 +421,67 @@
       };
     }
 
-    // Chuyển ngày thành DD/MM/YYYY
+    // Đọc ngày tháng và timestamp
+    function parseDate(value) {
+      if (value === null || value === undefined || value === '') {
+        return NaN;
+      }
+
+      if (
+        typeof value === 'number' ||
+        /^\d{10,13}$/.test(String(value).trim())
+      ) {
+        let timestamp = Number(value);
+
+        if (String(Math.abs(timestamp)).length === 10) {
+          timestamp *= 1000;
+        }
+
+        return timestamp;
+      }
+
+      const text = String(value).trim();
+
+      const vnDate = text.match(
+        /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/
+      );
+
+      if (vnDate) {
+        return new Date(
+          Number(vnDate[3]),
+          Number(vnDate[2]) - 1,
+          Number(vnDate[1])
+        ).getTime();
+      }
+
+      const isoDate = text.match(
+        /^(\d{4})-(\d{2})-(\d{2})$/
+      );
+
+      if (isoDate) {
+        return new Date(
+          Number(isoDate[1]),
+          Number(isoDate[2]) - 1,
+          Number(isoDate[3])
+        ).getTime();
+      }
+
+      return new Date(text).getTime();
+    }
+
+    // Định dạng DD/MM/YYYY
     function dateText(value) {
       if (value === null || value === undefined || value === '') {
         return '—';
       }
 
-      let date;
+      const timestamp = parseDate(value);
 
-      // Xử lý timestamp dạng giây hoặc mili giây
-      if (
-        typeof value === 'number' ||
-        (typeof value === 'string' && /^\d{10,13}$/.test(value.trim()))
-      ) {
-        let timestamp = Number(value);
-
-        if (timestamp < 100000000000) {
-          timestamp *= 1000;
-        }
-
-        date = new Date(timestamp);
-      } else {
-        const text = String(value).trim();
-
-        // Giữ nguyên ngày dạng YYYY-MM-DD, tránh lệch ngày do múi giờ
-        const dateOnly = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-
-        if (dateOnly) {
-          return `${dateOnly[3]}/${dateOnly[2]}/${dateOnly[1]}`;
-        }
-
-        // Hỗ trợ ngày dạng DD/MM/YYYY
-        const vietnamDate = text.match(/^(\d{2})\/(\d{2})\/(\d{4})/);
-
-        if (vietnamDate) {
-          return `${vietnamDate[1]}/${vietnamDate[2]}/${vietnamDate[3]}`;
-        }
-
-        date = new Date(text);
-      }
-
-      if (Number.isNaN(date.getTime())) {
+      if (!Number.isFinite(timestamp)) {
         return String(value);
       }
+
+      const date = new Date(timestamp);
 
       const day = String(date.getDate()).padStart(2, '0');
       const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -322,45 +490,48 @@
       return `${day}/${month}/${year}`;
     }
 
+    // Nhận dạng trạng thái sự kiện
     function statusOf(event) {
       const now = Date.now();
 
-      const start = event.start ? new Date(event.start).getTime() : NaN;
-      const end = event.end ? new Date(event.end).getTime() : NaN;
+      const start = parseDate(event.start);
+      const end = parseDate(event.end);
 
       if (Number.isFinite(end) && end < now) {
-        return ['ended', 'Đã kết thúc'];
+        return ['ended', 'ĐÃ KẾT THÚC'];
       }
 
       if (Number.isFinite(start) && start > now) {
-        return ['upcoming', 'Sắp diễn ra'];
+        return ['upcoming', 'SẮP DIỄN RA'];
       }
 
       if (
         (Number.isFinite(start) && start <= now) ||
         (Number.isFinite(end) && end >= now)
       ) {
-        return ['active', 'Đang diễn ra'];
+        return ['active', 'ĐANG DIỄN RA'];
       }
 
-      return ['', 'Sự kiện'];
+      return ['', 'CHƯA XÁC ĐỊNH'];
     }
 
+    // Thông báo
     function notify(message) {
       const toast = $('toast');
 
       if (!toast) return;
 
-      toast.textContent = message;
+      toast.textContent = errorText(message);
       toast.classList.add('show');
 
       clearTimeout(toastTimer);
 
       toastTimer = setTimeout(() => {
         toast.classList.remove('show');
-      }, 2600);
+      }, 3000);
     }
 
+    // Loading
     function loading() {
       wrap.setAttribute('aria-busy', 'true');
 
@@ -373,52 +544,87 @@
       stat.textContent = 'Đang tải dữ liệu sự kiện…';
     }
 
+    // Hiển thị sự kiện
     function render(events) {
       currentEvents = events.map(normalize);
 
       wrap.setAttribute('aria-busy', 'false');
 
       if (!currentEvents.length) {
-        wrap.innerHTML = '<div class="empty">Hiện chưa có sự kiện cho server này.</div>';
-        stat.textContent = `0 sự kiện · Server ${currentRegion}`;
+        wrap.innerHTML = `
+          <div class="empty">
+            Hiện chưa có sự kiện cho server ${esc(currentRegion)}.
+          </div>
+        `;
+
+        stat.textContent =
+          `0 sự kiện · Server ${currentRegion}`;
+
         return;
       }
 
-      stat.textContent = `${currentEvents.length} sự kiện · Server ${currentRegion}`;
+      stat.textContent =
+        `${currentEvents.length} sự kiện · Server ${currentRegion}`;
 
       wrap.innerHTML = currentEvents.map((event, i) => {
         const [state, label] = statusOf(event);
 
         return `
-          <article class="event-card"
-                   data-event-index="${i}"
-                   tabindex="0"
-                   role="button"
-                   aria-label="Xem ${esc(event.title)}">
+          <article
+            class="event-card"
+            data-event-index="${i}"
+            tabindex="0"
+            role="button"
+            aria-label="Xem ${esc(event.title)}"
+          >
 
             <div class="event-thumb">
-              ${event.image ? `
-                <img src="${esc(event.image)}"
-                     alt="${esc(event.title)}"
-                     loading="lazy"
-                     onerror="this.style.display='none'">
-              ` : ''}
 
-              <span class="event-tag">FREE FIRE</span>
-              <span class="event-status ${state}">${label}</span>
+              ${
+                event.image
+                  ? `
+                    <img
+                      src="${esc(event.image)}"
+                      alt="${esc(event.title)}"
+                      loading="lazy"
+                      onerror="this.style.display='none'"
+                    >
+                  `
+                  : ''
+              }
+
+              <span class="event-tag">
+                FREE FIRE · ${esc(currentRegion)}
+              </span>
+
+              <span class="event-status ${state}">
+                ${esc(label)}
+              </span>
+
             </div>
 
             <div class="event-body">
-              <h3 class="event-title">${esc(event.title)}</h3>
 
-              ${event.description ? `
-                <p>${esc(event.description)}</p>
-              ` : ''}
+              <h3 class="event-title">
+                ${esc(event.title)}
+              </h3>
+
+              ${
+                event.description
+                  ? `<p>${esc(event.description)}</p>`
+                  : ''
+              }
 
               <div class="event-time">
-                <span>BẮT ĐẦU: ${esc(dateText(event.start))}</span>
-                <span>KẾT THÚC: ${esc(dateText(event.end))}</span>
+                <span>
+                  BẮT ĐẦU: ${esc(dateText(event.start))}
+                </span>
+
+                <span>
+                  KẾT THÚC: ${esc(dateText(event.end))}
+                </span>
               </div>
+
             </div>
 
           </article>
@@ -426,6 +632,7 @@
       }).join('');
     }
 
+    // Tải sự kiện
     async function loadEvents() {
       loading();
 
@@ -435,7 +642,10 @@
         const response = await fetch(
           `${API_EVENTS}?region=${encodeURIComponent(currentRegion)}&_=${Date.now()}`,
           {
-            headers: { Accept: 'application/json' },
+            method: 'GET',
+            headers: {
+              Accept: 'application/json'
+            },
             cache: 'no-store'
           }
         );
@@ -446,24 +656,43 @@
 
         try {
           data = JSON.parse(raw);
-        } catch {
-          throw new Error('API không trả về JSON hợp lệ.');
+        } catch (_) {
+          throw new Error(
+            `API không trả về JSON hợp lệ. HTTP ${response.status}`
+          );
         }
 
-        if (!response.ok || data.success === false || data.error) {
-          throw new Error(data.error || `API lỗi HTTP ${response.status}`);
+        if (!response.ok) {
+          throw new Error(
+            `HTTP ${response.status}: ${
+              errorText(
+                data?.error ||
+                data?.message ||
+                data?.details ||
+                response.statusText
+              )
+            }`
+          );
+        }
+
+        if (data?.success === false || data?.error) {
+          throw new Error(
+            errorText(data.error || data.message || data.details)
+          );
         }
 
         render(eventArray(data));
 
       } catch (error) {
+        console.error('AZERST API ERROR:', error);
+
         wrap.setAttribute('aria-busy', 'false');
 
         wrap.innerHTML = `
           <div class="error-box">
             Không thể tải thông tin sự kiện.
             <br>
-            <small>${esc(error.message || 'Vui lòng thử lại.')}</small>
+            <small>${esc(errorText(error))}</small>
             <br>
             <button class="btn-refresh api-retry" type="button">
               Thử lại
@@ -471,22 +700,30 @@
           </div>
         `;
 
-        stat.textContent = `Lỗi tải dữ liệu · Server ${currentRegion}`;
+        stat.textContent =
+          `Lỗi tải dữ liệu · Server ${currentRegion}`;
 
       } finally {
         if (refresh) refresh.disabled = false;
       }
     }
 
+    // Danh sách server
     async function loadRegions() {
       try {
         const response = await fetch(API_REGIONS, {
-          headers: { Accept: 'application/json' }
+          method: 'GET',
+          headers: {
+            Accept: 'application/json'
+          },
+          cache: 'no-store'
         });
 
         const data = await response.json();
 
-        if (!response.ok || !Array.isArray(data.regions)) return;
+        if (!response.ok || !Array.isArray(data.regions)) {
+          return;
+        }
 
         data.regions.forEach(region => {
           const option = [
@@ -498,28 +735,39 @@
           }
         });
 
-      } catch (_) {
-        // Danh sách HTML vẫn hoạt động nếu API regions lỗi.
+      } catch (error) {
+        console.warn(
+          'Regions API:',
+          errorText(error)
+        );
       }
     }
 
+    // Chọn server và cập nhật nhận dạng
     function chooseRegion(code, label) {
       currentRegion = code;
+
       regionCurrent.textContent = label;
 
       regionList.querySelectorAll('.region-item').forEach(item => {
         const active = item.dataset.value === code;
 
         item.classList.toggle('selected', active);
-        item.setAttribute('aria-selected', String(active));
+
+        item.setAttribute(
+          'aria-selected',
+          String(active)
+        );
       });
 
       regionBtn.setAttribute('aria-expanded', 'false');
+
       dropdown.classList.remove('open');
 
       loadEvents();
     }
 
+    // Mở chi tiết sự kiện
     function openModal(index) {
       const event = currentEvents[index];
 
@@ -527,37 +775,153 @@
 
       selectedEvent = event;
 
-      $('modalImage').src = event.image || 'img/placeholder.svg';
-      $('modalTitle').textContent = event.title;
-      $('modalTag').textContent = `FREE FIRE · ${currentRegion}`;
+      const modalImage = $('modalImage');
 
-      // Ngày bắt đầu và kết thúc: DD/MM/YYYY
-      $('modalStart').textContent = dateText(event.start);
-      $('modalEnd').textContent = dateText(event.end);
+      modalImage.src =
+        event.image || 'img/placeholder.svg';
+
+      modalImage.alt = event.title;
+
+      $('modalTitle').textContent =
+        event.title;
+
+      // Tự nhận dạng server đang chọn
+      $('modalTag').textContent =
+        `FREE FIRE · ${currentRegion}`;
+
+      $('modalStart').textContent =
+        dateText(event.start);
+
+      $('modalEnd').textContent =
+        dateText(event.end);
 
       modal.classList.add('show');
+
       modal.setAttribute('aria-hidden', 'false');
 
       document.body.classList.add('modal-open');
     }
 
+    // Đóng modal
     function closeModal() {
       modal.classList.remove('show');
+
       modal.setAttribute('aria-hidden', 'true');
 
       document.body.classList.remove('modal-open');
     }
 
-    // Tải lại dữ liệu
+    // Tải chính ảnh banner đang xem
+    async function downloadBanner() {
+      if (!selectedEvent) {
+        notify('Vui lòng chọn một sự kiện trước.');
+        return;
+      }
+
+      const imageUrl = selectedEvent.image;
+
+      if (!imageUrl) {
+        notify('Sự kiện này không có ảnh banner để tải.');
+        return;
+      }
+
+      const originalText = downloadBtn.textContent;
+
+      downloadBtn.disabled = true;
+      downloadBtn.textContent = 'ĐANG TẢI...';
+
+      try {
+        // Tải ảnh thật về dạng Blob
+        const response = await fetch(imageUrl, {
+          method: 'GET',
+          mode: 'cors',
+          cache: 'no-store'
+        });
+
+        if (!response.ok) {
+          throw new Error(`Không tải được ảnh. HTTP ${response.status}`);
+        }
+
+        const blob = await response.blob();
+
+        if (!blob.size) {
+          throw new Error('Ảnh tải về bị trống.');
+        }
+
+        const objectUrl = URL.createObjectURL(blob);
+
+        const safeName = String(selectedEvent.title || 'AZERST-EVENT')
+          .replace(/[\\/:*?"<>|]+/g, '-')
+          .replace(/\s+/g, '-')
+          .slice(0, 90);
+
+        const type = blob.type || '';
+
+        let extension = 'jpg';
+
+        if (type.includes('png')) extension = 'png';
+        else if (type.includes('webp')) extension = 'webp';
+        else if (type.includes('gif')) extension = 'gif';
+        else if (type.includes('jpeg')) extension = 'jpg';
+
+        const link = document.createElement('a');
+
+        link.href = objectUrl;
+        link.download = `${safeName}.${extension}`;
+
+        document.body.appendChild(link);
+
+        link.click();
+
+        link.remove();
+
+        setTimeout(() => {
+          URL.revokeObjectURL(objectUrl);
+        }, 30000);
+
+        notify('Đã chuẩn bị tải banner sự kiện!');
+
+      } catch (error) {
+        console.error('DOWNLOAD ERROR:', error);
+
+        // Máy chủ ảnh có thể chặn CORS.
+        // Khi đó mở đúng banner để người dùng lưu ảnh.
+        try {
+          const link = document.createElement('a');
+
+          link.href = imageUrl;
+          link.target = '_blank';
+          link.rel = 'noopener';
+
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+
+          notify('Máy chủ ảnh chặn tải trực tiếp. Banner đã được mở để bạn lưu ảnh.');
+
+        } catch (fallbackError) {
+          notify(errorText(error));
+        }
+
+      } finally {
+        downloadBtn.disabled = false;
+        downloadBtn.textContent = originalText;
+      }
+    }
+
+    // Nút tải lại
     refresh.addEventListener('click', loadEvents);
 
-    // Mở dropdown server
+    // Mở dropdown
     regionBtn.addEventListener('click', () => {
       const open = !dropdown.classList.contains('open');
 
       dropdown.classList.toggle('open', open);
 
-      regionBtn.setAttribute('aria-expanded', String(open));
+      regionBtn.setAttribute(
+        'aria-expanded',
+        String(open)
+      );
     });
 
     // Chọn server
@@ -566,21 +930,29 @@
 
       if (!item) return;
 
-      chooseRegion(item.dataset.value, item.textContent.trim());
+      chooseRegion(
+        item.dataset.value,
+        item.textContent.trim()
+      );
     });
 
-    // Đóng dropdown khi bấm bên ngoài
+    // Đóng dropdown khi nhấn bên ngoài
     document.addEventListener('click', event => {
       if (!dropdown.contains(event.target)) {
         dropdown.classList.remove('open');
-        regionBtn.setAttribute('aria-expanded', 'false');
+
+        regionBtn.setAttribute(
+          'aria-expanded',
+          'false'
+        );
       }
     });
 
-    // Mở chi tiết sự kiện
+    // Mở chi tiết / thử lại
     wrap.addEventListener('click', event => {
       if (event.target.closest('.api-retry')) {
-        return loadEvents();
+        loadEvents();
+        return;
       }
 
       const card = event.target.closest('[data-event-index]');
@@ -617,29 +989,8 @@
       }
     });
 
-    // Tải ảnh sự kiện
-    $('btnDownload').addEventListener('click', () => {
-      if (!selectedEvent) return;
-
-      const url = selectedEvent.image || selectedEvent.url;
-
-      if (!url) {
-        return notify('Sự kiện này chưa có tệp tải xuống.');
-      }
-
-      const link = document.createElement('a');
-
-      link.href = url;
-      link.target = '_blank';
-      link.rel = 'noopener';
-
-      link.download = `${String(selectedEvent.title)
-        .replace(/[^\p{L}\p{N}-]+/gu, '-')}.jpg`;
-
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    });
+    // Nút tải banner
+    downloadBtn.addEventListener('click', downloadBanner);
 
     // Khởi chạy
     loadRegions();
