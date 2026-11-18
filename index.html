@@ -14,49 +14,48 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/loader.css" />
 
-  <!-- CẬP NHẬT HIỆU ỨNG VÀ ẢNH MODAL -->
   <style>
-    /* Xóa khoảng trắng hai bên ảnh banner */
-    .modal-thumb {
-      padding: 0 !important;
-      overflow: hidden !important;
-      width: 100%;
-      background: transparent !important;
-    }
-
-    .modal-thumb img {
-      display: block !important;
-      width: 100% !important;
-      max-width: none !important;
-      height: auto !important;
-      margin: 0 !important;
-      padding: 0 !important;
-      object-fit: cover !important;
-      object-position: center !important;
-    }
-
-    /* Hiệu ứng trạng thái sự kiện */
-    .event-status {
+    /* GIỮ LOGO FREE FIRE VÀ NHÃN SERVER */
+    .event-thumb {
       position: relative;
+      overflow: hidden;
+    }
+
+    .event-tag {
+      position: absolute !important;
+      top: 12px !important;
+      left: 12px !important;
+      right: auto !important;
+      z-index: 5 !important;
+      display: inline-flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+
+    /* TRẠNG THÁI SỰ KIỆN */
+    .event-status {
+      position: absolute !important;
+      top: 12px !important;
+      right: 12px !important;
+      left: auto !important;
+      z-index: 6 !important;
+      display: inline-flex !important;
+      align-items: center;
+      justify-content: center;
       animation: azStatusIn .45s ease both;
-      transition: transform .25s ease, filter .25s ease;
-      will-change: transform;
+      transition: filter .25s ease, transform .25s ease;
     }
 
     .event-status.active {
-      animation: azActiveGlow 2s ease-in-out infinite;
+      animation: azActiveGlow 1.8s ease-in-out infinite;
     }
 
     .event-status.upcoming {
-      animation: azUpcomingGlow 2.4s ease-in-out infinite;
+      animation: azUpcomingGlow 2s ease-in-out infinite;
     }
 
     .event-status.ended {
-      animation: azEndedGlow 2.8s ease-in-out infinite;
-    }
-
-    .event-card:hover .event-status {
-      transform: translateY(-2px);
+      animation: azEndedGlow 2.5s ease-in-out infinite;
     }
 
     @keyframes azStatusIn {
@@ -75,7 +74,7 @@
         filter: brightness(1);
       }
       50% {
-        filter: brightness(1.22) drop-shadow(0 0 5px rgba(30, 210, 115, .55));
+        filter: brightness(1.25) drop-shadow(0 0 6px rgba(30,220,115,.7));
       }
     }
 
@@ -84,7 +83,7 @@
         filter: brightness(1);
       }
       50% {
-        filter: brightness(1.2) drop-shadow(0 0 5px rgba(55, 145, 255, .55));
+        filter: brightness(1.25) drop-shadow(0 0 6px rgba(55,145,255,.7));
       }
     }
 
@@ -93,8 +92,27 @@
         filter: brightness(1);
       }
       50% {
-        filter: brightness(1.12);
+        filter: brightness(1.15);
       }
+    }
+
+    /* BỎ KHOẢNG TRẮNG HAI BÊN ẢNH TRONG MODAL */
+    .modal-thumb {
+      padding: 0 !important;
+      overflow: hidden !important;
+      background: transparent !important;
+      width: 100%;
+    }
+
+    .modal-thumb img {
+      display: block !important;
+      width: 100% !important;
+      max-width: none !important;
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      object-fit: cover !important;
+      object-position: center !important;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -230,7 +248,7 @@
   <script src="js/ui.js"></script>
   <script src="js/app.js"></script>
 
-  <!-- AZERST EVENT API -->
+  <!-- API EVENTS -->
   <script>
   (() => {
     'use strict';
@@ -262,7 +280,6 @@
         String(v).trim() !== ''
       );
 
-    // Chống lỗi HTML
     const esc = value =>
       String(value ?? '').replace(/[&<>"']/g, c => ({
         '&': '&amp;',
@@ -272,57 +289,24 @@
         "'": '&#39;'
       }[c]));
 
-    // Chuyển lỗi thành thông báo dễ đọc
-    function errorText(error) {
-      if (!error) return 'Không rõ nguyên nhân.';
-
-      if (typeof error === 'string') return error;
-
-      if (typeof error === 'object') {
-        const message = first(
-          error.message,
-          error.error,
-          error.msg,
-          error.description,
-          error.details,
-          error.statusText
-        );
-
-        if (message) return errorText(message);
-
-        try {
-          return JSON.stringify(error);
-        } catch (_) {
-          return 'Đã xảy ra lỗi không xác định.';
-        }
-      }
-
-      return String(error);
-    }
-
-    // Đọc danh sách sự kiện
+    // ĐỌC DANH SÁCH SỰ KIỆN
     function eventArray(data) {
       if (Array.isArray(data)) return data;
 
       const roots = [
         data,
-        data?.data,
-        data?.result,
-        data?.response
+        data && data.data,
+        data && data.result,
+        data && data.response
       ];
 
       for (const root of roots) {
         if (Array.isArray(root)) return root;
-
         if (!root || typeof root !== 'object') continue;
 
         for (const key of [
-          'events',
-          'event',
-          'items',
-          'list',
-          'records',
-          'data'
+          'events', 'event', 'items',
+          'list', 'records', 'data'
         ]) {
           const value = root[key];
 
@@ -330,10 +314,7 @@
 
           if (value && typeof value === 'object') {
             for (const nested of [
-              'events',
-              'items',
-              'list',
-              'records'
+              'events', 'items', 'list', 'records'
             ]) {
               if (Array.isArray(value[nested])) {
                 return value[nested];
@@ -346,7 +327,7 @@
       return [];
     }
 
-    // Chuẩn hóa sự kiện
+    // CHUẨN HÓA SỰ KIỆN
     function normalize(item, index) {
       item = item && typeof item === 'object' ? item : {};
 
@@ -421,8 +402,8 @@
       };
     }
 
-    // Đọc ngày tháng và timestamp
-    function parseDate(value) {
+    // CHUYỂN NGÀY THÀNH TIMESTAMP
+    function parseDate(value, isEnd = false) {
       if (value === null || value === undefined || value === '') {
         return NaN;
       }
@@ -447,11 +428,15 @@
       );
 
       if (vnDate) {
-        return new Date(
+        const date = new Date(
           Number(vnDate[3]),
           Number(vnDate[2]) - 1,
           Number(vnDate[1])
-        ).getTime();
+        );
+
+        if (isEnd) date.setHours(23, 59, 59, 999);
+
+        return date.getTime();
       }
 
       const isoDate = text.match(
@@ -459,17 +444,21 @@
       );
 
       if (isoDate) {
-        return new Date(
+        const date = new Date(
           Number(isoDate[1]),
           Number(isoDate[2]) - 1,
           Number(isoDate[3])
-        ).getTime();
+        );
+
+        if (isEnd) date.setHours(23, 59, 59, 999);
+
+        return date.getTime();
       }
 
       return new Date(text).getTime();
     }
 
-    // Định dạng DD/MM/YYYY
+    // ĐỊNH DẠNG DD/MM/YYYY
     function dateText(value) {
       if (value === null || value === undefined || value === '') {
         return '—';
@@ -490,12 +479,12 @@
       return `${day}/${month}/${year}`;
     }
 
-    // Nhận dạng trạng thái sự kiện
+    // XÁC ĐỊNH TRẠNG THÁI
     function statusOf(event) {
       const now = Date.now();
 
       const start = parseDate(event.start);
-      const end = parseDate(event.end);
+      const end = parseDate(event.end, true);
 
       if (Number.isFinite(end) && end < now) {
         return ['ended', 'ĐÃ KẾT THÚC'];
@@ -515,23 +504,22 @@
       return ['', 'CHƯA XÁC ĐỊNH'];
     }
 
-    // Thông báo
+    // TOAST
     function notify(message) {
       const toast = $('toast');
-
       if (!toast) return;
 
-      toast.textContent = errorText(message);
+      toast.textContent = message;
       toast.classList.add('show');
 
       clearTimeout(toastTimer);
 
       toastTimer = setTimeout(() => {
         toast.classList.remove('show');
-      }, 3000);
+      }, 2800);
     }
 
-    // Loading
+    // LOADING
     function loading() {
       wrap.setAttribute('aria-busy', 'true');
 
@@ -544,7 +532,7 @@
       stat.textContent = 'Đang tải dữ liệu sự kiện…';
     }
 
-    // Hiển thị sự kiện
+    // RENDER SỰ KIỆN
     function render(events) {
       currentEvents = events.map(normalize);
 
@@ -557,9 +545,7 @@
           </div>
         `;
 
-        stat.textContent =
-          `0 sự kiện · Server ${currentRegion}`;
-
+        stat.textContent = `0 sự kiện · Server ${currentRegion}`;
         return;
       }
 
@@ -570,33 +556,31 @@
         const [state, label] = statusOf(event);
 
         return `
-          <article
-            class="event-card"
-            data-event-index="${i}"
-            tabindex="0"
-            role="button"
-            aria-label="Xem ${esc(event.title)}"
-          >
+          <article class="event-card"
+                   data-event-index="${i}"
+                   tabindex="0"
+                   role="button"
+                   aria-label="Xem ${esc(event.title)}">
 
             <div class="event-thumb">
 
               ${
                 event.image
                   ? `
-                    <img
-                      src="${esc(event.image)}"
-                      alt="${esc(event.title)}"
-                      loading="lazy"
-                      onerror="this.style.display='none'"
-                    >
+                    <img src="${esc(event.image)}"
+                         alt="${esc(event.title)}"
+                         loading="lazy"
+                         onerror="this.style.display='none'">
                   `
                   : ''
               }
 
+              <!-- LOGO VÀ SERVER -->
               <span class="event-tag">
                 FREE FIRE · ${esc(currentRegion)}
               </span>
 
+              <!-- TRẠNG THÁI -->
               <span class="event-status ${state}">
                 ${esc(label)}
               </span>
@@ -604,10 +588,7 @@
             </div>
 
             <div class="event-body">
-
-              <h3 class="event-title">
-                ${esc(event.title)}
-              </h3>
+              <h3 class="event-title">${esc(event.title)}</h3>
 
               ${
                 event.description
@@ -616,15 +597,9 @@
               }
 
               <div class="event-time">
-                <span>
-                  BẮT ĐẦU: ${esc(dateText(event.start))}
-                </span>
-
-                <span>
-                  KẾT THÚC: ${esc(dateText(event.end))}
-                </span>
+                <span>BẮT ĐẦU: ${esc(dateText(event.start))}</span>
+                <span>KẾT THÚC: ${esc(dateText(event.end))}</span>
               </div>
-
             </div>
 
           </article>
@@ -632,7 +607,7 @@
       }).join('');
     }
 
-    // Tải sự kiện
+    // TẢI API
     async function loadEvents() {
       loading();
 
@@ -642,10 +617,7 @@
         const response = await fetch(
           `${API_EVENTS}?region=${encodeURIComponent(currentRegion)}&_=${Date.now()}`,
           {
-            method: 'GET',
-            headers: {
-              Accept: 'application/json'
-            },
+            headers: { Accept: 'application/json' },
             cache: 'no-store'
           }
         );
@@ -657,27 +629,20 @@
         try {
           data = JSON.parse(raw);
         } catch (_) {
-          throw new Error(
-            `API không trả về JSON hợp lệ. HTTP ${response.status}`
-          );
+          throw new Error('API không trả về JSON hợp lệ.');
         }
 
         if (!response.ok) {
           throw new Error(
-            `HTTP ${response.status}: ${
-              errorText(
-                data?.error ||
-                data?.message ||
-                data?.details ||
-                response.statusText
-              )
-            }`
+            data.error ||
+            data.message ||
+            `API lỗi HTTP ${response.status}`
           );
         }
 
-        if (data?.success === false || data?.error) {
+        if (data.success === false || data.error) {
           throw new Error(
-            errorText(data.error || data.message || data.details)
+            data.error || data.message || 'API xảy ra lỗi.'
           );
         }
 
@@ -692,7 +657,7 @@
           <div class="error-box">
             Không thể tải thông tin sự kiện.
             <br>
-            <small>${esc(errorText(error))}</small>
+            <small>${esc(error.message || 'Vui lòng thử lại.')}</small>
             <br>
             <button class="btn-refresh api-retry" type="button">
               Thử lại
@@ -700,30 +665,24 @@
           </div>
         `;
 
-        stat.textContent =
-          `Lỗi tải dữ liệu · Server ${currentRegion}`;
+        stat.textContent = `Lỗi tải dữ liệu · Server ${currentRegion}`;
 
       } finally {
         if (refresh) refresh.disabled = false;
       }
     }
 
-    // Danh sách server
+    // TẢI SERVER
     async function loadRegions() {
       try {
         const response = await fetch(API_REGIONS, {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json'
-          },
+          headers: { Accept: 'application/json' },
           cache: 'no-store'
         });
 
         const data = await response.json();
 
-        if (!response.ok || !Array.isArray(data.regions)) {
-          return;
-        }
+        if (!response.ok || !Array.isArray(data.regions)) return;
 
         data.regions.forEach(region => {
           const option = [
@@ -736,82 +695,63 @@
         });
 
       } catch (error) {
-        console.warn(
-          'Regions API:',
-          errorText(error)
-        );
+        console.warn('Regions API:', error);
       }
     }
 
-    // Chọn server và cập nhật nhận dạng
+    // CHỌN SERVER
     function chooseRegion(code, label) {
       currentRegion = code;
-
       regionCurrent.textContent = label;
 
       regionList.querySelectorAll('.region-item').forEach(item => {
         const active = item.dataset.value === code;
 
         item.classList.toggle('selected', active);
-
-        item.setAttribute(
-          'aria-selected',
-          String(active)
-        );
+        item.setAttribute('aria-selected', String(active));
       });
 
       regionBtn.setAttribute('aria-expanded', 'false');
-
       dropdown.classList.remove('open');
 
       loadEvents();
     }
 
-    // Mở chi tiết sự kiện
+    // MỞ CHI TIẾT
     function openModal(index) {
       const event = currentEvents[index];
-
       if (!event) return;
 
       selectedEvent = event;
 
       const modalImage = $('modalImage');
 
-      modalImage.src =
-        event.image || 'img/placeholder.svg';
-
+      modalImage.src = event.image || 'img/placeholder.svg';
       modalImage.alt = event.title;
 
-      $('modalTitle').textContent =
-        event.title;
+      $('modalTitle').textContent = event.title;
 
-      // Tự nhận dạng server đang chọn
-      $('modalTag').textContent =
-        `FREE FIRE · ${currentRegion}`;
+      // SERVER TỰ NHẬN DẠNG
+      $('modalTag').textContent = `FREE FIRE · ${currentRegion}`;
 
-      $('modalStart').textContent =
-        dateText(event.start);
-
-      $('modalEnd').textContent =
-        dateText(event.end);
+      $('modalStart').textContent = dateText(event.start);
+      $('modalEnd').textContent = dateText(event.end);
 
       modal.classList.add('show');
-
       modal.setAttribute('aria-hidden', 'false');
 
       document.body.classList.add('modal-open');
     }
 
-    // Đóng modal
+    // ĐÓNG CHI TIẾT
     function closeModal() {
       modal.classList.remove('show');
-
       modal.setAttribute('aria-hidden', 'true');
 
       document.body.classList.remove('modal-open');
     }
 
-    // Tải chính ảnh banner đang xem
+    // TẢI ẢNH BANNER
     async function downloadBanner() {
       if (!selectedEvent) {
         notify('Vui lòng chọn một sự kiện trước.');
@@ -821,7 +761,7 @@
       const imageUrl = selectedEvent.image;
 
       if (!imageUrl) {
-        notify('Sự kiện này không có ảnh banner để tải.');
+        notify('Sự kiện này chưa có ảnh banner.');
         return;
       }
 
@@ -831,7 +771,6 @@
       downloadBtn.textContent = 'ĐANG TẢI...';
 
       try {
-        // Tải ảnh thật về dạng Blob
         const response = await fetch(imageUrl, {
           method: 'GET',
           mode: 'cors',
@@ -839,7 +778,7 @@
         });
 
         if (!response.ok) {
-          throw new Error(`Không tải được ảnh. HTTP ${response.status}`);
+          throw new Error('Không thể tải ảnh banner.');
         }
 
         const blob = await response.blob();
@@ -850,19 +789,18 @@
 
         const objectUrl = URL.createObjectURL(blob);
 
-        const safeName = String(selectedEvent.title || 'AZERST-EVENT')
+        const safeName = String(
+          selectedEvent.title || 'AZERST-EVENT'
+        )
           .replace(/[\\/:*?"<>|]+/g, '-')
           .replace(/\s+/g, '-')
           .slice(0, 90);
 
-        const type = blob.type || '';
-
         let extension = 'jpg';
 
-        if (type.includes('png')) extension = 'png';
-        else if (type.includes('webp')) extension = 'webp';
-        else if (type.includes('gif')) extension = 'gif';
-        else if (type.includes('jpeg')) extension = 'jpg';
+        if (blob.type.includes('png')) extension = 'png';
+        else if (blob.type.includes('webp')) extension = 'webp';
+        else if (blob.type.includes('gif')) extension = 'gif';
 
         const link = document.createElement('a');
 
@@ -870,38 +808,30 @@
         link.download = `${safeName}.${extension}`;
 
         document.body.appendChild(link);
-
         link.click();
-
         link.remove();
 
         setTimeout(() => {
           URL.revokeObjectURL(objectUrl);
         }, 30000);
 
-        notify('Đã chuẩn bị tải banner sự kiện!');
+        notify('Đã tải banner sự kiện!');
 
       } catch (error) {
         console.error('DOWNLOAD ERROR:', error);
 
-        // Máy chủ ảnh có thể chặn CORS.
-        // Khi đó mở đúng banner để người dùng lưu ảnh.
-        try {
-          const link = document.createElement('a');
+        // FALLBACK NẾU MÁY CHỦ CHẶN CORS
+        const link = document.createElement('a');
 
-          link.href = imageUrl;
-          link.target = '_blank';
-          link.rel = 'noopener';
+        link.href = imageUrl;
+        link.target = '_blank';
+        link.rel = 'noopener';
 
-          document.body.appendChild(link);
-          link.click();
-          link.remove();
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
 
-          notify('Máy chủ ảnh chặn tải trực tiếp. Banner đã được mở để bạn lưu ảnh.');
-
-        } catch (fallbackError) {
-          notify(errorText(error));
-        }
+        notify('Không thể tải trực tiếp. Đã mở banner để bạn lưu ảnh.');
 
       } finally {
         downloadBtn.disabled = false;
@@ -909,25 +839,20 @@
       }
     }
 
-    // Nút tải lại
+    // NÚT TẢI LẠI
     refresh.addEventListener('click', loadEvents);
 
-    // Mở dropdown
+    // DROPDOWN SERVER
     regionBtn.addEventListener('click', () => {
       const open = !dropdown.classList.contains('open');
 
       dropdown.classList.toggle('open', open);
-
-      regionBtn.setAttribute(
-        'aria-expanded',
-        String(open)
-      );
+      regionBtn.setAttribute('aria-expanded', String(open));
     });
 
-    // Chọn server
+    // CHỌN SERVER
     regionList.addEventListener('click', event => {
       const item = event.target.closest('.region-item');
-
       if (!item) return;
 
       chooseRegion(
@@ -936,19 +861,15 @@
       );
     });
 
-    // Đóng dropdown khi nhấn bên ngoài
+    // ĐÓNG DROPDOWN KHI NHẤN BÊN NGOÀI
     document.addEventListener('click', event => {
       if (!dropdown.contains(event.target)) {
         dropdown.classList.remove('open');
-
-        regionBtn.setAttribute(
-          'aria-expanded',
-          'false'
-        );
+        regionBtn.setAttribute('aria-expanded', 'false');
       }
     });
 
-    // Mở chi tiết / thử lại
+    // XEM SỰ KIỆN / THỬ LẠI
     wrap.addEventListener('click', event => {
       if (event.target.closest('.api-retry')) {
         loadEvents();
@@ -962,19 +883,18 @@
       }
     });
 
-    // Hỗ trợ bàn phím
+    // HỖ TRỢ BÀN PHÍM
     wrap.addEventListener('keydown', event => {
       if (
         (event.key === 'Enter' || event.key === ' ') &&
         event.target.matches('[data-event-index]')
       ) {
         event.preventDefault();
-
         openModal(Number(event.target.dataset.eventIndex));
       }
     });
 
-    // Đóng modal
+    // ĐÓNG MODAL
     $('modalClose').addEventListener('click', closeModal);
 
     modal.addEventListener('click', event => {
@@ -989,10 +909,10 @@
       }
     });
 
-    // Nút tải banner
+    // TẢI BANNER
     downloadBtn.addEventListener('click', downloadBanner);
 
-    // Khởi chạy
+    // KHỞI CHẠY
     loadRegions();
     loadEvents();
 
